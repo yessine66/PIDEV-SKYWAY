@@ -95,7 +95,7 @@ public class ActualiteService {
             ste = cnx.createStatement();
            rs= ste.executeQuery(req);
            while(rs.next()){
-               list.add(new Actualite(rs.getInt("id"), rs.getString("nom"), rs.getString(3), rs.getString(3)));
+               list.add(new Actualite(rs.getInt("id_ac"), rs.getString("titre_ac"), rs.getString("description"), rs.getString("image"),rs.getInt("id")));
            }
 
         } catch (SQLException ex) {
