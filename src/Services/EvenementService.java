@@ -84,14 +84,14 @@ public class EvenementService {
     }
 
     public List<Evenement> readAll() {
-        String req = "select * from actualite";
+        String req = "select * from evenement";
 
         List<Evenement> list=new ArrayList<>();
         try {
             ste = cnx.createStatement();
            rs= ste.executeQuery(req);
            while(rs.next()){
-               list.add(new Evenement(rs.getInt("id"), rs.getString("nom"), rs.getString(3), rs.getInt(3)));
+               list.add(new Evenement(rs.getInt("id_ev"), rs.getString("nom_ev"), String.valueOf(rs.getDate("date_ev")), rs.getInt("id_ac")));
            }
 
         } catch (SQLException ex) {
