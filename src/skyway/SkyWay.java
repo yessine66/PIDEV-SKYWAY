@@ -30,18 +30,20 @@ public class SkyWay{
         
         while(choix !=0)
         {
-        System.out.println("pour ajouter taper 1 :");
-        System.out.println("pour supprimer taper 2 :");
-        System.out.println("pour modifier taper 3 :");
+        System.out.println("pour l'evenement taper 1 :");
+        System.out.println("pour l'actualite taper 2 :");
         System.out.println("pour quitter taper 0 :");
+        
         choix = Integer.parseInt(sc.nextLine());
         
         switch(choix){
             case 1:
             {
-                System.out.println("pour ajouter actualite taper 1 :");
-                System.out.println("pour ajouter evenement taper 2 :");
-                System.out.println("pour retourner taper 0 :");
+                System.out.println("pour ajouter taper 1 :");
+                System.out.println("pour supprimer taper 2 :");
+                System.out.println("pour modifier taper 3 :");
+                System.out.println("pour afficher taper 4:");
+                System.out.println("pour quitter taper 0 :");
                 choix = Integer.parseInt(sc.nextLine());
                 switch(choix){
                     case 1:
@@ -60,56 +62,14 @@ public class SkyWay{
                     }
                     case 2:
                     {
-                        System.out.println("Veuillez saisir le nom de l'evenement :");
-                        String eve = sc.nextLine();
-                        System.out.println("Veuillez saisir la date  :");
-                        String dat = sc.nextLine();
-                        System.out.println("Veuillez saisir l'id de l'actualité :");
-                        int ida = Integer.parseInt(sc.nextLine());
-                        
-                        Evenement e1 = new Evenement(eve,dat,ida);
-                        ev.ajouterEvenement(e1);
-                        break;
-                    }
-                }
-                break;
-            }
-            
-            case 2:
-            {
-                System.out.println("pour supprimer evenement taper 1 :");
-                System.out.println("pour supprimer actualite taper 2 :");
-                System.out.println("pour retourner taper 0 :");
-                choix = Integer.parseInt(sc.nextLine());
-                switch(choix){
-                    case 1:
-                    {
-                        System.out.println("Veuillez saisir l'id de l'evenement :");
-                        int str = Integer.parseInt(sc.nextLine());
-                        ev.supprimer(str);
-                        break;
-                    }
-                    case 2:
-                    {
                         System.out.println("Veuillez saisir l'id de l'actualite :");
                         int str = Integer.parseInt(sc.nextLine());
                         ac.supprimer(str);
                         break;
                     }
-                }
-                break;
-            }
-            
-            case 3:
-            {
-                System.out.println("pour modifier actualite taper 1 :");
-                System.out.println("pour modifier evenement taper 2 :");
-                System.out.println("pour retourner taper 0 :");
-                choix = Integer.parseInt(sc.nextLine());
-                switch(choix){
-                    case 1:
+                    case 3:
                     {
-                        System.out.println("Veuillez saisir l'id de l'acctualite a modifier:");
+                        System.out.println("Veuillez saisir l'id de l'actualite a modifier:");
                         int ida = Integer.parseInt(sc.nextLine());
                         System.out.println("Veuillez saisir le nouveau titre de l'actualite :");
                         String act = sc.nextLine();
@@ -123,8 +83,45 @@ public class SkyWay{
                         ac.editer(p2);
                         break;
                     }
-                    
+                    case 4:
+                    {
+                        ac.readAll().forEach(e->System.out.println(e));
+                        break;
+                    }
+                }
+                break;
+            }
+            
+            case 2:
+            {
+                System.out.println("pour ajouter taper 1 :");
+                System.out.println("pour supprimer taper 2 :");
+                System.out.println("pour modifier taper 3 :");
+                System.out.println("pour afficher taper 4:");
+                System.out.println("pour quitter taper 0 :");
+                choix = Integer.parseInt(sc.nextLine());
+                switch(choix){
+                    case 1:
+                    {
+                        System.out.println("Veuillez saisir le nom de l'evenement :");
+                        String eve = sc.nextLine();
+                        System.out.println("Veuillez saisir la date  :");
+                        String dat = sc.nextLine();
+                        System.out.println("Veuillez saisir l'id de l'actualité :");
+                        int ida = Integer.parseInt(sc.nextLine());
+                        
+                        Evenement e1 = new Evenement(eve,dat,ida);
+                        ev.ajouterEvenement(e1);
+                        break;
+                    }
                     case 2:
+                    {
+                        System.out.println("Veuillez saisir l'id de l'evenement :");
+                        int str = Integer.parseInt(sc.nextLine());
+                        ev.supprimer(str);
+                        break;
+                    }
+                    case 3:
                     {
                         System.out.println("Veuillez saisir l'id de l'evenement a modifier:");
                         int ide = Integer.parseInt(sc.nextLine());
@@ -136,6 +133,11 @@ public class SkyWay{
                         int ida = Integer.parseInt(sc.nextLine());
                         Evenement e2 = new Evenement(ide,eve,dat,ida);
                         ev.editer(e2);
+                        break;
+                    }
+                    case 4:
+                    {
+                        ev.readAll().forEach(e->System.out.println(e));
                         break;
                     }
                 }
