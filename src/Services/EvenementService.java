@@ -1,0 +1,104 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Services;
+
+import DBSkyWay.Singleton;
+import Entities.Evenement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author khouja safa
+ */
+public class EvenementService {
+ private Statement ste;
+    private PreparedStatement pst;
+    private ResultSet rs;
+
+    private Connection cnx;
+
+    public EvenementService() {
+        cnx = Singleton.getInstance().getConnection();
+    }
+
+    public void ajouterEvenement(Evenement e) {
+        String req = "insert into evenement (nom_ev,date_ev,id_ac) values ('" 
+                +e.getNom_ev()+"','" 
+                +e.getDate_ev()+"'," 
+                +e.getId_ac()+");";
+
+        try {
+            pst = cnx.prepareStatement(req);
+            pst.executeUpdate();
+            System.out.println("Ajouté avec succees");
+
+        } catch (SQLException ex) {
+            System.out.println("Probléme");
+            System.out.println(ex.getMessage());
+        }
+
+    }
+    public void supprimer(int id_ev) throws SQLException {
+        String req="DELETE FROM evenement WHERE evenement.id_ev = ? ;";
+        try {
+            pst = cnx.prepareStatement(req);
+            pst.setInt(1, id_ev);
+            pst.executeUpdate();
+            System.out.println("Supprimé avec succees");
+            
+            } catch (SQLException ex) {
+                System.out.println("suppression echoué");
+                System.out.println(ex);
+        }
+
+    }
+    
+    public void editer(Evenement e) throws SQLException {
+        String req="select id_ev from evenement where id_ev= ? ;";
+        pst = cnx.prepareStatement(req);
+        pst.setInt(1, e.getId_ev());
+        ResultSet res = pst.executeQuery();
+        if (res.next()) {
+            String n = e.getNom_ev();
+            String d = String.valueOf(e.getDate_ev());
+            int i = e.getId_ac();
+            PreparedStatement ps1 = cnx.prepareStatement("update evenement set nom_ev= '" +
+                    n + "' , date_ev='" + 
+                    d + "' , id_ac='" + 
+                    i + "' WHERE evenement.id_ev =" +
+                    e.getId_ev()+ ";");
+            ps1.executeUpdate();
+            System.out.println("Modifié avec succees");
+        } else {
+            System.out.println("Actualite n'existe pas");
+        }
+    }
+
+    public List<Evenement> readAll() {
+        String req = "select * from actualite";
+
+        List<Evenement> list=new ArrayList<>();
+        try {
+            ste = cnx.createStatement();
+           rs= ste.executeQuery(req);
+           while(rs.next()){
+               list.add(new Evenement(rs.getInt("id"), rs.getString("nom"), rs.getString(3), rs.getInt(3)));
+           }
+
+        } catch (SQLException ex) {
+            System.out.println("Probléme");
+            System.out.println(ex.getMessage());        }
+        return list;
+    }
+
+   
+}
