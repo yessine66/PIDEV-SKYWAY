@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Esprit.gui.AjouterPromotionController">
+   <children>
+      <Label layoutX="45.0" layoutY="36.0" prefHeight="21.0" prefWidth="154.0" text="id promotion" />
+      <Label layoutX="50.0" layoutY="90.0" prefHeight="21.0" prefWidth="113.0" text="code promotion" />
+      <Label layoutX="50.0" layoutY="139.0" prefHeight="21.0" prefWidth="103.0" text="reduction" />
+      <TextField fx:id="tidpro" layoutX="207.0" layoutY="31.0" />
+      <TextField fx:id="tcodepro" layoutX="207.0" layoutY="85.0" />
+      <TextField fx:id="treduction" layoutX="207.0" layoutY="134.0" />
+      <Button fx:id="btnAjouterPro" layoutX="68.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnPromotionAction" text="ajouter" />
+      <Button fx:id="btnModifierPro" layoutX="236.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnPromotionAction" text="modifier" />
+      <Button fx:id="btnSupprimerPro" layoutX="412.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnPromotionAction" text="supprimer" />
+      <TableView fx:id="tvPromotion" layoutX="66.0" layoutY="225.0" prefHeight="170.0" prefWidth="486.0">
+        <columns>
+          <TableColumn fx:id="colIdpro" prefWidth="137.0" text="id promotion" />
+          <TableColumn fx:id="colCodepro" prefWidth="173.0" text="code promotion" />
+            <TableColumn fx:id="colReduction" prefWidth="173.0" text="reduction" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
