@@ -61,6 +61,10 @@ public void setId_q(int id_q) {
         return "Person{" + "id=" + id_q + ", text_q=" + text_q + ", nombre de points=" + nbr_point + '}';
     }
 
+    public void ajouterQuestion(Questions quest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     
     
