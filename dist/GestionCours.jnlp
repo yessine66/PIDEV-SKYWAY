@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="GestionCours.jnlp">
+  <information>
+    <title>GestionCours</title>
+    <vendor>simop</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="GestionCours.jar" size="27556" download="eager" />
+    <jar href="lib\Bulk_SMS_Library.jar" size="3292" download="eager" />
+    <jar href="lib\TrayNotification.jar" size="41019" download="eager" />
+    <jar href="lib\client-3.3.0.jar" size="223998" download="eager" />
+    <jar href="lib\com.fasterxml.jackson.annotations.jar" size="34251" download="eager" />
+    <jar href="lib\com.fasterxml.jackson.core.jar" size="206234" download="eager" />
+    <jar href="lib\com.fasterxml.jackson.databind.jar" size="920971" download="eager" />
+    <jar href="lib\jBCrypt-0.4.1.jar" size="17570" download="eager" />
+    <jar href="lib\jfoenix-8.0.1.jar" size="2405714" download="eager" />
+    <jar href="lib\joda-time-2.10.5.jar" size="643043" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin (1).jar" size="834126" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\org.apache.commons.io.jar" size="83613" download="eager" />
+    <jar href="lib\poi-3.9-20121203.jar" size="1869113" download="eager" />
+    <jar href="lib\poi-ooxml-3.9.jar" size="936648" download="eager" />
+    <jar href="lib\poi-ooxml-schemas-3.9-20121203.jar" size="4802621" download="eager" />
+    <jar href="lib\projet.jar" size="9218" download="eager" />
+    <jar href="lib\qrgen-1.0.jar" size="4932" download="eager" />
+    <jar href="lib\restfb-2.4.0.jar" size="1195210" download="eager" />
+    <jar href="lib\twilio-7.5.0.jar" size="1253598" download="eager" />
+    <jar href="lib\zxing-core-1.7.jar" size="352719" download="eager" />
+    <jar href="lib\zxing-j2se-1.7.jar" size="22051" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="GestionCours" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="testtest.testtest"  name="GestionCours" />
+  <update check="always"/>
+</jnlp>

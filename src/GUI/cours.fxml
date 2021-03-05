@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="700.0" prefWidth="1054.0" stylesheets="@../../styles/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CoursController">
+   <children>
+      <VBox layoutX="-2.0" prefHeight="710.0" prefWidth="442.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Gérer Cours" underline="true">
+                     <font>
+                        <Font name="System Bold" size="33.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="21.0" prefWidth="442.0">
+               <children>
+                  <Label fx:id="erreurtitre2" prefHeight="10.0" prefWidth="317.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="nom" prefHeight="54.0" prefWidth="263.0" promptText="nom">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="21.0" prefWidth="442.0">
+               <children>
+                  <Label fx:id="erreurtitre" prefHeight="10.0" prefWidth="317.0" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="442.0">
+               <children>
+                  <TextField fx:id="numero" alignment="TOP_LEFT" prefHeight="45.0" prefWidth="263.0" promptText="numero">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="27.0" prefWidth="442.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="286.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="136.0" prefWidth="380.0">
+                     <children>
+                        <TextField fx:id="description" alignment="TOP_LEFT" prefHeight="45.0" prefWidth="263.0" promptText="description">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children></HBox>
+            <HBox prefHeight="55.0" prefWidth="442.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="310.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="133.0" prefWidth="380.0">
+               <children>
+                  <Button fx:id="imagee" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#importimage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #000000;" text="import image" textFill="WHITE" />
+                  <ImageView fx:id="importeimage" fitHeight="86.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="41.0" prefWidth="442.0">
+               <children>
+                  <Label fx:id="erreurimg" prefHeight="33.0" prefWidth="291.0" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="duree" alignment="TOP_LEFT" prefHeight="45.0" prefWidth="263.0" promptText="duree">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="28.0" prefWidth="442.0">
+               <children>
+                  <Label fx:id="erreurdateajout" prefHeight="29.0" prefWidth="310.0" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="436.0">
+               <children>
+                  <TextField fx:id="idtheme" alignment="TOP_LEFT" prefHeight="74.0" prefWidth="263.0" promptText=" id theme">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="442.0">
+               <children>
+                  <Label fx:id="erreurdatemodif" prefHeight="39.0" prefWidth="331.0" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="76.0" prefWidth="30.0" />
+                  <Button mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #000000;" text="ajouter" textFill="WHITE" />
+                  <VBox prefHeight="76.0" prefWidth="44.0" />
+                  <Button mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="96.0" style="-fx-background-color: #000000;" text="modifier" textFill="WHITE" />
+                  <VBox prefHeight="76.0" prefWidth="55.0" />
+                  <Button mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="97.0" style="-fx-background-color: #000000;" text="supprimer" textFill="WHITE" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <TableView fx:id="tvcours" layoutX="440.0" layoutY="7.0" prefHeight="700.0" prefWidth="615.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="30.0" text="ID" />
+            <TableColumn fx:id="colNom" prefWidth="73.0" text="NOM" />
+            <TableColumn fx:id="colNumero" text="Numero" />
+            <TableColumn fx:id="colDescription" prefWidth="101.0" text="Description" />
+            <TableColumn fx:id="colDuree" prefWidth="58.0" text="Duree" />
+            <TableColumn fx:id="colimage" prefWidth="152.0" text="image" />
+            <TableColumn fx:id="colIdth" prefWidth="119.0" text="Id theme" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
