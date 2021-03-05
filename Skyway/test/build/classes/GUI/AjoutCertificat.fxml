@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.AjoutCertificatController">
+   <children>
+      <TableView fx:id="AffichageCertif" editable="true" layoutX="39.0" layoutY="219.0" prefHeight="185.0" prefWidth="465.0" style="-fx-background-color: D2FBF7;">
+         <columns>
+            <TableColumn fx:id="colidr" prefWidth="104.33334350585938" text="ID certif" />
+            <TableColumn fx:id="colreponse" prefWidth="217.6666259765625" text="titre " />
+            <TableColumn fx:id="colnbrq" prefWidth="141.3333740234375" text="date" />
+         </columns>
+      </TableView>
+      <Text layoutX="90.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date " />
+      <TextArea fx:id="champsCertif" layoutX="212.0" layoutY="72.0" prefHeight="62.0" prefWidth="195.0" />
+      <Button fx:id="AjoutCertif" layoutX="489.0" layoutY="134.0" mnemonicParsing="false" onAction="#ajouterCertif" prefHeight="32.0" prefWidth="73.0" text="Ajouter Question" />
+      <TextField fx:id="date" layoutX="235.0" layoutY="151.0" />
+      <Text layoutX="241.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter une certification" />
+      <Text layoutX="71.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre de la certification" />
+   </children>
+</AnchorPane>
