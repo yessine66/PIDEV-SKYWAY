@@ -21,7 +21,8 @@ public class Reponses  extends RecursiveTreeObject<Reponses> implements Serializ
 
     public Reponses() {
     }
-
+public Reponses(int id_r) { this.id_r=id_r;
+    }
     public Reponses( int id_r,String text_r, int id_q) {
         this.id_r = id_r;
         this.text_r = text_r;

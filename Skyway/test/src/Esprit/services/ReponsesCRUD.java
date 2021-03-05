@@ -123,7 +123,26 @@ public class ReponsesCRUD {
         return ReponsesList;
         
     }
-    
+    public void modifierrep(Reponses r ){
+  
+   String requete = "UPDATE reponse SET text_r=?, id_q = ? WHERE id_r=?";
+        try {
+          ste= cnx.prepareStatement(requete);
+            /*PreparedStatement pst = 
+            new MyConnection().cn.prepareStatement(requete);*/
+        ste.setInt(4, r.getId_r());
+        ste.setString(1, r.getText_r());
+         ste.setInt(2, r.getId_q());
+     
+           ste.executeUpdate();
+            System.out.println("réponse Modfiéee !");
+        } catch(SQLException ex) {
+            System.err.println(ex.getMessage());
+                   System.out.println("réponse non Modfié e!");
+        }    
+       
+   
+  }
      
     public void modifierReponse(int id_r, String object, Object obj) {
         try {
