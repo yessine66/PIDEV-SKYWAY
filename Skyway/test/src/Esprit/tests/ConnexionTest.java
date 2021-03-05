@@ -122,7 +122,7 @@ int choix = 100;
          String nbr_point1 = sc.nextLine();  
          int nbr_point2=Integer.parseInt(nbr_point1);
          Questions q1= new Questions ( id_q,text,nbr_point2);
-           question.modifierQuestion(id_q,text,nbr_point2);
+           question.modifierquest(q1);
           System.out.println(q1);
     break;
   case 3:

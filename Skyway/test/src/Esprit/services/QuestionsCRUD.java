@@ -5,6 +5,7 @@
  */
 package Esprit.services;
 import Esprit.entities.Questions;
+import Esprit.entities.Reponses;
 import Esprit.tools.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -97,7 +98,46 @@ public class QuestionsCRUD {
         
     }
     
-     
+       public void modifierquest(Questions q ){
+  
+  
+   String requete = "UPDATE question SET text_q=?, nbr_point=? WHERE id_q=?";
+      /*String requete = "UPDATE reponse SET id_q=?,text_r=? WHERE id_r = ?";
+        
+           PreparedStatement ste = cnx.prepareStatement(requete);
+           ste.setInt(1, r.getId_r());
+        ste.setString(2, r.getText_r());
+         ste.setInt(3, r.getId_q());
+     String ch = ste.toString().replaceFirst("\'", "");
+            String ch2 = ch.replaceFirst("\'", "");
+            int pos = ch2.indexOf("UPDATE");
+            String ch3;
+            ch3 = ch2.substring(pos, ch2.length());
+            ste = cnx.prepareStatement(ch3);
+            System.out.println(ste);
+           ste.executeUpdate();
+            System.out.println("réponse Modfiéee !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+                   System.out.println("réponse non Modfié e!");
+        }    
+       */   
+   try {
+         PreparedStatement ste = cnx.prepareStatement(requete);
+        
+        ste.setInt(3, q.getId_q());
+        ste.setString(1, q.getText_q());
+         ste.setInt(2, q.getNbr_point());
+                     System.out.println(ste);
+           ste.executeUpdate();
+            System.out.println("question Modfiée !");
+        } catch(SQLException ex) {
+            System.err.println(ex.getMessage());
+                   System.out.println("question non Modfié e!");
+        }    
+       
+   
+  }
     public void modifierQuestion(int id_q, String object, Object obj) {
         try {
             String requete = "UPDATE question SET ? = ? WHERE id_q = ?";
