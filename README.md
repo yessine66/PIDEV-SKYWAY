@@ -1,2 +1,0 @@
-# PIDEV
-platfomr e-learning 
