@@ -5,11 +5,9 @@
  */
 package Esprit.entities;
 
-/*import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.Serializable;
-*/
-
-public class Questions  /*extends RecursiveTreeObject<Questions> implements Serializable */{
+public class Questions  extends RecursiveTreeObject<Questions> implements Serializable {
    private int id_q;
     private String text_q;
     private int nbr_point;
@@ -59,13 +57,10 @@ public void setId_q(int id_q) {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id_q + ", text_q=" + text_q + ", nombre de points=" + nbr_point + '}';
+        return "Question{" + "id=" + id_q + ", text_q=" + text_q + ", nombre de points=" + nbr_point + '}';
     }
 
-    public void ajouterQuestion(Questions quest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     
     
     

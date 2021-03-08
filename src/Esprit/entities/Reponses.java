@@ -5,10 +5,10 @@
  */
 package Esprit.entities;
 
-/*import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.Serializable;
-*/
-public class Reponses  /*extends RecursiveTreeObject<Reponses> implements Serializable*/ {
+
+public class Reponses  extends RecursiveTreeObject<Reponses> implements Serializable {
    private int id_r;
     private String text_r;
     private int id_q;

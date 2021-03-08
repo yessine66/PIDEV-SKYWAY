@@ -47,7 +47,7 @@ public class ReponsesCRUD {
         }
         
     }
-     /*public ObservableList<Integer>  comboreponse ()
+     public ObservableList<Integer>  comboreponse ()
         
         {
         ObservableList<Integer> comboreponse = FXCollections.observableArrayList();
@@ -71,8 +71,7 @@ public class ReponsesCRUD {
         
         return  comboreponse;
         
-        }*/
-        
+        }
        public List<Reponses> ReponsessListt() {
 
         List<Reponses> myList = new ArrayList<>();
