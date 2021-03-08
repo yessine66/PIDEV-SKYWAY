@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.gui;
+package GUI;
 
 import Esprit.entities.Reponses;
 import Esprit.services.ReponsesCRUD;
@@ -58,7 +58,7 @@ public class AjoutReponseController implements Initializable {
 public void showCombobox()
      {
           ReponsesCRUD reponse = new ReponsesCRUD();
-         ObservableList<Integer> listrep = reponse.comboreponse();
+         ObservableList<Integer> listrep = reponse.comboreponse ();
     
       combor.setItems(listrep);
          

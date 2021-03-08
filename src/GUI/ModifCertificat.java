@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.gui;
+package GUI;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -22,13 +22,13 @@ import javafx.stage.Stage;
  *
  * @author User-DELL
  */
-public class ModifReponse extends Application {
+public class ModifCertificat extends Application {
     
     @Override
       public void start(Stage primaryStage) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("modifReponse.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("modifCertificat.fxml"));
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("Hello World!");

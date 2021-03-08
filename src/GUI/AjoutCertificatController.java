@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.gui;
+package GUI;
 
 import Esprit.entities.Certificat;
 import Esprit.entities.Certificat;

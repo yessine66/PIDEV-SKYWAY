@@ -3,35 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.gui;
+package GUI;
 
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 /**
  *
  * @author User-DELL
  */
-public class AjoutCertificat extends Application {
+public class Questions extends Application {
     
-      @Override
+    @Override
       public void start(Stage primaryStage) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AjoutCertificat.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("ajoutQuestion.fxml"));
             Scene scene = new Scene(root);
-            
-            primaryStage.setTitle("Hello World!");
+             primaryStage.setTitle("Hello World!");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            Logger.getLogger(Questions.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

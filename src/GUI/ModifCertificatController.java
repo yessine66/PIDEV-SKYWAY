@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.gui;
+package GUI;
 
 import Esprit.services.CertificatCRUD;
 import Esprit.entities.Certificat;
@@ -40,6 +40,7 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeTableColumn.CellEditEvent;
 import javafx.scene.layout.GridPane;
+
 /**
  * FXML Controller class
  *
