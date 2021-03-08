@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AjouterPartenaireController">
+   <children>
+      <Label layoutX="15.0" layoutY="57.0" text="Nom Partenaire" textFill="#1b0db5">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="106.0" text="Domaine" textFill="#1b0db5">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tnomp" layoutX="229.0" layoutY="61.0" />
+      <TextField fx:id="tdomaine" layoutX="229.0" layoutY="110.0" />
+      <Button fx:id="btnajouter" layoutX="74.0" layoutY="159.0" mnemonicParsing="false" onAction="#btnPartenaireAction" text="Ajouter" />
+      <TableView fx:id="tvPar" layoutX="52.0" layoutY="212.0" prefHeight="182.0" prefWidth="514.0">
+        <columns>
+          <TableColumn fx:id="colIdpar" prefWidth="125.0" text="idPartenaire" />
+          <TableColumn fx:id="colNompar" minWidth="0.0" prefWidth="182.0" text="NomPartenaire" />
+            <TableColumn fx:id="colDomainepar" minWidth="0.0" prefWidth="206.0" text="Domaine" />
+        </columns>
+      </TableView>
+      <Label layoutX="37.0" layoutY="14.0" prefHeight="32.0" prefWidth="167.0" text="ID Partenaire" textFill="#0f2e97">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tidp" layoutX="229.0" layoutY="15.0" />
+      <Button fx:id="btnmodifier" layoutX="235.0" layoutY="159.0" mnemonicParsing="false" onAction="#btnPartenaireAction" text="Modifier" />
+      <Button fx:id="btnsupprimer" layoutX="396.0" layoutY="159.0" mnemonicParsing="false" onAction="#btnPartenaireAction" text="Supprimer" />
+   </children>
+</AnchorPane>
