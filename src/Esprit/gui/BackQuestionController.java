@@ -27,7 +27,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
@@ -57,6 +59,10 @@ public class BackQuestionController implements Initializable {
     @FXML
     private AnchorPane AnchorQuestion;
     QuestionsCRUD qc;
+        JFXTreeTableView<Questions> treeview = new JFXTreeTableView<>();
+                ObservableList<Questions> Questionss = FXCollections.observableArrayList();
+
+        final TreeItem<Questions> root = new RecursiveTreeItem<Questions>(Questionss, RecursiveTreeObject::getChildren);
 
     /**
      * Initializes the controller class.
@@ -64,6 +70,7 @@ public class BackQuestionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
            qc = new QuestionsCRUD();
+
        // id_q table view
         JFXTreeTableColumn<Questions, String> id_q = new JFXTreeTableColumn<>("id_q");
         id_q.setPrefWidth(150);
@@ -193,18 +200,25 @@ public class BackQuestionController implements Initializable {
         
 
     @FXML
-    private void ajouterQuestion(ActionEvent event) {
+    private void ajouterQuestion(ActionEvent event) throws IOException {
         // Ajouter Question
-     
-        String text_q = champsQuestion.getText();
+       try{ String text_q = champsQuestion.getText();
         String points = champsPoints.getText();
         int nbr_point = Integer.parseInt(points);
         Questions q = new Questions (2,text_q,nbr_point);
         QuestionsCRUD prc = new QuestionsCRUD();
         prc.ajouterQuestion(q);
-        
+             FXMLLoader loader = new FXMLLoader(getClass().getResource("BackQuestion.fxml"));
+              treeview.refresh();
+            Parent root = loader.load();
+
+            champsQuestion.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(BackQuestionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
 }
     
+   
     
-    
-}
+
