@@ -6,6 +6,7 @@
 package Esprit.services;
 
 import Esprit.entities.Promotion;
+import Esprit.entities.partenaire;
 import Esprit.Connection.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,6 +24,8 @@ public class promotionCRUD {
     
     
         private Connection cnx;
+        
+        
     private PreparedStatement ste;
        Statement st;
      ResultSet rs;
@@ -34,12 +37,14 @@ public class promotionCRUD {
     
     
  public void ajouterPromotion( Promotion pro ){
-        String req ="INSERT INTO promotion (code_p,reduction,id_p)"+"values (?,?,?)";
+        String req ="INSERT INTO promotion (code_p,reduction,dateD,dateF,id_p)"+"values (?,?,?,?,?)";
         try {
             ste = cnx.prepareStatement(req);
             ste.setString(1, pro.getCode_p());
             ste.setInt(2, pro.getReduction());
-             ste.setInt(3, pro.getId_p());
+             ste.setString(3, pro.getDateD());
+              ste.setString(4, pro.getDateF());
+             ste.setInt(5, pro.getId_p());
               
             
             ste.executeUpdate();
@@ -66,7 +71,7 @@ public class promotionCRUD {
             //Books books;
             Promotion par;
             while(rs.next()){
-               par = new Promotion(rs.getInt("id_prom"), rs.getString("code_p"), rs.getInt("reduction"), rs.getInt("id_p"));
+               par = new Promotion(rs.getInt("id_prom"), rs.getString("code_p"), rs.getInt("reduction"),rs.getString("dateD") , rs.getString("dateF"),rs.getInt("id_p"));
                PromotionList.add(par);
             }
                 
@@ -80,15 +85,17 @@ public class promotionCRUD {
  
   public void modifierPromotion(Promotion pro ){
   
-   String requete = "UPDATE promotion SET code_p=?,reduction=?, id_p = ? WHERE id_prom=?";
+   String requete = "UPDATE promotion SET code_p=?,reduction=?, dateD= ? ,dateF =?,id_p = ? WHERE id_prom=?";
         try {
           ste= cnx.prepareStatement(requete);
             /*PreparedStatement pst = 
             new MyConnection().cn.prepareStatement(requete);*/
-        ste.setInt(4, pro.getId_prom());
+        ste.setInt(6, pro.getId_prom());
         ste.setString(1, pro.getCode_p());
          ste.setInt(2, pro.getReduction());
-                 ste.setInt(3, pro.getId_p());
+           ste.setString(3, pro.getDateD());
+              ste.setString(4, pro.getDateF());
+                 ste.setInt(5, pro.getId_p());
      
            ste.executeUpdate();
             System.out.println("promotion Modfié !");
@@ -134,6 +141,7 @@ public class promotionCRUD {
             while(rs.next()){
               
                comboListPar.add(rs.getInt("id_p"));
+                   
             }
                 
         }catch(Exception ex){

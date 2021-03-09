@@ -20,11 +20,12 @@ public class Certificat  extends RecursiveTreeObject<Certificat> implements Seri
     
     public Certificat() {
     }
-
     public Certificat( int id_certif,String titre_certif, String date_certif) {
         this.id_certif = id_certif;
         this.titre_certif = titre_certif;
         this.date_certif = date_certif;
+        
+        
     }
      public Certificat(String titre_certif, String date_certif) {
         this.titre_certif = titre_certif;

@@ -16,7 +16,10 @@ import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-
+/**
+ *
+ * @author Lenovo
+ */
 public class partenaireCRUD {
        private Connection cnx;
     private PreparedStatement ste;
@@ -30,11 +33,12 @@ public class partenaireCRUD {
     
     
  public void ajouterPartenaire( partenaire par ){
-        String req ="INSERT INTO partenaire (nom_p,domaine)"+"values (?,?)";
+        String req ="INSERT INTO partenaire (nom_p,domaine,date_p)"+"values (?,?,?)";
         try {
             ste = cnx.prepareStatement(req);
             ste.setString(1, par.getNom_p());
             ste.setString(2, par.getDomaine());
+            ste.setString(3, par.getDate_p());
             ste.executeUpdate();
             System.out.println("partenaire ajoutée");
             
@@ -56,10 +60,10 @@ public class partenaireCRUD {
        try{
             st = cnx.createStatement();
             rs = st.executeQuery(query);
-            //Books books;
+         
             partenaire par;
             while(rs.next()){
-               par = new partenaire(rs.getInt("id_p"), rs.getString("nom_p"), rs.getString("domaine"));
+               par = new partenaire(rs.getInt("id_p"), rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"));
                partenaireList.add(par);
             }
                 
@@ -73,20 +77,21 @@ public class partenaireCRUD {
  
   public void modifierPartenaire(partenaire par ){
   
-   String requete = "UPDATE partenaire SET nom_p=?,domaine=? WHERE id_p=?";
+   String requete = "UPDATE partenaire SET nom_p=?,domaine=? ,date_p=? WHERE id_p=?";
         try {
           ste= cnx.prepareStatement(requete);
             /*PreparedStatement pst = 
             new MyConnection().cn.prepareStatement(requete);*/
-        ste.setInt(3, par.getId_p());
+        ste.setInt(4, par.getId_p());
         ste.setString(1, par.getNom_p());
          ste.setString(2, par.getDomaine());
+          ste.setString(3, par.getDate_p());
      
            ste.executeUpdate();
             System.out.println("partenaire Modfié !");
         } catch(SQLException ex) {
             System.err.println(ex.getMessage());
-                   System.out.println("partenaire nonnnnnnnn Modfié !");
+                   System.out.println("partenaire non Modfié !");
         }    
        
    
@@ -105,6 +110,78 @@ public class partenaireCRUD {
         }
   }
    
+       
+       
+       
+       
+       /********selection random********************/
+       
+       
+       
+       
+       
+       
+       
+       
+       public ObservableList<String> randomList(){
+     
+     
+           ObservableList<String> randomList = FXCollections.observableArrayList();
+          String query = "SELECT id_prom FROM promotion order by rand() limit 3 ";
+
+       try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+         String par;
+            while(rs.next()){
+               par = rs.getString("id_prom");
+               randomList.add(par);
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return randomList;
+       
+    }
+ 
+       
+       
+       
+       
+       
+       
+       
+       /******************************************/
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
     }
     
     
