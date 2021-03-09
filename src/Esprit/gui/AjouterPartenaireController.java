@@ -152,17 +152,16 @@ int index =-1;
              searchPart();
             /************************************/
             
-           /*FXMLLoader loader = new FXMLLoader(getClass().getResource("afficherPartenaire.fxml"));
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("ajouterPartenaire.fxml"));
             Parent root =loader.load();
-            AfficherPartenaireController afficherPartenaire= loader.getController();
+        AjouterPartenaireController ajouterPartenaire= loader.getController();
             // AjouterPromotionController.showInformation();
             
             Stage stage = new Stage();
             stage.setScene(new Scene (root));
             stage.setTitle("display partenaire");
             stage.show();
-           */
-       
+        
   
             
             
