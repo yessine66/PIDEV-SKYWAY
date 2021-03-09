@@ -27,6 +27,8 @@ import java.util.Scanner;
 public class ConnexionTest {
 
     public static void main(String[] args) {
+        
+        
         MyConnection mc= MyConnection.getInstance();
         Scanner sc = new Scanner(System.in);
         partenaireCRUD part = new partenaireCRUD();

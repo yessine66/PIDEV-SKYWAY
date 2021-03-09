@@ -5,18 +5,16 @@
  */
 package Esprit.entities;
 
-/*import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.Serializable;
 
 
   import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
-*/
+
 /**
  *
  * @author User-DELL
  */
-public class Certificat  /*extends RecursiveTreeObject<Certificat> implements Serializable */{
+public class Certificat  extends RecursiveTreeObject<Certificat> implements Serializable {
    private int id_certif;
     private String titre_certif;
     private String date_certif;
