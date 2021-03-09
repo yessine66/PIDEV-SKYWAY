@@ -3,31 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/ModifCertificatController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/AjoutCertificat.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/tests/ConnexionTest.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/AjoutReponse.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/entities/Evenement.java</file>
             <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/entities/Questions.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/AjoutReponseController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/ModifQuestion.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/Questions.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/ModifCertificat.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/ModificationQuestionController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/AjoutReponse.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/AjoutCertificatController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/ModifReponseController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/services/CertificatCRUD.java</file>
             <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/Connection/MyConnection.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/ModifReponse.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/ModifCertificat.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/entities/Certificat.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/entities/Evenement.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/services/CertificatCRUD.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/tests/ConnexionTest.java</file>
             <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/services/QuestionsCRUD.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/ModificationQuestion.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/AjoutQuestionController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/AjoutCertificat.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/ModifReponse.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/GUI/AjoutQuestion.fxml</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/entities/Promotion.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/entities/Certificat.java</file>
         </group>
     </open-files>
 </project-private>
