@@ -111,7 +111,8 @@ int index =-1;
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-          showPartenaire();
+
+        showPartenaire();
            searchPart();
     }    
     
