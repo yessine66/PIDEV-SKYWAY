@@ -37,7 +37,7 @@ public class MenuFXMain extends Application {
     public void start(Stage primaryStage) {
         
   try {
-            Parent root = FXMLLoader.load(getClass().getResource("ajouterPartenaire.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AjouterPartenaire.fxml"));
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("Partenaire et promotion!");

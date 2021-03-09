@@ -152,9 +152,9 @@ int index =-1;
              searchPart();
             /************************************/
             
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("ajouterPartenaire.fxml"));
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterPartenaire.fxml"));
             Parent root =loader.load();
-        AjouterPartenaireController ajouterPartenaire= loader.getController();
+        AjouterPartenaireController AjouterPartenaire= loader.getController();
             // AjouterPromotionController.showInformation();
             
             Stage stage = new Stage();
@@ -204,7 +204,7 @@ int index =-1;
              }
              
        
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("ajouterPartenaire.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterPartenaire.fxml"));
             showPartenaire();
         Parent root = loader.load();
   
