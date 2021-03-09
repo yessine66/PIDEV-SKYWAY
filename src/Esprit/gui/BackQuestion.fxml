@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Esprit.gui.BackQuestionController">
+   <children>
+      <Text layoutX="103.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Champs Questions" />
+      <TextField fx:id="champsPoints" layoutX="248.0" layoutY="120.0" />
+      <Text layoutX="86.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nbre de points associés" />
+      <TextArea fx:id="champsQuestion" layoutX="212.0" layoutY="62.0" prefHeight="43.0" prefWidth="221.0" />
+      <Button fx:id="AjoutQuestion" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" onAction="#ajouterQuestion" prefHeight="32.0" prefWidth="73.0" text="Ajouter Question" />
+      <Text layoutX="215.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez ajoutez des questions" />
+      <AnchorPane fx:id="AnchorQuestion" layoutY="169.0" prefHeight="242.0" prefWidth="608.0" />
+   </children>
+</AnchorPane>
