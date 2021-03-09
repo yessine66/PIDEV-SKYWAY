@@ -7,7 +7,6 @@ package Esprit.entities;
 
 import java.io.Serializable;
 
-
   import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 /**
@@ -19,8 +18,6 @@ public class Certificat  extends RecursiveTreeObject<Certificat> implements Seri
     private String titre_certif;
     private String date_certif;
     
-
-
     public Certificat() {
     }
 
