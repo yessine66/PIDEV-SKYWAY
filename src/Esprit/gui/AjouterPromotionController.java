@@ -69,9 +69,9 @@ public class AjouterPromotionController implements Initializable {
     @FXML
     private TableColumn<Promotion, Integer> colReduction;
     @FXML
-    private TableColumn<Promotion, Integer> colIdparEtr;
+    private TableColumn<Promotion, String> colIdparEtr;
     @FXML
-    private ComboBox<Integer> comboPar;
+    private ComboBox<String> comboPar;
     //DatePicker date;
     @FXML
     private DatePicker dateDp;
@@ -101,7 +101,7 @@ public class AjouterPromotionController implements Initializable {
      public void showCombo()
      {
           promotionCRUD parc = new promotionCRUD();
-         ObservableList<Integer> listCom =  parc. comboListPar ();
+         ObservableList<String> listCom =  parc. comboListPar ();
     
       comboPar.setItems(listCom);
          
@@ -117,7 +117,7 @@ public class AjouterPromotionController implements Initializable {
        colReduction.setCellValueFactory(new PropertyValueFactory<Promotion, Integer>("reduction"));
          colDateD.setCellValueFactory(new PropertyValueFactory<Promotion, String>("dateD"));
           colDateF.setCellValueFactory(new PropertyValueFactory<Promotion, String>("dateF"));
-   colIdparEtr.setCellValueFactory(new PropertyValueFactory<Promotion, Integer>("id_p"));
+   colIdparEtr.setCellValueFactory(new PropertyValueFactory<Promotion, String>("nom_p"));
      listProm.setItems(list);
    tvPromotion.setItems(list);
      
@@ -141,12 +141,14 @@ public class AjouterPromotionController implements Initializable {
             int rReduction= Integer.parseInt(treduction.getText()) ;
             String rdateD=dateDp.getEditor().getText();
             String rdateF=dateFp.getEditor().getText();
-            String valuePart=comboPar.getValue().toString();
-          int rIdpart= Integer.parseInt(valuePart) ;
+            //String valuePart=comboPar.getValue().toString();
+          //int rIdpart= Integer.parseInt(valuePart) ;
 
-        
+         String rIdpart = comboPar.getValue().toString();
            
            Promotion pro = new Promotion(22,rCodepro,rReduction,rdateD,rdateF,rIdpart);
+           
+           //int id_prom, String dateD, String dateF, String code_p, int reduction, String nom_p
            promotionCRUD proc = new promotionCRUD();
             proc.ajouterPromotion(pro);
             
@@ -177,13 +179,14 @@ public class AjouterPromotionController implements Initializable {
            int  mIdpro= Integer.parseInt(tidpro.getText()) ;
              String mCodepro = tcodepro.getText();
             int mReduction= Integer.parseInt(treduction.getText()) ;
-               String valuePart=comboPar.getValue().toString();
+               //String valuePart=comboPar.getValue().toString();
+               String mIdpart=comboPar.getEditor().getText();
                 String mdateD=dateDp.getEditor().getText();
                  String mdateF = dateFp.getEditor().getText();
                
-           int rIdpart= Integer.parseInt(valuePart) ;
+           //int rIdpart= Integer.parseInt(valuePart) ;
             
-        Promotion pro = new Promotion(mIdpro,mCodepro,mReduction,mdateD,mdateF, rIdpart);
+        Promotion pro = new Promotion(mIdpro,mCodepro,mReduction,mdateD,mdateF, mIdpart);
        promotionCRUD proc = new promotionCRUD();
      proc.modifierPromotion(pro);
                  
@@ -207,7 +210,7 @@ public class AjouterPromotionController implements Initializable {
              }
              
          
-       FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterPromotion.fxml"));
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("ajouterPromotion.fxml"));
               showPromotion();
         Parent root = loader.load();
   
@@ -215,7 +218,7 @@ public class AjouterPromotionController implements Initializable {
         }
            
            catch (IOException ex) {
-            Logger.getLogger(AjouterPromotionController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AjouterPartenaireController.class.getName()).log(Level.SEVERE, null, ex);
         }
           
         
@@ -275,7 +278,7 @@ public class AjouterPromotionController implements Initializable {
        colReduction.setCellValueFactory(new PropertyValueFactory<Promotion, Integer>("reduction"));
          colDateD.setCellValueFactory(new PropertyValueFactory<Promotion, String>("dateD"));
           colDateF.setCellValueFactory(new PropertyValueFactory<Promotion, String>("dateF"));
-   colIdparEtr.setCellValueFactory(new PropertyValueFactory<Promotion, Integer>("id_p"));
+   colIdparEtr.setCellValueFactory(new PropertyValueFactory<Promotion, String>("nom_p"));
     
    tvPromotion.setItems(listp);
       
