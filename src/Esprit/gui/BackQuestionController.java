@@ -216,7 +216,10 @@ public class BackQuestionController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(BackQuestionController.class.getName()).log(Level.SEVERE, null, ex);
         }
+                     treeview.refresh();
+
 }
+
 }
     
    
