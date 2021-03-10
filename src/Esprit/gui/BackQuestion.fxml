@@ -4,17 +4,26 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Esprit.gui.BackQuestionController">
+<AnchorPane id="AnchorPane" prefHeight="657.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.BackQuestionController">
    <children>
-      <Text layoutX="103.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Champs Questions" />
-      <TextField fx:id="champsPoints" layoutX="248.0" layoutY="120.0" />
-      <Text layoutX="86.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nbre de points associés" />
-      <TextArea fx:id="champsQuestion" layoutX="212.0" layoutY="62.0" prefHeight="43.0" prefWidth="221.0" />
-      <Button fx:id="AjoutQuestion" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" onAction="#ajouterQuestion" prefHeight="32.0" prefWidth="73.0" text="Ajouter Question" />
-      <Text layoutX="215.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez ajoutez des questions" />
-      <AnchorPane fx:id="AnchorQuestion" layoutY="169.0" prefHeight="242.0" prefWidth="608.0" />
+      <Text fill="WHITE" layoutX="86.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Champs Questions">
+         <font>
+            <Font size="13.0" />
+         </font></Text>
+      <TextField fx:id="champsPoints" layoutX="251.0" layoutY="174.0" prefHeight="25.0" prefWidth="140.0" />
+      <Text fill="WHITE" layoutX="86.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nbre de points associés">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Text>
+      <TextArea fx:id="champsQuestion" layoutX="232.0" layoutY="83.0" prefHeight="43.0" prefWidth="159.0" />
+      <Button fx:id="AjoutQuestion" layoutX="457.0" layoutY="126.0" mnemonicParsing="false" onAction="#ajouterQuestion" prefHeight="32.0" prefWidth="61.0" text="Ajouter Question" />
+      <Text fill="#4bd47d" layoutX="86.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez ajoutez des questions">
+         <font>
+            <Font size="28.0" />
+         </font></Text>
+      <AnchorPane fx:id="AnchorQuestion" layoutX="53.0" layoutY="255.0" prefHeight="328.0" prefWidth="546.0" />
    </children>
 </AnchorPane>

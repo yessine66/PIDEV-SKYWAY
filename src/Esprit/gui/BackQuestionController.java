@@ -59,16 +59,15 @@ public class BackQuestionController implements Initializable {
     @FXML
     private AnchorPane AnchorQuestion;
     QuestionsCRUD qc;
-        JFXTreeTableView<Questions> treeview = new JFXTreeTableView<>();
-                ObservableList<Questions> Questionss = FXCollections.observableArrayList();
-
-        final TreeItem<Questions> root = new RecursiveTreeItem<Questions>(Questionss, RecursiveTreeObject::getChildren);
+        
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+
            qc = new QuestionsCRUD();
 
        // id_q table view
@@ -193,7 +192,7 @@ public class BackQuestionController implements Initializable {
                 });
                 confirmation.showAndWait();
             }
-        }); 
+        });  treeview.refresh();
           AnchorQuestion.getChildren().addAll(treeview,DltBtn); 
     }
 
@@ -202,21 +201,22 @@ public class BackQuestionController implements Initializable {
     @FXML
     private void ajouterQuestion(ActionEvent event) throws IOException {
         // Ajouter Question
-       try{ String text_q = champsQuestion.getText();
+        String text_q = champsQuestion.getText();
         String points = champsPoints.getText();
         int nbr_point = Integer.parseInt(points);
         Questions q = new Questions (2,text_q,nbr_point);
         QuestionsCRUD prc = new QuestionsCRUD();
         prc.ajouterQuestion(q);
-             FXMLLoader loader = new FXMLLoader(getClass().getResource("BackQuestion.fxml"));
-              treeview.refresh();
-            Parent root = loader.load();
-
-            champsQuestion.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(BackQuestionController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                     treeview.refresh();
+         // FXMLLoader loader = new FXMLLoader(getClass().getResource("BackQuestion.fxml"));
+        JFXTreeTableView<Questions> treeview = new JFXTreeTableView<>();
+                ObservableList<Questions> Questionss = FXCollections.observableArrayList();
+        final TreeItem<Questions> root = new RecursiveTreeItem<Questions>(Questionss, RecursiveTreeObject::getChildren);
+           treeview.setRoot(root);
+        treeview.setShowRoot(false);
+        treeview.setEditable(true);
+         treeview.refresh();
+       // Parent root = loader.load();
+        
 
 }
 

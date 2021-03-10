@@ -5,7 +5,6 @@
  */
 package Esprit.gui;
 
-import Esprit.entities.Questions;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,18 +23,19 @@ import javafx.stage.Stage;
  *
  * @author User-DELL
  */
-public class BackQuestion extends Application {
+public class MenuBack extends Application {
+    
     @Override
       public void start(Stage primaryStage) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("BackQuestion.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("MenuBack.fxml"));
             Scene scene = new Scene(root);
              primaryStage.setTitle("Hello World!");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(Questions.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuBack.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
