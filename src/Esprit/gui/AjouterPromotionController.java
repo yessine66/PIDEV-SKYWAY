@@ -8,7 +8,7 @@ package Esprit.gui;
 import Esprit.entities.Promotion;
 import Esprit.entities.partenaire;
 import Esprit.services.partenaireCRUD;
-import Esprit.entities.Promotion;
+
 import Esprit.services.promotionCRUD;
 import Esprit.Connection.MyConnection;
 import java.io.IOException;
