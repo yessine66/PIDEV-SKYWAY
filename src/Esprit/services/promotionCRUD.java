@@ -24,8 +24,6 @@ public class promotionCRUD {
     
     
         private Connection cnx;
-        
-        
     private PreparedStatement ste;
        Statement st;
      ResultSet rs;
@@ -158,7 +156,29 @@ public class promotionCRUD {
         
         
        
-       
+    public ObservableList<Promotion> PromotionListClient(){
+     
+     
+           ObservableList<Promotion> PromotionList = FXCollections.observableArrayList();
+          String query = "SELECT * FROM promotion";
+
+       try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+            //Books books;
+            Promotion par;
+            while(rs.next()){
+               par = new Promotion(rs.getString("code_p"), rs.getInt("reduction"),rs.getString("dateD") , rs.getString("dateF"),rs.getInt("id_p"));
+               PromotionList.add(par);
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return PromotionList;
+        
+    }
+    
          
     
     

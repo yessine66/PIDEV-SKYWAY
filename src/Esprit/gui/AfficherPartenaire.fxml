@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="698.0" prefWidth="1053.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Esprit.gui.AfficherPartenaireController">
+   <children>
+      <ListView fx:id="listViewPart2" layoutX="-4.0" layoutY="270.0" prefHeight="325.0" prefWidth="1053.0" />
+   </children>
+</AnchorPane>

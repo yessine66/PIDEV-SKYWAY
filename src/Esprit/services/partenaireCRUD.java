@@ -146,7 +146,28 @@ public class partenaireCRUD {
        
     }
  
+     public ObservableList<partenaire> partenaireListClient(){
+     
+     
+           ObservableList<partenaire> partenaireList = FXCollections.observableArrayList();
+          String query = "SELECT * FROM partenaire";
+
+       try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+            partenaire par;
+            while(rs.next()){
+               par = new partenaire( rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"));
+               partenaireList.add(par);
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return partenaireList;
        
+    }  
        
        
        
