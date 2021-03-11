@@ -80,11 +80,11 @@ public class partenaire {
         this.domaine = domaine;
         this.date_p = date_p;
     }
-    /*@Override
+   /* @Override
     public String toString() {
         return "partenaire{" + "id_p=" + id_p + ", nom_p=" + nom_p + ", domaine=" + domaine + '}';
-    }*/
-
+    }
+*/
     /*@Override
     public String toString() {
         return "partenaire{" + "id_p=" + id_p + ", nom_p=" + nom_p + ", domaine=" + domaine + ", date_p=" + date_p + '}';
@@ -92,6 +92,11 @@ public class partenaire {
 */
     public partenaire(String nom_p) {
         this.nom_p = nom_p;
+    }
+
+    @Override
+    public String toString() {
+        return "partenaire{" + "nom_p=" + nom_p + ", domaine=" + domaine + ", date_p=" + date_p + '}';
     }
     
     

@@ -124,10 +124,19 @@ public Promotion() {
     }
     */
 
-    @Override
+ /*   @Override
     public String toString() {
         return "Promotion{" + "id_prom=" + id_prom + ", dateD=" + dateD + ", dateF=" + dateF + ", code_p=" + code_p + ", reduction=" + reduction + ", id_p=" + id_p + ", nom_p=" + nom_p + '}';
     }
+    
+    */
+
+    @Override
+    public String toString() {
+        return "Promotion{" + "date Début Partenariat=" + dateD + ", date Fin Partenariat=" + dateF + ", code promotion=" + code_p + ", reduction=" + reduction + ", nom partenaire=" + nom_p + '}';
+    }
+    
+    
     
     
     
