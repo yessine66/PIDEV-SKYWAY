@@ -184,7 +184,7 @@ public class BackCertificatController implements Initializable {
 
     @FXML
     private void ajouterCertif(ActionEvent event) {
-      try{   if(event.getSource() == AjoutCertif)
+       if(event.getSource() == AjoutCertif)
              {
             String titre_certif = champsCertif.getText();
            String date_certif = date.getText();
@@ -193,7 +193,7 @@ public class BackCertificatController implements Initializable {
            CertificatCRUD rc = new CertificatCRUD();
             rc.ajouterCertification(rep);
     }
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("BackCertificat.fxml"));
+   /* FXMLLoader loader = new FXMLLoader(getClass().getResource("BackCertificat.fxml"));
               treeview.refresh();
             Parent root = loader.load();
 
@@ -202,9 +202,13 @@ public class BackCertificatController implements Initializable {
             Logger.getLogger(BackReponseController.class.getName()).log(Level.SEVERE, null, ex);
         }
                      treeview.refresh();
-
-        }
+       
+*/
+         URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
+        }}
           
         
         
-    }
+    
