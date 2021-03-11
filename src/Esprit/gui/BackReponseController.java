@@ -195,27 +195,25 @@ public class BackReponseController implements Initializable {
     @FXML
     private void ajouterReponse(ActionEvent event) {
          
-try{
-             if(event.getSource() == AjoutReponse)
-             {
+        if(event.getSource() == AjoutReponse)
+        {
             String text_r = champsReponse.getText();
-      String value_r=combor.getValue().toString();
-           int id_qr= Integer.parseInt(value_r) ;
+            String value_r=combor.getValue().toString();
+            int id_qr= Integer.parseInt(value_r) ;
             
-           Reponses rep = new Reponses(22,text_r,id_qr);
-           ReponsesCRUD rc = new ReponsesCRUD();
-           // normalment appel l fct fillCombobox 
+            Reponses rep = new Reponses(22,text_r,id_qr);
+            ReponsesCRUD rc = new ReponsesCRUD();
+            // normalment appel l fct fillCombobox 
             rc.ajouterReponse(rep);
-         }
-     FXMLLoader loader = new FXMLLoader(getClass().getResource("BackReponse.fxml"));
-              treevieww.refresh();
-            Parent root = loader.load();
-
-            champsReponse.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(BackReponseController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        /* FXMLLoader loader = new FXMLLoader(getClass().getResource("BackReponse.fxml"));
+        treevieww.refresh();
+        Parent root = loader.load();*/
+      //  champsReponse.getScene().setRoot(root);
                      treevieww.refresh();
+                      URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
 
         }
           

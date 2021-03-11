@@ -207,15 +207,11 @@ public class BackQuestionController implements Initializable {
         Questions q = new Questions (2,text_q,nbr_point);
         QuestionsCRUD prc = new QuestionsCRUD();
         prc.ajouterQuestion(q);
-         // FXMLLoader loader = new FXMLLoader(getClass().getResource("BackQuestion.fxml"));
-        JFXTreeTableView<Questions> treeview = new JFXTreeTableView<>();
-                ObservableList<Questions> Questionss = FXCollections.observableArrayList();
-        final TreeItem<Questions> root = new RecursiveTreeItem<Questions>(Questionss, RecursiveTreeObject::getChildren);
-           treeview.setRoot(root);
-        treeview.setShowRoot(false);
-        treeview.setEditable(true);
-         treeview.refresh();
-       // Parent root = loader.load();
+            URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
+       
+      
         
 
 }
