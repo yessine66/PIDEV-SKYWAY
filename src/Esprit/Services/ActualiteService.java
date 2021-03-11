@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Services;
+package Esprit.Services;
 
-import DBSkyWay.Singleton;
-import Entities.Actualite;
+import Esprit.Connection.MyConnection;
+import Esprit.Entities.Actualite;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,15 +28,15 @@ public class ActualiteService {
     private Connection cnx;
 
     public ActualiteService() {
-        cnx = Singleton.getInstance().getConnection();
+        cnx = MyConnection.getInstance().getConnection();
     }
 
     public void ajouterActualite(Actualite a) {
         String req = "insert into actualite (titre_ac,description,image,id) values ('" 
                 +a.getTitre_ac() +"','" 
                 +a.getDesc()+"','" 
-                +a.getImage_ac()+"'," 
-                +a.getUser()+");";
+                +a.getImage_ac()+"',(SELECT id FROM utilisateur WHERE id =" 
+                +a.getUser()+"));";
 
         try {
             pst = cnx.prepareStatement(req);
@@ -44,8 +44,8 @@ public class ActualiteService {
             System.out.println("Ajouté avec succees");
 
         } catch (SQLException ex) {
-            System.out.println("Probléme");
-            System.out.println(ex.getMessage());
+            System.out.println("id utilisateur doit etre existant");
+            //System.out.println(ex.getMessage());
         }
 
     }
@@ -77,7 +77,7 @@ public class ActualiteService {
             PreparedStatement ps1 = cnx.prepareStatement("update actualite set titre_ac= '" +
                     t + "' , description='" + 
                     d + "' , image= '" + 
-                    i + "', id=" + 
+                    i + "', id=(SELECT id FROM utilisateur WHERE id =" + 
                     id + " WHERE actualite.id_ac =" +
                     a.getId_ac()+ ";");
             ps1.executeUpdate();

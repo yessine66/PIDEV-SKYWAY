@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entities;
+package Esprit.Entities;
 
 import java.util.Objects;
 
@@ -109,12 +109,10 @@ public class Actualite {
 
     @Override
     public String toString() {
-        return "Actualite{" + "id_ac=" +
-                id_ac + ", titre_ac=" +
-                titre_ac + ", desc=" +
-                desc + ", image_ac=" +
-                image_ac + ", evenement=" +
-                evenement + '}';
+        return  titre_ac + " : " +
+                desc + " " +
+                image_ac + /*", evenement=" +
+                evenement +*/ '}';
     }
 
 

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package skyway;
+package Esprit.tests;
 
-import DBSkyWay.Singleton;
-import Entities.Actualite;
-import Entities.Evenement;
-import Services.ActualiteService;
-import Services.EvenementService;
+import Esprit.Connection.MyConnection;
+import Esprit.Entities.Actualite;
+import Esprit.Entities.Evenement;
+import Esprit.Services.ActualiteService;
+import Esprit.Services.EvenementService;
 import java.sql.SQLException;
 
 import java.util.Scanner;
@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class SkyWay{
     
        public static void main(String[] args) throws SQLException {
-        Singleton cnx= Singleton.getInstance();
+        MyConnection cnx= MyConnection.getInstance();
         ActualiteService ac = new ActualiteService();
         EvenementService ev = new EvenementService();
         
@@ -30,21 +30,24 @@ public class SkyWay{
         
         while(choix !=0)
         {
-        System.out.println("pour l'evenement taper 1 :");
-        System.out.println("pour l'actualite taper 2 :");
-        System.out.println("pour quitter taper 0 :");
+        System.out.println("*****************************");
+        System.out.println("  pour l'actualite taper 1 :");
+        System.out.println("  pour l'evenement taper 2 :");
+        System.out.println("  pour quitter taper 0 :");
         
         choix = Integer.parseInt(sc.nextLine());
-        
+        System.out.println("*****************************");
         switch(choix){
             case 1:
             {
-                System.out.println("pour ajouter taper 1 :");
-                System.out.println("pour supprimer taper 2 :");
-                System.out.println("pour modifier taper 3 :");
-                System.out.println("pour afficher taper 4:");
-                System.out.println("pour quitter taper 0 :");
+                System.out.println("*****************************");
+                System.out.println("   pour ajouter taper 1 :");
+                System.out.println("   pour supprimer taper 2 :");
+                System.out.println("   pour modifier taper 3 :");
+                System.out.println("   pour afficher taper 4:");
+                System.out.println("   pour quitter taper 0 :");
                 choix = Integer.parseInt(sc.nextLine());
+                System.out.println("*****************************");
                 switch(choix){
                     case 1:
                     {
@@ -94,12 +97,14 @@ public class SkyWay{
             
             case 2:
             {
-                System.out.println("pour ajouter taper 1 :");
-                System.out.println("pour supprimer taper 2 :");
-                System.out.println("pour modifier taper 3 :");
-                System.out.println("pour afficher taper 4:");
-                System.out.println("pour quitter taper 0 :");
+                System.out.println("*****************************");
+                System.out.println("   pour ajouter taper 1 :");
+                System.out.println("   pour supprimer taper 2 :");
+                System.out.println("   pour modifier taper 3 :");
+                System.out.println("   pour afficher taper 4:");
+                System.out.println("   pour quitter taper 0 :");
                 choix = Integer.parseInt(sc.nextLine());
+                System.out.println("*****************************");
                 switch(choix){
                     case 1:
                     {
