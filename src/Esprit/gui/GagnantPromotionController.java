@@ -5,10 +5,12 @@
  */
 package Esprit.gui;
 
+import Esprit.Connection.MailSend;
 import Esprit.entities.partenaire;
 import Esprit.services.partenaireCRUD;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +23,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  * FXML Controller class
@@ -34,13 +43,17 @@ public class GagnantPromotionController implements Initializable {
     private ListView<String> tvwinner;
     @FXML
     private Button btnwinner;
+    @FXML
+    private TextField tMail;
+    @FXML
+    private Button btnMail;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //showWinner();
+
     }
 
 
@@ -57,39 +70,19 @@ public class GagnantPromotionController implements Initializable {
     @FXML
     private void btnwwinner(ActionEvent event) {
         showWinner();
-        /* if(event.getSource() == btnwinner)
-             {
-                 /* try 
-                  { showWinner();
-            
-            /************************************/
-         
-       /*  FXMLLoader loader = new FXMLLoader(getClass().getResource("gagnatPromotion.fxml"));
-            Parent root =loader.load();
-            AfficherPartenaireController afficherPartenaire= loader.getController();
-            // AjouterPromotionController.showInformation();
-            
-            Stage stage = new Stage();
-            stage.setScene(new Scene (root));
-            stage.setTitle("display partenaire");
-            stage.show();
-                  }
-                  
-       
-  
-            catch (IOException ex) {
-            Logger.getLogger(AjouterPartenaireController.class.getName()).log(Level.SEVERE, null, ex);
+   
         }
-            
-            */
-            
-            
-            
-            
-            
-            
-                  // }
-        }
+
+    @FXML
+    private void btnSendWinner(ActionEvent event) {
+          MailSend m = new MailSend();
+         String rMail = tMail.getText();
+                String subject = "Félicitations!";
+                String message = "aaaaaVous avez gagnez une promotion de 50/ avec notre Partenaire Nike";
+                m.sendMail("smart.kindergarten0@gmail.com", rMail, subject, message);
+    }
+   
+    
     }
     
     

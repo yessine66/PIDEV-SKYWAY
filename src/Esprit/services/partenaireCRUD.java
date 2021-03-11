@@ -127,7 +127,7 @@ public class partenaireCRUD {
      
      
            ObservableList<String> randomList = FXCollections.observableArrayList();
-          String query = "SELECT username FROM utilisateur where adresse='apprenant' ORDER BY rand() LIMIT 3";
+          String query = "SELECT mail FROM utilisateur where role='apprenant' ORDER BY rand() LIMIT 3";
 
        try{
             st = cnx.createStatement();
@@ -135,7 +135,7 @@ public class partenaireCRUD {
          
          String par;
             while(rs.next()){
-               par = rs.getString("username");
+               par = rs.getString("mail");
                randomList.add(par);
             }
                 
