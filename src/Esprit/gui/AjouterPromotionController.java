@@ -126,8 +126,7 @@ public class AjouterPromotionController implements Initializable {
     
     
 
-    @FXML
-    private void btnPromotionAction(ActionEvent event) {
+  /*  private void btnPromotionAction(ActionEvent event) {
         
         
         
@@ -179,14 +178,14 @@ public class AjouterPromotionController implements Initializable {
            int  mIdpro= Integer.parseInt(tidpro.getText()) ;
              String mCodepro = tcodepro.getText();
             int mReduction= Integer.parseInt(treduction.getText()) ;
-               //String valuePart=comboPar.getValue().toString();
-               String mIdpart=comboPar.getEditor().getText();
+               String valuePart=comboPar.getValue().toString();
+               //String mIdpart=comboPar.getEditor().getText();
                 String mdateD=dateDp.getEditor().getText();
                  String mdateF = dateFp.getEditor().getText();
                
            //int rIdpart= Integer.parseInt(valuePart) ;
             
-        Promotion pro = new Promotion(mIdpro,mCodepro,mReduction,mdateD,mdateF, mIdpart);
+        Promotion pro = new Promotion(mIdpro,mCodepro,mReduction,mdateD,mdateF, valuePart);
        promotionCRUD proc = new promotionCRUD();
      proc.modifierPromotion(pro);
                  
@@ -223,7 +222,7 @@ public class AjouterPromotionController implements Initializable {
           
         
         
-    }
+    }*/
 
     @FXML
     private void DateSelect(ActionEvent event) {
@@ -336,6 +335,65 @@ public class AjouterPromotionController implements Initializable {
     //DateSelec.setString(colDatee.getCellData(index));
        
      searchProm();
+    }
+
+    @FXML
+    private void btnAjoutProm(ActionEvent event) {
+        if (validation()){
+            String rCodepro = tcodepro.getText();
+      
+            int rReduction= Integer.parseInt(treduction.getText()) ;
+            String rdateD=dateDp.getEditor().getText();
+            String rdateF=dateFp.getEditor().getText();
+            //String valuePart=comboPar.getValue().toString();
+          //int rIdpart= Integer.parseInt(valuePart) ;
+
+         String rIdpart = comboPar.getValue().toString();
+           
+           Promotion pro = new Promotion(22,rCodepro,rReduction,rdateD,rdateF,rIdpart);
+           
+           //int id_prom, String dateD, String dateF, String code_p, int reduction, String nom_p
+           promotionCRUD proc = new promotionCRUD();
+            proc.ajouterPromotion(pro);
+            URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
+
+                 }
+  
+    }
+
+    @FXML
+    private void btnModifierProm(ActionEvent event) {
+         int  mIdpro= Integer.parseInt(tidpro.getText()) ;
+             String mCodepro = tcodepro.getText();
+            int mReduction= Integer.parseInt(treduction.getText()) ;
+               String valuePart=comboPar.getValue().toString();
+               //String mIdpart=comboPar.getEditor().getText();
+                String mdateD=dateDp.getEditor().getText();
+                 String mdateF = dateFp.getEditor().getText();
+               
+           //int rIdpart= Integer.parseInt(valuePart) ;
+            
+        Promotion pro = new Promotion(mIdpro,mCodepro,mReduction,mdateD,mdateF, valuePart);
+       promotionCRUD proc = new promotionCRUD();
+     proc.modifierPromotion(pro);
+   URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
+    }
+
+    @FXML
+    private void btnSupprimerProm(ActionEvent event) {
+         int  mIdpro= Integer.parseInt(tidpro.getText()) ;
+     
+    Promotion pro = new Promotion(mIdpro);
+     promotionCRUD proc = new promotionCRUD();
+       proc.supprimerPromotion(pro);
+        showPromotion();
+        URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
     }
     
   

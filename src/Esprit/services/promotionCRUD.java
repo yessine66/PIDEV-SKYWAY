@@ -85,7 +85,7 @@ public class promotionCRUD {
  
   public void modifierPromotion(Promotion pro ){
   
-   String requete = "UPDATE promotion SET code_p=?,reduction=?, dateD= ? ,dateF =?,id_p = ? WHERE id_prom=?";
+   String requete = "UPDATE promotion SET code_p=?,reduction=?, dateD= ? ,dateF =?,nom_p = ? WHERE id_prom=?";
         try {
           ste= cnx.prepareStatement(requete);
             /*PreparedStatement pst = 
@@ -95,7 +95,7 @@ public class promotionCRUD {
          ste.setInt(2, pro.getReduction());
            ste.setString(3, pro.getDateD());
               ste.setString(4, pro.getDateF());
-                 ste.setInt(5, pro.getId_p());
+                 ste.setString(5, pro.getNom_p());
      
            ste.executeUpdate();
             System.out.println("promotion Modfié !");

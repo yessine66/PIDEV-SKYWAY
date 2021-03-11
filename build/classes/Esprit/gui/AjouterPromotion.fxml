@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="673.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AjouterPromotionController">
+<AnchorPane id="AnchorPane" prefHeight="673.0" prefWidth="1022.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AjouterPromotionController">
    <children>
       <Label layoutX="55.0" layoutY="46.0" prefHeight="21.0" prefWidth="154.0" text="id promotion" textFill="#0711da" underline="true" />
       <Label layoutX="60.0" layoutY="100.0" prefHeight="21.0" prefWidth="113.0" text="code promotion" textFill="#0711da" underline="true" />
@@ -22,17 +22,17 @@
       <TextField fx:id="tidpro" layoutX="217.0" layoutY="41.0" />
       <TextField fx:id="tcodepro" layoutX="217.0" layoutY="95.0" />
       <TextField fx:id="treduction" layoutX="217.0" layoutY="144.0" />
-      <Button fx:id="btnAjouterPro" layoutX="147.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnPromotionAction" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: f4d160;" text="ajouter" />
-      <Button fx:id="btnModifierPro" layoutX="250.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnPromotionAction" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: f4d160;" text="modifier" />
-      <Button fx:id="btnSupprimerPro" layoutX="351.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnPromotionAction" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: f4d160;" text="supprimer" />
-      <TableView fx:id="tvPromotion" layoutX="34.0" layoutY="347.0" onMouseClicked="#selectProm" prefHeight="213.0" prefWidth="800.0" style="-fx-background-color: f8f1f1;">
+      <Button fx:id="btnAjouterPro" layoutX="147.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnAjoutProm" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: f4d160;" text="ajouter" />
+      <Button fx:id="btnModifierPro" layoutX="250.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnModifierProm" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: f4d160;" text="modifier" />
+      <Button fx:id="btnSupprimerPro" layoutX="351.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnSupprimerProm" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: f4d160;" text="supprimer" />
+      <TableView fx:id="tvPromotion" layoutX="34.0" layoutY="347.0" onMouseClicked="#selectProm" prefHeight="213.0" prefWidth="880.0" style="-fx-background-color: f8f1f1;">
          <columns>
             <TableColumn fx:id="colIdpro" prefWidth="137.0" text="id promotion" />
-            <TableColumn fx:id="colCodepro" prefWidth="173.0" text="code promotion" />
-            <TableColumn fx:id="colReduction" prefWidth="173.0" text="reduction" />
-            <TableColumn fx:id="colDateD" prefWidth="137.0" text="date debut" />
-            <TableColumn fx:id="colDateF" prefWidth="140.0" text="date fin" />
-            <TableColumn fx:id="colIdparEtr" prefWidth="242.0" text="id partenaire" />
+            <TableColumn fx:id="colCodepro" prefWidth="134.0" text="code promotion" />
+            <TableColumn fx:id="colReduction" prefWidth="133.0" text="reduction" />
+            <TableColumn fx:id="colDateD" prefWidth="115.0" text="date debut" />
+            <TableColumn fx:id="colDateF" prefWidth="89.0" text="date fin" />
+            <TableColumn fx:id="colIdparEtr" prefWidth="394.0" text="Nom partenaire" />
          </columns>
       </TableView>
       <ComboBox fx:id="comboPar" layoutX="217.0" layoutY="200.0" prefHeight="31.0" prefWidth="187.0" />
