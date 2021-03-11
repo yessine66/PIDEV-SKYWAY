@@ -17,10 +17,11 @@ public class Promotion {
         private String code_p;
     private int reduction;
     private int id_p;
-     
+      private String nom_p;
 public Promotion() {
     }
 
+   
     public int getId_p() {
         return id_p;
     }
@@ -42,8 +43,34 @@ public Promotion() {
           this.dateF=dateF;
         this.id_p = id_p;
     }
-   
 
+    public Promotion(int id_prom, String dateD, String dateF, String code_p, int reduction, int id_p, String nom_p) {
+        this.id_prom = id_prom;
+        this.dateD = dateD;
+        this.dateF = dateF;
+        this.code_p = code_p;
+        this.reduction = reduction;
+        this.id_p = id_p;
+        this.nom_p = nom_p;
+    }
+
+    public Promotion(int id_prom, String dateD, String dateF, String code_p, int reduction, String nom_p) {
+        this.id_prom = id_prom;
+        this.dateD = dateD;
+        this.dateF = dateF;
+        this.code_p = code_p;
+        this.reduction = reduction;
+        this.nom_p = nom_p;
+    }
+   //22,rCodepro,rReduction,rdateD,rdateF,rIdpart
+ public Promotion(int id_prom, String code_p,int reduction, String dateD, String dateF,  String nom_p) {
+        this.id_prom = id_prom;
+        this.dateD = dateD;
+        this.dateF = dateF;
+        this.code_p = code_p;
+        this.reduction = reduction;
+        this.nom_p = nom_p;
+    }
     
     public Promotion(int id_prom, String code_p, int reduction) {
         this.id_prom = id_prom;
@@ -74,6 +101,12 @@ public Promotion() {
     public String getDateF() {
         return dateF;
     }
+
+    public String getNom_p() {
+        return nom_p;
+    }
+
+    
     
 
    /* @Override
@@ -84,9 +117,16 @@ public Promotion() {
     
     */
 
+    /*@Override
+    public String toString() {
+        //return "Promotion{" + "id_prom=" + id_prom +  ", code_p=" + code_p + ", reduction=" + reduction + ", dateD=" + dateD + ", dateF=" + dateF + ", id_p=" + id_p + '}';
+        return "Promotion\"              Code promotion="+ code_p +"              reduction="+ reduction +"              Date début promotion="+ dateD +"              Date fin promotion="+ dateF+"              Nom partenaire="+ nom_p;
+    }
+    */
+
     @Override
     public String toString() {
-        return "Promotion{" + "id_prom=" + id_prom +  ", code_p=" + code_p + ", reduction=" + reduction + ", dateD=" + dateD + ", dateF=" + dateF + ", id_p=" + id_p + '}';
+        return "Promotion{" + "id_prom=" + id_prom + ", dateD=" + dateD + ", dateF=" + dateF + ", code_p=" + code_p + ", reduction=" + reduction + ", id_p=" + id_p + ", nom_p=" + nom_p + '}';
     }
     
     

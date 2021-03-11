@@ -137,7 +137,7 @@ int index =-1;
     }
    
 
-    @FXML
+  /*  @FXML
     private void btnPartenaireAction(ActionEvent event) {
            try {
 
@@ -151,7 +151,7 @@ int index =-1;
             partenaireCRUD parc = new partenaireCRUD();
             parc.ajouterPartenaire(par);
              searchPart();
-            /************************************/
+            
             
          FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterPartenaire.fxml"));
             Parent root =loader.load();
@@ -216,7 +216,7 @@ int index =-1;
             Logger.getLogger(AjouterPartenaireController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+*/
     @FXML
     private void DateSelec(ActionEvent event) {
     }
@@ -318,6 +318,49 @@ int index =-1;
 
     @FXML
     private void getSelected(javafx.scene.input.MouseEvent event) {
+    }
+
+    @FXML
+    private void btnAjoutPar(ActionEvent event) {
+        if (validationPartenaire()){
+            String rNomp = tnomp.getText();
+            String rDomaine = tdomaine.getText();
+              String rdateP=DateSelec.getEditor().getText();
+            partenaire par = new partenaire(22,rNomp,rDomaine,rdateP);
+            partenaireCRUD parc = new partenaireCRUD();
+            parc.ajouterPartenaire(par);
+             searchPart();
+             URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
+        }
+    }
+
+    @FXML
+    private void btnModifierPar(ActionEvent event) {
+         int  mIdp= Integer.parseInt(tidp.getText()) ;
+                  String mNomp = tnomp.getText();
+            String mDomaine = tdomaine.getText();
+                 String mdateP=DateSelec.getEditor().getText();
+            partenaire par = new partenaire(mIdp,mNomp,mDomaine,mdateP);
+            partenaireCRUD parc = new partenaireCRUD();
+        parc.modifierPartenaire(par);
+                  searchPart();
+                  URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
+    }
+
+    @FXML
+    private void btnSupprimerPar(ActionEvent event) {
+         int  mIdp= Integer.parseInt(tidp.getText()) ;
+            partenaire par = new partenaire(mIdp);
+            partenaireCRUD parc = new partenaireCRUD();
+        parc.supprimerPartenaire(par);
+         searchPart();
+         URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
     }
     
     

@@ -37,7 +37,7 @@ public class AfficherPartenaireController implements Initializable {
       
         partenaireCRUD parc = new partenaireCRUD();
             //parc.partenaireList();
-        ObservableList<partenaire> list =  parc.partenaireListClient();
+        ObservableList<partenaire> list =  parc.partenaireListFront();
         
      
         listViewPart2.setItems(list);

@@ -13,7 +13,7 @@
    <children>
       <TextField fx:id="tnomp" layoutX="239.0" layoutY="71.0" />
       <TextField fx:id="tdomaine" layoutX="239.0" layoutY="120.0" />
-      <Button fx:id="btnajouter" layoutX="137.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnPartenaireAction" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: fce38a;" text="Ajouter" />
+      <Button fx:id="btnajouter" layoutX="137.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnAjoutPar" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: fce38a;" text="Ajouter" />
       <TableView fx:id="tvPar" layoutX="46.0" layoutY="222.0" onMouseClicked="#selectpar" prefHeight="213.0" prefWidth="720.0" style="-fx-background-color: f8f1f1;">
          <columns>
             <TableColumn fx:id="colIdpar" prefWidth="125.0" text="idPartenaire" />
@@ -23,8 +23,8 @@
          </columns>
       </TableView>
       <TextField fx:id="tidp" layoutX="239.0" layoutY="25.0" />
-      <Button fx:id="btnmodifier" layoutX="246.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnPartenaireAction" style="-fx-background-color: fce38a;" text="Modifier" />
-      <Button fx:id="btnsupprimer" layoutX="352.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnPartenaireAction" style="-fx-background-color: fce38a;" text="Supprimer" />
+      <Button fx:id="btnmodifier" layoutX="246.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnModifierPar" style="-fx-background-color: fce38a;" text="Modifier" />
+      <Button fx:id="btnsupprimer" layoutX="352.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnSupprimerPar" style="-fx-background-color: fce38a;" text="Supprimer" />
       <Label layoutX="60.0" layoutY="30.0" prefHeight="21.0" prefWidth="128.0" text="ID partenaire" textFill="#1a14db" underline="true" />
       <Label layoutX="65.0" layoutY="76.0" prefHeight="21.0" prefWidth="108.0" text="Nom domaine" textFill="#2204d8" underline="true" />
       <Label layoutX="65.0" layoutY="125.0" prefHeight="21.0" prefWidth="128.0" text="Domaine" textFill="#3608da" underline="true" />

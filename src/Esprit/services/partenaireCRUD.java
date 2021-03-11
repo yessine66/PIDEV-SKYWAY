@@ -127,7 +127,7 @@ public class partenaireCRUD {
      
      
            ObservableList<String> randomList = FXCollections.observableArrayList();
-          String query = "SELECT id_prom FROM promotion order by rand() limit 3 ";
+          String query = "SELECT username FROM utilisateur where adresse='apprenant' ORDER BY rand() LIMIT 3";
 
        try{
             st = cnx.createStatement();
@@ -135,7 +135,7 @@ public class partenaireCRUD {
          
          String par;
             while(rs.next()){
-               par = rs.getString("id_prom");
+               par = rs.getString("username");
                randomList.add(par);
             }
                 
@@ -169,7 +169,31 @@ public class partenaireCRUD {
        
     }  
        
+      public ObservableList<partenaire> partenaireListFront(){
+     
+     
+           ObservableList<partenaire> partenaireListFront = FXCollections.observableArrayList();
+          String query = "SELECT * FROM partenaire";
+
+       try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+            partenaire par;
+            while(rs.next()){
+              //par = new partenaire(rs.getInt("id_p"), rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"));
+                par = new partenaire(rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"));
+               partenaireListFront.add(par);
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return partenaireListFront;
        
+    }
+ 
+  
        
        
        

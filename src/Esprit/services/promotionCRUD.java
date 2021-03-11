@@ -35,15 +35,15 @@ public class promotionCRUD {
     
     
  public void ajouterPromotion( Promotion pro ){
-        String req ="INSERT INTO promotion (code_p,reduction,dateD,dateF,id_p)"+"values (?,?,?,?,?)";
+        String req ="INSERT INTO promotion (code_p,reduction,dateD,dateF,nom_p)"+"values (?,?,?,?,?)";
         try {
             ste = cnx.prepareStatement(req);
             ste.setString(1, pro.getCode_p());
             ste.setInt(2, pro.getReduction());
              ste.setString(3, pro.getDateD());
               ste.setString(4, pro.getDateF());
-             ste.setInt(5, pro.getId_p());
-              
+             //ste.setInt(5, pro.getId_p());
+              ste.setString(5, pro.getNom_p());
             
             ste.executeUpdate();
             System.out.println("Promotion ajoutée");
@@ -69,8 +69,10 @@ public class promotionCRUD {
             //Books books;
             Promotion par;
             while(rs.next()){
-               par = new Promotion(rs.getInt("id_prom"), rs.getString("code_p"), rs.getInt("reduction"),rs.getString("dateD") , rs.getString("dateF"),rs.getInt("id_p"));
-               PromotionList.add(par);
+               //par = new Promotion(rs.getInt("id_prom"), rs.getString("code_p"), rs.getInt("reduction"),rs.getString("dateD") , rs.getString("dateF"),rs.getInt("id_p"));
+               // par = new Promotion(rs.getInt("id_prom"), rs.getString("code_p"), rs.getInt("reduction"),rs.getString("dateD") , rs.getString("dateF"),rs.getInt("id_p"),rs.getString("nom_p"));
+                par = new Promotion(rs.getInt("id_prom"), rs.getString("dateD"),rs.getString("dateF"),rs.getString("code_p"), rs.getInt("reduction"), rs.getString("nom_p"));
+               PromotionList.add(par);   //int id_prom, String dateD, String dateF, String code_p, int reduction, String nom_p
             }
                 
         }catch(Exception ex){
@@ -83,7 +85,7 @@ public class promotionCRUD {
  
   public void modifierPromotion(Promotion pro ){
   
-   String requete = "UPDATE promotion SET code_p=?,reduction=?, dateD= ? ,dateF =?,id_p = ? WHERE id_prom=?";
+   String requete = "UPDATE promotion SET code_p=?,reduction=?, dateD= ? ,dateF =?,nom_p = ? WHERE id_prom=?";
         try {
           ste= cnx.prepareStatement(requete);
             /*PreparedStatement pst = 
@@ -93,7 +95,7 @@ public class promotionCRUD {
          ste.setInt(2, pro.getReduction());
            ste.setString(3, pro.getDateD());
               ste.setString(4, pro.getDateF());
-                 ste.setInt(5, pro.getId_p());
+                 ste.setString(5, pro.getNom_p());
      
            ste.executeUpdate();
             System.out.println("promotion Modfié !");
@@ -123,13 +125,13 @@ public class promotionCRUD {
     
     
     
- public ObservableList<Integer>  comboListPar ()
+ public ObservableList<String>  comboListPar ()
         
         {
         //ComboBox IdPPartPicker;
-        ObservableList<Integer> comboListPar = FXCollections.observableArrayList();
+        ObservableList<String> comboListPar = FXCollections.observableArrayList();
         // ObservableList<Promotion> PromotionList = FXCollections.observableArrayList();
-          String query = "SELECT id_p FROM partenaire";
+          String query = "SELECT nom_p FROM partenaire";
 
        try{
             st = cnx.createStatement();
@@ -138,7 +140,7 @@ public class promotionCRUD {
             //partenaire par;
             while(rs.next()){
               
-               comboListPar.add(rs.getInt("id_p"));
+               comboListPar.add(rs.getString("nom_p"));
                    
             }
                 
@@ -168,7 +170,8 @@ public class promotionCRUD {
             //Books books;
             Promotion par;
             while(rs.next()){
-               par = new Promotion(rs.getString("code_p"), rs.getInt("reduction"),rs.getString("dateD") , rs.getString("dateF"),rs.getInt("id_p"));
+               //par = new Promotion(rs.getString("code_p"), rs.getInt("reduction"),rs.getString("dateD") , rs.getString("dateF"),rs.getString("nom_p"));
+                par = new Promotion(rs.getInt("id_prom"), rs.getString("dateD"),rs.getString("dateF"),rs.getString("code_p"), rs.getInt("reduction"), rs.getString("nom_p"));
                PromotionList.add(par);
             }
                 

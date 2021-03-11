@@ -40,7 +40,7 @@ public class GagnantPromotionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        showWinner();
+        //showWinner();
     }
 
 
