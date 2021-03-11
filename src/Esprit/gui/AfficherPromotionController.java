@@ -46,7 +46,6 @@ public class AfficherPromotionController implements Initializable {
             //parc.partenaireList();
         ObservableList<Promotion> listPromClient =  parc.PromotionListClient();
         
-     
        listViewPromC.setItems(listPromClient);
     }
     

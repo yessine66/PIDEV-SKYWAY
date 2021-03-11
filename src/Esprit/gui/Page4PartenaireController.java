@@ -31,6 +31,8 @@ public class Page4PartenaireController implements Initializable {
     private Button promotion;
     @FXML
     private AnchorPane anchorprojection;
+    @FXML
+    private Button gagnant;
 
     /**
      * Initializes the controller class.
@@ -60,5 +62,10 @@ public class Page4PartenaireController implements Initializable {
 anchorprojection.getChildren().setAll(root);
 
     
+    }
+
+    @FXML
+    private void btnJouer(ActionEvent event) {
+                LoadPage("GagnantPromotion");
     }
 }
