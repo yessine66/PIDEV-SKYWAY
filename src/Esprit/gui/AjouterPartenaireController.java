@@ -99,8 +99,8 @@ public class AjouterPartenaireController implements Initializable {
     private TableColumn<partenaire, String> colDatee;
     @FXML
     private DatePicker DateSelec;
-    @FXML
-    private ListView<partenaire> listViewPart;
+    /*@FXML
+    private ListView<partenaire> listViewPart;*/
     @FXML
     private TextField tsearch;
     @FXML
@@ -132,7 +132,7 @@ int index =-1;
         colDatee.setCellValueFactory(new PropertyValueFactory<partenaire, String>("date_p"));
         
         tvPar.setItems(list);
-        listViewPart.setItems(list);
+        //listViewPart.setItems(list);
          searchPart();
     }
    
