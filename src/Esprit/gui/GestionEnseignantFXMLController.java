@@ -6,9 +6,13 @@
 package Esprit.gui;
 
 import Esprit.entities.Enseignant;
+import Esprit.services.EnseignantCRUD;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -65,6 +70,7 @@ public class GestionEnseignantFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        AffichageEnseignant();
     }    
 
     @FXML
@@ -84,6 +90,19 @@ public class GestionEnseignantFXMLController implements Initializable {
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(scene_Menu_Back);
             window.show();
+    }
+    public void AffichageEnseignant(){
+        EnseignantCRUD enseix = new EnseignantCRUD();
+        ObservableList<Enseignant> listenseix =  (ObservableList<Enseignant>) enseix.afficherEnseignant();
+        
+       // colIdpar.setCellValueFactory(new PropertyValueFactory<partenaire, Integer>("id_p"));
+       tableColumnId.setCellValueFactory(new PropertyValueFactory<Enseignant, Integer>("id"));
+       tableColumnMatiere.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("matiere"));
+       tableColumnBio.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("bibliographie"));
+       tableColumnSpecialite.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("matiere"));
+       
+       tableViewEnseig.setItems(listenseix);
+        
     }
     
     
