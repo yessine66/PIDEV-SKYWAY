@@ -82,7 +82,7 @@ public class BackReponseController implements Initializable {
         id_r.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Reponses, String>, ObservableValue<String>>(){
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Reponses, String> param) {
-                return new SimpleStringProperty(Integer.toString(param.getValue().getValue().getId_q()));
+                return new SimpleStringProperty(Integer.toString(param.getValue().getValue().getId_r()));
             }
         });
         
