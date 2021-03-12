@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Esprit.services;
+
 import Esprit.Connection.MyConnection;
 import Esprit.entities.Reclamation;
 //import java.beans.Statement;
@@ -16,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javax.activation.DataSource;
 
 /**
  *
@@ -29,7 +33,7 @@ public class ReclamationService {
     private Connection conn;
 
     public ReclamationService() {
-        conn = MyConnection.getInstance().getConnection();
+        conn =  MyConnection.getInstance().getConnection();
     }
     public void ajouterReclamation(Reclamation rec) {
         String req = "insert into reclamation (objet,text_r,date_envoi,id) values (?,?,CURDATE(),?)";
@@ -49,7 +53,7 @@ public class ReclamationService {
         }
 
     }
-      public void supprimerReclamation(int id_rec){
+      public void supprimerReclamation(int id_rec) throws SQLException {
         String req="DELETE FROM reclamation WHERE reclamation.id_rec = ? ;";
         try {
             pst = conn.prepareStatement(req);
@@ -64,9 +68,8 @@ public class ReclamationService {
 
     }
       
-       public void editer(Reclamation r){
+       public void editer(Reclamation r) throws SQLException {
         String req="select id_rec from reclamation where id_rec= ? ;";
-        try{
         pst = conn.prepareStatement(req);
         pst.setInt(1, r.getId_rec());
         ResultSet res = pst.executeQuery();
@@ -83,8 +86,7 @@ public class ReclamationService {
                     r.getId_rec()+ ";");
             ps1.executeUpdate();
             System.out.println("Modifié avec succees");
-        } 
-        }catch (SQLException ex){
+        } else {
             System.out.println("Reclamation n'existe pas");
         }
     }
@@ -114,11 +116,72 @@ public class ReclamationService {
         return myList;
 
     }
+        public ObservableList<Reclamation> readReclamation() {
+         ObservableList<Reclamation>  Reclamation = FXCollections.observableArrayList();
+          String requete = "SELECT * from Reclamation";
+        try{
+            Statement st; 
+            st = MyConnection.getInstance().getConnection().prepareStatement(requete);
+            ResultSet rs = st.executeQuery(requete);
+        
+            while(rs.next()){
+               Reclamation R = new Reclamation();
+                R.setId(rs.getInt(1));
+                R.setObjet(rs.getString(2));
+                R.setText(rs.getString(3));
+                R.setDate_env(rs.getString(4));
+                Reclamation.add(R);
+            }}
+        catch (SQLException ex){
+            ex.printStackTrace();
+            
+        }
+        
+        return Reclamation;
+       }
+        //Service : tri ASC
 
-    public void ajouterReclamation(ReclamationService RS) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ObservableList<Reclamation> TriAscPromo() {
+
+           ObservableList<Reclamation> promotions = FXCollections.observableArrayList();
+
+        try {
+            Statement st = conn.createStatement();
+            String req = "SELECT * FROM reclamation ORDER BY id_rec ASC";
+            ResultSet rs = st.executeQuery(req);
+
+            while (rs.next()) {
+
+                promotions.add(new Reclamation(rs.getInt("id_rec"),rs.getString("objet"), rs.getString("text_r"),rs.getString("date_envoi"),rs.getInt("id")));
+
+            }
+
+        } catch (SQLException ex) {
+        }
+
+        return promotions;
+
     }
-  
 
+//Service : tri DESC
+ 
+    public ObservableList<Reclamation> TriDscPromo() {
+         ObservableList<Reclamation> promotions = FXCollections.observableArrayList();
+
+        try {
+            Statement st = conn.createStatement();
+            String req = "SELECT * FROM reclamation ORDER BY id_rec DESC";
+            ResultSet rs = st.executeQuery(req);
+
+            while (rs.next()) {
+             promotions.add(new Reclamation(rs.getInt("id_rec"),rs.getString("objet"), rs.getString("text_r"),rs.getString("date_envoi"),rs.getInt("id")));
+            }
+
+        } catch (SQLException ex) {        }
+
+        return promotions;
+
+
+    }
 }
 
