@@ -172,6 +172,28 @@ public class QuestionsCRUD {
             System.out.println(ex.getMessage());
         }
     }
+          public ObservableList<String> randomList(){
+     
+     
+           ObservableList<String> randomList = FXCollections.observableArrayList();
+          String query = "SELECT text_q FROM question ORDER BY rand() LIMIT 1";
+
+       try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+         String par;
+            while(rs.next()){
+               par = rs.getString("text_q");
+               randomList.add(par);
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return randomList;
+       
+    }
 
     
     
