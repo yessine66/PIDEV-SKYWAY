@@ -79,7 +79,7 @@ public class GagnantPromotionController implements Initializable {
          String rMail = tMail.getText();
                 String subject = "Félicitations!";
                 String message = "aaaaaVous avez gagnez une promotion de 50/ avec notre Partenaire Nike";
-                m.sendMail("smart.kindergarten0@gmail.com", rMail, subject, message);
+                m.sendMail("0artbox1@gmail.com", rMail, subject, message);
     }
    
     

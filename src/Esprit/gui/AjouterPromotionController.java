@@ -81,8 +81,8 @@ public class AjouterPromotionController implements Initializable {
     private TableColumn<Promotion, String> colDateD;
     @FXML
     private TableColumn<Promotion, String> colDateF;
-    @FXML
-    private ListView<Promotion> listProm;
+    /*@FXML
+    private ListView<Promotion> listProm;*/
     @FXML
     private TextField tsearchp;
     int index =-1;
@@ -118,7 +118,7 @@ public class AjouterPromotionController implements Initializable {
          colDateD.setCellValueFactory(new PropertyValueFactory<Promotion, String>("dateD"));
           colDateF.setCellValueFactory(new PropertyValueFactory<Promotion, String>("dateF"));
    colIdparEtr.setCellValueFactory(new PropertyValueFactory<Promotion, String>("nom_p"));
-     listProm.setItems(list);
+     //listProm.setItems(list);
    tvPromotion.setItems(list);
      
      
