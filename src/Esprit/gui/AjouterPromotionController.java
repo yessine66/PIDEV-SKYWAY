@@ -247,7 +247,7 @@ public class AjouterPromotionController implements Initializable {
             
         {
           Alert alert = new Alert (AlertType.WARNING);
-          alert.setTitle("alert code promo vode");
+          alert.setTitle("alert code promo vide");
           alert.setHeaderText(null);
           alert.setContentText("Veuillez remplir tous les champs ! ");
           alert.showAndWait();
