@@ -11,42 +11,47 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="402.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.ReclamationTableController">
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="Esprit.gui.ReclamationTableController">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="36.0" layoutY="64.0" prefHeight="71.0" prefWidth="181.0" spacing="15.0">
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="402.0" prefWidth="610.0">
          <children>
-            <FontAwesomeIconView fill="#29b6f6" glyphName="USER_PLUS" onMouseClicked="#getAddView" size="45" text="" />
-            <FontAwesomeIconView fill="#26a69a" glyphName="REFRESH" onMouseClicked="#refreshTable" size="45" />
-            <FontAwesomeIconView fill="#01579b" glyphName="SEARCH" layoutX="77.0" layoutY="62.0" onMouseClicked="#refreshTable" size="45" />
+            <HBox alignment="CENTER_LEFT" layoutX="36.0" layoutY="64.0" prefHeight="71.0" prefWidth="181.0" spacing="15.0">
+               <children>
+                  <FontAwesomeIconView fill="#29b6f6" glyphName="USER_PLUS" onMouseClicked="#getAddView" size="45" text="" />
+                  <FontAwesomeIconView fill="#26a69a" glyphName="REFRESH" onMouseClicked="#refreshTable" size="45" />
+                  <FontAwesomeIconView fill="#01579b" glyphName="SEARCH" layoutX="77.0" layoutY="62.0" onMouseClicked="#refreshTable" size="45" />
+               </children>
+            </HBox>
+            <TableView fx:id="reclamationTable" layoutX="51.0" layoutY="149.0" prefHeight="234.0" prefWidth="520.0">
+               <columns>
+                  <TableColumn fx:id="idCol" prefWidth="40.0" text="ID" />
+                  <TableColumn fx:id="objetCol" prefWidth="100.0" text="Objet" />
+                  <TableColumn fx:id="textCol" prefWidth="88.0" text="Text" />
+                  <TableColumn fx:id="dateCol" prefWidth="137.0" text="Date" />
+                  <TableColumn fx:id="userCol" prefWidth="40.0" text="User" />
+                  <TableColumn fx:id="editCol" prefWidth="113.0" text="Action" />
+               </columns>
+            </TableView>
+            <Pane layoutX="10.0" layoutY="56.0" prefHeight="5.0" prefWidth="583.0" style="-fx-background-color: black;" />
+            <HBox alignment="CENTER" layoutX="551.0" layoutY="6.0" prefHeight="36.0" prefWidth="37.0">
+               <children>
+                  <FontAwesomeIconView fill="#fc0000" glyphName="CLOSE" onMouseClicked="#close" size="20" styleClass="btn" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="50.0" prefHeight="59.0" prefWidth="504.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reclamation" wrappingWidth="181.23177337646484">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <TextField fx:id="filterField" layoutX="214.0" layoutY="86.0" prefHeight="26.0" prefWidth="253.0" style="-fx-background-color: #E5E7E9;" />
+            <CheckBox fx:id="Asc_chb" layoutX="481.0" layoutY="77.0" mnemonicParsing="false" onAction="#Tri_Asc" text="Ascendant" />
+            <CheckBox fx:id="Desc_chb" layoutX="481.0" layoutY="100.0" mnemonicParsing="false" onAction="#Tri_Desc" text="Descendant" />
          </children>
-      </HBox>
-      <TableView fx:id="reclamationTable" layoutX="51.0" layoutY="149.0" prefHeight="234.0" prefWidth="520.0">
-        <columns>
-          <TableColumn fx:id="idCol" prefWidth="40.0" text="ID" />
-          <TableColumn fx:id="objetCol" prefWidth="100.0" text="Objet" />
-            <TableColumn fx:id="textCol" prefWidth="88.0" text="Text" />
-            <TableColumn fx:id="dateCol" prefWidth="137.0" text="Date" />
-            <TableColumn fx:id="userCol" prefWidth="40.0" text="User" />
-            <TableColumn fx:id="editCol" prefWidth="113.0" text="Action" />
-        </columns>
-      </TableView>
-      <Pane layoutX="10.0" layoutY="56.0" prefHeight="5.0" prefWidth="583.0" style="-fx-background-color: black;" />
-      <HBox alignment="CENTER" layoutX="551.0" layoutY="6.0" prefHeight="36.0" prefWidth="37.0">
-         <children>
-            <FontAwesomeIconView fill="#fc0000" glyphName="CLOSE" onMouseClicked="#close" size="20" styleClass="btn" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" layoutX="50.0" prefHeight="59.0" prefWidth="504.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reclamation" wrappingWidth="181.23177337646484">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Text>
-         </children>
-      </HBox>
-      <TextField fx:id="filterField" layoutX="214.0" layoutY="86.0" prefHeight="26.0" prefWidth="253.0" style="-fx-background-color: #E5E7E9;" />
-      <CheckBox fx:id="Asc_chb" layoutX="481.0" layoutY="77.0" mnemonicParsing="false" onAction="#Tri_Asc" text="Ascendant" />
-      <CheckBox fx:id="Desc_chb" layoutX="481.0" layoutY="100.0" mnemonicParsing="false" onAction="#Tri_Desc" text="Descendant" />
+      </AnchorPane>
    </children>
 </AnchorPane>
