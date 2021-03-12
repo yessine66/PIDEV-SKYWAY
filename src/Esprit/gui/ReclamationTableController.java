@@ -106,7 +106,7 @@ ObservableList<Reclamation>  ReclamationList = FXCollections.observableArrayList
 
     @FXML
     private void refreshTable() {
-        connection =  MyConnection.getInstance().getConnection();//    cnxBD.getInstance().getCnx();
+        connection = MyConnection.getInstance().getConnection();
         try {
             ReclamationList.clear();
             String query = "SELECT * FROM `reclamation`";
@@ -328,5 +328,4 @@ ObservableList<Reclamation>  ReclamationList = FXCollections.observableArrayList
    
    
     
-
 
