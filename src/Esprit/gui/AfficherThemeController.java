@@ -92,7 +92,7 @@ public class AfficherThemeController implements Initializable {
             va.setFitHeight(170);
             va.setFitWidth(200);
             Label nom = new Label("Titre théme : " + t1.getNom_t());
-            Label id = new Label("id de theme : "+ t1.getId_t());
+           // Label id = new Label("id de theme : "+ t1.getId_t());
             int id1 = t1.getId_t();
             System.out.println("---------->>>"+t1.getId_t());
 
@@ -101,10 +101,10 @@ public class AfficherThemeController implements Initializable {
             h1.setAlignment(Pos.CENTER);
             h1.getChildren().addAll(nom);
             
-            HBox h2 = new HBox();
-            h2.setSpacing(10);
-            h2.setAlignment(Pos.CENTER);
-            h2.getChildren().addAll(id);
+//            HBox h2 = new HBox();
+//            h2.setSpacing(10);
+//            h2.setAlignment(Pos.CENTER);
+          //  h2.getChildren().addAll(id);
             
 //            HBox h2 = new HBox();
 //            h2.setSpacing(10);
@@ -124,7 +124,7 @@ public class AfficherThemeController implements Initializable {
             VBox v = new VBox();
             v.setAlignment(Pos.CENTER);
             v.setSpacing(10);
-            v.getChildren().addAll(h1,h2,bt2);
+            v.getChildren().addAll(h1,bt2);
 
             VBox vv = new VBox();
             vv.setAlignment(Pos.CENTER);

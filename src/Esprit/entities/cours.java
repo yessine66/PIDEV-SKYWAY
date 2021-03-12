@@ -223,7 +223,7 @@ public class cours {
 
     @Override
     public String toString() {
-        return "Annonce{" + "id_c=" + id_c + ", nom_c=" + nom_c + ", numero=" + numero + ", description=" + description + ", duree=" + duree + ", image=" + image + ", photo=" + photo + ", id_t=" + id_t + ", id=" + id + '}';
+        return "titre de cours=" + nom_c + ", numero=" + numero + ", description=" + description + ", duree=" + duree + ", photo=" + photo ; //+ ", id_t=" + id_t + ", id=" + id + '}';
     }
  
  
