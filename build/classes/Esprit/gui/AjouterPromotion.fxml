@@ -22,9 +22,9 @@
       <TextField fx:id="tidpro" layoutX="217.0" layoutY="41.0" />
       <TextField fx:id="tcodepro" layoutX="217.0" layoutY="95.0" />
       <TextField fx:id="treduction" layoutX="217.0" layoutY="144.0" />
-      <Button fx:id="btnAjouterPro" layoutX="147.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnAjoutProm" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: f4d160;" text="ajouter" />
-      <Button fx:id="btnModifierPro" layoutX="250.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnModifierProm" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: f4d160;" text="modifier" />
-      <Button fx:id="btnSupprimerPro" layoutX="351.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnSupprimerProm" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: f4d160;" text="supprimer" />
+      <Button fx:id="btnAjouterPro" layoutX="147.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnAjoutProm" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: f4d160;" text="ajouter" />
+      <Button fx:id="btnModifierPro" layoutX="250.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnModifierProm" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: f4d160;" text="modifier" />
+      <Button fx:id="btnSupprimerPro" layoutX="351.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnSupprimerProm" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: f4d160;" text="supprimer" />
       <TableView fx:id="tvPromotion" layoutX="34.0" layoutY="347.0" onMouseClicked="#selectProm" prefHeight="213.0" prefWidth="880.0" style="-fx-background-color: f8f1f1;">
          <columns>
             <TableColumn fx:id="colIdpro" prefWidth="137.0" text="id promotion" />
@@ -37,15 +37,15 @@
       </TableView>
       <ComboBox fx:id="comboPar" layoutX="217.0" layoutY="200.0" prefHeight="31.0" prefWidth="187.0" />
       <Label layoutX="55.0" layoutY="205.0" text="id partenaire" textFill="#0711da" underline="true" />
-      <DatePicker fx:id="dateDp" layoutX="696.0" layoutY="52.0" onAction="#DateSelect" promptText="DateSelect" />
-      <DatePicker fx:id="dateFp" layoutX="696.0" layoutY="144.0" onAction="#DateSelect2" promptText="DateSelect2" />
+      <DatePicker fx:id="dateDp" layoutX="591.0" layoutY="41.0" onAction="#DateSelect" promptText="DateSelect" />
+      <DatePicker fx:id="dateFp" layoutX="591.0" layoutY="95.0" onAction="#DateSelect2" promptText="DateSelect2" />
       <ListView fx:id="listProm" layoutX="34.0" layoutY="578.0" prefHeight="38.0" prefWidth="800.0">
          <effect>
             <SepiaTone />
          </effect>
       </ListView>
-      <Label layoutX="502.0" layoutY="62.0" prefHeight="21.0" prefWidth="167.0" text="date debut promotion" textFill="#0711da" underline="true" />
-      <Label layoutX="516.0" layoutY="149.0" prefHeight="21.0" prefWidth="179.0" text="date fin promotion" textFill="#0711da" underline="true" />
+      <Label layoutX="424.0" layoutY="46.0" prefHeight="21.0" prefWidth="167.0" text="date debut promotion" textFill="#0711da" underline="true" />
+      <Label layoutX="422.0" layoutY="100.0" prefHeight="21.0" prefWidth="179.0" text="date fin promotion" textFill="#0711da" underline="true" />
       <GridPane layoutX="10.0" layoutY="10.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -57,6 +57,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <TextField fx:id="tsearchp" layoutX="685.0" layoutY="238.0" />
+      <TextField fx:id="tsearchp" layoutX="601.0" layoutY="155.0" />
+      <Label layoutX="422.0" layoutY="160.0" prefHeight="21.0" prefWidth="179.0" text="Rechercher" textFill="#0711da" underline="true" />
    </children>
 </AnchorPane>
