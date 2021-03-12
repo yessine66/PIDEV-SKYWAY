@@ -10,25 +10,29 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author Lenovo
+ * @author User-DELL
  */
-public class FrontMenuController implements Initializable {
+public class FrontTest2 implements Initializable {
 
     @FXML
-    private BorderPane front;
+    private Button Question;
     @FXML
-    private AnchorPane projection;
+    private AnchorPane anchort;
+    @FXML
+    private AnchorPane anchorprojection;
 
     /**
      * Initializes the controller class.
@@ -36,43 +40,34 @@ public class FrontMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+       
     }    
 
     @FXML
-    private void cours(MouseEvent event) {
+    private void btnQuestion(ActionEvent event) {
+     LoadPage("");
     }
 
-    @FXML
-    private void test(MouseEvent event) {
-         LoadPage("FrontTest2");
-    }
-
-    @FXML
-    private void evenement(MouseEvent event) {
-    }
-
-    @FXML
-    private void partenariat(MouseEvent event) {
-        LoadPage("FrontPartenaire4");
-    }
-
-    @FXML
-    private void communication(MouseEvent event) {
-    }
-
-    @FXML
-    private void compte(MouseEvent event) {
-    }
-      private void LoadPage (String page){
+       private void LoadPage (String page){
     Parent root=null;
         try {
             root = FXMLLoader.load(getClass().getResource(page+".fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(MenuBackController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrontTest2.class.getName()).log(Level.SEVERE, null, ex);
         }
-    front.setCenter(root);
-    
-    
+
+anchorprojection.getChildren().setAll(root);
+         
+            
+            
+
+            
+            
+            
+            
+            
+        
+       
     
     
     }
