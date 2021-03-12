@@ -6,7 +6,9 @@
 package Esprit.gui;
 
 import Esprit.entities.Enseignant;
+import Esprit.entities.Utilisateur;
 import Esprit.services.EnseignantCRUD;
+import Esprit.services.UtilisateurCRUD;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -70,15 +72,51 @@ public class GestionEnseignantFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        AffichageEnseignant();
+       AffichageEnseignant();
     }    
 
     @FXML
     private void handlebuttonModifierAction(ActionEvent event) {
+        /*
+                 int  mIdp= Integer.parseInt(tidp.getText()) ;
+                  String mNomp = tnomp.getText();
+            String mDomaine = tdomaine.getText();
+                 String mdateP=DateSelec.getEditor().getText();
+            partenaire par = new partenaire(mIdp,mNomp,mDomaine,mdateP);
+            partenaireCRUD parc = new partenaireCRUD();
+        parc.modifierPartenaire(par);
+                  searchPart();
+                  URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
+        */
+        int idMod = Integer.parseInt(textFieldIdMod.getText());
+        String specialteMod = textFieldSpecialiteMod.getText();
+        String matierMod = textFieldMatiereMod.getText();
+        Enseignant enseim = new Enseignant(matierMod, matierMod, specialteMod, idMod);
+        EnseignantCRUD enseiCerr = new EnseignantCRUD();
+        enseiCerr.modifierUtilisateur(enseim);
+                AffichageEnseignant();
+        URL url = null;
+        ResourceBundle rb = null;
+        initialize(url,rb);
+        
+        
     }
 
     @FXML
     private void handlebuttonSupprimerAction(ActionEvent event) {
+        
+
+        int idsupp=Integer.parseInt(textFielIdDelete.getText());
+        Utilisateur userx = new Utilisateur(idsupp);
+        UtilisateurCRUD usercrud = new UtilisateurCRUD();
+        usercrud.supprimerUtilisateur(userx);
+        AffichageEnseignant();
+        URL url = null;
+        ResourceBundle rb = null;
+        initialize(url,rb);
+        
     }
 
     @FXML
@@ -93,13 +131,14 @@ public class GestionEnseignantFXMLController implements Initializable {
     }
     public void AffichageEnseignant(){
         EnseignantCRUD enseix = new EnseignantCRUD();
-        ObservableList<Enseignant> listenseix =  (ObservableList<Enseignant>) enseix.afficherEnseignant();
+        //ObservableList<Enseignant> listenseix =  (ObservableList<Enseignant>) enseix.afficherEnseignant();
+        ObservableList<Enseignant> listenseix =   enseix.afficherEnseignant();
         
        // colIdpar.setCellValueFactory(new PropertyValueFactory<partenaire, Integer>("id_p"));
        tableColumnId.setCellValueFactory(new PropertyValueFactory<Enseignant, Integer>("id"));
-       tableColumnMatiere.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("matiere"));
-       tableColumnBio.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("bibliographie"));
-       tableColumnSpecialite.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("matiere"));
+       tableColumnMatiere.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("matier"));
+       tableColumnBio.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("text"));
+       tableColumnSpecialite.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("specialite"));
        
        tableViewEnseig.setItems(listenseix);
         

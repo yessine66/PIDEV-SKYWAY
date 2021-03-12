@@ -43,10 +43,10 @@ public class Page6CompteController implements Initializable {
     @FXML
     private void handleButtonGereEnseignantAction(ActionEvent event) throws IOException {
                                        System.out.println("Log out button clicked");
-                    Parent LoginParent = FXMLLoader.load(getClass().getResource("GestionEnseignantFXML.fxml"));
-                    Scene LoginScene = new Scene(LoginParent);
+                    Parent GestionEnseignantParent = FXMLLoader.load(getClass().getResource("GestionEnseignantFXML.fxml"));
+                    Scene GestionEnseignantScene = new Scene(GestionEnseignantParent);
                     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-                    window.setScene(LoginScene);
+                    window.setScene(GestionEnseignantScene);
                     window.show();
     }
 

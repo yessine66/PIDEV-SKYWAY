@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/gui/AfficherPromotionController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/gui/GagnantPromotionController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/services/promotionCRUD.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/services/ReponsesCRUD.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/gui/AjouterPartenaireController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/services/partenaireCRUD.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/gui/AfficherPartenaireController.java</file>
+            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/gui/CreateAccountEnseignantFXMLController.java</file>
+            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/Connection/MailSend.java</file>
+            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/entities/Enseignant.java</file>
+            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/gui/GestionEnseignantFXMLController.java</file>
+            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/gui/Page6CompteController.java</file>
+            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/src/Esprit/gui/MenuBackController.java</file>
         </group>
     </open-files>
 </project-private>

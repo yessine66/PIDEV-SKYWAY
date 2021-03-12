@@ -7,6 +7,7 @@ package Esprit.services;
 
 import Esprit.Connection.MyConnection;
 import Esprit.entities.Enseignant;
+import Esprit.entities.partenaire;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -49,11 +52,11 @@ public class EnseignantCRUD {
     }
 
 
-    public List<Enseignant> afficherEnseignant() {
+    public ObservableList<Enseignant> afficherEnseignant() {
         String req = "SELECT * from enseignant";
         
-
-        List<Enseignant> list=new ArrayList<>();
+ObservableList<Enseignant> list = FXCollections.observableArrayList();
+        
         try {
             st = cnx.createStatement();
            rs= st.executeQuery(req);
