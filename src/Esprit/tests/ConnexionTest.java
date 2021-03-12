@@ -18,6 +18,7 @@ import Esprit.entities.Questions;
 import Esprit.services.QuestionsCRUD;
 import Esprit.entities.Reponses;
 import Esprit.services.ReponsesCRUD;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -26,7 +27,7 @@ import java.util.Scanner;
  */
 public class ConnexionTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         
         
         MyConnection mc= MyConnection.getInstance();
