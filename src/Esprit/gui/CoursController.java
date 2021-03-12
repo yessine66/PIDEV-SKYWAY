@@ -100,6 +100,10 @@ public class CoursController implements Initializable {
     private Label erreurdesc;
     @FXML
     private Label erreurduree;
+    @FXML
+    private Label erreurdateajout;
+    @FXML
+    private Label erreurdatemodif;
     
     
 
