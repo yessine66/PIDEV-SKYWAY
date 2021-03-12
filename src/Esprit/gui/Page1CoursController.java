@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -30,6 +31,8 @@ public class Page1CoursController implements Initializable {
     private Button btncategorie;
     @FXML
     private Button btncours;
+    @FXML
+    private AnchorPane anchorprojection;
 
     /**
      * Initializes the controller class.
@@ -38,7 +41,16 @@ public class Page1CoursController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+   private void LoadPage (String page){
+    Parent root=null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(page+".fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(Page1CoursController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    anchorprojection.getChildren().setAll(root);
 
+        }
     @FXML
     private void btntheme(ActionEvent event) {
         LoadPage("theme");
@@ -54,13 +66,5 @@ public class Page1CoursController implements Initializable {
         LoadPage("cours");
     }
     
-    private void LoadPage (String page){
-    Parent root=null;
-        try {
-            root = FXMLLoader.load(getClass().getResource(page+".fxml"));
-        } catch (IOException ex) {
-            Logger.getLogger(Page1CoursController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
-}
+ 
 }

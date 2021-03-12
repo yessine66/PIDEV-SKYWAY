@@ -11,13 +11,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="627.0" prefWidth="778.0" stylesheets="@../../styles/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ThemeController">
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="636.0" prefWidth="803.0" stylesheets="@../../styles/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.ThemeController">
    <children>
       <VBox layoutX="-2.0" layoutY="7.0" prefHeight="601.0" prefWidth="442.0">
          <children>
             <HBox alignment="CENTER" prefHeight="59.0" prefWidth="442.0">
                <children>
-                  <Label text="Gérer théme " textAlignment="CENTER" underline="true">
+                  <Label text="Gérer théme " textAlignment="CENTER" textFill="WHITE" underline="true">
                      <font>
                         <Font name="System Bold" size="33.0" />
                      </font>
@@ -35,7 +35,7 @@
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="39.0" prefWidth="442.0">
                <children>
-                  <Label fx:id="erreurtitre" prefHeight="24.0" prefWidth="291.0" />
+                  <Label fx:id="erreurtitre" prefHeight="24.0" prefWidth="291.0" textFill="WHITE" />
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="116.0" prefWidth="442.0">
                <children>
@@ -45,7 +45,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="53.0" prefWidth="442.0">
                <children>
-                  <Label fx:id="erreurimg" prefHeight="17.0" prefWidth="349.0" />
+                  <Label fx:id="erreurimg" prefHeight="17.0" prefWidth="349.0" textFill="WHITE" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="228.0" prefWidth="442.0">
@@ -63,8 +63,8 @@
                </children></HBox>
          </children>
       </VBox>
-      <ListView fx:id="lvtheme" layoutX="422.0" layoutY="48.0" prefHeight="576.0" prefWidth="349.0" />
-      <Text layoutX="422.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des thémes ">
+      <ListView fx:id="lvtheme" layoutX="411.0" layoutY="48.0" prefHeight="576.0" prefWidth="360.0" />
+      <Text fill="WHITE" layoutX="422.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des thémes ">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
