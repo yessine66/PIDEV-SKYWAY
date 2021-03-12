@@ -77,13 +77,13 @@ public class GestionEnseignantFXMLController implements Initializable {
 
     @FXML
     private void handlebuttonBackAction(ActionEvent event) throws IOException {
-                            System.out.println("apprenant");
-                                                                Parent menuFrontParent;
+            System.out.println("apprenant");
+            Parent menuFrontParent;
             menuFrontParent = FXMLLoader.load(getClass().getResource("Page6Compte.fxml"));
-                                        Scene scene_Menu_Back = new Scene(menuFrontParent);
-                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-                                        window.setScene(scene_Menu_Back);
-                                        window.show();
+            Scene scene_Menu_Back = new Scene(menuFrontParent);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(scene_Menu_Back);
+            window.show();
     }
     
     
