@@ -30,10 +30,6 @@ public class Page2TestController implements Initializable {
     @FXML
     private Button Question;
     @FXML
-    private Button Reponse;
-    @FXML
-    private Button Certificat;
-    @FXML
     private AnchorPane anchort;
     @FXML
     private AnchorPane anchorprojection;
@@ -52,12 +48,10 @@ public class Page2TestController implements Initializable {
      LoadPage("BackQuestion");
     }
 
-    @FXML
     private void btnReponse(ActionEvent event) {
         LoadPage("BackReponse");
     }
 
-    @FXML
     private void btnCertificat(ActionEvent event) {
         LoadPage("BackCertificat");
     }

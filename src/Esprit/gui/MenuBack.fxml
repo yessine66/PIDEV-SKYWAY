@@ -10,32 +10,37 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="164.0" style="-fx-background-color: #0D1824;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#cours" prefHeight="99.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Gestion Cours" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#cours" prefHeight="250.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 2px 0px;" text="Gestion Cours" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#test" prefHeight="90.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Gestion Test" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#test" prefHeight="250.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 2px 0px;" text="Gestion Test" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#evenement" prefHeight="92.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Gestion Evenement" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#evenement" prefHeight="250.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 2px 0px;" text="Gestion Evenement" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#partenariat" prefHeight="95.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Gestion Partenariat" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#partenariat" prefHeight="250.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 2px 0px;" text="Gestion Partenariat" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#communication" prefHeight="86.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text=" Gestion Communication" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#communication" prefHeight="250.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 2px 0px;" text=" Gestion Communication" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#compte" prefHeight="63.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Gestion Compte" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#compte" prefHeight="250.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 2px 0px;" text="Gestion Compte" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#compte" prefHeight="154.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 0px 0px;" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
