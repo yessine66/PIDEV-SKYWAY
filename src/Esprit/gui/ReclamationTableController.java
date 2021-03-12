@@ -6,8 +6,8 @@
 package Esprit.gui;
 
 import Esprit.Connection.MyConnection;
-//import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-//import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import Esprit.entities.Reclamation;
 import Esprit.services.ReclamationService;
