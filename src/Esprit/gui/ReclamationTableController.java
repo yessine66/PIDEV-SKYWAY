@@ -6,8 +6,8 @@
 package Esprit.gui;
 
 import Esprit.Connection.MyConnection;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+//import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+//import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import Esprit.entities.Reclamation;
 import Esprit.services.ReclamationService;
@@ -106,7 +106,7 @@ ObservableList<Reclamation>  ReclamationList = FXCollections.observableArrayList
 
     @FXML
     private void refreshTable() {
-        connection =  MyConnection.getInstance().getConnection();//    cnxBD.getInstance().getCnx();
+        connection = MyConnection.getInstance().getConnection();
         try {
             ReclamationList.clear();
             String query = "SELECT * FROM `reclamation`";
@@ -328,5 +328,4 @@ ObservableList<Reclamation>  ReclamationList = FXCollections.observableArrayList
    
    
     
-
 
