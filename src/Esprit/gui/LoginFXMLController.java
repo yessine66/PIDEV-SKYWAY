@@ -88,7 +88,7 @@ public class LoginFXMLController implements Initializable {
         else if("Apprenant".equals(choiceBoxRole.getValue()) ) {
             System.out.println("apprenant");
                                                                 Parent menuFrontParent;
-            menuFrontParent = FXMLLoader.load(getClass().getResource("MenuFrontFXML.fxml"));
+            menuFrontParent = FXMLLoader.load(getClass().getResource("FrontMenu.fxml"));
                                         Scene scene_Menu_Back = new Scene(menuFrontParent);
                                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                                         window.setScene(scene_Menu_Back);

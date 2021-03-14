@@ -8,8 +8,9 @@
    <children>
       <AnchorPane fx:id="anchorprojection" layoutX="68.0" layoutY="1.0" prefHeight="657.0" prefWidth="734.0">
          <children>
-            <Button fx:id="Question" layoutX="130.0" layoutY="138.0" mnemonicParsing="false" onAction="#btnQuestion" prefHeight="224.0" prefWidth="420.0" text="Catégorie: SVT" />
-            <Label layoutX="274.0" layoutY="280.0" prefHeight="21.0" prefWidth="198.0" text="Nombre de test: 1" />
+            <Button fx:id="Question" layoutX="212.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnQuestion" prefHeight="195.0" prefWidth="285.0" text="Catégorie: SVT" />
+            <Label layoutX="248.0" layoutY="136.0" prefHeight="21.0" prefWidth="198.0" text="Nombre de test: 1" />
+            <AnchorPane fx:id="anchorprojection" layoutX="7.0" layoutY="209.0" prefHeight="406.0" prefWidth="716.0" />
          </children></AnchorPane>
    </children>
 </AnchorPane>

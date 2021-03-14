@@ -194,6 +194,63 @@ public class ReponsesCRUD {
         }
     }
 
+         public String rightanswer() throws SQLException{
+     
+     
+         String query = "SELECT text_r FROM reponse,question where question.id_q=reponse.id_q";
+  //String query = "SELECT text_r FROM reponse where text_r='oui'";
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+         String par = null;
+            while(rs.next()){
+               par = rs.getString("text_r");
+            }
+     
+        
+        return par;
+       
+    }
+      public int verif (String q) throws SQLException{
+          // String par = null;
+     String par = rightanswer();
+      if (q.equals (par ))
+      {
+          return 1;
+      }
+      
+      return -1;
+      
+      
+      }
+              
+              
+              
+           public ObservableList<String> justanswer() throws SQLException 
+     
+           { String right= rightanswer();
+           ObservableList<String> randomList = FXCollections.observableArrayList();
+         //  String parr= rightanswer();
+      //    String query = "SELECT text_r FROM reponse ORDER BY rand() LIMIT 3
+      String query = "SELECT text_r FROM reponse  ORDER BY rand() LIMIT 3";
+              try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+         String par;
+            while(rs.next()){
+               par = rs.getString("text_r");
+            
+               randomList.addAll(par,right);
+             
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return randomList;
+    }
+
     
     
 }

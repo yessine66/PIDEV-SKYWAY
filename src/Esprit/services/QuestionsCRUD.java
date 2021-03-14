@@ -172,28 +172,28 @@ public class QuestionsCRUD {
             System.out.println(ex.getMessage());
         }
     }
-          public ObservableList<String> randomList(){
+   public String randomList() throws SQLException{
      
-     
-           ObservableList<String> randomList = FXCollections.observableArrayList();
-          String query = "SELECT text_q FROM question ORDER BY rand() LIMIT 1";
+       //    ObservableList<String> randomList = FXCollections.observableArrayList();
+          String query = "SELECT text_q FROM question ORDER BY rand()";
 
-       try{
+
             st = cnx.createStatement();
             rs = st.executeQuery(query);
          
-         String par;
+         String par = null;
             while(rs.next()){
                par = rs.getString("text_q");
-               randomList.add(par);
+               
             }
                 
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-        return randomList;
-       
+      
+          
+       return par;
     }
+
+           
+
 
     
     
