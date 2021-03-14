@@ -8,5 +8,6 @@
       <Button fx:id="btntheme" layoutX="14.0" layoutY="130.0" mnemonicParsing="false" onAction="#btntheme" prefHeight="40.0" prefWidth="74.0" text="Théme" />
       <Button fx:id="btncategorie" layoutX="14.0" layoutY="212.0" mnemonicParsing="false" onAction="#btncategorie" prefHeight="40.0" prefWidth="74.0" text="Catégorie" />
       <Button fx:id="btncours" layoutX="14.0" layoutY="291.0" mnemonicParsing="false" onAction="#btncours" prefHeight="40.0" prefWidth="74.0" text="Cours" />
+      <AnchorPane fx:id="anchorprojection" layoutX="96.0" layoutY="11.0" prefHeight="657.0" prefWidth="716.0" />
    </children>
 </AnchorPane>

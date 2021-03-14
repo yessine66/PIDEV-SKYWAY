@@ -72,7 +72,7 @@ public class GestionEnseignantFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       AffichageEnseignant();
+      // AffichageEnseignant();
     }    
 
     @FXML
@@ -93,6 +93,7 @@ ResourceBundle rb = null;
         int idMod = Integer.parseInt(textFieldIdMod.getText());
         String specialteMod = textFieldSpecialiteMod.getText();
         String matierMod = textFieldMatiereMod.getText();
+        
         Enseignant enseim = new Enseignant(matierMod, matierMod, specialteMod, idMod);
         EnseignantCRUD enseiCerr = new EnseignantCRUD();
         enseiCerr.modifierUtilisateur(enseim);
