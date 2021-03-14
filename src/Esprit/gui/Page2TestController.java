@@ -30,13 +30,13 @@ public class Page2TestController implements Initializable {
     @FXML
     private Button Question;
     @FXML
-    private Button Reponse;
-    @FXML
-    private Button Certificat;
-    @FXML
     private AnchorPane anchort;
     @FXML
     private AnchorPane anchorprojection;
+    @FXML
+    private Button Reponse;
+    @FXML
+    private Button Certificat;
 
     /**
      * Initializes the controller class.
