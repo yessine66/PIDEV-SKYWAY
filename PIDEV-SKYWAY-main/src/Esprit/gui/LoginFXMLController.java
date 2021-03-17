@@ -24,6 +24,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -40,8 +41,6 @@ public class LoginFXMLController implements Initializable {
     @FXML
     private Button buttonLogin;
     @FXML
-    private TextField textFieldPassword;
-    @FXML
     private TextField textFieldUsername;
     @FXML
     private AnchorPane anchorPaneLogin;
@@ -50,7 +49,7 @@ public class LoginFXMLController implements Initializable {
     @FXML
     private Button butttonCreateNewAccount;
     @FXML
-    private ChoiceBox<String> choiceBoxRole;
+    private PasswordField passwordFieldPassword;
 
     /**
      * Initializes the controller class.
@@ -60,7 +59,7 @@ public class LoginFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        loadRole();
+      
     } 
 
     private void handleButtonAction(ActionEvent event) {
@@ -84,7 +83,7 @@ public class LoginFXMLController implements Initializable {
         UtilisateurCRUD usercru = new UtilisateurCRUD();
         
         Utilisateur userxo = new Utilisateur();
-        userxo= usercru.Connexion(textFieldUsername.getText(), textFieldPassword.getText());
+        userxo= usercru.Connexion(textFieldUsername.getText(), passwordFieldPassword.getText());
         if(userxo==null){
                       Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
@@ -94,7 +93,8 @@ public class LoginFXMLController implements Initializable {
         
         }
         else {
-            if("Admin".equals(choiceBoxRole.getValue()) ||"Enseignant".equals(choiceBoxRole.getValue()) ){
+            System.out.println("test login yemchi" + userxo.getRoleUser());
+            if("admin".equals(userxo.getRoleUser()) ||"enseignant".equals(userxo.getRoleUser()) ){
             System.out.println("admin wala mou3alem");
                                                     Parent menuBackParent = FXMLLoader.load(getClass().getResource("MenuBack.fxml"));
                                         Scene scene_Menu_Back = new Scene(menuBackParent);
@@ -102,7 +102,7 @@ public class LoginFXMLController implements Initializable {
                                         window.setScene(scene_Menu_Back);
                                         window.show();
         }
-        else if("Apprenant".equals(choiceBoxRole.getValue()) ) {
+        else if("apprenant".equals(userxo.getRoleUser()) ) {
             System.out.println("apprenant");
                                                                 Parent menuFrontParent;
             menuFrontParent = FXMLLoader.load(getClass().getResource("FrontMenu.fxml"));
@@ -178,19 +178,7 @@ public class LoginFXMLController implements Initializable {
         
     }
     
-    private void loadRole(){
-        listRole.removeAll(listRole);
-        String admin="Admin";
-        String enseigant="Enseignant";
-        String apprenant="Apprenant";
-        listRole.addAll(admin,enseigant,apprenant);
-        choiceBoxRole.getItems().addAll(listRole);
-        choiceBoxRole.setValue(apprenant);
-        
-        
-        
-        
-    }
+
     
     
     

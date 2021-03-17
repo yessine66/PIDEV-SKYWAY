@@ -5,10 +5,17 @@
         <group>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/LoginFXML.fxml</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/LoginFXMLController.java</file>
-            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/services/UtilisateurCRUD.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/tests/ConnexionTest.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/Page6Compte.fxml</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FXML.fxml</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/MenuFront.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/AfficherPromotionController.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/MenuBack.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/Page6CompteController.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/services/UtilisateurCRUD.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FrontMenuController.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FXMain.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FrontMenu.fxml</file>
         </group>
     </open-files>
 </project-private>
