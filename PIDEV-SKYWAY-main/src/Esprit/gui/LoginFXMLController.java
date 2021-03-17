@@ -5,8 +5,11 @@
  */
 package Esprit.gui;
 
+import Esprit.entities.Utilisateur;
+import Esprit.services.UtilisateurCRUD;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -74,9 +78,55 @@ public class LoginFXMLController implements Initializable {
     }
 
     @FXML
-    private void handleButtonLoginAction(ActionEvent event) throws IOException {
+    private void handleButtonLoginAction(ActionEvent event) throws IOException, SQLException {
         System.out.println("button login clicked");
         
+        UtilisateurCRUD usercru = new UtilisateurCRUD();
+        
+        Utilisateur userxo = new Utilisateur();
+        userxo= usercru.Connexion(textFieldUsername.getText(), textFieldPassword.getText());
+        if(userxo==null){
+                      Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText("You can't log in");
+        alert.setContentText("The Username or password you’ve entered doesn’t match any account ");
+        alert.showAndWait();
+        
+        }
+        else {
+            if("Admin".equals(choiceBoxRole.getValue()) ||"Enseignant".equals(choiceBoxRole.getValue()) ){
+            System.out.println("admin wala mou3alem");
+                                                    Parent menuBackParent = FXMLLoader.load(getClass().getResource("MenuBack.fxml"));
+                                        Scene scene_Menu_Back = new Scene(menuBackParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(scene_Menu_Back);
+                                        window.show();
+        }
+        else if("Apprenant".equals(choiceBoxRole.getValue()) ) {
+            System.out.println("apprenant");
+                                                                Parent menuFrontParent;
+            menuFrontParent = FXMLLoader.load(getClass().getResource("FrontMenu.fxml"));
+                                        Scene scene_Menu_Back = new Scene(menuFrontParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(scene_Menu_Back);
+                                        window.show();
+                                        
+        }
+        }
+        
+        
+       /* 
+          Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText("You can't log in");
+        alert.setContentText("The Username or password you’ve entered doesn’t match any account ");
+        alert.showAndWait();
+        
+        
+        
+        */
+        
+      /*  
         if("Admin".equals(choiceBoxRole.getValue()) ||"Enseignant".equals(choiceBoxRole.getValue()) ){
             System.out.println("admin wala mou3alem");
                                                     Parent menuBackParent = FXMLLoader.load(getClass().getResource("MenuBack.fxml"));
@@ -95,7 +145,7 @@ public class LoginFXMLController implements Initializable {
                                         window.show();
         }
         
-        
+        */
         /*
                     switch (choiceBoxRole.getValue()) {
                     case "Enseignant":

@@ -164,6 +164,43 @@ public class UtilisateurCRUD {
             System.out.println(ex.getMessage());        }
         return list;
     }
+    
+       public Utilisateur Connexion(String mail,String pwd ) throws SQLException{
+      String requete = "select * from utilisateur where mail = ? and password = ?"; 
+         try{
+        ste= cnx.prepareStatement(requete);
+        Utilisateur us = new Utilisateur();
+        ste.setString(1, mail);
+        ste.setString(2, pwd);
+        
+        ResultSet rs = ste.executeQuery();
+        
+          if(!rs.next()){
+              System.out.println("Login error");
+              return null;
+          }else{
+              us.setMailUser(mail);
+              us.setPasswordUser(pwd);
+              us.setRoleUser(rs.getString("role"));
+              us.setIdUser(rs.getInt("id"));
+              us.setAgeUser(rs.getInt("age"));
+              us.setGenreUser(rs.getString("genre"));
+              us.setNomUser(rs.getString("nom"));
+              us.setPrenomUser(rs.getString("prenom"));
+              us.setTelUser(rs.getInt("tel"));
+              us.setUsernameUser(rs.getString("username"));
+              us.setDateDeCreationCompteUser("2010-11-11");
+              us.setDateDeNaissanceUser("2010-11-11");
+              
+              System.out.println(" \n Login sucessfull" + rs.getString("role"));
+             return us;
+          }
+         }catch(SQLException ex){
+             System.out.println("\nerrooor loginn");
+            System.out.println(ex.getMessage());
+         }
+         return null;
+    }
  
      
      
