@@ -7,38 +7,42 @@ package Esprit.GUI;
 
 import Esprit.Connection.MyConnection;
 import Esprit.Entities.Actualite;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import Esprit.Services.ActualiteService;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Callback;
+
+
+
+
+import javax.swing.JFileChooser;
+
 
 /**
  * FXML Controller class
@@ -52,15 +56,7 @@ public class ActualiteController implements Initializable {
     @FXML
     private TextField BtnRech;
     @FXML
-    private TableView<Actualite> ListAct;
-    @FXML
-    private TableColumn<Actualite, String> titre;
-    @FXML
-    private TableColumn<Actualite, String> description;
-    @FXML
-    private TableColumn<Actualite, Integer> evenement;
-    @FXML
-    private TableColumn<Actualite, String> action;
+    private ListView<Actualite> ListAct;
     @FXML
     private Tab TabAdd;
     @FXML
@@ -92,143 +88,146 @@ public class ActualiteController implements Initializable {
     @FXML
     private Label LabDet;
 
-    
     String query = null;
     Connection connection = null ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
-    Actualite actualite = null ;
+    private Actualite ac = null ;
+    
     
     private boolean update;
     int actualite_id;
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private Label LabDet1;
+    @FXML
+    private Button btnImage;
+    @FXML
+    private ImageView ico;
+    @FXML
+    private ImageView ico1;
+    @FXML
+    private ImageView ico2;
+    @FXML
+    private Button btnImage1;
+    @FXML
+    private ImageView ico3;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadData();
+        
+        ActualiteService act = new ActualiteService();
+        ObservableList<Actualite> list =  act.readAll();
+        
+        ListAct.setItems(list);
+        ListAct.setCellFactory((ListView<Actualite> ListView) -> new ListCellController());
+                
     }    
-
-    private void loadData() {
-        MyConnection cnx = MyConnection.getInstance();
-       titre.setCellValueFactory(new PropertyValueFactory<>("titre_ac"));
-       description.setCellValueFactory(new PropertyValueFactory<>("desc"));
-       evenement.setCellValueFactory(new PropertyValueFactory<>("evenement"));
+    private void importimage(ActionEvent event) {
        
-       ObservableList<Actualite>  ActualiteList = FXCollections.observableArrayList();
-       
-       
-       
-       
-       
-       Callback<TableColumn<Actualite, String>, TableCell<Actualite, String>> cellFoctory = (TableColumn<Actualite, String> param) -> {
-            // make cell containing buttons
-            final TableCell<Actualite, String> cell = new TableCell<Actualite, String>() {
-                @Override
-                public void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    //that cell created only on non-empty rows
-                    if (empty) {
-                        setGraphic(null);
-                        setText(null);
-
-                    } else {
-
-                        FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-                        FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
-
-                        deleteIcon.setStyle(
-                                " -fx-cursor: hand ;"
-                                + "-glyph-size:28px;"
-                                + "-fx-fill:#ff1744;"
-                        );
-                        editIcon.setStyle(
-                                " -fx-cursor: hand ;"
-                                + "-glyph-size:28px;"
-                                + "-fx-fill:#00E676;"
-                        );
-                        deleteIcon.setOnMouseClicked((MouseEvent event) -> {
+        JFileChooser chooser=new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f=chooser.getSelectedFile();
+        String filname=f.getAbsolutePath();
+    } 
+        
+        private void loadData() {
+        
+        /*ListCellController.deleteIcon.setOnMouseClicked((MouseEvent event)->{
+            try {
+            ac = ListAct.getSelectionModel().getSelectedItem();
+            query = "DELETE FROM `actualite` WHERE id  ="+ ac.getId_ac();
+            connection = MyConnection.getInstance().getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.execute();
+               } catch (SQLException ex) {
+                   System.out.println(ex);
+            } 
+             
+            });
+        ListCellController.editIcon.setOnMouseClicked((MouseEvent event) -> {
                             
-                            try {
-                                actualite = ListAct.getSelectionModel().getSelectedItem();
-                                query = "DELETE FROM `actualite` WHERE id  ="+ actualite.getId_ac();
-                                connection = MyConnection.getInstance().getConnection();
-                                preparedStatement = connection.prepareStatement(query);
-                                preparedStatement.execute();
-                                
-                            } catch (SQLException ex) {
-                                System.out.println(ex);
-                            }
-                            
-                           
-
-                          
-
-                        });
-                        editIcon.setOnMouseClicked((MouseEvent event) -> {
-                            
-                            actualite = ListAct.getSelectionModel().getSelectedItem();
-                            FXMLLoader loader = new FXMLLoader ();
-                            loader.setLocation(getClass().getResource("/tableView/addStudent.fxml"));
-                            try {
-                                loader.load();
-                            } catch (IOException ex) {
-                                System.out.println(ex);
-                            }
-                            
-                            ActualiteController actualiteController = loader.getController();
-                            actualiteController.setUpdate(true);
-                            actualiteController.setTextField(actualite.getId_ac(), actualite.getTitre_ac(), 
-                                    actualite.getDesc()/*,actualite.getEvenement()*/);
-                            Parent parent = loader.getRoot();
-                            Stage stage = new Stage();
-                            stage.setScene(new Scene(parent));
-                            stage.initStyle(StageStyle.UTILITY);
-                            stage.show();
-                            
-
-                           
-
-                        });
-
-                        HBox managebtn = new HBox(editIcon, deleteIcon);
-                        managebtn.setStyle("-fx-alignment:center");
-                        HBox.setMargin(deleteIcon, new Insets(2, 2, 0, 3));
-                        HBox.setMargin(editIcon, new Insets(2, 3, 0, 2));
-
-                        setGraphic(managebtn);
-
-                        setText(null);
-
-                    }
+            ac = ListAct.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader ();
+            loader.setLocation(getClass().getResource("/tableView/addStudent.fxml"));
+            try {
+                loader.load();
+            } catch (IOException ex) {
+                System.out.println(ex);
                 }
+                            
+            ActualiteController actualiteController = loader.getController();
+            actualiteController.setUpdate(true);
+            actualiteController.setTextField(actualite.getId_ac(), ac.getTitre_ac(), 
+            ac.getDesc()/*,ac.getEvenement());
+            Parent parent = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(parent));
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+                         
+          });*/
+        }
 
-            };
-
-            return cell;
-        };
-         action.setCellFactory(cellFoctory);
-         ListAct.setItems(ActualiteList);
-         
-         
-  
-      
+    void setUpdate(boolean b) {
+    this.update = b;
     }
-   
-     void setTextField(int id_ac, String titre_ac,  String desc) {
 
-         actualite_id = id_ac;
+    private void setTextField(int id_ac, String titre_ac, String desc) {
+        
+        actualite_id = id_ac;
         TFtitrem.setText(titre_ac);
         TFdescm.setText(desc);
-        // userTF.setInt(Integer.parseInt(user));
-       
+    }
+
+    @FXML
+    private void btnAjoutAction(ActionEvent event) {
+        try {
+
+             if(event.getSource() == BtnAjout)
+             {
+                String titre_ac = TFtitre.getText();
+                String desc = TFdesc.getText();
+                String im =TFimage.getText();
+                Actualite act = new Actualite(titre_ac,desc,im,100);
+                ActualiteService acts = new ActualiteService();
+                acts.ajouterActualite(act);
+             }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Actualite.fxml"));
+            Parent root = loader.load();
+  
+            TFtitre.getScene().setRoot(root);
+        }
+           
+           catch (IOException ex) {
+            }
+                     
+    }
+
+    @FXML
+    private void btnModifAction(ActionEvent event) {
         
+        try {
 
+             if(event.getSource() == BtnModif)
+             {
+                             
+                String titre_ac = TFtitre.getText();
+                String desc = TFdesc.getText();
+                String im =TFimage.getText();
+                Actualite act = new Actualite(titre_ac,desc,im,100);
+                ActualiteService acts = new ActualiteService();
+                acts.ajouterActualite(act);
+             }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Actualite.fxml"));
+            Parent root = loader.load();
+  
+            TFtitre.getScene().setRoot(root);
+        }
+           
+           catch (IOException ex) {
+            }
     }
-        void setUpdate(boolean b) {
-        this.update = b;
 
-    }
-   
+     
     
 }

@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -87,10 +89,10 @@ public class ActualiteService {
         }
     }
 
-    public List<Actualite> readAll() {
+    public ObservableList<Actualite> readAll() {
+       ObservableList<Actualite> list = FXCollections.observableArrayList();
         String req = "select * from actualite";
 
-        List<Actualite> list=new ArrayList<>();
         try {
             ste = cnx.createStatement();
            rs= ste.executeQuery(req);

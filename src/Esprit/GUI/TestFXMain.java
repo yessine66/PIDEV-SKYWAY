@@ -21,12 +21,15 @@ import javafx.stage.Stage;
 public class TestFXMain extends Application {
     
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage){
+        try{
         Parent root = FXMLLoader.load(getClass().getResource("Actualite.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setTitle("SkyWay");
         primaryStage.setScene(scene);
         primaryStage.show();
+        }catch(IOException ex){Logger.getLogger(TestFXMain.class.getName()).log(Level.SEVERE, null, ex);}
+        
     }
 
     /**
