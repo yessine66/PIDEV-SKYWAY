@@ -18,7 +18,14 @@ public class Enseignant extends Utilisateur{
     private int idEnseignant;
 private int id; 
     public Enseignant() {
+        
     }
+
+    public Enseignant(int id) {
+        this.id = id;
+    }
+    
+    
 
     public Enseignant(String matier, String text, String specialite) {
         this.matier = matier;

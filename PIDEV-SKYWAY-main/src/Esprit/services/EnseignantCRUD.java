@@ -89,6 +89,19 @@ ObservableList<Enseignant> list = FXCollections.observableArrayList();
         }    
        
    
-  }    
+  }  
+             public void supprimerUtilisateur(Enseignant ens ){
+  
+   String req = "DELETE FROM enseignant WHERE id=?";
+        try {
+          ste= cnx.prepareStatement(req);
+            ste.setInt(1, ens.getId());
+           ste.executeUpdate();
+            System.out.println("enseignant  supprime ");
+        } catch(SQLException ex) {
+            System.out.println("erreur supression enseiegnat");
+            System.err.println(ex.getMessage());
+        }
+  }
     
 }

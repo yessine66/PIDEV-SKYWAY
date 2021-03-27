@@ -5,6 +5,7 @@
  */
 package Esprit.gui;
 
+import Esprit.entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,17 +24,28 @@ import javafx.scene.layout.BorderPane;
  * @author User-DELL
  */
 public class MenuBackController implements Initializable {
+    
+    private Utilisateur userlogin;
 
     @FXML
     private BorderPane bps;
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }    
+    
+    public void initDate(Utilisateur usereo){
+        userlogin = usereo;
+        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
+    }
+    
 
     @FXML
     private void cours(MouseEvent event) {

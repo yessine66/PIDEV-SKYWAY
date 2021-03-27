@@ -38,6 +38,8 @@ public class LoginFXMLController implements Initializable {
 
     ObservableList listRole = FXCollections.observableArrayList();
     
+    
+    
     @FXML
     private Button buttonLogin;
     @FXML
@@ -51,6 +53,11 @@ public class LoginFXMLController implements Initializable {
     @FXML
     private PasswordField passwordFieldPassword;
 
+    
+    
+    
+    
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -96,8 +103,18 @@ public class LoginFXMLController implements Initializable {
             System.out.println("test login yemchi" + userxo.getRoleUser());
             if("admin".equals(userxo.getRoleUser()) ||"enseignant".equals(userxo.getRoleUser()) ){
             System.out.println("admin wala mou3alem");
-                                                    Parent menuBackParent = FXMLLoader.load(getClass().getResource("MenuBack.fxml"));
+            
+            
+                FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation((getClass().getResource("MenuBack.fxml")));
+            
+                                                    Parent menuBackParent = loader.load();
+                                                    
                                         Scene scene_Menu_Back = new Scene(menuBackParent);
+                                        
+                                        MenuBackController controller=loader.getController();
+                                        controller.initDate(userxo);
+                                        
                                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                                         window.setScene(scene_Menu_Back);
                                         window.show();

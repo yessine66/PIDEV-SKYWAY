@@ -19,6 +19,7 @@ import javax.mail.internet.MimeMessage;
  *
  * @author Lenovo
  */
+
 public class MailSend {
 
     public  void sendMail(String from,String to,String Subject,String message)

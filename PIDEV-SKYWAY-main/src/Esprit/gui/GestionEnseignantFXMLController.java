@@ -23,8 +23,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -63,6 +65,8 @@ public class GestionEnseignantFXMLController implements Initializable {
     private TableColumn<Enseignant, String> tableColumnSpecialite;
     @FXML
     private Button buttonBack;
+    @FXML
+    private TextArea textAreaBio;
 
     /**
      * Initializes the controller class.
@@ -72,11 +76,11 @@ public class GestionEnseignantFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-      // AffichageEnseignant();
+       AffichageEnseignant();
     }    
 
     @FXML
-    private void handlebuttonModifierAction(ActionEvent event) {
+    private void handlebuttonModifierAction(ActionEvent event) throws IOException {
         /*
                  int  mIdp= Integer.parseInt(tidp.getText()) ;
                   String mNomp = tnomp.getText();
@@ -93,30 +97,51 @@ ResourceBundle rb = null;
         int idMod = Integer.parseInt(textFieldIdMod.getText());
         String specialteMod = textFieldSpecialiteMod.getText();
         String matierMod = textFieldMatiereMod.getText();
+        String bioMod = textAreaBio.getText();
         
-        Enseignant enseim = new Enseignant(matierMod, matierMod, specialteMod, idMod);
+        Enseignant enseim = new Enseignant(matierMod, bioMod, specialteMod, idMod);
         EnseignantCRUD enseiCerr = new EnseignantCRUD();
         enseiCerr.modifierUtilisateur(enseim);
-                AffichageEnseignant();
+     /*          AffichageEnseignant();
         URL url = null;
         ResourceBundle rb = null;
-        initialize(url,rb);
-        
+        initialize(url,rb);*/
+        URL url = null;
+ResourceBundle rb = null;
+                    initialize(url,rb);
+   
+                            Parent GestionEnseignantParent = FXMLLoader.load(getClass().getResource("GestionEnseignantFXML.fxml"));
+                    Scene GestionEnseignantScene = new Scene(GestionEnseignantParent);
+                    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    window.setScene(GestionEnseignantScene);
+                    window.show();
         
     }
 
     @FXML
-    private void handlebuttonSupprimerAction(ActionEvent event) {
+    private void handlebuttonSupprimerAction(ActionEvent event) throws IOException {
         
 
         int idsupp=Integer.parseInt(textFielIdDelete.getText());
         Utilisateur userx = new Utilisateur(idsupp);
         UtilisateurCRUD usercrud = new UtilisateurCRUD();
         usercrud.supprimerUtilisateur(userx);
+        
+        Enseignant enseix = new Enseignant(idsupp);
+        EnseignantCRUD enseigcrud = new EnseignantCRUD();
+        enseigcrud.supprimerUtilisateur(enseix);
+        
+        
         AffichageEnseignant();
         URL url = null;
         ResourceBundle rb = null;
         initialize(url,rb);
+        
+                                    Parent GestionEnseignantParent = FXMLLoader.load(getClass().getResource("GestionEnseignantFXML.fxml"));
+                    Scene GestionEnseignantScene = new Scene(GestionEnseignantParent);
+                    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    window.setScene(GestionEnseignantScene);
+                    window.show();
         
     }
 
@@ -131,6 +156,7 @@ ResourceBundle rb = null;
             window.show();
     }
     public void AffichageEnseignant(){
+        
         EnseignantCRUD enseix = new EnseignantCRUD();
         //ObservableList<Enseignant> listenseix =  (ObservableList<Enseignant>) enseix.afficherEnseignant();
         ObservableList<Enseignant> listenseix =   enseix.afficherEnseignant();
@@ -140,9 +166,12 @@ ResourceBundle rb = null;
        tableColumnMatiere.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("matier"));
        tableColumnBio.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("text"));
        tableColumnSpecialite.setCellValueFactory(new PropertyValueFactory<Enseignant, String>("specialite"));
-       
+       tableViewEnseig.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
        tableViewEnseig.setItems(listenseix);
-        
+
+       
+       
+        System.out.println("affichage ********** \n\n");
     }
     
     

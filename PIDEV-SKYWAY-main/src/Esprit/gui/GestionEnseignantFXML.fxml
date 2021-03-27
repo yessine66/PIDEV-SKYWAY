@@ -24,7 +24,7 @@
       <TextField fx:id="textFieldIdMod" layoutX="100.0" layoutY="104.0" promptText="ID du compte à modifier" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="844.0" />
       <TextField fx:id="textFieldMatiereMod" layoutX="103.0" layoutY="157.0" promptText="Matiere" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="844.0" />
       <TextField fx:id="textFieldSpecialiteMod" layoutX="101.0" layoutY="207.0" promptText="Specialite" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="844.0" />
-      <TextArea layoutX="304.0" layoutY="101.0" prefHeight="138.0" prefWidth="299.0" promptText="Bio" />
+      <TextArea fx:id="textAreaBio" layoutX="304.0" layoutY="101.0" prefHeight="138.0" prefWidth="299.0" promptText="Bio" />
       <Button fx:id="buttonModifier" layoutX="628.0" layoutY="139.0" mnemonicParsing="false" onAction="#handlebuttonModifierAction" text="Modifier" AnchorPane.leftAnchor="628.0">
          <font>
             <Font size="27.0" />
@@ -37,7 +37,7 @@
          </font>
       </Button>
       <Separator layoutX="800.0" layoutY="91.0" orientation="VERTICAL" prefHeight="146.0" prefWidth="6.0" style="-fx-background-color: yellow;" />
-      <TableView fx:id="tableViewEnseig" layoutX="42.0" layoutY="331.0" prefHeight="326.0" prefWidth="963.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0">
+      <TableView fx:id="tableViewEnseig" layoutX="42.0" layoutY="331.0" prefHeight="326.0" prefWidth="963.0" style="-fx-border-color: #e6b31e; -fx-border-width: 2px; -fx-background-radius: 15px; -fx-border-radius: 12px;" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0">
         <columns>
           <TableColumn fx:id="tableColumnId" prefWidth="93.66667175292969" text="ID" />
           <TableColumn fx:id="tableColumnMatiere" minWidth="0.0" prefWidth="152.66665649414062" text="Matiere" />
