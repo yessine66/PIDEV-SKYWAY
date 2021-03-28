@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="636.0" prefWidth="803.0" stylesheets="@../../styles/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.ThemeController">
+   <children>
+      <VBox layoutX="-2.0" layoutY="7.0" prefHeight="601.0" prefWidth="442.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="59.0" prefWidth="442.0">
+               <children>
+                  <Label text="Gérer théme " textAlignment="CENTER" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold" size="33.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="69.0" prefWidth="442.0">
+               <children>
+                  <TextField fx:id="nom" prefHeight="54.0" prefWidth="255.0" promptText="Titre">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </TextField>
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="39.0" prefWidth="442.0">
+               <children>
+                  <Label fx:id="erreurtitre" prefHeight="24.0" prefWidth="291.0" textFill="WHITE" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="116.0" prefWidth="442.0">
+               <children>
+                  <Button fx:id="imagee" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#importimage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #000000;" text="import image" textFill="WHITE" />
+                  <ImageView fx:id="importeimage" fitHeight="73.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="442.0">
+               <children>
+                  <Label fx:id="erreurimg" prefHeight="17.0" prefWidth="349.0" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="228.0" prefWidth="442.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="92.0" prefWidth="331.0">
+                     <children>
+                        <VBox prefHeight="76.0" prefWidth="30.0" />
+                        <Button mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #000000;" text="ajouter" textFill="WHITE" />
+                        <VBox prefHeight="76.0" prefWidth="44.0" />
+                        <Button mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="96.0" style="-fx-background-color: #000000;" text="modifier" textFill="WHITE" />
+                        <VBox prefHeight="76.0" prefWidth="55.0" />
+                        <Button mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="97.0" style="-fx-background-color: #000000;" text="supprimer" textFill="WHITE" />
+                     </children>
+                  </HBox>
+               </children></HBox>
+         </children>
+      </VBox>
+      <ListView fx:id="lvtheme" layoutX="411.0" layoutY="48.0" prefHeight="576.0" prefWidth="360.0" />
+      <Text fill="WHITE" layoutX="422.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des thémes ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
