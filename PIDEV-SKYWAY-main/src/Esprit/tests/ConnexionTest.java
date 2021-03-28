@@ -401,7 +401,7 @@ public class ConnexionTest {
                     String point = sc.nextLine();
                     int nbr_point=Integer.parseInt(point);
                     Questions q = new Questions(2,text_q,nbr_point);
-                    question.ajouterQuestion(q);
+                    question.ajouterQuestions(q);
                     System.out.println(q);
                     break;
                     
@@ -422,7 +422,7 @@ public class ConnexionTest {
                     System.out.println("***************** Veuillez saisir l'id Question a supprimer ***************** :");
                     int id_q1 = Integer.parseInt(sc.nextLine());
                     Questions quest = new Questions(id_q1);
-                    question.supprimerQuestion(quest);
+                    question.supprimerQuestions(quest);
                     break;
                     
                 case 4:
@@ -449,8 +449,8 @@ public class ConnexionTest {
                     int id_q2=Integer.parseInt(idq);
                     System.out.println("*****************Veuillez saisir la réponse*****************:");
                     String text_r = sc.nextLine();
-                    Reponses rep = new Reponses(2,text_r,id_q2);
-                    reponse.ajouterReponse(rep);
+              //      Reponses rep = new Reponses(2,text_r,id_q2);
+                  //  reponse.ajouterReponse(rep);
                     break;
   
                 case 2:
@@ -460,8 +460,8 @@ public class ConnexionTest {
                     int id_r = Integer.parseInt(sc.nextLine());
                     System.out.println("Veuillez saisir la Reponse apres modif :");
                     String reponsetext = sc.nextLine();
-                    Reponses repp = new Reponses(id_r,reponsetext,idq3);            
-                    reponse.modifierrep(repp);
+                 //   Reponses repp = new Reponses(id_r,reponsetext,idq3);            
+                 //   reponse.modifierrep(repp);
                     break;
   
                 case 3:

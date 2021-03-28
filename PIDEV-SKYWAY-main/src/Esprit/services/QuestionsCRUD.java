@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package Esprit.services;
-import Esprit.entities.Questions;
 import Esprit.Connection.MyConnection;
+import Esprit.entities.Questions;
+import Esprit.entities.theme;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 /**
@@ -33,14 +36,16 @@ public class QuestionsCRUD {
      *
      * @param q
      */
-    public void ajouterQuestion(Questions q){
-        String req ="INSERT INTO question (text_q,nbr_point)"+"values (?,?)";
+    public void ajouterQuestions(Questions q){
+        String req ="INSERT INTO question (text_q,nbr_point,name_t)"+"values (?,?,?)";
         try {
             ste = cnx.prepareStatement(req);
             ste.setString(1, q.getText_q());
             ste.setInt(2, q.getNbr_point());
+           // ste.setString(3, q.getId_t().getNom_t());
+            ste.setString(3,q.getName_t());
             ste.executeUpdate();
-            System.out.println("Question ajoutée");
+            System.out.println("Questions ajoutée");
             
         } catch (SQLException ex) {
             System.out.println("Probléme");
@@ -54,19 +59,18 @@ public class QuestionsCRUD {
 
         List<Questions> myList = new ArrayList<>();
         try {
-
+             Questions p= new Questions();
             Statement pst = cnx.createStatement();
 
             ResultSet rs = pst.executeQuery("SELECT * from question");
             while (rs.next()) {
 
                
-                int id_q = rs.getInt("id_q");
-                String text_q = rs.getString("text_q");
-                int nbr_point = rs.getInt("nbr_point");
+                p = FindQuestionsByName(rs.getString("text_q"));
+                
                                 
-                Questions p = new Questions(id_q, text_q, nbr_point);
-                p.setId_q(rs.getInt("id_q"));
+                
+               
                 myList.add(p);
 
             }
@@ -87,7 +91,7 @@ public class QuestionsCRUD {
             //Books books;
             Questions q;
             while(rs.next()){
-               q = new Questions (rs.getInt("id_q"),rs.getString("text_q"), rs.getInt("nbr_point"));
+               q = FindQuestionsByName(rs.getString("text_q"));
                QuestionsList.add(q);
             }
                 
@@ -137,7 +141,7 @@ public class QuestionsCRUD {
        
    
   }
-    public void modifierQuestion(int id_q, String object, Object obj) {
+    public void modifierQuestions(int id_q, String object, Object obj) {
         try {
             String requete = "UPDATE question SET ? = ? WHERE id_q = ?";
             PreparedStatement pst = cnx.prepareStatement(requete);
@@ -152,7 +156,7 @@ public class QuestionsCRUD {
             pst = cnx.prepareStatement(ch3);
             System.out.println(pst);
             pst.executeUpdate();
-            System.out.println("Question modifiée avec succées");
+            System.out.println("Questions modifiée avec succées");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -160,14 +164,14 @@ public class QuestionsCRUD {
     }
     
     
-       public void supprimerQuestion(Questions q) {
+       public void supprimerQuestions(Questions q) {
          try {
             String requete = "DELETE FROM question WHERE id_q=?";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(1, q.getId_q());
             pst.executeUpdate();
-            System.out.println("Question supprimée avec succées");
+            System.out.println("Questions supprimée avec succées");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -194,7 +198,67 @@ public class QuestionsCRUD {
 
            
 
+public int returningid(String question_name)
+    { 
+         String query = "SELECT * FROM question where text_q="+question_name;
+ int id_t=0;
+       try{
+                st = cnx.createStatement();
+            rs = st.executeQuery(query);
+            //Books books;
+           
+            while(rs.next()){
+                id_t=rs.getInt("id_q");
+              
+            }
+                
+        }catch(SQLException ex){
+        }
+   
+    return id_t;    
+    }
+    
+   
+public Questions FindQuestionsByName(String name) {
 
+        Questions q = new Questions();
+        try {
+
+            Statement pst = cnx.createStatement();
+
+            ResultSet rs = pst.executeQuery("SELECT * from question WHERE text_q='" + name + "'");
+             
+            while (rs.next()) {
+                
     
-    
+            
+            q.setId_q(rs.getInt("id_q"));
+            q.setText_q(rs.getString("text_q"));
+            q.setNbr_point(rs.getInt("nbr_point"));
+            q.setName_t(rs.getString("name_t"));
+            
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+       
+        return q;
+
+    }
+   public int FindQuestion()  {
+       int max=0;    
+       try {
+               Statement pst = cnx.createStatement();
+              ResultSet rs = pst.executeQuery("SELECT MAX(id_q) from question");
+               
+               
+               if (rs.next()) {
+                   max = rs.getInt(1);
+               }          } catch (SQLException ex) {
+               Logger.getLogger(QuestionsCRUD.class.getName()).log(Level.SEVERE, null, ex);
+           }
+   
+   return max+1;
+           
+   }
 }
