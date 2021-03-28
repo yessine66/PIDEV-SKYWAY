@@ -11,11 +11,37 @@ public class Questions  extends RecursiveTreeObject<Questions> implements Serial
    private int id_q;
     private String text_q;
     private int nbr_point;
+  
+    private String name_t;
+
+
+    public String getName_t() {
+        return name_t;
+    }
+
+    public void setName_t(String name_t) {
+        this.name_t = name_t;
+    }
     
 
 
     public Questions() {
     }
+
+    public Questions(int id_q, String text_q, int nbr_point, String name_t) {
+        this.id_q = id_q;
+        this.text_q = text_q;
+        this.nbr_point = nbr_point;
+        this.name_t = name_t;
+    }
+
+    public Questions(String text_q, int nbr_point, String name_t) {
+        this.text_q = text_q;
+        this.nbr_point = nbr_point;
+        this.name_t = name_t;
+    }
+
+    
 
     public Questions( int id_q,String text_q, int nbr_point) {
         this.id_q = id_q;
