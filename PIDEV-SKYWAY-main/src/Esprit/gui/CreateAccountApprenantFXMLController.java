@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -67,6 +68,8 @@ public class CreateAccountApprenantFXMLController implements Initializable {
     private TextField textFieldDateCreCompte;
     @FXML
     private Button buttonSubmit;
+    @FXML
+    private TextArea textAreaDescription;
 
     /**
      * Initializes the controller class.
@@ -114,7 +117,7 @@ public class CreateAccountApprenantFXMLController implements Initializable {
     @FXML
     private void handleButtonSubmitAction(ActionEvent event) {
         System.out.println("Submit button clicked");
-        
+        if(verificationTextField()){
                 UtilisateurCRUD userCRUD = new UtilisateurCRUD();
         ApprenantCRUD appCRUD = new ApprenantCRUD();
        // SELECT * FROM `utilisateur` WHERE id = (SELECT MAX(id) FROM `utilisateur`);
@@ -123,7 +126,16 @@ public class CreateAccountApprenantFXMLController implements Initializable {
         userCRUD.ajouterUtilisateur(loadAccountDate());
         
         Apprenant apprix = new Apprenant(iduserto, 1);
-        appCRUD.AffecterAdmin(apprix);
+        Apprenant apprixo = new Apprenant(iduserto, 1, textAreaDescription.getText());
+        appCRUD.AffecterAdmin(apprixo);
+        clearTextFields();}
+        else {
+                                  Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText("You can't submit");
+        alert.setContentText("missing data ");
+        alert.showAndWait();
+        }
     }
     
             private void loadGenre(){
@@ -136,5 +148,30 @@ public class CreateAccountApprenantFXMLController implements Initializable {
         choiveBoxGenre.setValue(autre);
 
     }
+            
+            void clearTextFields(){
+                textFieldNom.clear();
+                textFieldPrenom.clear();
+                textFieldMail.clear();
+                textFieldAge.clear();
+                textFieldTel.clear();
+                choiveBoxGenre.setValue("Autre");
+                textFieldDateNaissance.clear();
+                textFieldUsername.clear();
+                passwordFieldPassword.clear();
+                textFieldDateCreCompte.clear();
+                textAreaDescription.clear();  
+                
+            }
+            //           .getText().isEmpty()                                                             .getText().isEmpty()                                                                        .getText().isEmpty()                                                                                 .getText().isEmpty()                                                        .getText().isEmpty()                                                                                                            .getText().isEmpty()                                                                                                                                                                                            .getText().isEmpty()
+            boolean verificationTextField(){
+                boolean test=false;
+                 if(textFieldNom.getText().isEmpty()||textFieldPrenom.getText().isEmpty()||textFieldMail.getText().isEmpty()||textFieldDateNaissance.getText().isEmpty()||textFieldUsername.getText().isEmpty()||passwordFieldPassword.getText().isEmpty()||textFieldDateCreCompte.getText().isEmpty()||textAreaDescription.getText().isEmpty())
+                     test=false;
+                 else 
+                     test=true;
+                 return test;                    
+            }
+            
     
 }

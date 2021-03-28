@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -132,7 +133,7 @@ public class CreateAccountEnseignantFXMLController implements Initializable {
     private void handleButtonSubmitAction(ActionEvent event) {
         
                 System.out.println("submit button clicked");
-
+if(verificationTextField()){
                         UtilisateurCRUD userCRUD = new UtilisateurCRUD();
         EnseignantCRUD ensCRUD = new EnseignantCRUD();
        // SELECT * FROM `utilisateur` WHERE id = (SELECT MAX(id) FROM `utilisateur`);
@@ -148,6 +149,15 @@ public class CreateAccountEnseignantFXMLController implements Initializable {
                 ensi = new Enseignant(matiere, bio, specialite, 1, iduserto);
                 //ens = new Enseignant( matiere, bio, specialite, 1,idusertox);
                    ensCRUD.affecterEnseignant(ensi);
+                   clearTextFields();
+}
+else{
+                                      Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText("You can't submit");
+        alert.setContentText("missing data ");
+        alert.showAndWait();
+}
                    
         
     }
@@ -161,5 +171,31 @@ public class CreateAccountEnseignantFXMLController implements Initializable {
                     window.setScene(reateAccountScene);
                     window.show();
     }
+    
+                void clearTextFields(){
+                textFieldNom.clear();
+                textFieldPrenom.clear();
+                textFieldMail.clear();
+                textFieldAge.clear();
+                textFieldTel.clear();
+                choiceBocGenre.setValue("Autre");
+                textFieldDateNaiss.clear();
+                textFieldUsername.clear();
+                passwordFieldPassword.clear();
+                textFieldDateCreCompte.clear();
+                textFieldMatier.clear();  
+                textAreaBio.clear(); 
+                textFieldSpecialite.clear(); 
+                
+            }
+                
+            boolean verificationTextField(){
+                boolean test=false;
+                 if(textFieldNom.getText().isEmpty()||textFieldPrenom.getText().isEmpty()||textFieldMail.getText().isEmpty()||textFieldDateNaiss.getText().isEmpty()||textFieldUsername.getText().isEmpty()||passwordFieldPassword.getText().isEmpty()||textFieldDateCreCompte.getText().isEmpty()||textFieldMatier.getText().isEmpty()||textAreaBio.getText().isEmpty()||textFieldSpecialite.getText().isEmpty())
+                     test=false;
+                 else 
+                     test=true;
+                 return test;                    
+            }
     
 }

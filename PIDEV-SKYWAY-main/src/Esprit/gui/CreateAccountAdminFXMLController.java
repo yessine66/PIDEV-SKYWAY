@@ -30,6 +30,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 /**
@@ -117,7 +118,8 @@ public class CreateAccountAdminFXMLController implements Initializable {
     @FXML
     private void handleButtonSubmitAction(ActionEvent event) throws SQLException {
         System.out.println("submit button clicked");
-        UtilisateurCRUD userCRUD = new UtilisateurCRUD();
+        if(verificationTextField()){
+              UtilisateurCRUD userCRUD = new UtilisateurCRUD();
         AdminCRUD admCRUD = new AdminCRUD();
        // SELECT * FROM `utilisateur` WHERE id = (SELECT MAX(id) FROM `utilisateur`);
 
@@ -126,6 +128,15 @@ public class CreateAccountAdminFXMLController implements Initializable {
         userCRUD.ajouterUtilisateur(loadAccountDate());
         Admin admix = new Admin( iduserto,1);
         admCRUD.AffecterAdmin(admix);
+        }
+        else {
+                                              Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText("You can't submit");
+        alert.setContentText("missing data ");
+        alert.showAndWait();
+        }
+      
    
     }
 
@@ -139,6 +150,30 @@ public class CreateAccountAdminFXMLController implements Initializable {
                     window.show();
                     
     }
+    
+                    void clearTextFields(){
+                textFieldNom.clear();
+                textFieldPrenom.clear();
+                textFieldMail.clear();
+                textFieldAge.clear();
+                textFieldTel.clear();
+                choiceBoxGenre.setValue("Autre");
+                textFieldDateNaiss.clear();
+                textFieldUsername.clear();
+                passwordFieldPassword.clear();
+                textFieldDateCreCompte.clear();
+
+                
+            }
+                    
+            boolean verificationTextField(){
+                boolean test=false;
+                 if(textFieldNom.getText().isEmpty()||textFieldPrenom.getText().isEmpty()||textFieldMail.getText().isEmpty()||textFieldDateNaiss.getText().isEmpty()||textFieldUsername.getText().isEmpty()||passwordFieldPassword.getText().isEmpty()||textFieldDateCreCompte.getText().isEmpty())
+                     test=false;
+                 else 
+                     test=true;
+                 return test;                    
+            }
         
         
         

@@ -34,7 +34,7 @@ public class ApprenantCRUD {
 
  
                // String req = "INSERT INTO apprenant (id) values (SELECT id FROM utilisateur WHERE id =" +ap.getId()+");";
-                                String req = "INSERT INTO `apprenant` (`id`, `id_app`) VALUES ((SELECT id FROM utilisateur WHERE id =" +ap.getId()+"),NULL);";
+                                String req = "INSERT INTO `apprenant` (`id`, `id_app`,`description`) VALUES ((SELECT id FROM utilisateur WHERE id =" +ap.getId()+"),NULL,'"+ap.getDescripton()+"');";
         
 
         try {
@@ -48,5 +48,6 @@ public class ApprenantCRUD {
         }
 
     }
+     
     
 }

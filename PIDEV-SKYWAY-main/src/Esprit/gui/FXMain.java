@@ -54,7 +54,7 @@ public class FXMain extends Application {
                 System.out.println("Hello World!");
                 //el assel w be9i ta9lid
                // Parent rootx = FXMLLoader.load(FXMain.this.getClass().getResource("LoginFXML.fxml"));
-               Parent rootx = FXMLLoader.load(FXMain.this.getClass().getResource("GestionEnseignantFXML.fxml"));
+               Parent rootx = FXMLLoader.load(FXMain.this.getClass().getResource("LoginFXML.fxml"));
                 Scene loginScene = new Scene(rootx);
                 primaryStage.setScene(loginScene);
                 primaryStage.show();
