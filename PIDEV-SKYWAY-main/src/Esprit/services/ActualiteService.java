@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.services;
+package Esprit.Services;
 
 import Esprit.Connection.MyConnection;
-import Esprit.entities.Actualite;
+import Esprit.Entities.Actualite;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -21,20 +21,20 @@ import java.util.List;
  */
 public class ActualiteService {
 
-    private Statement ste;
-    private PreparedStatement pst;
-    private ResultSet rs;
-
-    private Connection cnx;
+    private static Statement ste;
+    private static PreparedStatement pst;
+    private static ResultSet rs;
+    private static Connection cnx;
 
     public ActualiteService() {
         cnx = MyConnection.getInstance().getConnection();
     }
 
     public void ajouterActualite(Actualite a) {
-        String req = "insert into actualite (titre_ac,description,image,id) values ('" 
+        String req = "insert into actualite (titre_ac,description,image,nom_ev,id) values ('" 
                 +a.getTitre_ac() +"','" 
                 +a.getDesc()+"','" 
+                +a.getNom_ev()+"','" 
                 +a.getImage_ac()+"',(SELECT id FROM utilisateur WHERE id =" 
                 +a.getUser()+"));";
 
@@ -49,7 +49,7 @@ public class ActualiteService {
         }
 
     }
-    public void supprimer(int id_ac) {
+    public void supprimer(int id_ac) throws SQLException {
         String req="DELETE FROM actualite WHERE actualite.id_ac = ? ;";
         try {
             pst = cnx.prepareStatement(req);
@@ -64,9 +64,8 @@ public class ActualiteService {
 
     }
     
-    public void editer(Actualite a) {
+    public void editer(Actualite a) throws SQLException {
         String req="select id_ac from actualite where id_ac= ? ;";
-        try{
         pst = cnx.prepareStatement(req);
         pst.setInt(1, a.getId_ac());
         ResultSet res = pst.executeQuery();
@@ -74,36 +73,39 @@ public class ActualiteService {
             String t = a.getTitre_ac();
             String d = a.getDesc();
             String i = a.getImage_ac();
+            String n = a.getNom_ev();
             int id=a.getUser();
             PreparedStatement ps1 = cnx.prepareStatement("update actualite set titre_ac= '" +
                     t + "' , description='" + 
                     d + "' , image= '" + 
-                    i + "', id=(SELECT id FROM utilisateur WHERE id =" + 
-                    id + " WHERE actualite.id_ac =" +
+                    i + "' , nom_ev= '" + 
+                    n + "', id=(SELECT id FROM utilisateur WHERE id =" + 
+                    id + " )WHERE actualite.id_ac =" +
                     a.getId_ac()+ ";");
             ps1.executeUpdate();
             System.out.println("Modifié avec succees");
-        }}catch(SQLException ex) {
+        } else {
             System.out.println("Actualite n'existe pas");
         }
     }
 
-    public List<Actualite> readAll() {
+    public ObservableList<Actualite> readAll() {
+       ObservableList<Actualite> list = FXCollections.observableArrayList();
         String req = "select * from actualite";
 
-        List<Actualite> list=new ArrayList<>();
         try {
             ste = cnx.createStatement();
            rs= ste.executeQuery(req);
            while(rs.next()){
-               list.add(new Actualite(rs.getInt("id_ac"), rs.getString("titre_ac"), rs.getString("description"), rs.getString("image"),rs.getInt("id")));
+               list.add(new Actualite(rs.getInt("id_ac"), rs.getString("titre_ac"), rs.getString("description"), rs.getString("image"),rs.getString("nom_ev"),rs.getInt("id")));
            }
 
         } catch (SQLException ex) {
             System.out.println("Probléme");
-            System.out.println(ex.getMessage());        }
+            System.out.println(ex.getMessage());
+        }
         return list;
     }
 
-
+    
 }
