@@ -3,25 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.entities;
+package Esprit.Entities;
+
 import java.sql.Date;
 
 /**
  *
- * @author safa
+ * @author khouja safa
  */
 public class Evenement {
     private int id_ev;
     private String nom_ev;
-    private String date_ev;
-    private int id_ac;
+    private Date date_ev;
+    private String espace;
+    private int nombre_pl;
+    private int id;
 
-    public int getId_ac() {
-        return id_ac;
+    
+
+    public int getId() {
+        return id;
     }
 
-    public void setId_ac(int id_ac) {
-        this.id_ac = id_ac;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId_ev() {
@@ -40,34 +45,66 @@ public class Evenement {
         this.nom_ev = nom_ev;
     }
 
-    public String getDate_ev() {
+    public Date getDate_ev() {
         return date_ev;
     }
 
-    public void setDate_ev(String date_ev) {
+    public void setDate_ev(Date date_ev) {
         this.date_ev = date_ev;
+    }
+
+    public String getEspace() {
+        return espace;
+    }
+
+    public void setEspace(String espace) {
+        this.espace = espace;
+    }
+
+    public int getNombre_pl() {
+        return nombre_pl;
+    }
+
+    public void setNombre_pl(int nombre_pl) {
+        this.nombre_pl = nombre_pl;
     }
 
     public Evenement() {
     }
 
-    public Evenement(int id_ev, String nom_ev, String date_ev, int id_ac) {
+    public Evenement(int id_ev, String nom_ev, Date date_ev, int id_ac) {
         this.id_ev = id_ev;
         this.nom_ev = nom_ev;
         this.date_ev = date_ev;
-        this.id_ac = id_ac;
+        this.id = id_ac;
     }
 
-    public Evenement( String nom_ev, String date_ev, int id_ac) {
+    public Evenement( String nom_ev, Date date_ev, int id) {
         this.nom_ev = nom_ev;
         this.date_ev = date_ev;
-        this.id_ac = id_ac;
+        this.id = id;
     }
     
-    public Evenement(int id_ev, String nom_ev, String date_ev) {
+    public Evenement(int id_ev, String nom_ev, Date date_ev) {
         this.id_ev = id_ev;
         this.nom_ev = nom_ev;
         this.date_ev = date_ev;
+    }
+
+    public Evenement(int id_ev, String nom_ev, Date date_ev, String espace, int nombre_pl, int id) {
+        this.id_ev = id_ev;
+        this.nom_ev = nom_ev;
+        this.date_ev = date_ev;
+        this.espace = espace;
+        this.nombre_pl = nombre_pl;
+        this.id = id;
+    }
+    public Evenement(String nom_ev, Date date_ev, String espace, int nombre_pl, int id) {
+        this.nom_ev = nom_ev;
+        this.date_ev = date_ev;
+        this.espace = espace;
+        this.nombre_pl = nombre_pl;
+        this.id = id;
     }
 
     @Override
@@ -90,8 +127,10 @@ public class Evenement {
 
     @Override
     public String toString() {
-        return "Evenement{" + "id_ev=" + id_ev + ", nom_ev=" + nom_ev + ", date_ev=" + date_ev + ", id_ac=" + id_ac + '}';
+        return "Evenement{" + "id_ev=" + id_ev + ", nom_ev=" + nom_ev + ", date_ev=" + date_ev + ", espace=" + espace + ", nombre_pl=" + nombre_pl + ", id_ac=" + id + '}';
     }
+
+    
     
     
 }
