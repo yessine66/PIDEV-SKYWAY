@@ -6,7 +6,7 @@
 package Esprit.Services;
 
 import Esprit.Connection.MyConnection;
-import Esprit.Entities.Actualite;
+import Esprit.entities.Actualite;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
