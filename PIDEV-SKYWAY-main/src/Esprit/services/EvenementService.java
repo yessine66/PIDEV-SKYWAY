@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.Services;
+package Esprit.services;
 
 import Esprit.Connection.MyConnection;
 import Esprit.entities.Evenement;
