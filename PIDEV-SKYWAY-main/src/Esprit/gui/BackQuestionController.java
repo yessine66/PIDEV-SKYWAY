@@ -101,35 +101,7 @@ public class BackQuestionController implements  Initializable {
         ReponsesCRUD rc = new ReponsesCRUD();
         showCombobox();
         captcha = setCaptcha();
-        
-  //*************** TreeTableView Questions & réponses
-     //Catégorie
-        
-  JFXTreeTableColumn<Questions, String> name_t = new JFXTreeTableColumn<>("Catégorie");
-        name_t.setPrefWidth(150);
-        name_t.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Questions, String>, ObservableValue<String>>(){
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Questions, String> param) {
-                return new SimpleStringProperty(param.getValue().getValue().getName_t());
-            }
-        });
-                 name_t.setCellFactory((TreeTableColumn<Questions, String> param) -> {
-            return new GenericEditableTreeTableCell<>(
-                    new TextFieldEditorBuilder());
-        });
-        //setting the new value for editable text_q text field
-        name_t.setOnEditCommit((TreeTableColumn.CellEditEvent<Questions, String> t) -> {
-            int idd = t.getTreeTableView().getTreeItem(t.getTreeTablePosition().getRow()).getValue().getId_q();
-            String newValue = t.getNewValue();
-
-            t.getTreeTableView()
-                    .getTreeItem(t.getTreeTablePosition()
-                            .getRow())
-                    .getValue().setName_t(t.getNewValue());
-            qc.modifierQuestions(idd, "name_t", newValue);
-        });
-
-      
+          
         //***********************************
          JFXTreeTableColumn<Questions, String> text_q = new JFXTreeTableColumn<>("Question");
         text_q.setPrefWidth(150);
@@ -154,6 +126,62 @@ public class BackQuestionController implements  Initializable {
                     .getValue().setText_q(t.getNewValue());
             qc.modifierQuestions(idd, "text_q", newValue);
         });
+        //***********************************
+
+
+// nbr_point table view
+        JFXTreeTableColumn<Questions, String> nbr_point = new JFXTreeTableColumn<>("Score");
+        nbr_point.setPrefWidth(150);
+        nbr_point.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Questions, String>, ObservableValue<String>>(){
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Questions, String> param) {
+                return new SimpleStringProperty(Integer.toString(param.getValue().getValue().getNbr_point()));
+            }
+        });
+        
+        nbr_point.setCellFactory((TreeTableColumn<Questions, String> param) -> {
+            return new GenericEditableTreeTableCell<>(
+                    new TextFieldEditorBuilder());
+        });
+        //setting the new value for editable nbr_point text field
+        nbr_point.setOnEditCommit((TreeTableColumn.CellEditEvent<Questions, String> t) -> {
+            int idd = t.getTreeTableView().getTreeItem(t.getTreeTablePosition().getRow()).getValue().getId_q();
+            String newValue = t.getNewValue();
+
+            t.getTreeTableView()
+                    .getTreeItem(t.getTreeTablePosition()
+                            .getRow())
+                    .getValue().setNbr_point(Integer.parseInt(t.getNewValue()));
+            qc.modifierQuestions(idd, "nbr_point", newValue);
+        });
+  //*************** TreeTableView Questions & réponses
+     //Catégorie
+        
+  JFXTreeTableColumn<Questions, String> name_t = new JFXTreeTableColumn<>("theme");
+        name_t.setPrefWidth(150);
+        name_t.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Questions, String>, ObservableValue<String>>(){
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Questions, String> param) {
+                return new SimpleStringProperty(param.getValue().getValue().getName_t());
+            }
+        });
+                 name_t.setCellFactory((TreeTableColumn<Questions, String> param) -> {
+            return new GenericEditableTreeTableCell<>(
+                    new TextFieldEditorBuilder());
+        });
+        //setting the new value for editable text_q text field
+        name_t.setOnEditCommit((TreeTableColumn.CellEditEvent<Questions, String> t) -> {
+            int idd = t.getTreeTableView().getTreeItem(t.getTreeTablePosition().getRow()).getValue().getId_q();
+            String newValue = t.getNewValue();
+
+            t.getTreeTableView()
+                    .getTreeItem(t.getTreeTablePosition()
+                            .getRow())
+                    .getValue().setName_t(t.getNewValue());
+            qc.modifierQuestions(idd, "name_t", newValue);
+        });
+
+    
        //*****************************************************************
        JFXTreeTableColumn<Reponses, String> text_r1 = new JFXTreeTableColumn<>("Bonne réponse");
         text_r1.setPrefWidth(150);
@@ -262,34 +290,7 @@ public class BackQuestionController implements  Initializable {
         });
 
       
-        //***********************************
-
-
-// nbr_point table view
-        JFXTreeTableColumn<Questions, String> nbr_point = new JFXTreeTableColumn<>("Score");
-        nbr_point.setPrefWidth(150);
-        nbr_point.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Questions, String>, ObservableValue<String>>(){
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Questions, String> param) {
-                return new SimpleStringProperty(Integer.toString(param.getValue().getValue().getNbr_point()));
-            }
-        });
-        
-        nbr_point.setCellFactory((TreeTableColumn<Questions, String> param) -> {
-            return new GenericEditableTreeTableCell<>(
-                    new TextFieldEditorBuilder());
-        });
-        //setting the new value for editable nbr_point text field
-        nbr_point.setOnEditCommit((TreeTableColumn.CellEditEvent<Questions, String> t) -> {
-            int idd = t.getTreeTableView().getTreeItem(t.getTreeTablePosition().getRow()).getValue().getId_q();
-            String newValue = t.getNewValue();
-
-            t.getTreeTableView()
-                    .getTreeItem(t.getTreeTablePosition()
-                            .getRow())
-                    .getValue().setNbr_point(Integer.parseInt(t.getNewValue()));
-            qc.modifierQuestions(idd, "nbr_point", newValue);
-        });
+    
           
         List<Questions> myLst;
         myLst = qc.QuestionssListt();
@@ -305,7 +306,7 @@ List<Reponses> myLst2;
         JFXTreeTableView<Reponses> treevieww = new JFXTreeTableView<>();
         final TreeItem<Reponses> roott = new RecursiveTreeItem<Reponses>(Reponsess, RecursiveTreeObject::getChildren);
 
-        treeview.getColumns().setAll(name_t, text_q,nbr_point);
+        treeview.getColumns().setAll(text_q,nbr_point,name_t);
         treeview.setRoot(root);
         treeview.setShowRoot(false);
         treeview.setEditable(true);
