@@ -16,8 +16,16 @@ public class Actualite {
     private String titre_ac;
     private String desc;
     private String image_ac;
-    private int evenement;
+    private String nom_ev;
     private int user;
+
+    public Actualite(int id_ac, String titre_ac, String desc, String image_ac, int user) {
+        this.id_ac = id_ac;
+        this.titre_ac = titre_ac;
+        this.desc = desc;
+        this.image_ac = image_ac;
+        this.user = user;
+    }
 
     public int getId_ac() {
         return id_ac;
@@ -51,12 +59,12 @@ public class Actualite {
         this.image_ac = image_ac;
     }
 
-    public int getEvenement() {
-        return evenement;
+    public String getNom_ev() {
+        return nom_ev;
     }
 
-    public void setEvenement(int evenement) {
-        this.evenement = evenement;
+    public void setNom_ev(String nom_ev) {
+        this.nom_ev = nom_ev;
     }
 
     public int getUser() {
@@ -90,20 +98,19 @@ public class Actualite {
         this.image_ac = image_ac;
         this.user = user;
     }
-    public Actualite(int id_ac, String titre_ac, String desc, String image_ac, int user) {
-        this.id_ac = id_ac;
+    public Actualite(String titre_ac, String desc, String image_ac, String evenement,int user) {
         this.titre_ac = titre_ac;
         this.desc = desc;
         this.image_ac = image_ac;
         this.user = user;
     }
 
-    public Actualite(int id_ac, String titre_ac, String desc, String image_ac, int evenement,int user) {
+    public Actualite(int id_ac, String titre_ac, String desc, String image_ac, String evenement,int user) {
         this.id_ac = id_ac;
         this.titre_ac = titre_ac;
         this.desc = desc;
         this.image_ac = image_ac;
-        this.evenement= evenement;
+        this.nom_ev= evenement;
         this.user = user;
     }
 
@@ -111,8 +118,8 @@ public class Actualite {
     public String toString() {
         return  titre_ac + " : " +
                 desc + " " +
-                image_ac + /*", evenement=" +
-                evenement +*/ '}';
+                image_ac + /*", nom_ev=" +
+                nom_ev +*/ '}';
     }
 
 
