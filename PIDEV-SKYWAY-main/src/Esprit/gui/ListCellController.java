@@ -5,7 +5,7 @@
  */
 package Esprit.GUI;
 
-import Esprit.Entities.Actualite;
+import Esprit.entities.Actualite;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
