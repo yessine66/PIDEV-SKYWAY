@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.Services;
+package Esprit.services;
 
 import Esprit.Connection.MyConnection;
-import Esprit.Entities.Evenement;
+import Esprit.entities.Evenement;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
