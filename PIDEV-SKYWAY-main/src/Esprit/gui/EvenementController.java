@@ -5,9 +5,9 @@
  */
 package Esprit.GUI;
 
-import Esprit.Entities.Evenement;
-import Esprit.Services.ActualiteService;
-import Esprit.Services.EvenementService;
+import Esprit.entities.Evenement;
+import Esprit.services.ActualiteService;
+import Esprit.services.EvenementService;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;

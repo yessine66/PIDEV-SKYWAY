@@ -347,8 +347,8 @@ public class ConnexionTest {
                         System.out.println("Veuillez saisir l'id de l'actualité :");
                         int ida = Integer.parseInt(sc.nextLine());
                         
-                        Evenement e1 = new Evenement(eve,dat,ida);
-                        ev.ajouterEvenement(e1);
+                      //  Evenement e1 = new Evenement(eve,dat,ida);
+                     //   ev.ajouterEvenement(e1);
                         break;
                     }
                     case 2:
@@ -368,8 +368,8 @@ public class ConnexionTest {
                         String dat = sc.nextLine();
                         System.out.println("Veuillez saisir l'id de l'acctualite qui correspond :");
                         int ida = Integer.parseInt(sc.nextLine());
-                        Evenement e2 = new Evenement(ide,eve,dat,ida);
-                        ev.editer(e2);
+                       // Evenement e2 = new Evenement(ide,eve,dat,ida);
+                        //ev.editer(e2);
                         break;
                     }
                     case 4:
