@@ -70,8 +70,8 @@ public class NotifGagnantController implements Initializable {
                  String org = "";
                  qrrcode();
                
-                  String str =  "bouuu";
-                  String path = "C:\\Users\\Lenovo\\Downloads\\qrrrrrrr\\crashtest-ArtBox-main\\src\\ArtHub\\images\\QR code\\EventTicket"+str+".png";
+                  String str =  "h";
+                  String path = "C:\\Users\\Lenovo\\Desktop\\backupnotifouta\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\taw"+str+".png";
                   System.out.println("1"+path);
                 // Image img6 = new Image(new FileInputStream(pat));
                 Image img = new Image(new FileInputStream(path));
@@ -108,27 +108,32 @@ public class NotifGagnantController implements Initializable {
     public void qrrcode() throws IOException {
 
        System.out.println("TICKTICK  qrr into "); 
-       String str =  "bouuu";
-       String content = "Ticket code: " +"ggg"  + "\n" + "User Full Name: " + "ggg" + "\n" +"Event name: " +"gggg" + "\n" + "Event date: " +"gggg"  + "\n";
+       String str =  "h";
+       String content = "Ticket code: " +"jjjjjjjj"  + "\n" + "User Full Name: " + "iiiiiii" + "\n" +"Event name: " +"viiiiii" + "\n" + "Event date: " +"fffffff"  + "\n";
           
         
         try {
          String imageFormat = "png";
             System.out.println("TICKTICK  qrr into "); 
-            String outputFileName = "C:\\Users\\Lenovo\\Downloads\\qrrrrrrr\\crashtest-ArtBox-main\\src\\ArtHub\\images\\QR code\\EventTicket"+str+"." + imageFormat;
+            String outputFileName = "C:\\Users\\Lenovo\\Desktop\\backupnotifouta\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\taw"+str+"." + imageFormat;
             BitMatrix matrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, 500, 500);
+            System.out.println("\n\n\n\n\ntestnotiiiiffff");
                System.out.println(outputFileName); 
-            //MatrixToImageWriter.writeToPath(matrix, imageFormat, Paths.get(outputFileName));
+               System.out.println("\n\n\n\n\ntestnotiiiiffff");
+               
+               
+        
+      MatrixToImageWriter.writeToPath(matrix, imageFormat, Paths.get(outputFileName));
           //MatrixToImageWriter.writeToPath(matrix, imageFormat, Paths.get(outputFileName));
             //MatrixToImageWriter.writeToPath
                //System.out.println("TICKTICK  qrr into "); 
        // MatrixToImageWriter.
         
            //  MatrixToImageWriter.writeToPath
-        } catch (WriterException ex) {
-            Logger.getLogger(NotifGagnantController.class.getName()).log(Level.SEVERE, null, ex);
+ } catch (WriterException ex) {
+            Logger.getLogger(EventTicketController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("tttttttttt\n\nttttttttttt");
         }
-    
     
 }
 
