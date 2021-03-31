@@ -5,10 +5,57 @@
  */
 package Esprit.services;
 
+import Esprit.Connection.MyConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author User-DELL
  */
 public class testCRUD {
+     private final Connection cnx;
+    private PreparedStatement ste;
+      Statement st;
+     ResultSet rs;
+     public testCRUD (int id_q){
+        cnx = MyConnection.getInstance().getConnection();
+}
+      public ObservableList<String> justanswer() throws SQLException 
+     
+           { 
+           ObservableList<String> randomList = FXCollections.observableArrayList();
+        
+      String query = "SELECT text_r1, text_r2, text_r3, text_r4 FROM reponse  ORDER BY rand() where id_q=id_q";
+              try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+         String par;
+            while(rs.next()){
+               par = rs.getString("text_r");
+            
+               randomList.addAll(par);
+             
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return randomList;
+    }
+ 
+    
+    
+    
+    
+    
+    
+    
     
 }
