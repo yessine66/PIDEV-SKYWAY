@@ -1,0 +1,165 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    .root {
+    -fx-background-color: aquamarine;
+   -fx-background-color:#949494;
+}
+
+#winnertext {
+    -fx-font: 40px Tahoma;
+    -fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #ff00ff 0%, GREEN 50%);
+    -fx-stroke: YELLOW;
+    -fx-stroke-width: 1;
+}
+
+.arrowStyleUp {
+	-fx-stroke: #ff7e79;
+	-fx-fill: #ff7e79;
+    -fx-stroke-width: 1px;
+}
+
+.arrowStyleDown {
+	-fx-stroke: #ff2600;
+	-fx-fill: #ff2600;
+    -fx-stroke-width: 1px;
+}
+
+.arrow-text {
+	-fx-fill: RED;
+	-fx-font-family: Verdana;
+    -fx-font-weight: bold;
+    -fx-font-size: 22;	
+}
+
+.rectangle {
+	-fx-stroke: RED;
+	-fx-fill: TRANSPARENT;
+	-fx-stroke-width: 5;
+	-fx-arc-width: 30;
+	-fx-arc-height: 30;
+}
+.button,supprimer{
+     -fx-font: 16px "Serif";
+    -fx-padding: 10;
+    -fx-background-color: #CCFF99;
+}
+.pListView> .virtual-flow > .scroll-bar,
+.pListView> .virtual-flow > .scroll-bar .decrement-arrow,
+.pListView> .virtual-flow > .scroll-bar .increment-arrow,
+.pListView> .virtual-flow > .scroll-bar .decrement-button,
+.pListView> .virtual-flow > .scroll-bar .increment-button {
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}
+ 
+.pListView.pretty-scroll-bar:vertical .thumb {
+    -fx-background-insets: 0 2 0 0;
+}
+ 
+.pListView.pretty-scroll-bar:horizontal .thumb {
+    -fx-background-insets: 0 0 2 0;
+}
+ 
+.pListView.pretty-scroll-bar .decrement-arrow,
+.pListView.pretty-scroll-bar .increment-arrow {
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}
+ 
+.pListView.pretty-scroll-bar {
+    -fx-background-color: transparent;
+    -fx-pref-width: 12;
+    -fx-pref-height: 12;
+    -fx-padding: 2;
+}
+ 
+.pListView.pretty-scroll-bar .thumb {
+    -fx-background-color: rgba(0, 0, 0, .2);
+    -fx-background-radius: 1000;
+    -fx-pref-width: 12;
+    -fx-pref-height: 12;
+}
+.button
+{
+-fx-background-color : #F3F3F3;
+}
+.button:hover
+{
+-fx-background-color : #A1C1F4 ;
+}
+.button:pressed
+{
+-fx-background-color : #73A3EF ;
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-cell-size : 20;
+    -fx-background-color:   #2D75E8;
+}
+.table-view .column-header .label{
+
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+   -fx-alignment: CENTER_LEFT;
+}
+.table-view .cell{
+   -fx-cell-size: 30;
+  -fx-alignment: center-left;
+  -fx-text-fill: #000000;
+  -fx-alignment: CENTER_LEFT;
+}
+
+.table-row-cell:selected {
+    -fx-background-color:  rgb(127, 172, 243);
+ }
+ .table-row-cell:selected .text {
+        -fx-fill : white ;
+ 
+ }
+/* scroll bar starts here */
+
+/* The increment and decrement button CSS class of scrollbar */
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color:transparent;
+	-fx-background-radius: 2em;
+
+}
+
+/* The main scrollbar **track** CSS class  */
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+	-fx-background-color: transparent;
+	-fx-border-color:derive(  #2D75E8,80%);
+	-fx-background-radius: 2em;
+	-fx-border-radius:2em;
+}
+
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:derive( #2D75E8,90%);
+	-fx-background-insets: 2, 0, 0;
+	-fx-background-radius: 2em;
+
+}
+
+/* chart properties */
+
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.chart-pie {
+    -fx-border-color: derive(-fx-pie-color, 1%);
+    -fx-border-width: 0px;
+}
+}

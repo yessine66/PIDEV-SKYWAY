@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="566.0" prefWidth="897.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Esprit.gui.NotifGagnantController">
+   <children>
+      <ImageView fx:id="event_img" fitHeight="234.0" fitWidth="346.0" layoutX="14.0" layoutY="70.0" pickOnBounds="true" />
+      <ImageView fx:id="QR" fitHeight="270.0" fitWidth="346.0" layoutX="460.0" layoutY="283.0" pickOnBounds="true" />
+      <Label fx:id="name" alignment="TOP_LEFT" layoutX="368.0" layoutY="42.0" prefHeight="132.0" prefWidth="516.0" text="name" textFill="#11042e" wrapText="true">
+         <font>
+            <Font name="Ink Free" size="72.0" />
+         </font>
+      </Label>
+      <Label fx:id="date" layoutX="407.0" layoutY="193.0" onMouseClicked="#FindThem" prefHeight="31.0" prefWidth="136.0" text="date" textFill="#11042e">
+         <font>
+            <Font name="Cambria Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="location" layoutX="407.0" layoutY="225.0" prefHeight="30.0" prefWidth="136.0" text="location" textFill="#11042e">
+         <font>
+            <Font name="Cambria Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="username" layoutX="493.0" layoutY="160.0" prefHeight="29.0" prefWidth="226.0" text="username" textFill="#11042e">
+         <font>
+            <Font name="Cambria Bold" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="365.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/qrrrrrrr/crashtest-ArtBox-main/src/ArtHub/images/calendar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="QR_code" fitHeight="31.0" fitWidth="30.0" layoutX="365.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/qrrrrrrr/crashtest-ArtBox-main/src/ArtHub/images/location.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

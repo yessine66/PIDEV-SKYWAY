@@ -66,6 +66,6 @@ anchorprojection.getChildren().setAll(root);
 
     @FXML
     private void btnJouer(ActionEvent event) {
-                LoadPage("GagnantPromotion");
+                LoadPage("gagnerPromotion");
     }
 }
