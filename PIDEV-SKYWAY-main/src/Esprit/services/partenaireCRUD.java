@@ -194,7 +194,80 @@ public class partenaireCRUD {
     }
  
   
+       public ObservableList<String> emails() {
+        ObservableList<String> emails = FXCollections.observableArrayList();
+		//emails.add("nourhelali799@gmail.com");
+		//emails.add("smart.kindergarten0@gmail.com");
+                  System.out.println("Liste avant le mélange : "+emails);
+                 String query = "SELECT mail FROM utilisateur where role='apprenant' ORDER BY rand() LIMIT 3 ";
+
+       try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+         String par;
+            while(rs.next()){
+               par = rs.getString("mail");
+             emails.add(par);
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+      
+        //System.out.println("Liste avant le mélange : "+emails);
+ 
+      // Random rand = new Random();
+   
+
+        //Collections.shuffle(emails);
+
+  
+        System.out.println("Liste des mails a envoyer dans le mail apres melange fonction 1 emails"+emails);
+		
+            //.collect(Collectors.toObservableList());	 
+            return emails;	
+    }
        
+         public ObservableList<String> randomProm() {
+            
+            
+     ObservableList<String> randomProm = FXCollections.observableArrayList();
+                 //String query = "SELECT nom_p FROM promotion  ORDER BY rand() LIMIT 2 ";
+                  String query = "SELECT * FROM promotion  ORDER BY rand() LIMIT 1 ";
+                 
+
+       try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+        // String par;
+         String par1;
+           String par2;
+                String par3;
+                 String par4;
+         String yes;
+              String yes1;
+            while(rs.next()){
+                par2 = rs.getString("reduction");
+                                par3 = rs.getString("nom_p");
+                                  par4 = rs.getString("dateF");
+               //par = rs.getString("id_prom");
+                par1 = rs.getString("code_p");
+                yes="Une reduction de"+" "+par2+"%"+"chez notre partenaire"+" "+par3+"\n Depechez vous et profitez de ce cadeau avant le"+""+par4+"\n voila votre code promo"+""+par1+"\n\n\n";
+                //yes1="Une reduction de"+"   "+par2+"%"+"chez notre partenaire"+"   "+par3+"  "+"valide jusqu'a"+"   "+par4+"\n votre code promo"+"   "+par1+"\n\n\n";
+             randomProm.add(yes);
+             
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+  
+        System.out.println("Liste des promotions a envoyer dans le mail apres melange fonction 1 randomprom   : "+randomProm);
+            return randomProm;	
+    }
+         
        
        
        
