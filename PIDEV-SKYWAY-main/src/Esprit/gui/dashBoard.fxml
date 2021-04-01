@@ -61,7 +61,7 @@
                   </Button>
                   <Button fx:id="btnEvenements" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Evenements" textFill="#14556d" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
                      <graphic>
-                        <FontAwesomeIconView fill="#14556d" glyphName="BULLHORN" size="50" textAlignment="CENTER" />
+                        <FontAwesomeIconView fill="#14556d" glyphName="CALENDAR_CHECK_ALT" size="50" textAlignment="CENTER" />
                      </graphic>
                      <font>
                         <Font name="System Bold" size="18.0" />
