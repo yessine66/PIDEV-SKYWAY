@@ -201,6 +201,25 @@ public class UtilisateurCRUD {
          }
          return null;
     }
+       
+       
+           public String loadPasswordBase(String mailo) throws SQLException {
+        try {
+            PreparedStatement ps = cnx.prepareStatement("SELECT password FROM utilisateur WHERE mail =?");
+            ps.setString(1, mailo);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+
+                return rs.getString("password");
+
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            System.out.println("password non recuperer!");
+        }
+        return null;
+    }
  
      
      
