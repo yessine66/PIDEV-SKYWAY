@@ -25,7 +25,7 @@ import javax.activation.DataSource;
 
 /**
  *
- * @author asus
+ * @author simop
  */
 public class ServiceCours implements Iservice<cours> {
     private  Connection con;
@@ -33,15 +33,16 @@ public class ServiceCours implements Iservice<cours> {
     private PreparedStatement pre;
     
      public ServiceCours(){
-con = MyConnection.getInstance().getConnection();    }
+    con = MyConnection.getInstance().getConnection();
+    }
 
     @Override
     public void ajouter(cours t) throws SQLException {
-    pre=con.prepareStatement("INSERT INTO `skyway`.`cours` ( `nom_c`, `numero`, `description`, `duree`, `image`, `id_t` ) VALUES ( ?, ?, ?, ?, ?, ?);");
+    pre=con.prepareStatement("INSERT INTO `skyway`.`cours` ( `nom_c`, `pdf`, `description`, `nbparticipant`, `image`, `id_t` ) VALUES ( ?, ?, ?, ?, ?, ?);");
     pre.setString(1, t.getNom_c());
-    pre.setInt(2, t.getNumero());
+    pre.setString(2, t.getPdf());
     pre.setString(3, t.getDescription());
-    pre.setInt(4, t.getDuree());
+    pre.setInt(4, t.getNbparticipant());
     pre.setString(5, t.getImage());
     pre.setInt(6, t.getId_t());
     
@@ -90,12 +91,12 @@ con = MyConnection.getInstance().getConnection();    }
     public boolean update(cours t, int id_c) throws SQLException {
          if(chercher(id_c)){
        
-    pre=con.prepareStatement("UPDATE cours SET  nom_c =?,numero =?,description =?,duree =?,image =? , id_t =? WHERE id_c = ?");
+    pre=con.prepareStatement("UPDATE cours SET  nom_c =?,pdf =?,description =?,nbparticipant =?,image =? , id_t =? WHERE id_c = ?");
          
     pre.setString(1, t.getNom_c());
-    pre.setInt(2, t.getNumero());
+    pre.setString(2, t.getPdf());
     pre.setString(3, t.getDescription());
-    pre.setInt(4, t.getDuree());
+    pre.setInt(4, t.getNbparticipant());
     pre.setString(5, t.getImage());
     pre.setInt(6, t.getId_t());
     pre.setInt(7, id_c);
@@ -108,9 +109,9 @@ con = MyConnection.getInstance().getConnection();    }
     }
 
     @Override
-    public List<cours> readAll() throws SQLException {
+    public ObservableList<cours> readAll() {
         String req="select * from cours  ";
-        List<cours> list = new ArrayList<>();
+        ObservableList<cours> list = FXCollections.observableArrayList();
         
         try {
             ste=con.createStatement();
@@ -123,7 +124,7 @@ con = MyConnection.getInstance().getConnection();    }
                 v.setFitHeight(100);
                
                 //ystem.out.println(v.getImage().toString());
-                cours c2=new cours(rs.getInt(1),rs.getString(2),rs.getInt(3), rs.getString(4),rs.getInt(5),rs.getString(6),rs.getInt(7));
+                cours c2=new cours(rs.getInt(1),rs.getString(2),rs.getString(3), rs.getString(4),rs.getInt(5),rs.getString(6),rs.getInt(7));
                 
                 c2.setPhoto(v);
                 list.add(c2);
@@ -183,5 +184,26 @@ con = MyConnection.getInstance().getConnection();    }
         
     }
     
+     public String getName_cat(int id_cat){
+        
+               
+        String query = "SELECT nom_categorie FROM categorie where id_categorie = '" + id_cat + "';";
+        String name_cat_test = null;
+        try{
+            ste = con.createStatement();
+            ResultSet rs = ste.executeQuery(query);
+           
+            while(rs.next()){
+              
+               name_cat_test = rs.getString("nom_categorie");
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+        return name_cat_test;
+        
+    }
     
 }

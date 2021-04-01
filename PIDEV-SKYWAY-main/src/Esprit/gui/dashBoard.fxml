@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.DashBoardController">
+   <children>
+      <BorderPane prefHeight="700.0" prefWidth="900.0">
+         <top>
+            <AnchorPane prefHeight="114.0" prefWidth="900.0" style="-fx-background-color: #14556d;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="54.0" layoutY="24.0" prefHeight="67.0" prefWidth="144.0" text="SkyWay" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnCours" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Cours" textFill="#14556d" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="548.0" AnchorPane.topAnchor="100.0">
+                     <graphic>
+                        <FontAwesomeIconView fill="#14556d" glyphName="BOOK" size="50" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnTests" layoutX="299.0" layoutY="100.0" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Tests" textFill="#14556d">
+                     <graphic>
+                        <FontAwesomeIconView fill="#14556d" glyphName="PENCIL_SQUARE_ALT" size="50" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnReclamations" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Reclamations" textFill="#14556d" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="300.0">
+                     <graphic>
+                        <FontAwesomeIconView fill="#14556d" glyphName="WECHAT" size="50" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnPartenaires" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Partenaires" textFill="#14556d" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="439.0" AnchorPane.topAnchor="300.0">
+                     <graphic>
+                        <FontAwesomeIconView fill="#14556d" glyphName="USERS" size="50" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnEvenements" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Evenements" textFill="#14556d" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
+                     <graphic>
+                        <FontAwesomeIconView fill="#14556d" glyphName="CALENDAR_CHECK_ALT" size="50" textAlignment="CENTER" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </center>
+         <right>
+            <AnchorPane prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -10,6 +10,7 @@ import Esprit.entities.partenaire;
 
 import Esprit.services.partenaireCRUD;
 import Esprit.Connection.MyConnection;
+import Esprit.entities.Actualite;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -61,8 +62,19 @@ import javafx.util.Duration;
 
 //import Esprit.gui.LotteryWheel;
 import java.awt.event.MouseEvent;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 
 
 
@@ -106,14 +118,37 @@ public class AjouterPartenaireController implements Initializable {
     @FXML
     private Button btnsearch;
 int index =-1;
+    @FXML
+    private Button imagee;
+    @FXML
+    private ImageView importeimage;
+    @FXML
+    private TextField tmail;
+     String img="";
+      List<String> type;
+    @FXML
+    private TableColumn<partenaire, String> colMail;
+    @FXML
+    private TableColumn<partenaire, String> colImage;
+    @FXML
+    private ListView<partenaire> listViewPart;
+    @FXML
+    private Button btnActionUpdate;
+      private partenaire ac = null ;
+    @FXML
+    private AnchorPane ok;
+        
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+   type =new ArrayList();
+          type.add("*.jpg");
+          type.add("*.png");
         showPartenaire();
            searchPart();
+           
     }    
     
     
@@ -121,18 +156,32 @@ int index =-1;
  
    
     public void showPartenaire(){
+        /*
+          ActualiteService act = new ActualiteService();
+        ObservableList<Actualite> list =  act.readAll();
+        
+        ListAct.setItems(list);
+        ListAct.setCellFactory((ListView<Actualite> ListView) -> new ListCellController());
+        showCombo();
+        
+        
+        */
       
         partenaireCRUD parc = new partenaireCRUD();
             //parc.partenaireList();
         ObservableList<partenaire> list =  parc.partenaireList();
         
-        colIdpar.setCellValueFactory(new PropertyValueFactory<partenaire, Integer>("id_p"));
+        /*colIdpar.setCellValueFactory(new PropertyValueFactory<partenaire, Integer>("id_p"));
         colNompar.setCellValueFactory(new PropertyValueFactory<partenaire, String>("nom_p"));
         colDomainepar.setCellValueFactory(new PropertyValueFactory<partenaire, String>("domaine"));
         colDatee.setCellValueFactory(new PropertyValueFactory<partenaire, String>("date_p"));
         
-        tvPar.setItems(list);
-        //listViewPart.setItems(list);
+      
+        colMail.setCellValueFactory(new PropertyValueFactory<partenaire,String>("mailP"));
+          //colImage.setCellValueFactory(new PropertyValueFactory<partenaire,String>("logoP"));*/
+        //tvPar.setItems(list);
+       listViewPart.setItems(list);
+    listViewPart.setCellFactory((ListView<partenaire> ListView) -> new ListCellPartController());
          searchPart();
     }
    
@@ -261,7 +310,7 @@ int index =-1;
         colNompar.setCellValueFactory(new PropertyValueFactory<partenaire, String>("nom_p"));
         colDomainepar.setCellValueFactory(new PropertyValueFactory<partenaire, String>("domaine"));
         colDatee.setCellValueFactory(new PropertyValueFactory<partenaire, String>("date_p"));
-        
+       
       tvPar.setItems(lists);
       
         FilteredList <partenaire> filteredData = new FilteredList<>(lists, b -> true);  
@@ -326,7 +375,8 @@ int index =-1;
             String rNomp = tnomp.getText();
             String rDomaine = tdomaine.getText();
               String rdateP=DateSelec.getEditor().getText();
-            partenaire par = new partenaire(22,rNomp,rDomaine,rdateP);
+                String rMailp = tmail.getText();
+            partenaire par = new partenaire(22,rNomp,rDomaine,rdateP,rMailp,img);
             partenaireCRUD parc = new partenaireCRUD();
             parc.ajouterPartenaire(par);
              searchPart();
@@ -342,10 +392,14 @@ ResourceBundle rb = null;
                   String mNomp = tnomp.getText();
             String mDomaine = tdomaine.getText();
                  String mdateP=DateSelec.getEditor().getText();
-            partenaire par = new partenaire(mIdp,mNomp,mDomaine,mdateP);
+                      String mMail=tmail.getText();
+                
+            partenaire par = new partenaire(mIdp,mNomp,mDomaine,mdateP,mMail,img);
             partenaireCRUD parc = new partenaireCRUD();
         parc.modifierPartenaire(par);
-                  searchPart();
+              importeimage.setImage(null);
+                  //searchPart();
+                   showPartenaire();
                   URL url = null;
 ResourceBundle rb = null;
                     initialize(url,rb);
@@ -353,6 +407,7 @@ ResourceBundle rb = null;
 
     @FXML
     private void btnSupprimerPar(ActionEvent event) {
+        System.out.println("\n\n\nfassa555555\n\n\n");
          int  mIdp= Integer.parseInt(tidp.getText()) ;
             partenaire par = new partenaire(mIdp);
             partenaireCRUD parc = new partenaireCRUD();
@@ -361,6 +416,45 @@ ResourceBundle rb = null;
          URL url = null;
 ResourceBundle rb = null;
                     initialize(url,rb);
+    }
+
+    @FXML
+    private void importimage(ActionEvent event) {
+          FileChooser f=new FileChooser();
+        f.getExtensionFilters().add(new FileChooser.ExtensionFilter("jpeg,png files", type));
+        File fc=f.showOpenDialog(null);
+        
+        if(fc != null)
+        {   
+            System.out.println(fc.getName());
+            img=fc.getName();
+           FileSystem fileSys = FileSystems.getDefault();
+           Path srcPath= fc.toPath();
+           Path destPath= fileSys.getPath("C:\\wamp64\\www\\image\\"+fc.getName());
+            try {
+                Files.copy(srcPath, destPath, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException ex) {
+                Logger.getLogger(CoursController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println(srcPath.toString());
+            Image i = new Image(fc.getAbsoluteFile().toURI().toString());
+            importeimage.setImage(i);
+           
+        }
+    }
+
+    @FXML
+    private void btnActionUpdate(ActionEvent event) {
+        ac = listViewPart.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader ();
+            loader.setLocation(getClass().getResource("ajouterPartenaire.fxml"));
+            //ok.ge 
+            //tidp.setText(toString().valueOf(ac.getId_p()));
+            tdomaine.setText(ac.getDomaine());
+            tmail.setText(ac.getMailP());//,ac.getEvenement());
+            //TFimagem.setText(ac.getLogoP());
+            //TFutilisateur.setText(toString().valueOf(ac.getUser()));
+            //tp.getSelectionModel().select(TabUpdate);
     }
     
     

@@ -59,10 +59,12 @@ public class AfficherCategorieController implements Initializable {
     @FXML
     private AnchorPane pane2;
     int o=0;
+    @FXML
+    private Button ret;
     
     
     public AfficherCategorieController() {
-    con = MyConnection.getInstance().getConnection();
+         con = MyConnection.getInstance().getConnection();
     }
     private Statement ste;
     private PreparedStatement pre;
@@ -80,7 +82,6 @@ public class AfficherCategorieController implements Initializable {
             } catch (SQLException ex) {
                 Logger.getLogger(AfficherCategorieController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        // TODO
         // TODO
     }    
 public int get() throws SQLException
@@ -190,6 +191,11 @@ public int get() throws SQLException
         }
         categoriecontainer.getChildren().addAll(list);
     }    
-    }
-    
 
+    @FXML
+    
+    private void retourner(ActionEvent event) throws IOException {
+        AnchorPane page=FXMLLoader.load(getClass().getResource("AfficherTheme.fxml"));
+        pane2.getChildren().setAll(page);
+    }
+    }

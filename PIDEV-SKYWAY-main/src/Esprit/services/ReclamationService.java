@@ -7,6 +7,7 @@ package Esprit.services;
 
 import Esprit.Connection.MyConnection;
 import Esprit.entities.Reclamation;
+import Esprit.entities.categorie;
 //import java.beans.Statement;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -33,7 +34,7 @@ public class ReclamationService {
     private Connection conn;
 
     public ReclamationService() {
-        conn =  MyConnection.getInstance().getConnection();
+        conn = MyConnection.getInstance().getConnection();
     }
     public void ajouterReclamation(Reclamation rec) {
         String req = "insert into reclamation (objet,text_r,date_envoi,id) values (?,?,CURDATE(),?)";
@@ -42,7 +43,7 @@ public class ReclamationService {
             pst = conn.prepareStatement(req);
             //pst.setInt(1, rec.getId_rec());
             pst.setString(1, rec.getObjet());
-            pst.setString(2, rec.getText());
+            pst.setString(2, rec.getText_r());
            // pst.setString(4, rec.getDate_env());
              pst.setInt(3, rec.getId());
             
@@ -75,7 +76,7 @@ public class ReclamationService {
         ResultSet res = pst.executeQuery();
         if (res.next()) {
             String obj = r.getObjet();
-            String txt = r.getText();
+            String txt = r.getText_r();
            // String date =  r.getDate_env(); // String.valueOf(r.CURDATE());
             int id=r.getId();
             PreparedStatement ps1 = conn.prepareStatement("update reclamation set objet= '" +
@@ -105,8 +106,8 @@ public class ReclamationService {
                 Reclamation R = new Reclamation();
                 R.setId(rs.getInt(1));
                 R.setObjet(rs.getString(2));
-                R.setText(rs.getString(3));
-                R.setDate_env(rs.getString(4));
+                R.setText_r(rs.getString(3));
+                R.setDate_envoi(rs.getString(4));
                 myList.add(R);
             }
 
@@ -118,23 +119,38 @@ public class ReclamationService {
     }
         public ObservableList<Reclamation> readReclamation() {
          ObservableList<Reclamation>  Reclamation = FXCollections.observableArrayList();
-          String requete = "SELECT * from Reclamation";
+        /*  String requete = "SELECT * from Reclamation";
         try{
             Statement st; 
-            st = MyConnection.getInstance().getConnection().prepareStatement(requete);
+            st = cnxBD.getInstance().getCnx().prepareStatement(requete);
             ResultSet rs = st.executeQuery(requete);
         
             while(rs.next()){
                Reclamation R = new Reclamation();
-                R.setId(rs.getInt(1));
-                R.setObjet(rs.getString(2));
-                R.setText(rs.getString(3));
-                R.setDate_env(rs.getString(4));
+                R.setId(rs.getInt(4));
+                R.setObjet(rs.getString(1));
+                R.setText_r(rs.getString(2));
+                R.setDate_env(rs.getString(3));
+                R.setCours(rs.getString(5));
+                R.setEnseignant(rs.getString(6));
                 Reclamation.add(R);
             }}
         catch (SQLException ex){
             ex.printStackTrace();
             
+        }*/
+        try {
+            Statement st = conn.createStatement();
+            String req = "SELECT * FROM reclamation";
+            ResultSet rs = st.executeQuery(req);
+
+            while (rs.next()) {
+
+                Reclamation.add(new Reclamation(rs.getInt("id_rec"),rs.getString("objet"), rs.getString("text_r"),rs.getString("date_env"),rs.getInt("id")));
+
+            }
+
+        } catch (SQLException ex) {
         }
         
         return Reclamation;
@@ -147,12 +163,12 @@ public class ReclamationService {
 
         try {
             Statement st = conn.createStatement();
-            String req = "SELECT * FROM reclamation ORDER BY id_rec ASC";
+            String req = "SELECT * FROM reclamation ORDER BY date_envoi ASC";
             ResultSet rs = st.executeQuery(req);
 
             while (rs.next()) {
 
-                promotions.add(new Reclamation(rs.getInt("id_rec"),rs.getString("objet"), rs.getString("text_r"),rs.getString("date_envoi"),rs.getInt("id")));
+                promotions.add(new Reclamation(rs.getInt("id_rec"),rs.getString("objet"), rs.getString("text_r"),rs.getString("date_envoi"),rs.getInt("id"),rs.getString("cours"),rs.getString("enseignant")));
 
             }
 
@@ -170,11 +186,11 @@ public class ReclamationService {
 
         try {
             Statement st = conn.createStatement();
-            String req = "SELECT * FROM reclamation ORDER BY id_rec DESC";
+            String req = "SELECT * FROM reclamation ORDER BY date_envoi DESC";
             ResultSet rs = st.executeQuery(req);
 
             while (rs.next()) {
-             promotions.add(new Reclamation(rs.getInt("id_rec"),rs.getString("objet"), rs.getString("text_r"),rs.getString("date_envoi"),rs.getInt("id")));
+            promotions.add(new Reclamation(rs.getInt("id_rec"),rs.getString("objet"), rs.getString("text_r"),rs.getString("date_envoi"),rs.getInt("id"),rs.getString("cours"),rs.getString("enseignant")));
             }
 
         } catch (SQLException ex) {        }
@@ -183,5 +199,57 @@ public class ReclamationService {
 
 
     }
+    public ObservableList<String>  comboListPar ()
+        
+        {
+        //ComboBox IdPPartPicker;
+        ObservableList<String> comboListPar = FXCollections.observableArrayList();
+        // ObservableList<Promotion> PromotionList = FXCollections.observableArrayList();
+          String query = "SELECT nom_c FROM cours";
+
+       try{
+            ste = conn.createStatement();
+            rs = ste.executeQuery(query);
+            
+            //partenaire par;
+            while(rs.next()){
+              
+               comboListPar.add(rs.getString("nom_c"));
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+           return  comboListPar;
+          
+        
 }
+     public ObservableList<String>  comboListEns ()
+        
+        {
+        //ComboBox IdPPartPicker;
+        ObservableList<String> comboListPar = FXCollections.observableArrayList();
+        // ObservableList<Promotion> PromotionList = FXCollections.observableArrayList();
+          String query = "SELECT nom FROM utilisateur where role='enseignant'";
+
+       try{
+            ste = conn.createStatement();
+            rs = ste.executeQuery(query);
+            
+            //partenaire par;
+            while(rs.next()){
+              
+               comboListPar.add(rs.getString("nom"));
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+           return  comboListPar;
+          
+        
+}
+
+}
+
 

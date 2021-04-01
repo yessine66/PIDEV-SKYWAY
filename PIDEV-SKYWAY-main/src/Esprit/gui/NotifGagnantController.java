@@ -31,6 +31,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import javafx.collections.ObservableList;
 import javax.imageio.ImageIO;
 import org.apache.commons.io.FileUtils;
 
@@ -68,10 +69,10 @@ public class NotifGagnantController implements Initializable {
            
              try {
                  String org = "";
-                 qrrcode();
+                 //qrrcode();
                
-                  String str =  "h";
-                  String path = "C:\\Users\\Lenovo\\Desktop\\backupnotifouta\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\taw"+str+".png";
+                  String str =  "k";
+                  String path = "C:\\Users\\Lenovo\\Desktop\\empty\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\winQR"+str+".png";
                   System.out.println("1"+path);
                 // Image img6 = new Image(new FileInputStream(pat));
                 Image img = new Image(new FileInputStream(path));
@@ -91,9 +92,9 @@ public class NotifGagnantController implements Initializable {
         ImageIO.write(imsg, "png", file); */  
                  
                  } catch (FileNotFoundException ex) {
-                 Logger.getLogger("qrrrrrrr");} catch (IOException ex) {
+                 Logger.getLogger("qrrrrrrr");} /*catch (IOException ex) {
         Logger.getLogger(NotifGagnantController.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }*/
             
    
     }    
@@ -105,17 +106,17 @@ public class NotifGagnantController implements Initializable {
   
     
     
-    public void qrrcode() throws IOException {
+    public void qrrcode(ObservableList x1) throws IOException {
 
        System.out.println("TICKTICK  qrr into "); 
-       String str =  "h";
-       String content = "Ticket code: " +"jjjjjjjj"  + "\n" + "User Full Name: " + "iiiiiii" + "\n" +"Event name: " +"viiiiii" + "\n" + "Event date: " +"fffffff"  + "\n";
+       String str =  "k";
+       String content = "Congratss " +x1  + "\n";
           
         
         try {
          String imageFormat = "png";
             System.out.println("TICKTICK  qrr into "); 
-            String outputFileName = "C:\\Users\\Lenovo\\Desktop\\backupnotifouta\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\taw"+str+"." + imageFormat;
+            String outputFileName = "C:\\Users\\Lenovo\\Desktop\\empty\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\milk"+str+"." + imageFormat;
             BitMatrix matrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, 500, 500);
             System.out.println("\n\n\n\n\ntestnotiiiiffff");
                System.out.println(outputFileName); 
@@ -131,7 +132,7 @@ public class NotifGagnantController implements Initializable {
         
            //  MatrixToImageWriter.writeToPath
  } catch (WriterException ex) {
-            Logger.getLogger(EventTicketController.class.getName()).log(Level.SEVERE, null, ex);
+           // Logger.getLogger(EventTicketController.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("tttttttttt\n\nttttttttttt");
         }
     

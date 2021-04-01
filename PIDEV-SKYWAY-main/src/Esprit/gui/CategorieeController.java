@@ -93,6 +93,10 @@ public class CategorieeController implements Initializable {
                 nom.setText(cc.getNom_categorie());
                 importeimage.setImage(new Image("http://127.0.0.1/image/"+cc.getImage()));
                 
+                ServiceCategorie sc = new ServiceCategorie();
+                String nomTheme= sc.getName_theme(cc.getId_t());
+                comboTheme.setValue(nomTheme);
+                
             }
           });
           nom.textProperty().addListener(new ChangeListener<String>()
@@ -268,9 +272,10 @@ public class CategorieeController implements Initializable {
      private void afficher() {
         try {
        ServiceCategorie sc = new ServiceCategorie();
-       List categorie=sc.readAll();
-       ObservableList et=FXCollections.observableArrayList(categorie);
+       ObservableList<categorie> et=sc.readAll();
        lvcategorie.setItems(et);
+       lvcategorie.setCellFactory((ListView<categorie> listView) -> new ListCellCatController());
+
        
        //colId_t.setCellValueFactory(new PropertyValueFactory<>("id_t"));
        //colNom.setCellValueFactory(new PropertyValueFactory<>("nom_t"));

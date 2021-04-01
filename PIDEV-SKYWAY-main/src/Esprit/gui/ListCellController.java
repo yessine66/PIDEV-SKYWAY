@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.GUI;
+package Esprit.gui;
 
 import Esprit.entities.Actualite;
 import java.io.IOException;
@@ -77,12 +77,10 @@ import javax.swing.ImageIcon;
             }
             lbtitre.setText(actualite.getTitre_ac());
             lbdesc.setText(actualite.getDesc());
-            /*Image getAbsolutePath=null; 
-            Image image =new Image(actualite.getImage_ac());
-            imev.setImage(image);*/
-//dateac.setText(actualite.getDate());
-                     
-
+            String url= actualite.getImage_ac(); 
+            Image image =new Image("http://127.0.0.1/image/"+url);
+            imev.setImage(image);
+            dateac.setText(toString().valueOf(actualite.getDate_ajout()));
             setText(null);
             setGraphic(gridp);
             

@@ -13,6 +13,8 @@ import Esprit.services.promotionCRUD;
 import static Esprit.tests.mail2.sendBulkEmail;
 import static Esprit.tests.mail2.sendBulkEmail2;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -73,12 +75,6 @@ public class GagnerPromotionController implements Initializable {
     @FXML
     private Button btnwinner;
     @FXML
-    private TextField toadr;
-    @FXML
-    private TextField obj;
-    @FXML
-    private TextArea core;
-    @FXML
     private Button retun;
     @FXML
     private Button send_btn;
@@ -95,6 +91,8 @@ public class GagnerPromotionController implements Initializable {
   String x="";
     @FXML
     private ImageView importeimage;
+    @FXML
+    private ImageView j;
     /**
      * Initializes the controller class.
      */
@@ -112,6 +110,7 @@ linkAttachtest="";
     
 
     
+    NotifGagnantController notif = new  NotifGagnantController();
     
     
 partenaireCRUD win = new partenaireCRUD();
@@ -175,13 +174,14 @@ private  ObservableList<String> randpromget=win.randomProm();
                  if(linkAttachtest.isEmpty()){
                     System.out.println("\n\n\n sans attachement");
                  
-                    
+                     sendBulkEmail2(subject,emailget, message); 
                     
                     
                 }else{
                     
                     System.out.println("\n\navec attachement "+linkAttachtest);
                     sendBulkEmail(subject,emailget, message,linkAttachtest);
+                   
                 }
 
 		//sendBulkEmail(subject,emailget, message,linkAttachtest);
@@ -204,11 +204,11 @@ private  ObservableList<String> randpromget=win.randomProm();
       wheel.start(stage);
       
     
-      Alert alert = new Alert (Alert.AlertType.WARNING);
+      /*Alert alert = new Alert (Alert.AlertType.WARNING);
           alert.setTitle("alert code promo vode");
           alert.setHeaderText(null);
           alert.setContentText("Veuillez remplir tous les champs ! ");
-          alert.showAndWait();
+          alert.showAndWait();*/
        
         
         
@@ -267,6 +267,38 @@ private  ObservableList<String> randpromget=win.randomProm();
          String x=attachMail2();
          return x;
 
+    }
+
+    @FXML
+    private void showQR(ActionEvent event) throws FileNotFoundException, IOException{
+        
+        
+                 String org = "";
+             notif.qrrcode(randpromget);
+               
+                  String str =  "k";
+                  String path = "C:\\Users\\Lenovo\\Desktop\\empty\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\milk"+str+".png";
+                  System.out.println("1"+path);
+                // Image img6 = new Image(new FileInputStream(pat));
+                Image img = new Image(new FileInputStream(path));
+                  System.out.println("2"+path);
+                 //event_img.setImage(img);
+                 //name.setText(E.getNom_event());
+                 j.setImage(img);
+                     System.out.println("2"+path);
+                // username.setText("Organized by: " + org); 
+                 
+                // date.setText(" " + E.getDate_event().format(formatters));
+                // location.setText(" " + E.getLocation_event());
+   //String pathh =    "file:///C:\\Users\\Lenovo\\Downloads\\qrrrrrrr\\crashtest-ArtBox-main\\src\\ArtHub\\images\\QR code\\dow"+str+".png ";   
+          /*URL u= new URL( "file:///C:\\Users\\Lenovo\\Downloads\\qrrrrrrr\\crashtest-ArtBox-main\\src\\ArtHub\\images\\QR code\\dow"+str+".png ");
+          System.out.println("3"+u);
+        BufferedImage imsg = ImageIO.read(u);
+        File file = new File(path);
+        ImageIO.write(imsg, "png", file); */  
+                 
+             
+        
     }
 }
     

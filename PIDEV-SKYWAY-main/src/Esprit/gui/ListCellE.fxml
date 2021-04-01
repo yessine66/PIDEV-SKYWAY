@@ -20,7 +20,7 @@
    <children>
       <VBox fx:id="vb1" prefHeight="132.0" prefWidth="320.0">
          <children>
-            <Label fx:id="lbtitre" prefHeight="44.0" prefWidth="332.0" text="nom evenement" textFill="#ebc249">
+            <Label fx:id="lbtitre" prefHeight="44.0" prefWidth="332.0" text="nom evenement ." textFill="#ebc249">
                <font>
                   <Font name="System Bold Italic" size="17.0" />
                </font>

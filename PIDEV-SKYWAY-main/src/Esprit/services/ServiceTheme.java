@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -31,10 +33,12 @@ public class ServiceTheme implements Iservice<theme>{
     private PreparedStatement pre;
     
      public ServiceTheme(){
-    con = MyConnection.getInstance().getConnection();    }
+    con = MyConnection.getInstance().getConnection();
+    }
 
     @Override
     public void ajouter(theme t) throws SQLException {
+        
         pre=con.prepareStatement("INSERT INTO `skyway`.`theme` (`nom_t`,`image`) VALUES ( ?,?);");
         pre.setString(1, t.getNom_t());
         pre.setString(2, t.getImage());
@@ -98,9 +102,9 @@ public class ServiceTheme implements Iservice<theme>{
     
 
     @Override
-    public List<theme> readAll() throws SQLException {
-    String req="select * from theme  ";
-        List<theme> list = new ArrayList<>();
+    public ObservableList<theme> readAll() throws SQLException {
+        String req="select * from theme  ";
+        ObservableList<theme> list = FXCollections.observableArrayList();
         
         try {
             ste=con.createStatement();

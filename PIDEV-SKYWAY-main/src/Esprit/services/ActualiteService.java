@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -31,12 +33,12 @@ public class ActualiteService {
     }
 
     public void ajouterActualite(Actualite a) {
-        String req = "insert into actualite (titre_ac,description,image,nom_ev,id) values ('" 
+        String req = "insert into actualite (titre_ac,description,image,id_ev,id,date_ajout) values ('" 
                 +a.getTitre_ac() +"','" 
                 +a.getDesc()+"','" 
-                +a.getNom_ev()+"','" 
-                +a.getImage_ac()+"',(SELECT id FROM utilisateur WHERE id =" 
-                +a.getUser()+"));";
+                +a.getImage_ac()+"','" 
+                +a.getId_ev()+"',(SELECT id FROM utilisateur WHERE id =" 
+                +a.getUser()+"),CURDATE());";
 
         try {
             pst = cnx.prepareStatement(req);
@@ -73,12 +75,12 @@ public class ActualiteService {
             String t = a.getTitre_ac();
             String d = a.getDesc();
             String i = a.getImage_ac();
-            String n = a.getNom_ev();
+            int n = a.getId_ev();
             int id=a.getUser();
             PreparedStatement ps1 = cnx.prepareStatement("update actualite set titre_ac= '" +
                     t + "' , description='" + 
                     d + "' , image= '" + 
-                    i + "' , nom_ev= '" + 
+                    i + "' , id_ev= '" + 
                     n + "', id=(SELECT id FROM utilisateur WHERE id =" + 
                     id + " )WHERE actualite.id_ac =" +
                     a.getId_ac()+ ";");
@@ -97,7 +99,7 @@ public class ActualiteService {
             ste = cnx.createStatement();
            rs= ste.executeQuery(req);
            while(rs.next()){
-               list.add(new Actualite(rs.getInt("id_ac"), rs.getString("titre_ac"), rs.getString("description"), rs.getString("image"),rs.getString("nom_ev"),rs.getInt("id")));
+               list.add(new Actualite(rs.getInt("id_ac"), rs.getString("titre_ac"), rs.getString("description"), rs.getString("image"),rs.getInt("id_ev"),rs.getInt("id"),rs.getString("date_ajout")));
            }
 
         } catch (SQLException ex) {
@@ -105,6 +107,38 @@ public class ActualiteService {
             System.out.println(ex.getMessage());
         }
         return list;
+    }
+
+    public boolean recherche(int id_ac) {
+        boolean resultat=false;
+        String req="select id_ac from actualite where id_ac="+id_ac+" ;";
+        try {
+            pst = cnx.prepareStatement(req);
+            ResultSet res = pst.executeQuery();
+            if (res.next()) {
+            return resultat=true;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return resultat;
+        
+    }
+    
+    public int getIdEv(String nom_ev) {
+        int resultat=0;
+        String req="select id_ev from evenement where nom_ev="+nom_ev+" ;";
+        try {
+            pst = cnx.prepareStatement(req);
+            ResultSet res = pst.executeQuery();
+            if (res.next()) {
+            return resultat=res.getInt("id_ac");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return resultat;
+        
     }
 
     

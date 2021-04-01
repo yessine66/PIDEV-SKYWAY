@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Esprit.GUI;
+package Esprit.gui;
 
 import Esprit.entities.Evenement;
-import Esprit.services.ActualiteService;
 import Esprit.services.EvenementService;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -17,38 +15,26 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.util.Callback;
 
-
-
-
-import javax.swing.JFileChooser;
 
 
 /**
@@ -59,13 +45,7 @@ import javax.swing.JFileChooser;
 public class EvenementController implements Initializable {
 
     @FXML
-    private Tab TabList;
-    @FXML
-    private TextField BtnRech;
-    @FXML
     private ListView<Evenement> ListEv;
-    @FXML
-    private Tab TabAdd;
     @FXML
     private Button BtnAjout;
     @FXML
@@ -88,27 +68,6 @@ public class EvenementController implements Initializable {
     
     @FXML
     private Label LabDet1;
-    @FXML
-    private ImageView ico;
-    @FXML
-    private ImageView ico1;
-    @FXML
-    private ImageView ico2;
-    @FXML
-    private Button btnImage1;
-    @FXML
-    private ImageView ico3;
-    @FXML
-    private VBox hb2;
-    @FXML
-    private Button refreshicon;
-    @FXML
-    private Button viewicon;
-    @FXML
-    private Button editIcon;
-    @FXML
-    private Button deleteIcon;
-    @FXML
     private TabPane tp;
     @FXML
     private TextField TFidm;
@@ -129,7 +88,33 @@ public class EvenementController implements Initializable {
     @FXML
     private TextField TFnbrplm;
     @FXML
+    private ImageView ico4;
+    @FXML
+    private Tab TabList;
+    @FXML
+    private VBox hb2;
+    @FXML
+    private Button refreshicon;
+    @FXML
+    private Button viewicon;
+    @FXML
+    private Button editIcon;
+    @FXML
+    private Button deleteIcon;
+    @FXML
+    private TextField BtnRech;
+    @FXML
+    private Tab TabAdd;
+    @FXML
+    private ImageView ico1;
+    @FXML
     private Button btnMap;
+    @FXML
+    private ImageView ico2;
+    @FXML
+    private Button btnImage1;
+    @FXML
+    private ImageView ico3;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -197,15 +182,6 @@ public class EvenementController implements Initializable {
         }
     }
 
-    /*@FXML
-    private void importImage(ActionEvent event) {
-        
-        JFileChooser chooser=new JFileChooser();
-        chooser.showOpenDialog(null);
-        File f=chooser.getSelectedFile();
-        TFimage.setText(f.getAbsolutePath());
-        }*/
-
     @FXML
     private void btnActionRefrechEv(ActionEvent event) {
         
@@ -220,7 +196,7 @@ public class EvenementController implements Initializable {
         loader.setLocation(getClass().getResource("Evenement.fxml"));
         TabDetail.getContent();
         LabDet1.setText(ev.getNom_ev());
-        LabDet.setText(toString().valueOf(ev.getDate_ev().getDate()));//,ac.getEvenement());
+        LabDet.setText(toString().valueOf(ev.getDate_ev().getDate())+"\n"+ev.getEspace()+"\n"+ev.getNombre_pl());
         tp.getSelectionModel().select(TabDetail);
             
     }
@@ -249,7 +225,7 @@ public class EvenementController implements Initializable {
         try {
             evs.supprimer(str);
         } catch (SQLException ex) {
-            Logger.getLogger(ActualiteController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EvenementController.class.getName()).log(Level.SEVERE, null, ex);
         }
         loadData();
     }

@@ -6,89 +6,95 @@
 package Esprit.entities;
 
 
+
 import java.sql.Date;
 import java.util.Objects;
 import javafx.scene.image.ImageView;
 
-
-
-
 /**
  *
- * @author asus
+ * @author simop
  */
 public class cours {
     private int id_c;
     private String nom_c ;
-    private int numero;
+    private String pdf;
     private String description ;
-    private int duree;
+    private int nbparticipant;
     private String image ;
     private ImageView photo;
     private int id_t;
     private int id;
 
-    public cours(int id_c, String nom_c, int numero, String description, int duree, String image, ImageView photo, int id_t, int id) {
+    public cours(int id_c, String nom_c, String pdf, String description, int nbparticipant, String image, ImageView photo, int id_t, int id) {
         this.id_c = id_c;
         this.nom_c = nom_c;
-        this.numero = numero;
+        this.pdf = pdf;
         this.description = description;
-        this.duree = duree;
+        this.nbparticipant = nbparticipant;
         this.image = image;
         this.photo = photo;
         this.id_t = id_t;
         this.id = id;
     }
 
-    public cours(String nom_c, int numero, String description, int duree, String image, ImageView photo, int id_t, int id) {
+    public cours(String nom_c, String pdf, String description, int nbparticipant, String image, ImageView photo, int id_t, int id) {
         this.nom_c = nom_c;
-        this.numero = numero;
+        this.pdf = pdf;
         this.description = description;
-        this.duree = duree;
+        this.nbparticipant = nbparticipant;
         this.image = image;
         this.photo = photo;
         this.id_t = id_t;
         this.id = id;
     }
 
-    public cours(String nom_c, int numero, String description, int duree, String image, ImageView photo) {
+    public cours(String nom_c, String pdf, String description, int nbparticipant, String image, ImageView photo) {
         this.nom_c = nom_c;
-        this.numero = numero;
+        this.pdf = pdf;
         this.description = description;
-        this.duree = duree;
+        this.nbparticipant = nbparticipant;
         this.image = image;
         this.photo = photo;
     }
 
-    public cours(int id_c, String nom_c, int numero, String description, int duree, String image, ImageView photo) {
+    public cours(int id_c, String nom_c, String pdf, String description, int nbparticipant, String image, ImageView photo) {
         this.id_c = id_c;
         this.nom_c = nom_c;
-        this.numero = numero;
+        this.pdf = pdf;
         this.description = description;
-        this.duree = duree;
+        this.nbparticipant = nbparticipant;
         this.image = image;
         this.photo = photo;
     }
 
-    public cours(int id_c, String nom_c, int numero, String description, int duree, String image, int id_t) {
+    public cours(int id_c, String nom_c, String pdf, String description, int nbparticipant, String image, int id_t) {
         this.id_c = id_c;
         this.nom_c = nom_c;
-        this.numero = numero;
+        this.pdf = pdf;
         this.description = description;
-        this.duree = duree;
+        this.nbparticipant = nbparticipant;
         this.image = image;
         this.id_t = id_t;
     }
+//
+//    public cours(String nom_c, String pdf, String description, int duree, String image, int id_t) {
+//        this.nom_c = nom_c;
+//        this.pdf = pdf;
+//        this.description = description;
+//        this.duree = duree;
+//        this.image = image;
+//        this.id_t = id_t;
+//    }
 
-    public cours(String nom_c, int numero, String description, int duree, String image, int id_t) {
+    public cours(String nom_c, String pdf, String description, String image, int id_t) {
         this.nom_c = nom_c;
-        this.numero = numero;
+        this.pdf = pdf;
         this.description = description;
-        this.duree = duree;
+       // this.duree = duree;
         this.image = image;
         this.id_t = id_t;
     }
-
   
     
 
@@ -108,12 +114,12 @@ public class cours {
         this.nom_c = nom_c;
     }
 
-    public int getNumero() {
-        return numero;
+    public String getPdf() {
+        return pdf;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setPdf(String pdf) {
+        this.pdf = pdf;
     }
 
     public String getDescription() {
@@ -124,12 +130,12 @@ public class cours {
         this.description = description;
     }
 
-    public int getDuree() {
-        return duree;
+    public int getNbparticipant() {
+        return nbparticipant;
     }
 
-    public void setDuree(int duree) {
-        this.duree = duree;
+    public void getNbparticipant(int nbparticipant) {
+        this.nbparticipant = nbparticipant;
     }
 
     public String getImage() {
@@ -169,9 +175,9 @@ public class cours {
         int hash = 5;
         hash = 89 * hash + this.id_c;
         hash = 89 * hash + Objects.hashCode(this.nom_c);
-        hash = 89 * hash + this.numero;
+        hash = 89 * hash + Objects.hashCode(this.pdf);
         hash = 89 * hash + Objects.hashCode(this.description);
-        hash = 89 * hash + this.duree;
+        hash = 89 * hash + this.nbparticipant;
         hash = 89 * hash + Objects.hashCode(this.image);
         hash = 89 * hash + Objects.hashCode(this.photo);
         hash = 89 * hash + this.id_t;
@@ -194,10 +200,10 @@ public class cours {
         if (this.id_c != other.id_c) {
             return false;
         }
-        if (this.numero != other.numero) {
+        if (this.pdf != other.pdf) {
             return false;
         }
-        if (this.duree != other.duree) {
+        if (this.nbparticipant != other.nbparticipant) {
             return false;
         }
         if (this.id_t != other.id_t) {
@@ -223,7 +229,7 @@ public class cours {
 
     @Override
     public String toString() {
-        return "titre de cours=" + nom_c + ", numero=" + numero + ", description=" + description + ", duree=" + duree ; //+ ", id_t=" + id_t + ", id=" + id + '}';
+        return "titre de cours=" + nom_c + ", pdf=" + pdf + ", description=" + description + ", nbparticipant=" + nbparticipant + ", photo=" + photo ; //+ ", id_t=" + id_t + ", id=" + id + '}';
     }
  
  
