@@ -92,9 +92,9 @@ public class NotifGagnantController implements Initializable {
         ImageIO.write(imsg, "png", file); */  
                  
                  } catch (FileNotFoundException ex) {
-                 Logger.getLogger("qrrrrrrr");} catch (IOException ex) {
+                 Logger.getLogger("qrrrrrrr");} /*catch (IOException ex) {
         Logger.getLogger(NotifGagnantController.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }*/
             
    
     }    
