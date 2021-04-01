@@ -59,7 +59,7 @@ public class MenuBackController implements Initializable {
 
     @FXML
     private void evenement(MouseEvent event) {
-        LoadPage("Page3Evenement");
+        LoadPage("Actualite");
     }
 
     @FXML
