@@ -5,6 +5,7 @@
  */
 package Esprit.entities;
 
+import java.sql.Date;
 import java.util.Objects;
 
 /**
@@ -16,8 +17,26 @@ public class Actualite {
     private String titre_ac;
     private String desc;
     private String image_ac;
-    private String nom_ev;
+    private int id_ev;
+    private String date_ajout;
     private int user;
+    
+    public int getId_ev() {
+        return id_ev;
+    }
+
+    public void setId_ev(int id_ev) {
+        this.id_ev = id_ev;
+    }
+
+    public String getDate_ajout() {
+        return date_ajout;
+    }
+
+    public void setDate_ajout(String date_ajout) {
+        this.date_ajout = date_ajout;
+    }
+    
 
     public Actualite(int id_ac, String titre_ac, String desc, String image_ac, int user) {
         this.id_ac = id_ac;
@@ -59,14 +78,6 @@ public class Actualite {
         this.image_ac = image_ac;
     }
 
-    public String getNom_ev() {
-        return nom_ev;
-    }
-
-    public void setNom_ev(String nom_ev) {
-        this.nom_ev = nom_ev;
-    }
-
     public int getUser() {
         return user;
     }
@@ -98,19 +109,42 @@ public class Actualite {
         this.image_ac = image_ac;
         this.user = user;
     }
-    public Actualite(String titre_ac, String desc, String image_ac, String evenement,int user) {
+    public Actualite(String titre_ac, String desc, String image_ac, String evenement,int user,String date_ajout) {
         this.titre_ac = titre_ac;
         this.desc = desc;
         this.image_ac = image_ac;
         this.user = user;
+        this.date_ajout = date_ajout;
     }
-
-    public Actualite(int id_ac, String titre_ac, String desc, String image_ac, String evenement,int user) {
+    /*public Actualite(int id_ac,String titre_ac, String desc, String image_ac, String evenement) {
         this.id_ac = id_ac;
         this.titre_ac = titre_ac;
         this.desc = desc;
         this.image_ac = image_ac;
-        this.nom_ev= evenement;
+    }*/
+
+    public Actualite(int id_ac, String titre_ac, String desc, String image_ac, int evenement,int user,String date_ajout) {
+        this.id_ac = id_ac;
+        this.titre_ac = titre_ac;
+        this.desc = desc;
+        this.image_ac = image_ac;
+        this.id_ev= evenement;
+        this.user = user;
+        this.date_ajout = date_ajout;
+    }
+        public Actualite(int id_ac, String titre_ac, String desc, String image_ac, int evenement,int user) {
+        this.id_ac = id_ac;
+        this.titre_ac = titre_ac;
+        this.desc = desc;
+        this.image_ac = image_ac;
+        this.id_ev= evenement;
+        this.user = user;
+    }
+    public Actualite( String titre_ac, String desc, String image_ac, int evenement,int user) {
+        this.titre_ac = titre_ac;
+        this.desc = desc;
+        this.image_ac = image_ac;
+        this.id_ev= evenement;
         this.user = user;
     }
 

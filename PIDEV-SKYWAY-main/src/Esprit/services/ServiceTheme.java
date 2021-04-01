@@ -38,6 +38,7 @@ public class ServiceTheme implements Iservice<theme>{
 
     @Override
     public void ajouter(theme t) throws SQLException {
+        
         pre=con.prepareStatement("INSERT INTO `skyway`.`theme` (`nom_t`,`image`) VALUES ( ?,?);");
         pre.setString(1, t.getNom_t());
         pre.setString(2, t.getImage());
