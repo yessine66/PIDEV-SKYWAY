@@ -5,6 +5,8 @@
  */
 package Esprit.gui;
 
+import Esprit.Connection.OAuthAuthenticator;
+import Esprit.Connection.OAuthGoogleAuthenticator;
 import Esprit.entities.Utilisateur;
 import Esprit.services.UtilisateurCRUD;
 import java.io.IOException;
@@ -31,6 +33,22 @@ import javafx.stage.Stage;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+
+
+import org.json.CDL;
+import org.json.JSONArray;
+import org.json.JSONTokener;
+
+import org.json.Cookie;
+import org.json.JSONObject;
 
 
 /**
@@ -65,6 +83,8 @@ public class LoginFXMLController implements Initializable {
     private Button buttonSMS;
     @FXML
     private Button buttonMAIL;
+    @FXML
+    private Button buttonGoogle;
 
     
     
@@ -245,6 +265,18 @@ public class LoginFXMLController implements Initializable {
 
     @FXML
     private void HandleButtonMailAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleButtonGoogleAction(ActionEvent event) {
+        
+            String gClientId = "AC362d49d2ebfabfaba17d31b804e7f233";
+        String gRedir = "##########";
+        String gScope = "https://www.googleapis.com/auth/userinfo.profile";
+        String gSecret = "zksCX6pzJKW6mnpC0x2hmAVq";
+        OAuthAuthenticator auth = new OAuthGoogleAuthenticator(gClientId, gRedir, gSecret, gScope);
+        auth.startLogin();
+        
     }
     
 
