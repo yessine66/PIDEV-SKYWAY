@@ -276,8 +276,8 @@ private  ObservableList<String> randpromget=win.randomProm();
                  String org = "";
              notif.qrrcode(randpromget);
                
-                  String str =  "OK";
-                  String path = "C:\\Users\\Lenovo\\Desktop\\empty\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\winQRR"+str+".png";
+                  String str =  "k";
+                  String path = "C:\\Users\\Lenovo\\Desktop\\empty\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\milk"+str+".png";
                   System.out.println("1"+path);
                 // Image img6 = new Image(new FileInputStream(pat));
                 Image img = new Image(new FileInputStream(path));
