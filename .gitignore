@@ -18,3 +18,7 @@ PIDEV-SKYWAY-main/nbproject/private/private.properties
 *.properties
 *.properties
 *.properties
+/PIDEV-SKYWAY-main/nbproject/private/
+*.properties
+*.properties
+*.properties
