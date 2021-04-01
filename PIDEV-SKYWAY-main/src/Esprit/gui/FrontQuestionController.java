@@ -46,7 +46,7 @@ public class FrontQuestionController implements Initializable {
         ReponsesCRUD rc= new ReponsesCRUD();
             //  ObservableList<String> randlist= qc.randomList();
      
-                 
+              
         ObservableList<String> randlist = null;
         try {
             randlist = rc.justanswer();
