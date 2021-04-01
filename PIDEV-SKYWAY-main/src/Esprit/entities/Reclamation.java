@@ -7,62 +7,104 @@ package Esprit.entities;
 
 import java.util.Objects;
 
+/**
+ *
+ * @author IBTIHEL
+ */
 public class Reclamation {
       private int id ,id_rec;
-    private String text;
+    private String text_r;
     private String objet;
-    private String date_env;
+    private String date_envoi;
+    private String cours ;
+    private String enseignant;
 
     public Reclamation() {
     }
 
-    public Reclamation(int id_rec, String objet, String text) {
+    public Reclamation(int id_rec, String objet, String text_r) {
         this.id_rec = id_rec;
-        this.text = text;
+        this.text_r = text_r;
         this.objet = objet;
     }
-    public Reclamation(String text, String objet) {
-        this.text = text;
+    public Reclamation(String text_r, String objet) {
+        this.text_r = text_r;
         this.objet = objet;
     }
 
-    public Reclamation( int id_rec, String text, String objet,int id) {
-        this.id = id;
-        this.id_rec = id_rec;
-        this.text = text;
-        this.objet = objet;
-    }
-
-    public Reclamation( int id_rec, String text, String objet, String date_env,int id) {
+    public Reclamation( int id_rec, String text_r, String objet,int id) {
         this.id = id;
         this.id_rec = id_rec;
-        this.text = text;
+        this.text_r = text_r;
         this.objet = objet;
-        this.date_env = date_env;
     }
 
-    public Reclamation( String text, String objet, String date_env,int id) {
+    public Reclamation( int id_rec, String text_r, String objet, String date_envoi,int id) {
         this.id = id;
-        this.text = text;
+        this.id_rec = id_rec;
+        this.text_r = text_r;
         this.objet = objet;
-        this.date_env = date_env;
+        this.date_envoi = date_envoi;
     }
 
-    public Reclamation(int id, String text, String objet, String date_env) {
+    public Reclamation( String text_r, String objet, String date_env,int id) {
         this.id = id;
-        this.text = text;
+        this.text_r = text_r;
         this.objet = objet;
-        this.date_env = date_env;
+        this.date_envoi = date_env;
     }
 
-    public Reclamation(Integer valueOf, String text, String text0, String text1, String text2, String text3) {
+    public Reclamation(int id, String text_r, String objet, String date_env) {
+        this.id = id;
+        this.text_r = text_r;
+        this.objet = objet;
+        this.date_envoi = date_env;
+    }
+
+    public Reclamation( /*int id_rec,*/ String objet, String text_r, String date_env,int id, String cours, String enseignant) {
+        this.id = id;
+        this.id_rec = id_rec;
+        this.text_r = text_r;
+        this.objet = objet;
+        this.date_envoi = date_env;
+        this.cours = cours;
+        this.enseignant = enseignant;
+    }
+     public Reclamation( int id_rec, String objet, String text_r, String date_env,int id, String cours, String enseignant) {
+        this.id = id;
+        this.id_rec = id_rec;
+        this.text_r = text_r;
+        this.objet = objet;
+        this.date_envoi = date_env;
+        this.cours = cours;
+        this.enseignant = enseignant;
+    }
+
+    
+    /*public Reclamation(Integer valueOf, String text_r, String text0, String text1, String text2, String text3) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
+
+    public String getCours() {
+        return cours;
+    }
+
+    public void setCours(String cours) {
+        this.cours = cours;
+    }
+
+    public String getEnseignant() {
+        return enseignant;
+    }
+
+    public void setEnseignant(String enseignant) {
+        this.enseignant = enseignant;
     }
 
     
     
     
-
+    
     public int getId() {
         return id;
     }
@@ -71,12 +113,12 @@ public class Reclamation {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public String getText_r() {
+        return text_r;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setText_r(String text_r) {
+        this.text_r = text_r;
     }
 
     public String getObjet() {
@@ -95,25 +137,27 @@ public class Reclamation {
         this.id_rec = id_rec;
     }
 
-    public String getDate_env() {
-        return date_env;
+    public String getDate_envoi() {
+        return date_envoi;
     }
 
-    public void setDate_env(String date_env) {
-        this.date_env = date_env;
+    public void setDate_envoi(String date_envoi) {
+        this.date_envoi = date_envoi;
     }
     
 
    /* @Override
     public String toString() {
-        return "Reclamation{" + "id=" + id + ", text=" + text + ", objet=" + objet + '}';
+        return "Reclamation{" + "id=" + id + ", text_r=" + text_r + ", objet=" + objet + '}';
     }*/
-    
 
     @Override
     public String toString() {
-        return "Reclamation{" + "id=" + id + ", id_rec=" + id_rec + ", text=" + text + ", objet=" + objet + ", date_env=" + date_env + '}';
+        return "Reclamation{, id_rec=" + id_rec + ", objet=" + objet +", text=" + text_r +  ", date_env=" + date_envoi +  "id=" + id +", cours=" + cours + ", enseignant=" + enseignant + '}';
     }
+    
+
+   
 
     @Override
     public int hashCode() {
@@ -136,7 +180,7 @@ public class Reclamation {
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.text, other.text)) {
+        if (!Objects.equals(this.text_r, other.text_r)) {
             return false;
         }
         if (!Objects.equals(this.objet, other.objet)) {
@@ -145,5 +189,5 @@ public class Reclamation {
         return true;
     }
  
-   
+    
 }
