@@ -448,8 +448,8 @@ ResourceBundle rb = null;
         ac = listViewPart.getSelectionModel().getSelectedItem();
             FXMLLoader loader = new FXMLLoader ();
             loader.setLocation(getClass().getResource("ajouterPartenaire.fxml"));
-            //TabUpdate.getContent(); 
-            tidp.setText(toString().valueOf(ac.getId_p()));
+            //ok.ge 
+            //tidp.setText(toString().valueOf(ac.getId_p()));
             tdomaine.setText(ac.getDomaine());
             tmail.setText(ac.getMailP());//,ac.getEvenement());
             //TFimagem.setText(ac.getLogoP());
