@@ -41,16 +41,7 @@ public class Page1CoursController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-   private void LoadPage (String page){
-    Parent root=null;
-        try {
-            root = FXMLLoader.load(getClass().getResource(page+".fxml"));
-        } catch (IOException ex) {
-            Logger.getLogger(Page1CoursController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    anchorprojection.getChildren().setAll(root);
-
-        }
+ 
     @FXML
     private void btntheme(ActionEvent event) {
         LoadPage("theme");
@@ -66,5 +57,14 @@ public class Page1CoursController implements Initializable {
         LoadPage("cours");
     }
     
- 
+      private void LoadPage (String page){
+    Parent root=null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(page+".fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(Page1CoursController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    anchorprojection.getChildren().setAll(root);
+
+        }
 }

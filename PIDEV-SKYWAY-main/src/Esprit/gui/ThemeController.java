@@ -6,6 +6,11 @@
 package Esprit.gui;
 
 
+
+
+
+
+
 import Esprit.entities.theme;
 import java.io.File;
 import java.io.IOException;
@@ -231,9 +236,12 @@ public class ThemeController implements Initializable {
     private void afficher() {
         try {
        ServiceTheme st = new ServiceTheme();
-       List events=st.readAll();
-       ObservableList et=FXCollections.observableArrayList(events);
+      // List events=st.readAll();
+      ObservableList<theme> et=st.readAll();
+     //  ObservableList et=FXCollections.observableArrayList(events);
        lvtheme.setItems(et);
+       lvtheme.setCellFactory((ListView<theme> listView) -> new ListCellThemeController());
+
        
        //colId_t.setCellValueFactory(new PropertyValueFactory<>("id_t"));
        //colNom.setCellValueFactory(new PropertyValueFactory<>("nom_t"));

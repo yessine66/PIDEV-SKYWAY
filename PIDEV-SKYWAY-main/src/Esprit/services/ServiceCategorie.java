@@ -101,9 +101,9 @@ public class ServiceCategorie implements Iservice<categorie>{
     }
 
     @Override
-    public List<categorie> readAll() throws SQLException {
+    public ObservableList<categorie> readAll() throws SQLException {
         String req="select * from categorie  ";
-        List<categorie> list = new ArrayList<>();
+        ObservableList<categorie> list = FXCollections.observableArrayList();
         
         try {
             ste=con.createStatement();
@@ -170,6 +170,27 @@ public class ServiceCategorie implements Iservice<categorie>{
         }
         
         return id_theme_test;
+        
+    }
+       public String getName_theme(int id_theme){
+        
+               
+        String query = "SELECT nom_t FROM theme where id_t = '" + id_theme + "';";
+        String name_theme_test = null;
+        try{
+            ste = con.createStatement();
+            ResultSet rs = ste.executeQuery(query);
+           
+            while(rs.next()){
+              
+               name_theme_test = rs.getString("nom_t");
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+        return name_theme_test;
         
     }
     

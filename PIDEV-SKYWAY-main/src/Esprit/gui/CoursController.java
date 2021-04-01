@@ -51,17 +51,31 @@ import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javax.swing.JOptionPane;
 import Esprit.services.ServiceCours;
+import Esprit.gui.FTPUploadFileDemo;
+import Esprit.Connection.MyConnection;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javafx.scene.chart.PieChart;
+import javafx.scene.paint.Color;
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
 
 /**
  * FXML Controller class
  *
- * @author asus
+ * @author simop
  */
 public class CoursController implements Initializable {
     @FXML
     private ImageView importeimage;
       String img="";
+      String file="";
+      String path="";
     List<String> type;
+    List<String> typee;
 
     private cours cc=null;
     @FXML
@@ -81,8 +95,7 @@ public class CoursController implements Initializable {
     private TableColumn<cours, String> colDuree;
     @FXML
     private TextField nom;
-    @FXML
-    private TextField numero;
+    //private TextField numero;
     @FXML
     private TextField description;
     @FXML
@@ -104,18 +117,62 @@ public class CoursController implements Initializable {
     private Label erreurdateajout;
     @FXML
     private Label erreurdatemodif;
-    
-    
+    @FXML
+    private Button fichier;
+    @FXML
+    private TextField pdf;
+    @FXML
+    private PieChart piechart;
+    private Connection con;
+    @FXML
+    private Label caption;
+     public CoursController() {
+       con = MyConnection.getInstance().getConnection();
+    }
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+         
+          
+        try {
+           Statement stmt1 = con.createStatement();
+             ObservableList<PieChart.Data>pieData = FXCollections.observableArrayList();
+                              String SQL1 = "SELECT cours.nom_c, cours.nbparticipant FROM cours";
+                               ResultSet rs1 = stmt1.executeQuery(SQL1);
+                               while(rs1.next())
+                                {
+                                   pieData.add(new PieChart.Data("NOM cours : "+rs1.getString(1)+"\n"+"nombre de participation cours : "+rs1.getString(2),rs1.getDouble(2)));
+                                           
+                                }
+                                  
+       piechart.setData(pieData);
+                        
+       caption.setTextFill(Color.DARKORANGE);
+caption.setStyle("-fx-font: 24 arial;");
+
+for (final PieChart.Data data : piechart.getData()) {
+    data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
+        new EventHandler<MouseEvent>() {
+            @Override public void handle(MouseEvent e) {
+                int i = (int) data.getPieValue();
+                caption.setText(String.valueOf("nb_participer : "+i));
+             }
+        });
+}
+        } catch (SQLException ex) {
+            Logger.getLogger(CoursController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    
         afficher();
         type =new ArrayList();
         type.add("*.jpg");
         type.add("*.png");
+        typee=new ArrayList();
+        typee.add("*.pdf");
         showCombo(); 
           lvcours.setOnMouseClicked(new EventHandler<MouseEvent>(){
 
@@ -125,12 +182,14 @@ public class CoursController implements Initializable {
                 cc = (cours)lvcours.getSelectionModel().getSelectedItem();
                 System.out.println(cc);
                 nom.setText(cc.getNom_c());
-                numero.setText(String.valueOf(cc.getNumero()));
+                //numero.setText(String.valueOf(cc.getNumero()));
                 description.setText(cc.getDescription());
-                duree.setText(String.valueOf(cc.getDuree()));
+                duree.setText(String.valueOf(cc.getNbparticipant()));
                 //idtheme.setText(String.valueOf(cc.getId_t()));
                 importeimage.setImage(new Image("http://127.0.0.1/image/"+cc.getImage()));
-               
+                ServiceCours sc = new ServiceCours();
+                String nomCategorie= sc.getName_cat(cc.getId_t());
+                comboCategorie.setValue(nomCategorie);
                 
             }
           });
@@ -141,7 +200,7 @@ public class CoursController implements Initializable {
                    if(newValue.isEmpty())
                       erreurtitre.setText("Il faut remplir le champ titre");
                    else if(newValue.length()>25)
-                       erreurtitre.setText("Le titre ne doit pas passer 25 caractéres");
+                       erreurtitre.setText("Le titre ne doit pas passer 250 caractéres");
                    else
                 erreurtitre.setText("");
                 }       
@@ -227,25 +286,25 @@ public class CoursController implements Initializable {
             duree.setText(newValue.replaceAll("[^\\s1-9]", ""));
         }
         });
-                numero.textProperty().addListener(new ChangeListener<String>()
-            {
-                @Override
-                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                   if(newValue.isEmpty())
-                      erreurnumero.setText("Il faut remplir le champ numéro");
-                   else if(newValue.length()>2)
-                       erreurnumero.setText("Le champ numéro ne doit pas passer 3 caractéres");
-                   else
-                erreurnumero.setText("");
-                }       
-             });
-           
-           numero.textProperty().addListener((observable, oldValue, newValue) -> {
-        if (!newValue.matches("\\s1-9*")) {
-            numero.setText(newValue.replaceAll("[^\\s1-9]", ""));
-        }
-        });
-           
+//                numero.textProperty().addListener(new ChangeListener<String>()
+//            {
+//                @Override
+//                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+//                   if(newValue.isEmpty())
+//                      erreurnumero.setText("Il faut remplir le champ numéro");
+//                   else if(newValue.length()>2)
+//                       erreurnumero.setText("Le champ numéro ne doit pas passer 3 caractéres");
+//                   else
+//                erreurnumero.setText("");
+//                }       
+//             });
+//           
+//           numero.textProperty().addListener((observable, oldValue, newValue) -> {
+//        if (!newValue.matches("\\s1-9*")) {
+//            numero.setText(newValue.replaceAll("[^\\s1-9]", ""));
+//        }
+//        });
+//           
     }    
       public void showCombo()
      {
@@ -278,36 +337,80 @@ public class CoursController implements Initializable {
             importeimage.setImage(i);
            
         }
-             
-    }
+ }
 
     @FXML
     private void ajouter(ActionEvent event) {
+                          System.out.println("aaaaaaaaaa");
+
         try {
-              if(nom.getText().isEmpty() ||(img.isEmpty()&&cc.getImage().isEmpty())  || description.getText().isEmpty() || numero.getText().isEmpty() || duree.getText().isEmpty() || comboCategorie.getValue().isEmpty() )
-        
+              if(nom.getText().isEmpty() ||(img.isEmpty()&&cc.getImage().isEmpty())  || description.getText().isEmpty()  ||  comboCategorie.getValue().isEmpty() )
         {
             JOptionPane.showMessageDialog(null, "verifer les champs");   
         }else{
+                  
             String nom1 = nom.getText();
-            int numero1 = Integer.parseInt(numero.getText());
+            String pdf1 = pdf.getText();
             String description1 = description.getText();
-            int duree1 = Integer.parseInt(duree.getText());
+//            int duree1 = Integer.parseInt(duree.getText());
             String valuePart=comboCategorie.getValue().toString();
             ServiceCours sp = new ServiceCours();
             //SC.getName_cat(valuePart);
+            //////////////////////
             
+        System.out.println("dhdhdhdh");
+        String server = "127.0.0.1";
+        int port = 21;
+        String user = "nermine";
+        String pass = "0000";
+        FTPClient ftpClient = new FTPClient();
+        try {
+            ftpClient.connect(server, port);
+            ftpClient.login(user, pass);
+            ftpClient.enterLocalPassiveMode();
+ 
+            ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+ 
+            // APPROACH #1: uploads first file using an InputStream
+            File firstLocalFile = new File(path);
+ 
+            String firstRemoteFile = file;
+            InputStream inputStream = new FileInputStream(firstLocalFile);
+ 
+            System.out.println("Start uploading first file");
+            boolean done = ftpClient.storeFile(firstRemoteFile, inputStream);
+            inputStream.close();
+            if (done) {
+                System.out.println("The first file is uploaded successfully.");
+            }
+ 
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (ftpClient.isConnected()) {
+                    ftpClient.logout();
+                    ftpClient.disconnect();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+            
+            //////////////////////
             int idth1 = Integer.parseInt(sp.getName_cat(valuePart));
-            cours c = new cours(nom1, numero1, description1, duree1, img, idth1);
+            cours c = new cours(nom1, file , description1, img, idth1);
             
             sp.ajouter(c);
             JOptionPane.showMessageDialog(null, "ajout avec succes");
             nom.clear();
-            numero.clear();
+           // numero.clear();
             description.clear();
-            duree.clear();
+           // duree.clear();
             importeimage.setImage(null);
-            afficher();}
+            afficher();
+              }
         } catch (SQLException ex) {
             Logger.getLogger(CoursController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -325,24 +428,25 @@ public class CoursController implements Initializable {
               
               try {
                  String nom1 = nom.getText();
-                 int numero1 = Integer.parseInt(numero.getText());
+                 String pdf1 = pdf.getText();
                  String description1 = description.getText();
-                 int duree1 = Integer.parseInt(duree.getText());
+              //   int duree1 = Integer.parseInt(duree.getText());
               //   int idth1 = Integer.parseInt(idtheme.getText());
                   String valuePart=comboCategorie.getValue().toString();
            
             
                   int idth1 = Integer.parseInt(cs.getName_cat(valuePart));
                   if(img.length()==0)
-                      cs.update( new cours(nom1, numero1, description1, duree1, img, idth1),cc.getId_c());
-                     
+                      cs.update( new cours(nom1, pdf1, description1,  img, idth1),cc.getId_c());
+                      //cs.update( new cours(nom1, pdf1, description1, duree1, img, idth1),cc.getId_c());
+
                   else
-                      cs.update( new cours(nom1, numero1, description1, duree1, img, idth1),cc.getId_c());
+                      cs.update( new cours(nom1, pdf1, description1,  img, idth1),cc.getId_c());
                   
                   afficher();
                   JOptionPane.showMessageDialog(null, "cours modifié");
                 nom.clear();
-                numero.clear();
+              //  numero.clear();
                 description.clear();
                 duree.clear();
                 idtheme.clear();
@@ -361,24 +465,21 @@ public class CoursController implements Initializable {
          cours cc = (cours)lvcours.getSelectionModel().getSelectedItem();
         System.out.println(cc);
         if(cc== null){
-            JOptionPane.showMessageDialog(null, "choisir cours");
+            JOptionPane.showMessageDialog(null, "il faut choisir un cours à supprimer");
                    
         }else{
              try {
                  cs.delete(cc.getId_c());
-                 
                  afficher();
-                 
-                 JOptionPane.showMessageDialog(null, "cours supprimer");
-                 
+                 JOptionPane.showMessageDialog(null, "Cours supprimé");
                  nom.clear();
-                numero.clear();
+                //numero.clear();
                 description.clear();
-                duree.clear();
+                //duree.clear();
                 idtheme.clear();
                 importeimage.setImage(null);
+                cc=null;
                  
-                 cc=null;
              } catch (SQLException ex) {
                  Logger.getLogger(CoursController.class.getName()).log(Level.SEVERE, null, ex);
              }
@@ -390,31 +491,57 @@ public class CoursController implements Initializable {
     
       private void afficher()
    {   
-    try {
-       ServiceCours sc = new ServiceCours();
-       List events=sc.readAll();
-       ObservableList et=FXCollections.observableArrayList(events);
-       lvcours.setItems(et);
-       
-//       colId.setCellValueFactory(new PropertyValueFactory<>("id_c"));
+       ServiceCours sc = new ServiceCours();//       colId.setCellValueFactory(new PropertyValueFactory<>("id_c"));
 //       colNom.setCellValueFactory(new PropertyValueFactory<>("nom_c"));
 //       colNumero.setCellValueFactory(new PropertyValueFactory<>("numero"));
 //       colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
 //       colDuree.setCellValueFactory(new PropertyValueFactory<>("duree"));
 //       colimage.setCellValueFactory(new PropertyValueFactory<>("photo"));
 //       colIdth.setCellValueFactory(new PropertyValueFactory<>("id_t"));
-       
-       
-        } catch (SQLException ex) {
-            Logger.getLogger(CoursController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        ObservableList<cours> et=sc.readAll();
+        //ObservableList<String> et=FXCollections.observableArrayList(events);
+        lvcours.setItems(et);
+        lvcours.setCellFactory((ListView<cours> listView) -> new ListCellCoursController());
     
    }
 
-    private void retourner(ActionEvent event) throws IOException {
-           AnchorPane pane=FXMLLoader.load(getClass().getResource("/caritaspidev/main/Back.fxml"));
-        ap.getChildren().setAll(pane);
+//    private void retourner(ActionEvent event) throws IOException {
+//           AnchorPane pane=FXMLLoader.load(getClass().getResource("/caritaspidev/main/Back.fxml"));
+//        ap.getChildren().setAll(pane);
+//    }
+
+    @FXML
+    private void importfile(ActionEvent event) {
+        FileChooser f=new FileChooser();
+        f.getExtensionFilters().add(new FileChooser.ExtensionFilter("pdf files", typee));
+        File fc=f.showOpenDialog(null);
+        
+        if(fc != null)
+        {   
+            System.out.println(fc.getName());
+            file=fc.getName();
+           FileSystem fileSys = FileSystems.getDefault();
+           Path srcPath= fc.toPath();
+//         //  Path destPath= fileSys.getPath("C:\\wamp64\\www\\cours\\"+fc.getName());
+//            try {
+//                Files.copy(srcPath, destPath, StandardCopyOption.REPLACE_EXISTING);
+//            } catch (IOException ex) {
+//                Logger.getLogger(CoursController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+            System.out.println(srcPath.toString());
+          //  Image j = new Image(fc.getAbsoluteFile().toURI().toString());
+          path = srcPath.toString();
+          File file = new File(path);
+           
+            System.out.println("voir le path"+path);
+           
+           
+        }
+             
+        
     }
+    
+    
    }
 
   

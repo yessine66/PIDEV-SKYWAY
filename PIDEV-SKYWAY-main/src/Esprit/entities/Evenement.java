@@ -128,9 +128,7 @@ public class Evenement {
     @Override
     public String toString() {
         return "Evenement{" + "id_ev=" + id_ev + ", nom_ev=" + nom_ev + ", date_ev=" + date_ev + ", espace=" + espace + ", nombre_pl=" + nombre_pl + ", id_ac=" + id + '}';
-    }
-
-    
+    }   
     
     
 }

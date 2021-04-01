@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Esprit.entities;
-
 import java.util.Objects;
 import javafx.scene.image.ImageView;
 
@@ -129,8 +128,5 @@ public class categorie {
         return  "Titre de categorie=" + nom_categorie ; //", id_t=" + id_t + '}';
     }
 
-  
-    
-    
     
 }
