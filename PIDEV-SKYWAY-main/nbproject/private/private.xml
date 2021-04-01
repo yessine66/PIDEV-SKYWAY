@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/MenuBack.java</file>
-            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/FXMain.java</file>
-            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/MenuBackController.java</file>
-            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/LoginFXMLController.java</file>
-            <file>file:/C:/Users/batata/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/Page1CoursController.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/empty/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/GagnerPromotionController.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/empty/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/ListCellPart.fxml</file>
+            <file>file:/C:/Users/Lenovo/Desktop/empty/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/ReclamationTableController.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/empty/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/AfficherCoursController.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/empty/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/entities/partenaire.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/empty/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/NotifGagnantController.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/empty/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/AjouterPartenaireController.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/empty/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/ListCellPartController.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/empty/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/ActualiteController.java</file>
         </group>
     </open-files>
 </project-private>
