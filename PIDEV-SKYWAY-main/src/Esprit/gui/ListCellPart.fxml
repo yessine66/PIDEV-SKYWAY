@@ -2,14 +2,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="gridp" prefHeight="132.0" prefWidth="478.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="gridp" maxWidth="478.0" prefHeight="132.0" prefWidth="478.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="342.0" minWidth="10.0" prefWidth="342.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="132.0" />
@@ -20,23 +20,13 @@
    <children>
       <VBox fx:id="vb1" prefHeight="132.0" prefWidth="320.0">
          <children>
-            <Label fx:id="lbtitre" prefHeight="44.0" prefWidth="332.0" text="nom evenement ." textFill="#ebc249">
+            <Label fx:id="lbnom" prefHeight="39.0" prefWidth="332.0" text="Nom Partenaire" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="17.0" />
                </font>
             </Label>
-            <HBox prefHeight="44.0" prefWidth="332.0">
-               <children>
-                  <Label alignment="TOP_LEFT" prefHeight="44.0" prefWidth="54.0" text="Espace: " />
-                  <Label fx:id="lbespace" alignment="TOP_LEFT" prefHeight="44.0" prefWidth="127.0" text="null" />
-               </children>
-            </HBox>
-            <HBox prefHeight="44.0" prefWidth="332.0">
-               <children>
-                  <Label alignment="TOP_LEFT" prefHeight="44.0" prefWidth="127.0" text="nombre de places: " />
-                  <Label fx:id="lbnbrpl" alignment="TOP_LEFT" prefHeight="44.0" prefWidth="127.0" text="null" />
-               </children>
-            </HBox>
+            <Label fx:id="lbdomaine" alignment="TOP_LEFT" prefHeight="29.0" prefWidth="332.0" text="domaine" textFill="#f7f7f7" />
+            <Label fx:id="lbmail" prefHeight="21.0" prefWidth="130.0" text="Mail partenaire" />
          </children>
          <padding>
             <Insets left="10.0" />
@@ -44,7 +34,8 @@
       </VBox>
       <VBox fx:id="vb11" prefHeight="137.0" prefWidth="320.0" GridPane.columnIndex="1">
          <children>
-            <Label fx:id="datev" prefHeight="28.0" prefWidth="150.0" text="label">
+            <ImageView fx:id="imev" fitHeight="104.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lbdate" prefHeight="28.0" prefWidth="150.0" text="date_p" textFill="#fcf7f7">
                <padding>
                   <Insets left="5.0" />
                </padding>

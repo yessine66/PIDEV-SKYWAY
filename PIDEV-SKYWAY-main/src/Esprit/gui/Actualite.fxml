@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTabPane?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -7,7 +8,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,21 +16,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.GUI.ActualiteController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #eff7e1;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.ActualiteController">
    <children>
-      <TabPane fx:id="tp" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
+      <JFXTabPane fx:id="tp" prefHeight="600.0" prefWidth="800.0">
+         <tabs>
             <Tab fx:id="TabList" text="voir">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: a2d0c1;">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: 282828;">
                      <children>
                         <Text fill="#214151" fontSmoothingType="LCD" layoutX="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actualités" underline="true" wrappingWidth="185.0" AnchorPane.bottomAnchor="512.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="602.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="System Italic" size="37.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="BtnRech" layoutX="579.0" layoutY="3.0" prefHeight="31.0" prefWidth="211.0" text="Rechercher..." AnchorPane.bottomAnchor="527.0" AnchorPane.leftAnchor="579.0" AnchorPane.rightAnchor="10.0" />
+                        <TextField fx:id="BtnRech" layoutX="550.0" layoutY="2.0" prefHeight="31.0" prefWidth="211.0" text="Rechercher..." AnchorPane.bottomAnchor="532.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="39.0" />
                         <ListView fx:id="ListAct" layoutX="163.0" layoutY="74.0" maxWidth="474.0" prefHeight="468.0" prefWidth="474.0" />
                         <FontAwesomeIconView glyphName="SEARCH" layoutX="769.0" layoutY="24.0" size="18" />
                         <ImageView fx:id="ico" cache="true" fitHeight="150.0" fitWidth="478.0" layoutX="7.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
@@ -39,7 +40,7 @@
                            </image>
                         </ImageView>
                         <VBox fx:id="hb2" alignment="CENTER" layoutX="664.0" layoutY="203.0" prefHeight="145.0" prefWidth="56.0">
-                        <children>
+                           <children>
                               <Button fx:id="refreshicon" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnActionRefrech" prefHeight="30.0" prefWidth="23.0" style="-fx-background-radius: 40;">
                                  <graphic>
                                     <FontAwesomeIconView fill="#051bab" glyphName="REFRESH" size="17.0" textAlignment="CENTER" wrappingWidth="12.214284896850586" />
@@ -52,91 +53,55 @@
                                  </graphic>
                               </Button>
                               <Pane prefHeight="200.0" prefWidth="200.0" />
-                            <Button fx:id="editIcon" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnActionUpdate" prefHeight="30.0" prefWidth="23.0" style="-fx-background-radius: 40;">
-                                <VBox.margin>
+                              <Button fx:id="editIcon" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnActionUpdate" prefHeight="30.0" prefWidth="23.0" style="-fx-background-radius: 40;">
+                                 <VBox.margin>
                                     <Insets />
-                                </VBox.margin>
-                             <graphic>
-                                <FontAwesomeIconView fill="#05800b" glyphName="GEARS" size="17.0" textAlignment="CENTER" wrappingWidth="12.214284896850586" />
-                             </graphic>
-                            </Button>
+                                 </VBox.margin>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#05800b" glyphName="GEARS" size="17.0" textAlignment="CENTER" wrappingWidth="12.214284896850586" />
+                                 </graphic>
+                              </Button>
                               <Pane prefHeight="200.0" prefWidth="200.0" />
-                            <Button fx:id="deleteIcon" mnemonicParsing="false" onAction="#btnActionDelete" style="-fx-background-radius: 40;">
-                                <VBox.margin>
-                                  <Insets />
-                                </VBox.margin>
-                                <graphic>
-                                   <FontAwesomeIconView fill="#d00202" glyphName="TRASH" size="17" />
-                                </graphic>
-                            </Button>
-                        </children>
+                              <Button fx:id="deleteIcon" mnemonicParsing="false" onAction="#btnActionDelete" style="-fx-background-radius: 40;">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#d00202" glyphName="TRASH" size="17" />
+                                 </graphic>
+                              </Button>
+                           </children>
                         </VBox>
                      </children>
                   </AnchorPane>
-              </content>
+               </content>
             </Tab>
-          <Tab fx:id="TabAdd" text="Ajouter">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: eff7e1;">
+            <Tab fx:id="TabDetail" text="details">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f8dc81;">
                      <children>
-                        <Text fill="#214151" fontSmoothingType="LCD" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter actualité" textAlignment="CENTER" wrappingWidth="800.0" AnchorPane.bottomAnchor="457.7255859375" AnchorPane.rightAnchor="0.0">
+                        <Label fx:id="LabDet" alignment="TOP_LEFT" layoutX="193.0" layoutY="80.0" prefHeight="254.0" prefWidth="415.0" text="Details&#10;  &#10;" textFill="#214151">
                            <font>
-                              <Font name="System Italic" size="27.0" />
-                           </font>
-                        </Text>
-                        <Label layoutX="136.0" layoutY="153.0" text="Titre Actualité" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="137.0">
-                           <font>
-                              <Font size="18.0" />
+                              <Font size="28.0" />
                            </font>
                         </Label>
-                        <Label layoutX="136.0" layoutY="194.0" text="Description" AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="137.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="136.0" layoutY="236.0" text="Inserer image" AnchorPane.bottomAnchor="280.0" AnchorPane.leftAnchor="137.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="136.0" layoutY="279.0" text="l'evenement qui correspond" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="137.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="137.0" layoutY="316.0" text="utilisateur" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="137.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="TFtitre" layoutX="476.0" layoutY="142.0" AnchorPane.bottomAnchor="380.0" AnchorPane.rightAnchor="137.0" />
-                        <TextField fx:id="TFdesc" layoutX="477.0" layoutY="183.0" AnchorPane.bottomAnchor="330.0" AnchorPane.rightAnchor="136.0" />
-                        <TextField fx:id="TFimage" layoutX="477.0" layoutY="225.0" prefHeight="31.0" prefWidth="160.0" AnchorPane.bottomAnchor="280.0" AnchorPane.rightAnchor="163.0" />
-                        <ChoiceBox fx:id="Cbev" layoutX="314.0" layoutY="268.0" prefHeight="31.0" prefWidth="186.0" AnchorPane.bottomAnchor="230.0" AnchorPane.rightAnchor="136.0" />
-                        <TextField fx:id="TFutilisateur" layoutX="476.0" layoutY="305.0" AnchorPane.bottomAnchor="180.0" AnchorPane.rightAnchor="137.0" />
-                        <Button fx:id="BtnAjout" layoutX="604.0" layoutY="349.0" mnemonicParsing="false" onAction="#btnAjoutAction" style="-fx-background-color: f8dc81;" text="Ajouter" textFill="#214151" AnchorPane.bottomAnchor="130.0" AnchorPane.rightAnchor="137.0">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Button>
-                        <ImageView fx:id="ico1" fitHeight="132.0" fitWidth="253.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="35.88679504394531" AnchorPane.leftAnchor="0.0">
+                        <ImageView fx:id="ico3" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../Downloads/kisspng-newspaper-google-news-archive-clip-art-template-news-5b155ef087f745.7275456215281272165569.png" />
+                              <Image url="@../../../../../../../Downloads/icone-actualites.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="btnImage" layoutX="646.0" layoutY="250.0" mnemonicParsing="false" onAction="#importImage" prefHeight="31.0" prefWidth="12.0" text="...">
+                        <Label fx:id="LabDet1" layoutX="89.0" layoutY="33.0" prefHeight="47.0" prefWidth="574.0" text="titre" textAlignment="CENTER" textFill="#214151">
                            <font>
-                              <Font size="9.0" />
+                              <Font name="System Bold Italic" size="28.0" />
                            </font>
-                        </Button>
-                        
-                        
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-          <Tab fx:id="TabUpdate" text="Modifier">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f8dc81;">
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="TabUpdate" text="Modifier">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f8dc81;">
                      <children>
                         <Text fill="#214151" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier actualité" textAlignment="CENTER" wrappingWidth="800.0" AnchorPane.bottomAnchor="457.7255859375">
                            <font>
@@ -177,38 +142,84 @@
                               <Image url="@../../../../../../../Downloads/kisspng-newspaper-google-news-archive-clip-art-template-news-5b155ef087f745.7275456215281272165569.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="btnImage1" layoutX="645.0" layoutY="250.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="12.0" text="...">
+                        <Button fx:id="btnImage1" layoutX="645.0" layoutY="250.0" mnemonicParsing="false" onAction="#importimagemod" prefHeight="31.0" prefWidth="12.0" text="...">
                            <font>
                               <Font size="9.0" />
                            </font>
                         </Button>
                         <TextField fx:id="TFidm" layoutX="477.0" layoutY="112.0" visible="false" />
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-            <Tab fx:id="TabDetail" text="details">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: a2d0c1;">
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="TabAdd" text="Ajouter">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f8dc81;">
                      <children>
-                        <Label fx:id="LabDet" alignment="TOP_LEFT" layoutX="193.0" layoutY="80.0" prefHeight="254.0" prefWidth="415.0" text="  Details" textFill="#214151">
+                        <Text fill="#214151" fontSmoothingType="LCD" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter actualité" textAlignment="CENTER" wrappingWidth="800.0" AnchorPane.bottomAnchor="457.7255859375" AnchorPane.rightAnchor="0.0">
                            <font>
-                              <Font size="28.0" />
+                              <Font name="System Italic" size="27.0" />
+                           </font>
+                        </Text>
+                        <Label layoutX="136.0" layoutY="153.0" text="Titre Actualité" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="137.0">
+                           <font>
+                              <Font size="18.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="ico3" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                        <Label layoutX="136.0" layoutY="194.0" text="Description" AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="137.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="136.0" layoutY="236.0" text="Inserer image" AnchorPane.bottomAnchor="280.0" AnchorPane.leftAnchor="137.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="136.0" layoutY="279.0" text="l'evenement qui correspond" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="137.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="137.0" layoutY="316.0" text="utilisateur" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="137.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="TFtitre" layoutX="476.0" layoutY="142.0" AnchorPane.bottomAnchor="380.0" AnchorPane.rightAnchor="137.0" />
+                        <TextField fx:id="TFdesc" layoutX="477.0" layoutY="183.0" AnchorPane.bottomAnchor="330.0" AnchorPane.rightAnchor="136.0" />
+                        <TextField fx:id="TFimage" layoutX="477.0" layoutY="225.0" prefHeight="31.0" prefWidth="160.0" AnchorPane.bottomAnchor="280.0" AnchorPane.rightAnchor="163.0" />
+                        <ChoiceBox fx:id="Cbev" layoutX="314.0" layoutY="268.0" prefHeight="31.0" prefWidth="186.0" AnchorPane.bottomAnchor="230.0" AnchorPane.rightAnchor="136.0" />
+                        <TextField fx:id="TFutilisateur" layoutX="476.0" layoutY="305.0" AnchorPane.bottomAnchor="180.0" AnchorPane.rightAnchor="137.0" />
+                        <Button fx:id="BtnAjout" layoutX="604.0" layoutY="349.0" mnemonicParsing="false" onAction="#btnAjoutAction" style="-fx-background-color: #214151;" text="Ajouter" textFill="#eff7e1" AnchorPane.bottomAnchor="130.0" AnchorPane.rightAnchor="137.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <ImageView fx:id="ico1" fitHeight="132.0" fitWidth="253.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="35.88679504394531" AnchorPane.leftAnchor="0.0">
                            <image>
-                              <Image url="@../../../../../../../Downloads/icone-actualites.png" />
+                              <Image url="@../../../../../../../Downloads/kisspng-newspaper-google-news-archive-clip-art-template-news-5b155ef087f745.7275456215281272165569.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="LabDet1" layoutX="89.0" layoutY="33.0" prefHeight="47.0" prefWidth="574.0" text="titre" textAlignment="CENTER" textFill="#f8dc81">
+                        <Button fx:id="btnImage" layoutX="646.0" layoutY="250.0" mnemonicParsing="false" onAction="#importImage" prefHeight="31.0" prefWidth="12.0" text="...">
                            <font>
-                              <Font name="System Bold Italic" size="28.0" />
+                              <Font size="9.0" />
                            </font>
-                        </Label>
-                     </children></AnchorPane>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Api">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <WebView fx:id="webv" layoutX="1.0" layoutY="1.0" prefHeight="565.0" />
+                     </children>
+                  </AnchorPane>
               </content>
             </Tab>
-        </tabs>
-      </TabPane>
+         </tabs>
+      </JFXTabPane>
    </children>
 </AnchorPane>

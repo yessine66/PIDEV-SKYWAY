@@ -5,7 +5,20 @@
  */
 package Esprit.gui;
 
-import Esprit.entities.Actualite;
+import Esprit.entities.partenaire;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,50 +37,47 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javax.swing.ImageIcon;
-
 /**
  * FXML Controller class
  *
- * @author khouja safa
+ * @author Lenovo
  */
-    public class ListCellController extends ListCell<Actualite>{
-
-    @FXML
-    private Label lbtitre;
-    @FXML
-    private Label lbdesc;
-    @FXML
-    private ImageView imev;
-    @FXML
-    private Label dateac;
-    
-    private FXMLLoader mLLoader;
-    @FXML
-    private VBox vb1;
-    public Button deleteIcon;
-    public Button editIcon;
+public class ListCellPartController  extends ListCell<partenaire>{
+private FXMLLoader mLLoader;
     @FXML
     private GridPane gridp;
     @FXML
+    private VBox vb1;
+    private Label lbtitre;
+    private Label lbdesc;
+    @FXML
     private VBox vb11;
+    @FXML
+    private ImageView imev;
+    @FXML
+    private Label lbnom;
+    @FXML
+    private Label lbdomaine;
+    @FXML
+    private Label lbmail;
+    @FXML
+    private Label lbdate;
 
     /**
      * Initializes the controller class.
-     * @param actualite
      */
-    
     @Override
-    protected void updateItem(Actualite actualite, boolean empty) {
-        super.updateItem(actualite, empty);
+    protected void updateItem(partenaire partenaire, boolean empty) {
+        super.updateItem(partenaire, empty);
         
-        if(empty || actualite == null) {
+        if(empty || partenaire == null) {
             
             setText(null);
             setGraphic(null);
 
         } else {
             if (mLLoader == null) {
-                mLLoader = new FXMLLoader(getClass().getResource("ListCell.fxml"));
+                mLLoader = new FXMLLoader(getClass().getResource("ListCellPart.fxml"));
                 mLLoader.setController(this);
                 try {
                     mLLoader.load();
@@ -75,17 +85,19 @@ import javax.swing.ImageIcon;
                     System.out.println(ex);
                 }
             }
-            lbtitre.setText(actualite.getTitre_ac());
-            lbdesc.setText(actualite.getDesc());
-            String url= actualite.getImage_ac(); 
+            lbnom.setText(partenaire.getNom_p());
+          lbdomaine.setText(partenaire.getDomaine());
+          lbmail.setText(partenaire.getMailP());
+            String url= partenaire.getLogoP(); 
             Image image =new Image("http://127.0.0.1/image/"+url);
             imev.setImage(image);
-            dateac.setText(toString().valueOf(actualite.getDate_ajout()));
+            //lbdate.setText(toString().valueOf(partenaire.getDate_ajout()));
             setText(null);
             setGraphic(gridp);
             
             }
     
     }
-
+  
+    
 }

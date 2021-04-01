@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTabPane?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -7,7 +8,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,22 +17,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.GUI.EvenementController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.GUI.EvenementController">
    <children>
-      <TabPane fx:id="tp" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
+      <JFXTabPane prefHeight="600.0" prefWidth="800.0">
+         <tabs>
             <Tab fx:id="TabList" text="voir">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: a2d0c1;">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: eff7e1;">
                      <children>
-                        <ImageView fx:id="ico" cache="true" fitHeight="377.0" fitWidth="600.0" layoutX="-183.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" rotate="-48.4">
+                        <ImageView fx:id="ico4" cache="true" fitHeight="377.0" fitWidth="600.0" layoutX="-183.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" rotate="-48.4">
                            <image>
                               <Image url="@../../../../../../../Downloads/5a1d305e412f23.921762741511862366267.png" />
                            </image>
                         </ImageView>
                         <FontAwesomeIconView glyphName="SEARCH" layoutX="769.0" layoutY="24.0" size="18" />
                         <VBox fx:id="hb2" alignment="CENTER" layoutX="664.0" layoutY="203.0" prefHeight="145.0" prefWidth="56.0">
-                        <children>
+                           <children>
                               <Button fx:id="refreshicon" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnActionRefrechEv" prefHeight="30.0" prefWidth="23.0" style="-fx-background-radius: 40;">
                                  <graphic>
                                     <FontAwesomeIconView fill="#051bab" glyphName="REFRESH" size="17.0" textAlignment="CENTER" wrappingWidth="12.214284896850586" />
@@ -45,24 +45,24 @@
                                  </graphic>
                               </Button>
                               <Pane prefHeight="200.0" prefWidth="200.0" />
-                            <Button fx:id="editIcon" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnActionUpdateEv" prefHeight="30.0" prefWidth="23.0" style="-fx-background-radius: 40;">
-                                <VBox.margin>
+                              <Button fx:id="editIcon" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnActionUpdateEv" prefHeight="30.0" prefWidth="23.0" style="-fx-background-radius: 40;">
+                                 <VBox.margin>
                                     <Insets />
-                                </VBox.margin>
-                             <graphic>
-                                <FontAwesomeIconView fill="#05800b" glyphName="GEARS" size="17.0" textAlignment="CENTER" wrappingWidth="12.214284896850586" />
-                             </graphic>
-                            </Button>
+                                 </VBox.margin>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#05800b" glyphName="GEARS" size="17.0" textAlignment="CENTER" wrappingWidth="12.214284896850586" />
+                                 </graphic>
+                              </Button>
                               <Pane prefHeight="200.0" prefWidth="200.0" />
-                            <Button fx:id="deleteIcon" mnemonicParsing="false" onAction="#btnActionDeleteEv" style="-fx-background-radius: 40;">
-                                <VBox.margin>
-                                  <Insets />
-                                </VBox.margin>
-                                <graphic>
-                                   <FontAwesomeIconView fill="#d00202" glyphName="TRASH" size="17" />
-                                </graphic>
-                            </Button>
-                        </children>
+                              <Button fx:id="deleteIcon" mnemonicParsing="false" onAction="#btnActionDeleteEv" style="-fx-background-radius: 40;">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#d00202" glyphName="TRASH" size="17" />
+                                 </graphic>
+                              </Button>
+                           </children>
                         </VBox>
                         <ListView fx:id="ListEv" layoutX="163.0" layoutY="74.0" maxWidth="474.0" prefHeight="468.0" prefWidth="474.0" />
                         <Text fill="#214151" fontSmoothingType="LCD" layoutX="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Evènements" underline="true" wrappingWidth="208.0" AnchorPane.bottomAnchor="463.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="579.0" AnchorPane.topAnchor="0.0">
@@ -73,11 +73,11 @@
                         <TextField fx:id="BtnRech" layoutX="579.0" layoutY="3.0" prefHeight="31.0" prefWidth="211.0" text="Rechercher..." AnchorPane.bottomAnchor="527.0" AnchorPane.leftAnchor="579.0" AnchorPane.rightAnchor="10.0" />
                      </children>
                   </AnchorPane>
-              </content>
+               </content>
             </Tab>
-          <Tab fx:id="TabAdd" text="Ajouter">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: eff7e1;">
+            <Tab fx:id="TabAdd" text="Ajouter">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: eff7e1;">
                      <children>
                         <Text fill="#214151" fontSmoothingType="LCD" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Evènement" textAlignment="CENTER" wrappingWidth="800.0" AnchorPane.bottomAnchor="457.7255859375" AnchorPane.rightAnchor="0.0">
                            <font>
@@ -123,14 +123,13 @@
                         </Label>
                         <TextField fx:id="TFnbrpl" layoutX="477.0" layoutY="302.0" prefHeight="31.0" prefWidth="186.0" AnchorPane.bottomAnchor="230.0" AnchorPane.rightAnchor="136.0" />
                         <DatePicker fx:id="TFdate" layoutX="468.0" layoutY="202.0" prefHeight="31.0" prefWidth="188.0" AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="137.0" />
-                        
-                        
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-          <Tab fx:id="TabUpdate" text="Modifier">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f8dc81;">
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="TabUpdate" text="Modifier">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: eff7e1;">
                      <children>
                         <Text fill="#214151" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Evènement" textAlignment="CENTER" wrappingWidth="800.0" AnchorPane.bottomAnchor="457.7255859375">
                            <font>
@@ -177,14 +176,15 @@
                            </font>
                         </Button>
                         <DatePicker fx:id="TFdatem" layoutX="461.0" layoutY="199.0" prefHeight="31.0" prefWidth="188.0" AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="137.0" />
-                     </children></AnchorPane>
-            </content>
-          </Tab>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
             <Tab fx:id="TabDetail" text="details">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: a2d0c1;">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: eff7e1;">
                      <children>
-                        <Label fx:id="LabDet" alignment="TOP_LEFT" layoutX="193.0" layoutY="80.0" prefHeight="254.0" prefWidth="415.0" text="  Details" textFill="#214151">
+                        <Label fx:id="LabDet" alignment="TOP_LEFT" layoutX="193.0" layoutY="80.0" prefHeight="254.0" prefWidth="415.0" text="  Details de l'evenement" textFill="#214151">
                            <font>
                               <Font size="28.0" />
                            </font>
@@ -199,10 +199,11 @@
                               <Font name="System Bold Italic" size="28.0" />
                            </font>
                         </Label>
-                     </children></AnchorPane>
-              </content>
+                     </children>
+                  </AnchorPane>
+               </content>
             </Tab>
-        </tabs>
-      </TabPane>
+         </tabs>
+      </JFXTabPane>
    </children>
 </AnchorPane>
