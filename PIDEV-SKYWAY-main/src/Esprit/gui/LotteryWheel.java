@@ -25,7 +25,9 @@ import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -94,6 +96,8 @@ private static Text brassomekaaa=new Text("vide");
                
                 String ok=aa.writeFile();
                 System.out.println("\n\n\naffichili ooooook"+ok);
+              //  FrontTest2 front =new FrontTest2();
+              
        //  brassomekaaa.setText(ok);
                 
          /*     Text text = new Text("foo");
@@ -154,6 +158,20 @@ text.setText(s); // or text = new Text(s) // value = "foo"*/
                
        
 	}
+         private void LoadPage (String page){
+    Parent root=null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(page));
+                      System.out.println("load1");
+        } catch (IOException ex) {
+           // Logger.getLogger(FrontTest2.class.getName()).log(Level.SEVERE, null, ex);
+            
+             System.out.println("load2");
+        }
+
+             System.out.println("load3");
+    
+    }
 
 	/**
 	 * 
@@ -264,8 +282,16 @@ text.setText(s); // or text = new Text(s) // value = "foo"*/
                         promotionCRUD aa = new promotionCRUD();
                    
                         System.out.println("\n\n\n\n\n yahbiiiiiibiiiiiiii : " +aa.loadCodeBase(winnerName.getText())+"reductionnn :  "+ aa.loadCreducBase(winnerName.getText()) );
-                        
+                    
+                        //FrontTest2 f =new FrontTest2();
+                        //promotionCRUD aa = new promotionCRUD();
+                        //aa.writeFile();
+                        // String ok=aa.writeFile();
 showMessageDialog(null, "code mte3ek:  " +aa.loadCodeBase(winnerName.getText())+"   reductionnn mte3ek :  "+ aa.loadCreducBase(winnerName.getText()) , "mabrouuuk", JOptionPane.PLAIN_MESSAGE);
+//LoadPage("notifGagnant");
+
+   
+           
 
         //LoadPage("AjouterPartenaire");
                         

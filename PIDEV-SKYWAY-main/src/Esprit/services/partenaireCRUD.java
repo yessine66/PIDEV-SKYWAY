@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -33,12 +35,14 @@ public class partenaireCRUD {
     
     
  public void ajouterPartenaire( partenaire par ){
-        String req ="INSERT INTO partenaire (nom_p,domaine,date_p)"+"values (?,?,?)";
+        String req ="INSERT INTO partenaire (nom_p,domaine,date_p,mailP,logoP)"+"values (?,?,?,?,?)";
         try {
             ste = cnx.prepareStatement(req);
             ste.setString(1, par.getNom_p());
             ste.setString(2, par.getDomaine());
             ste.setString(3, par.getDate_p());
+            ste.setString(4, par.getMailP());
+            ste.setString(5, par.getLogoP());
             ste.executeUpdate();
             System.out.println("partenaire ajoutée");
             
@@ -63,8 +67,16 @@ public class partenaireCRUD {
          
             partenaire par;
             while(rs.next()){
-               par = new partenaire(rs.getInt("id_p"), rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"));
+            ImageView v = new ImageView();
+                v.setImage(new Image("http://127.0.0.1/image/"+rs.getString("logoP")));
+                v.setFitWidth(100);
+                v.setFitHeight(100);
+               par = new partenaire(rs.getInt("id_p"), rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"), rs.getString("mailP"), rs.getString("logoP"));
+              // par = new partenaire(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+               //par = new partenaire(rs.getInt("id_p"), rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"), rs.getString("mailP"));
+               par.setLogoPi(v);
                partenaireList.add(par);
+              
             }
                 
         }catch(Exception ex){
@@ -77,16 +89,17 @@ public class partenaireCRUD {
  
   public void modifierPartenaire(partenaire par ){
   
-   String requete = "UPDATE partenaire SET nom_p=?,domaine=? ,date_p=? WHERE id_p=?";
+   String requete = "UPDATE partenaire SET nom_p=?,domaine=? ,date_p=? ,mailP=?, logoP=? WHERE id_p=?";
         try {
           ste= cnx.prepareStatement(requete);
             /*PreparedStatement pst = 
             new MyConnection().cn.prepareStatement(requete);*/
-        ste.setInt(4, par.getId_p());
+        ste.setInt(6, par.getId_p());
         ste.setString(1, par.getNom_p());
          ste.setString(2, par.getDomaine());
           ste.setString(3, par.getDate_p());
-     
+     ste.setString(4, par.getMailP());
+     ste.setString(5, par.getLogoP());
            ste.executeUpdate();
             System.out.println("partenaire Modfié !");
         } catch(SQLException ex) {
@@ -158,8 +171,8 @@ public class partenaireCRUD {
          
             partenaire par;
             while(rs.next()){
-               par = new partenaire( rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"));
-               partenaireList.add(par);
+               //par = new partenaire( rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"),rs.getString("mailP"),rs.getString("logoP"));
+               //partenaireList.add(par);
             }
                 
         }catch(Exception ex){
