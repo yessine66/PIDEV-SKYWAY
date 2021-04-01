@@ -187,7 +187,7 @@ public class ThemeController implements Initializable {
               
               try {
                  String nom1 = nom.getText();
-                 
+               //????????  
                   if(img.length()==0) {       
                   st.update( new theme(nom1,img),tt.getId_t());
                   }

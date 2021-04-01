@@ -27,7 +27,7 @@ public class TesttFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
          try {
-            Parent root = FXMLLoader.load(getClass().getResource("notifGagnant.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("ListCellE.fxml"));
            System.out.println("hhh");
             Scene scene = new Scene(root);
             primaryStage.setTitle("Partenaire et promotion!");
