@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package Esprit.services;
-
+import Esprit.entities.test;
 import Esprit.Connection.MyConnection;
+import Esprit.entities.Questions;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,9 +24,29 @@ public class testCRUD {
     private PreparedStatement ste;
       Statement st;
      ResultSet rs;
-     public testCRUD (int id_q){
+     public testCRUD (){
         cnx = MyConnection.getInstance().getConnection();
 }
+
+ public void ajouterTest(test t){
+        String req ="INSERT INTO test (date_test,score,nom_categorie)"+"values (?,?,?)";
+        try {
+            ste = cnx.prepareStatement(req);
+            ste.setString(1, t.getDate_test());
+            ste.setInt(2, t.getScore());
+           // ste.setString(3, q.getId_t().getNom_t());
+            ste.setString(3,t.getName_t());
+            ste.executeUpdate();
+            System.out.println("Test ajouté");
+            
+        } catch (SQLException ex) {
+            System.out.println("Probléme");
+            System.out.println(ex.getMessage());
+            
+        }
+        
+    }
+
       public ObservableList<String> justanswer() throws SQLException 
      
            { 
@@ -48,6 +69,39 @@ public class testCRUD {
             ex.printStackTrace();
         }
         return randomList;
+    }
+            public int recupscore() throws SQLException{
+     
+     
+         String query = "SELECT score from test ";
+  //String query = "SELECT text_r FROM reponse where text_r='oui'";
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+        int par = 0;
+            while(rs.next()){
+               par = rs.getInt("score");
+            }
+     
+        
+        return par;
+       
+    }
+
+    public int recupscore2(int id) throws SQLException {
+         String query = "SELECT score from test while nom_categorie= "+id;
+  //String query = "SELECT text_r FROM reponse where text_r='oui'";
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+        int par = 0;
+            while(rs.next()){
+               par = rs.getInt("score");
+            }
+     
+        
+        return par;
+       
     }
  
     

@@ -41,7 +41,7 @@ public class MenuBackController implements Initializable {
         
     }    
     
-    public void initDate(Utilisateur usereo){
+    public void initData(Utilisateur usereo){
         userlogin = usereo;
         System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
     }
@@ -69,7 +69,7 @@ public class MenuBackController implements Initializable {
 
     @FXML
     private void communication(MouseEvent event) {
-        LoadPage("Page5Communication");
+        LoadPage("ReclamationTable");
     }
 
     @FXML

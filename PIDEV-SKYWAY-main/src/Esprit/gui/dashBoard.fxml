@@ -27,7 +27,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnCours" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Cours" textFill="#14556d" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="548.0" AnchorPane.topAnchor="100.0">
+                  <Button fx:id="btnCours" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleButtonCoursAction" prefHeight="123.0" prefWidth="202.0" text="Cours" textFill="#14556d" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="548.0" AnchorPane.topAnchor="100.0">
                      <graphic>
                         <FontAwesomeIconView fill="#14556d" glyphName="BOOK" size="50" />
                      </graphic>
@@ -35,7 +35,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnTests" layoutX="299.0" layoutY="100.0" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Tests" textFill="#14556d">
+                  <Button fx:id="btnTests" layoutX="299.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleButtonTestsAction" prefHeight="123.0" prefWidth="202.0" text="Tests" textFill="#14556d">
                      <graphic>
                         <FontAwesomeIconView fill="#14556d" glyphName="PENCIL_SQUARE_ALT" size="50" />
                      </graphic>
@@ -43,7 +43,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnReclamations" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Reclamations" textFill="#14556d" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="300.0">
+                  <Button fx:id="btnReclamations" mnemonicParsing="false" onAction="#handleButtonReclamationsAction" prefHeight="123.0" prefWidth="202.0" text="Reclamations" textFill="#14556d" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="300.0">
                      <graphic>
                         <FontAwesomeIconView fill="#14556d" glyphName="WECHAT" size="50" />
                      </graphic>
@@ -51,7 +51,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnPartenaires" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Partenaires" textFill="#14556d" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="439.0" AnchorPane.topAnchor="300.0">
+                  <Button fx:id="btnPartenaires" mnemonicParsing="false" onAction="#handleButtonPartenairesAction" prefHeight="123.0" prefWidth="202.0" text="Partenaires" textFill="#14556d" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="439.0" AnchorPane.topAnchor="300.0">
                      <graphic>
                         <FontAwesomeIconView fill="#14556d" glyphName="USERS" size="50" />
                      </graphic>
@@ -59,7 +59,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnEvenements" mnemonicParsing="false" prefHeight="123.0" prefWidth="202.0" text="Evenements" textFill="#14556d" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
+                  <Button fx:id="btnEvenements" mnemonicParsing="false" onAction="#handleButtonEvennementsAction" prefHeight="123.0" prefWidth="202.0" text="Evenements" textFill="#14556d" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
                      <graphic>
                         <FontAwesomeIconView fill="#14556d" glyphName="CALENDAR_CHECK_ALT" size="50" textAlignment="CENTER" />
                      </graphic>

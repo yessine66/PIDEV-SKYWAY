@@ -64,6 +64,12 @@ public class LoginFXMLController implements Initializable {
     ObservableList listRole = FXCollections.observableArrayList();
     
     
+    private Utilisateur usersession;
+    
+    public static Utilisateur usertest;
+    
+    
+    
     
     @FXML
     private Button buttonLogin;
@@ -126,6 +132,11 @@ public class LoginFXMLController implements Initializable {
         
         Utilisateur userxo = new Utilisateur();
         userxo= usercru.Connexion(textFieldUsername.getText(), passwordFieldPassword.getText());
+        usersession=userxo;
+        usertest=userxo;
+        System.out.println("\n\n\n a7na tawa 9a3din nrecuperiw f session fwest login : \n"+usersession );
+        System.out.println("\n\n\n a7na tawa 9a3din nrecuperiw f user statiiiiiiiiiiiiiiic : \n"+usertest );
+        
         if(userxo==null){
                       Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
@@ -148,7 +159,7 @@ public class LoginFXMLController implements Initializable {
                                         Scene scene_Menu_Back = new Scene(menuBackParent);
                                         
                                         MenuBackController controller=loader.getController();
-                                        controller.initDate(userxo);
+                                        controller.initData(userxo);
                                         
                                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                                         window.setScene(scene_Menu_Back);
@@ -156,9 +167,18 @@ public class LoginFXMLController implements Initializable {
         }
         else if("apprenant".equals(userxo.getRoleUser()) ) {
             System.out.println("apprenant");
-                                                                Parent menuFrontParent;
-            menuFrontParent = FXMLLoader.load(getClass().getResource("FrontMenu.fxml"));
-                                        Scene scene_Menu_Back = new Scene(menuFrontParent);
+            //    System.out.println("\n\n\n\nuserdata:  "+userxo);
+            
+                FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation((getClass().getResource("dashBoard.fxml")));
+            
+                                                    Parent menuBackParent = loader.load();
+                                                    
+                                        Scene scene_Menu_Back = new Scene(menuBackParent);
+                                        
+                                        DashBoardController controller=loader.getController();
+                                        controller.initData(userxo);
+                                        
                                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                                         window.setScene(scene_Menu_Back);
                                         window.show();
@@ -262,6 +282,12 @@ public class LoginFXMLController implements Initializable {
         }
 
     }
+
+    public Utilisateur getUsersession() {
+        return usersession;
+    }
+    
+    
 
     @FXML
     private void HandleButtonMailAction(ActionEvent event) {

@@ -155,31 +155,31 @@ int index =-1;
            searchPart();
           
          
-       /*    listViewPart.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>(){
-
-    public void handle(javafx.scene.input.MouseEvent event) {
-   
-            //public void handle(MouseEvent event) {
-                // String numero11 = String.valueOf(cc.getNumero());
-                cc = (partenaire)listViewPart.getSelectionModel().getSelectedItem();
-                System.out.println(cc);
-                tnomp.setText(cc.getNom_p());
-                //numero.setText(String.valueOf(cc.getNumero()));
-                tdomaine.setText(cc.getDomaine());
-                  tdomaine.setText(cc.getDomaine());
-                  tmail.setText(cc.getMailP());
-                  //String nomCategorie= sc.getName_cat(cc.getId_t());
-                  //DateSelec.setValue(nomCategorie);
-                //duree.setText(String.valueOf(cc.getNbparticipant()));
-                //idtheme.setText(String.valueOf(cc.getId_t()));
-                importeimage.setImage(new Image("http://127.0.0.1/image/"+cc.getLogoP()));
-                //ServiceCours sc = new ServiceCours();
-                //String nomCategorie= sc.getName_cat(cc.getId_t());
-                //comboCategorie.setValue(nomCategorie);
-                
-            }
-          });
-           */
+//           listViewPart.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>(){
+//
+//    public void handle(javafx.scene.input.MouseEvent event) {
+//   
+//            //public void handle(MouseEvent event) {
+//                // String numero11 = String.valueOf(cc.getNumero());
+//                cc = (partenaire)listViewPart.getSelectionModel().getSelectedItem();
+//                System.out.println(cc);
+//                tnomp.setText(cc.getNom_p());
+//                //numero.setText(String.valueOf(cc.getNumero()));
+//                tdomaine.setText(cc.getDomaine());
+//                  tdomaine.setText(cc.getDomaine());
+//                  tmail.setText(cc.getMailP());
+//                  //String nomCategorie= sc.getName_cat(cc.getId_t());
+//                  //DateSelec.setValue(nomCategorie);
+//                //duree.setText(String.valueOf(cc.getNbparticipant()));
+//                //idtheme.setText(String.valueOf(cc.getId_t()));
+//                importeimage.setImage(new Image("http://127.0.0.1/image/"+cc.getLogoP()));
+//                //ServiceCours sc = new ServiceCours();
+//                //String nomCategorie= sc.getName_cat(cc.getId_t());
+//                //comboCategorie.setValue(nomCategorie);
+//                
+//            }
+//          });
+           
            
     }    
     

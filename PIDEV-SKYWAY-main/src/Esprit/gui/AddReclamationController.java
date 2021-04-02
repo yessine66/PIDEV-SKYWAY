@@ -7,6 +7,7 @@ package Esprit.gui;
 
 import Esprit.Connection.MyConnection;
 import Esprit.entities.Reclamation;
+import Esprit.entities.Utilisateur;
 import Esprit.entities.categorie;
 import java.net.URL;
 import java.sql.Connection;
@@ -64,17 +65,29 @@ public class AddReclamationController implements Initializable {
     private ComboBox<String> combo2;
     @FXML
     private TextField recTF;
-private int utilisateur = 10;
+//private int usertest = 10;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+                    LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
+            System.out.println("\n\n\n\n iddddddddddddd fwest add reclamatoin conttroller *************** :\n  "+ usermimi.getIdUser());
+        
         combo1.getItems().clear();
         showCombo();
+        
+        
        
-    }    
+    }
+    
+ 
+    
+    
+    
   
       public void showCombo()
      { 
@@ -151,13 +164,15 @@ private int utilisateur = 10;
     }
      
      private void getQuery() {
+         LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
            String s = combo1.getSelectionModel().getSelectedItem().toString();
           
         if (update == false) {
             if (combo1.getSelectionModel().getSelectedItem().toString().equals("Cours")){
-                query = "INSERT INTO `reclamation`( `objet`, `text_r`, `date_envoi`, `id`,`cours`) VALUES (?,?,CURDATE(),"+utilisateur+",?)";     
+                query = "INSERT INTO `reclamation`( `objet`, `text_r`, `date_envoi`, `id`,`cours`) VALUES (?,?,CURDATE(),"+usermimi.getIdUser()+",?)";     
               } else if (combo1.getSelectionModel().getSelectedItem().toString().equals("Enseignant")){
-                query = "INSERT INTO `reclamation`( `objet`, `text_r`, `date_envoi`, `id`,`enseignant`) VALUES (?,?,CURDATE(),"+utilisateur+",?)";
+                query = "INSERT INTO `reclamation`( `objet`, `text_r`, `date_envoi`, `id`,`enseignant`) VALUES (?,?,CURDATE(),"+usermimi.getIdUser()+",?)";
               }
              
              
@@ -169,7 +184,7 @@ private int utilisateur = 10;
                     + "`objet`=?,"
                     + "`text_r`=?,"
                     + "`date_envoi`=,"
-                    + "`id`= "+utilisateur+","
+                    + "`id`= "+usermimi.getIdUser()+","
                     + "`cours`=? WHERE id_rec = "+reclamationId;
     
               } else if (combo1.getSelectionModel().getSelectedItem().toString().equals("Enseignant")){
@@ -177,7 +192,7 @@ private int utilisateur = 10;
                     + "`objet`=?,"
                     + "`text_r`=?,"
                     + "`date_envoi`=,"
-                    + "`id`= "+utilisateur+" ,"
+                    + "`id`= "+usermimi.getIdUser()+" ,"
                     + "`enseignant`=? WHERE id_rec = "+reclamationId;
               }
             
@@ -230,7 +245,8 @@ private int utilisateur = 10;
          reclamationId = id;
          objetTF.setText(objet);
          textTF.setText(text);
-         if(cours.equals("cours")){
+         String var = "Cours"; 
+         if(/*cours.equals("cours")*/ cours ==var){
             combo2 .setValue(enseignant);
             combo1.setValue("enseignant");
          }else{
