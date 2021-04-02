@@ -155,7 +155,7 @@ int index =-1;
            searchPart();
           
          
-           listViewPart.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>(){
+       /*    listViewPart.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>(){
 
     public void handle(javafx.scene.input.MouseEvent event) {
    
@@ -179,7 +179,7 @@ int index =-1;
                 
             }
           });
-           
+           */
            
     }    
     

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="gridp" maxWidth="746.0" prefHeight="125.0" prefWidth="685.0" style="-fx-background-color: D3EAEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="gridp" maxWidth="746.0" prefHeight="125.0" prefWidth="685.0" style="-fx-background-color: D3EAEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.ListCellPartIdController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="342.0" minWidth="10.0" prefWidth="342.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="132.0" />
@@ -29,11 +29,13 @@
             <Label fx:id="lbdomaine" alignment="TOP_LEFT" prefHeight="29.0" prefWidth="332.0" text="domaine" textFill="#1a10da">
                <font>
                   <Font size="18.0" />
-               </font></Label>
+               </font>
+            </Label>
             <Label fx:id="lbmail" prefHeight="25.0" prefWidth="193.0" text="Mail partenaire" textFill="#371bc2">
                <font>
                   <Font size="17.0" />
-               </font></Label>
+               </font>
+            </Label>
          </children>
          <padding>
             <Insets left="10.0" />
@@ -42,14 +44,6 @@
       <VBox fx:id="vb11" prefHeight="137.0" prefWidth="320.0" GridPane.columnIndex="1">
          <children>
             <Label fx:id="lbdate" prefHeight="26.0" prefWidth="132.0" text="date_p" textFill="#9e0d5a">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Label>
-            <Label fx:id="lbidp" prefHeight="26.0" prefWidth="132.0" text="id" textFill="#9e0d5a">
                <padding>
                   <Insets left="5.0" />
                </padding>
