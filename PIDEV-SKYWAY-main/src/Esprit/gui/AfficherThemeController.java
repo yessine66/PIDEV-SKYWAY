@@ -49,8 +49,9 @@ import javafx.stage.Stage;
  * @author simop
  */
 public class AfficherThemeController implements Initializable {
-    
-    private Utilisateur userlogin;
+    LoginFXMLController mmmmmm = new LoginFXMLController();
+          Utilisateur usermimi = LoginFXMLController.usertest;
+    //private Utilisateur userlogin;
 
     private Connection con;
     @FXML
@@ -75,13 +76,15 @@ public class AfficherThemeController implements Initializable {
      * Initializes the controller class.
      */
     
-            public void initData(Utilisateur usereo){
-        userlogin = usereo;
-        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
-    } 
+//            public void initData(Utilisateur usereo){
+//        userlogin = usereo;
+//        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
+//    } 
             
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        LoginFXMLController mmmmmm = new LoginFXMLController();
+          Utilisateur usermimi = LoginFXMLController.usertest;
         // TODO
         themecontainer.setSpacing(5);
         try {
@@ -95,7 +98,8 @@ public class AfficherThemeController implements Initializable {
     
 
     private void displayTheme() throws SQLException {
-
+          LoginFXMLController mmmmmm = new LoginFXMLController();
+          Utilisateur usermimi = LoginFXMLController.usertest;
         String req = "select * from theme  ";
         List<VBox> list = new ArrayList<>();
         ste = con.createStatement();
@@ -171,7 +175,7 @@ public class AfficherThemeController implements Initializable {
                      themeSession.getInstace(id1);
                    /*  AnchorPane pane = FXMLLoader.load(getClass().getResource("AfficherCategorie.fxml"));
                      pane1.getChildren().setAll(pane);*/
-                    System.out.println("\n\n\n nzelt aala boutton voir les categorie : \n" + userlogin);
+         //           System.out.println("\n\n\n nzelt aala boutton voir les categorie : \n" + userlogin);
                    
                                                          FXMLLoader loader = new FXMLLoader();
                     loader.setLocation((getClass().getResource("AfficherCategorie.fxml")));
@@ -180,8 +184,8 @@ public class AfficherThemeController implements Initializable {
                                                     
                                         Scene scene_Menu_Back = new Scene(menuBackParent);
                                         
-                                        AfficherCategorieController controller=loader.getController();
-                                        controller.initData(userlogin);
+//                                        AfficherCategorieController controller=loader.getController();
+//                                        controller.initData(userlogin);
                                         
                                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                                         window.setScene(scene_Menu_Back);
