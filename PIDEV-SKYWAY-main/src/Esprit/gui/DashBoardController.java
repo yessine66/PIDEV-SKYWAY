@@ -92,7 +92,7 @@ public class DashBoardController implements Initializable {
     private void handleButtonReclamationsAction(ActionEvent event) throws IOException {
         System.out.println("\n reclamations clicked");
       
-                                               Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("ReclamationTable.fxml"));
+                                        Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("ReclamationTable.fxml"));
                                         Scene reateAccountScene = new Scene(CreateAccountParent);
                                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                                         window.setScene(reateAccountScene);
