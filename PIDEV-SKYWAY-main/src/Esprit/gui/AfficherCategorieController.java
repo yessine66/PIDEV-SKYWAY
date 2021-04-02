@@ -127,7 +127,7 @@ public int get() throws SQLException
                               
     
 }
-    private void displayCategorie() throws SQLException {
+    public void displayCategorie() throws SQLException {
        
         int id_theme =o;
         System.out.println("===*******>"+id_theme);

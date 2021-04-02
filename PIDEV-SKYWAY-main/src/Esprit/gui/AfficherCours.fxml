@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfficherCoursController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AfficherCoursController">
    <children>
       <Label alignment="CENTER" layoutX="199.0" layoutY="8.0" prefHeight="49.0" prefWidth="253.0" text="Les Cours">
          <font>
@@ -16,11 +16,11 @@
          </font>
       </Label>
       <TextField fx:id="search" layoutX="43.0" layoutY="72.0" onAction="#search" prefHeight="31.0" prefWidth="240.0" promptText="Rechercher" />
-      <ScrollPane fx:id="scroll" layoutY="152.0" prefHeight="416.0" prefWidth="730.0">
+      <ScrollPane fx:id="scroll" layoutY="152.0" prefHeight="790.0" prefWidth="900.0" AnchorPane.rightAnchor="27.0">
          <content>
-            <VBox fx:id="courscontainer" prefHeight="399.0" prefWidth="715.0" />
+            <VBox fx:id="courscontainer" prefHeight="790.0" prefWidth="900.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="ret" layoutX="606.0" layoutY="85.0" mnemonicParsing="false" onAction="#retourner" prefHeight="25.0" prefWidth="110.0" text="Return" />
+      <Button fx:id="ret" layoutX="809.0" layoutY="91.0" mnemonicParsing="false" onAction="#retourner" prefHeight="25.0" prefWidth="110.0" text="Return" />
    </children>
 </AnchorPane>
