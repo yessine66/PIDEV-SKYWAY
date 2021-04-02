@@ -109,7 +109,7 @@ public class ReclamationTableController implements Initializable {
     private TableColumn<Reclamation, String> ensCol;
     @FXML
     private ImageView image;
-    
+    private int x = 8 ;
     //private Integer useraddo = 10;
      
     /**
@@ -118,9 +118,9 @@ public class ReclamationTableController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-                                LoginFXMLController mmmmmm = new LoginFXMLController();
+                               LoginFXMLController mmmmmm = new LoginFXMLController();
             Utilisateur usermimi = LoginFXMLController.usertest;
-            System.out.println("\n\n\n\n iddddddddddddd fwest aReclamation table *************** :\n  "+ usermimi.getIdUser());
+           System.out.println("\n\n\n\n iddddddddddddd fwest aReclamation table *************** :\n  "+ usermimi.getIdUser());
         
         // TODO
         loadDate();
@@ -191,7 +191,7 @@ public class ReclamationTableController implements Initializable {
     }
 
    private void loadDate() {
-                                       LoginFXMLController mmmmmm = new LoginFXMLController();
+            LoginFXMLController mmmmmm = new LoginFXMLController();
             Utilisateur usermimi = LoginFXMLController.usertest;
         connection =  MyConnection.getInstance().getConnection();
         refreshTable();
@@ -283,7 +283,7 @@ public class ReclamationTableController implements Initializable {
                             Optional <ButtonType> action = alert.showAndWait();
                             if (action.get()== ButtonType.OK) {
                             reclamation = reclamationTable.getSelectionModel().getSelectedItem();
-                            
+                            if (usermimi.getIdUser() == reclamation.getId()) {
                             FXMLLoader loader = new FXMLLoader ();
                             loader.setLocation(getClass().getResource("addReclamation.fxml"));
                             try {
@@ -305,9 +305,16 @@ public class ReclamationTableController implements Initializable {
                             stage.initStyle(StageStyle.UTILITY);
                             stage.show();
                             
-                             }
-                            
-                            
+                             } 
+                            else {
+                                Alert al = new Alert(AlertType.ERROR);
+                                  al.setTitle("Erreur");
+                                  al.setContentText("tessssssssst");
+                                   al.setHeaderText("Vous pouvez supprimer juste votre reclmation!");
+                                   al.showAndWait(); 
+                            }
+                                }
+                 
 
                         });
 
@@ -328,11 +335,7 @@ public class ReclamationTableController implements Initializable {
          editCol.setCellFactory(cellFoctory);
          reclamationTable.setItems(ReclamationList);
           // test api excel 
-          
-        
-       /*  exportToXml = new Button ("Export to Excel");
-         exportToXml.setFont(Font.font("Sansserif",15));
-         exportToXml.setOnAction( e-> {*/
+         
       exportToXml.setOnMouseClicked((MouseEvent event) -> {    
          try {
           String query = "select * from reclamation ";
