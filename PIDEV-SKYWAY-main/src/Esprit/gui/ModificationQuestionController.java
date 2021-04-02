@@ -299,6 +299,7 @@ List<Reponses> myLst2;
             @Override
             public void handle(ActionEvent event) {
                 Dialog confirmation = new Dialog();
+                Dialog confirmations = new Dialog();
                 GridPane grid2 = new GridPane();
                 Label l1 = new Label("Delete?");
                 grid2.add(l1, 2, 2);
@@ -322,12 +323,22 @@ List<Reponses> myLst2;
                         return null;
                     }
                 });
-                confirmation.setResultConverter(new Callback<ButtonType, Reponses>() {
+                GridPane grid3 = new GridPane();
+                Label l11 = new Label("Delete?");
+                grid3.add(l11, 2, 2);
+                confirmations.setTitle("Confirmation de suppression!");
+                confirmations.getDialogPane().setContent(grid3);
+                ButtonType Confii = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType An = new ButtonType("No", ButtonBar.ButtonData.OK_DONE);
+                confirmations.getDialogPane().getButtonTypes().add(Confii);
+                confirmations.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+            
+                confirmations.setResultConverter(new Callback<ButtonType, Reponses>() {
                     public Reponses call(ButtonType param) {
-                        if (param == Confi) {
-                            Reponses p = treevieww.getSelectionModel().getSelectedItem().getValue();
-                            rc.supprimerReponse((Reponses) p);
-                            Button cancelButton = (Button) confirmation.getDialogPane().lookupButton(ButtonType.CLOSE);
+                        if (param == Confii) {
+                            Reponses q = treevieww.getSelectionModel().getSelectedItem().getValue();
+                            rc.supprimerReponse((Reponses) q);
+                            Button cancelButton = (Button) confirmations.getDialogPane().lookupButton(ButtonType.CLOSE);
                             cancelButton.fire();
                             initialize(url, rb);
                         }
@@ -335,7 +346,7 @@ List<Reponses> myLst2;
                         return null;
                     }
                 });
-                confirmation.showAndWait();
+                confirmations.showAndWait();
             }
             
         });  treeview.refresh();
