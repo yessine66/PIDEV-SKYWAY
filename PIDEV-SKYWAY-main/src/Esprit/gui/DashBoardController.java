@@ -57,8 +57,9 @@ public class DashBoardController implements Initializable {
     private void handleButtonCoursAction(ActionEvent event) throws IOException {
         System.out.println("\nCours clicked");
         
-        System.out.println("\n\na7na tawa fel boutton mtaa cours front: \n"+userlogin);
-        
+       // System.out.println("\n\na7na tawa fel boutton mtaa cours front: \n"+userlogin);
+        LoginFXMLController mmmmmm = new LoginFXMLController();
+          Utilisateur usermimi = LoginFXMLController.usertest;
                 FXMLLoader loader = new FXMLLoader();
                     loader.setLocation((getClass().getResource("AfficherTheme.fxml")));
             
@@ -66,9 +67,9 @@ public class DashBoardController implements Initializable {
                                                     
                                         Scene scene_Menu_Back = new Scene(menuBackParent);
                                         
-                                        AfficherThemeController controller=loader.getController();
-                                        controller.initData(userlogin);
-                                        
+//                                        AfficherThemeController controller=loader.getController();
+//                                        controller.initData(userlogin);
+//                                        
                                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                                         window.setScene(scene_Menu_Back);
                                         window.show();
@@ -114,8 +115,13 @@ public class DashBoardController implements Initializable {
     }
 
     @FXML
-    private void handleButtonEvennementsAction(ActionEvent event) {
-        System.out.println("\n Evenements clicked");
+    private void handleButtonEvennementsAction(ActionEvent event) throws IOException {
+    
+        Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("FontActualite.fxml"));
+        Scene reateAccountScene = new Scene(CreateAccountParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(reateAccountScene);
+        window.show();
 
         
     }

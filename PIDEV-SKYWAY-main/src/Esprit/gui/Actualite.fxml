@@ -16,9 +16,9 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="956.0" style="-fx-background-color: #eff7e1;" stylesheets="@styleActualite.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.ActualiteController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="956.0" style="-fx-background-color: #eff7e1;" stylesheets="@styleActualite.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.ActualiteController">
    <children>
-      <JFXTabPane fx:id="tp" prefHeight="810.0" prefWidth="956.0">
+      <JFXTabPane fx:id="tp" prefHeight="700.0" prefWidth="956.0">
          <tabs>
             <Tab fx:id="TabList" text="voir">
                <content>
@@ -29,7 +29,7 @@
                               <Font name="System Italic" size="37.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="BtnRech" layoutX="749.0" layoutY="9.0" prefHeight="31.0" prefWidth="170.0" text="Rechercher..." AnchorPane.bottomAnchor="735.0" AnchorPane.leftAnchor="749.0" AnchorPane.rightAnchor="37.0" />
+                        <TextField fx:id="BtnRech" layoutX="749.0" layoutY="9.0" prefHeight="31.0" prefWidth="170.0" text="Rechercher..." AnchorPane.bottomAnchor="630.0" AnchorPane.leftAnchor="749.0" AnchorPane.rightAnchor="37.0" />
                         <ListView fx:id="ListAct" layoutX="218.0" layoutY="83.0" maxWidth="520.0" prefHeight="614.0" prefWidth="520.0" AnchorPane.bottomAnchor="83.0" AnchorPane.topAnchor="83.0" />
                         <FontAwesomeIconView glyphName="SEARCH" layoutX="926.4285697937012" layoutY="31.0" size="18" AnchorPane.rightAnchor="12.857145309448242" />
                         <VBox fx:id="hb2" alignment="CENTER" layoutX="799.0" layoutY="252.0" prefHeight="161.0" prefWidth="56.0" AnchorPane.bottomAnchor="252.0" AnchorPane.rightAnchor="101.0" AnchorPane.topAnchor="252.0">
@@ -125,14 +125,14 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnImage1" layoutX="738.0" layoutY="430.0" mnemonicParsing="false" onAction="#importimagemod" prefHeight="31.0" prefWidth="12.0" text="...">
+                        <Button fx:id="btnImage1" layoutX="738.0" layoutY="317.0" mnemonicParsing="false" onAction="#importimagemod" prefHeight="31.0" prefWidth="12.0" text="...">
                            <font>
                               <Font size="9.0" />
                            </font>
                         </Button>
                         <TextField fx:id="TFidm" layoutX="477.0" layoutY="112.0" visible="false" />
-                        <Label fx:id="erreurdescriptionm" layoutX="559.0" layoutY="392.0" prefHeight="21.0" prefWidth="336.0" text="Label" />
-                        <Label fx:id="erreurtitrem" layoutX="558.0" layoutY="320.0" prefHeight="21.0" prefWidth="336.0" text="Label" />
+                        <Label fx:id="erreurdescriptionm" layoutX="556.0" layoutY="279.0" prefHeight="21.0" prefWidth="201.0" text="Label" />
+                        <Label fx:id="erreurtitrem" layoutX="556.0" layoutY="210.0" prefHeight="21.0" prefWidth="200.0" text="Label" />
                      </children>
                   </AnchorPane>
                </content>

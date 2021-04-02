@@ -54,7 +54,7 @@ import Esprit.gui.AfficherCategorieController;
  */
 public class AfficherCoursController implements Initializable {
 
-    private Utilisateur userlogin;
+   // private Utilisateur userlogin;
     
     private Connection con;
     @FXML
@@ -83,15 +83,16 @@ public class AfficherCoursController implements Initializable {
      * Initializes the controller class.
      */
     
-            public void initData(Utilisateur usereo){
-        userlogin = usereo;
-        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
-    }
+//            public void initData(Utilisateur usereo){
+//        userlogin = usereo;
+//        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
+//    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        
-        System.out.println("\n\ntawa fel afficher Afficher courss  : \n "+ userlogin);
+         LoginFXMLController mmmmmm = new LoginFXMLController();
+          Utilisateur usermimi = LoginFXMLController.usertest;
+        System.out.println("\n\ntawa fel afficher Afficher courss  : \n "+ usermimi);
 
             courscontainer.setSpacing(5);
             try {
@@ -127,6 +128,8 @@ public class AfficherCoursController implements Initializable {
 }
 
     private void displayCours() throws SQLException {
+        LoginFXMLController mmmmmm = new LoginFXMLController();
+          Utilisateur usermimi = LoginFXMLController.usertest;
         int id_categorie =o;
          ServiceParticipation sp =new ServiceParticipation();
         System.out.println("===*******>"+id_categorie);
@@ -166,8 +169,7 @@ public class AfficherCoursController implements Initializable {
 //            h4.getChildren().addAll(duree);
             
             Button participer=new Button("participer" ) ;
-            LoginFXMLController mmmmmm = new LoginFXMLController();
-            Utilisateur usermimi = LoginFXMLController.usertest;
+            
             System.out.println("\n\n\n\n iddddddddddddd fwest el afficher couuuuuuurs :  "+ usermimi.getIdUser());
               if (sp.chercher_ajout(new Participation(a1.getId_c(),usermimi.getIdUser())))
                          {
@@ -246,6 +248,9 @@ public class AfficherCoursController implements Initializable {
         courscontainer.getChildren().addAll(list);
     }
         private void displayCoursAvancee(String req) throws SQLException {
+            LoginFXMLController mmmmmm = new LoginFXMLController();
+          Utilisateur usermimi = LoginFXMLController.usertest;
+          
         int id_categorie =o;
          ServiceParticipation sp =new ServiceParticipation();
         System.out.println("===*******>"+id_categorie);
@@ -278,7 +283,7 @@ public class AfficherCoursController implements Initializable {
          
       
             
-            Utilisateur usermimi = LoginFXMLController.usertest;
+            
             Button participer=new Button("participer" ) ;
               if (sp.chercher_ajout(new Participation(a1.getId_c(),usermimi.getIdUser())))
                          {
@@ -305,7 +310,7 @@ public class AfficherCoursController implements Initializable {
             if (!sp.chercher_ajout(new Participation(a1.getId_c(),usermimi.getIdUser()))){
                 
                 try {
-                    sp.ajouter(new Participation(a1.getId_c(),userlogin.getIdUser()));
+                    sp.ajouter(new Participation(a1.getId_c(),usermimi.getIdUser()));
                      
                     String SQL1 = "UPDATE skyway.cours SET  nbparticipant=nbparticipant+1 WHERE id_c ='"+a1.getId_c()+"'";
                                int rs1 = ste.executeUpdate(SQL1);

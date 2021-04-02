@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="956.0" style="-fx-background-color: #eff7e1;" stylesheets="@styleActualite.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.FrontActualiteController">
+   <children>
+      <JFXTabPane fx:id="tp" prefHeight="700.0" prefWidth="956.0">
+         <tabs>
+            <Tab fx:id="TabList" text="voir">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="#214151" fontSmoothingType="LCD" layoutX="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actualités" underline="true" wrappingWidth="185.0" AnchorPane.bottomAnchor="512.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="602.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="System Italic" size="37.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="BtnRech" layoutX="749.0" layoutY="9.0" prefHeight="31.0" prefWidth="170.0" text="Rechercher..." AnchorPane.bottomAnchor="630.0" AnchorPane.leftAnchor="749.0" AnchorPane.rightAnchor="37.0" />
+                        <ListView fx:id="ListAct" layoutX="218.0" layoutY="83.0" maxWidth="520.0" prefHeight="614.0" prefWidth="520.0" AnchorPane.bottomAnchor="83.0" AnchorPane.topAnchor="83.0" />
+                        <FontAwesomeIconView glyphName="SEARCH" layoutX="926.4285697937012" layoutY="31.0" size="18" AnchorPane.bottomAnchor="630.0" AnchorPane.rightAnchor="12.857145309448242" />
+                        <VBox fx:id="hb2" alignment="CENTER" layoutX="799.0" layoutY="252.0" prefHeight="161.0" prefWidth="56.0" AnchorPane.bottomAnchor="252.0" AnchorPane.rightAnchor="101.0" AnchorPane.topAnchor="252.0">
+                           <children>
+                              <Button fx:id="refreshicon" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnActionRefrech" prefHeight="30.0" prefWidth="23.0" style="-fx-background-radius: 40;">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#051bab" glyphName="REFRESH" size="17.0" textAlignment="CENTER" wrappingWidth="12.214284896850586" />
+                                 </graphic>
+                              </Button>
+                              <Pane prefHeight="42.0" prefWidth="56.0" />
+                              <Button fx:id="viewicon" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnActionView" prefHeight="30.0" prefWidth="23.0" style="-fx-background-radius: 40;">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="EYE" size="17.0" textAlignment="CENTER" wrappingWidth="12.214284896850586" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <Button fx:id="btnRetour" layoutX="58.0" layoutY="582.0" mnemonicParsing="false" onAction="#btnActionRetour" prefHeight="40.0" prefWidth="96.0" style="-fx-background-color: #f8dc81;" text="Retour" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="58.0">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="UNDO" size="17.0" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="TabDetail" text="details">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #eff7e1;">
+                     <children>
+                        <Label fx:id="LabDet" alignment="TOP_LEFT" layoutX="171.0" layoutY="80.0" prefHeight="416.0" prefWidth="569.0" text="Details&#10;  &#10;" textFill="#214151">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LabDet1" layoutX="89.0" layoutY="33.0" prefHeight="47.0" prefWidth="574.0" text="titre" textAlignment="CENTER" textFill="#214151">
+                           <font>
+                              <Font name="System Bold Italic" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

@@ -21,6 +21,6 @@
             <VBox fx:id="categoriecontainer" prefHeight="790.0" prefWidth="900.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="ret" layoutX="811.0" layoutY="97.0" mnemonicParsing="false" onAction="#retourner" prefHeight="25.0" prefWidth="110.0" text="Return" />
+      <Button fx:id="ret" layoutX="811.0" layoutY="97.0" mnemonicParsing="false" onAction="#retourner" prefHeight="25.0" prefWidth="110.0" text="Retour" />
    </children>
 </AnchorPane>
