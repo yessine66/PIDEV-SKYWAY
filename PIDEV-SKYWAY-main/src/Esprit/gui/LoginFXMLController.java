@@ -122,6 +122,7 @@ public class LoginFXMLController implements Initializable {
         // TODO
         buttonMAIL.setVisible(false);
         buttonSMS.setVisible(false);
+        reset.setVisible(false);
         tentative=0;
       
     } 
@@ -155,7 +156,10 @@ public class LoginFXMLController implements Initializable {
         System.out.println("\n\n\n a7na tawa 9a3din nrecuperiw f user statiiiiiiiiiiiiiiic : \n"+usertest );
         
         if(tentative>=2){
-            System.out.println("\n\n\n woooooooooo stooooooop ************* \n\n\n");
+            reset.setVisible(true);
+            buttonLogin.setVisible(false);
+            
+            
         }
         
         if(userxo==null){
@@ -361,3 +365,6 @@ public Captcha setCaptcha() {
     
     
 }
+
+
+
