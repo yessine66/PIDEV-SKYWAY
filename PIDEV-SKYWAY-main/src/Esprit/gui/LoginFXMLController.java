@@ -123,6 +123,7 @@ public class LoginFXMLController implements Initializable {
         buttonMAIL.setVisible(false);
         buttonSMS.setVisible(false);
         reset.setVisible(false);
+        code.setVisible(false);
         tentative=0;
       
     } 
