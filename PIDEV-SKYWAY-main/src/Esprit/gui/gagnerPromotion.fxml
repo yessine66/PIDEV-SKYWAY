@@ -5,17 +5,17 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.GagnerPromotionController">
+<AnchorPane id="AnchorPane" prefHeight="714.0" prefWidth="977.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.GagnerPromotionController">
    <children>
-      <ListView fx:id="tvwinner" layoutX="106.0" layoutY="145.0" prefHeight="105.0" prefWidth="600.0" />
-      <Button fx:id="btnwinner" layoutX="746.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnwwinner" prefHeight="31.0" prefWidth="147.0" style="-fx-background-color: f4d160;" text="select winners" />
-      <Button fx:id="retun" layoutX="989.0" layoutY="79.0" mnemonicParsing="false" onAction="#on_return_button" prefHeight="35.0" prefWidth="146.0" style="-fx-background-image: f4d160;" styleClass="search-button" stylesheets="@../../../../../../../Documents/threadprojects/edu/Edutopia-master%20(1)/Edutopia-master/src/GUI/style.css" text="replay" textFill="WHITE" />
-      <Button fx:id="btnwinnerprom" layoutX="736.0" layoutY="374.0" mnemonicParsing="false" onAction="#btnwinnerprom" prefHeight="31.0" prefWidth="147.0" style="-fx-background-color: f4d160;" text="select promotion" />
-      <ListView fx:id="tvwinnerprom" layoutX="118.0" layoutY="299.0" prefHeight="165.0" prefWidth="583.0" />
-      <Button fx:id="attachMailbtn" layoutX="918.0" layoutY="333.0" mnemonicParsing="false" onAction="#attachMail" prefHeight="31.0" prefWidth="217.0" style="-fx-background-color: f4d160;" text="ajouter un attachement" />
-      <ImageView fx:id="importeimage" fitHeight="73.0" fitWidth="146.0" layoutX="1083.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="j" fitHeight="270.0" fitWidth="346.0" layoutX="442.0" layoutY="510.0" pickOnBounds="true" />
-      <Button layoutX="967.0" layoutY="510.0" mnemonicParsing="false" onAction="#showQR" style="-fx-background-color: f4d160;" text="show QR" />
-      <Button fx:id="send_btn" layoutX="918.0" layoutY="299.0" mnemonicParsing="false" onAction="#on_send_button" prefHeight="31.0" prefWidth="217.0" style="-fx-background-color: f4d160;" text="envoyer un mail automatique" />
+      <ListView fx:id="tvwinner" layoutX="32.0" layoutY="147.0" prefHeight="105.0" prefWidth="548.0" />
+      <Button fx:id="btnwinner" layoutX="596.0" layoutY="173.0" mnemonicParsing="false" onAction="#btnwwinner" prefHeight="31.0" prefWidth="147.0" style="-fx-background-color: f4d160;" text="select winners" />
+      <Button fx:id="retun" layoutX="818.0" layoutY="75.0" mnemonicParsing="false" onAction="#on_return_button" prefHeight="35.0" prefWidth="146.0" style="-fx-background-image: f4d160;" styleClass="search-button" stylesheets="@../../../../../../../Documents/threadprojects/edu/Edutopia-master%20(1)/Edutopia-master/src/GUI/style.css" text="replay" textFill="WHITE" />
+      <Button fx:id="btnwinnerprom" layoutX="598.0" layoutY="377.0" mnemonicParsing="false" onAction="#btnwinnerprom" prefHeight="31.0" prefWidth="147.0" style="-fx-background-color: f4d160;" text="select promotion" />
+      <ListView fx:id="tvwinnerprom" layoutX="37.0" layoutY="307.0" prefHeight="165.0" prefWidth="543.0" />
+      <Button fx:id="attachMailbtn" layoutX="752.0" layoutY="310.0" mnemonicParsing="false" onAction="#attachMail" prefHeight="31.0" prefWidth="217.0" style="-fx-background-color: f4d160;" text="ajouter un attachement" />
+      <ImageView fx:id="importeimage" fitHeight="73.0" fitWidth="98.0" layoutX="763.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="j" fitHeight="204.0" fitWidth="346.0" layoutX="442.0" layoutY="510.0" pickOnBounds="true" />
+      <Button layoutX="881.0" layoutY="499.0" mnemonicParsing="false" onAction="#showQR" style="-fx-background-color: f4d160;" text="show QR" />
+      <Button fx:id="send_btn" layoutX="754.0" layoutY="257.0" mnemonicParsing="false" onAction="#on_send_button" prefHeight="31.0" prefWidth="217.0" style="-fx-background-color: f4d160;" text="envoyer un mail automatique" />
    </children>
 </AnchorPane>

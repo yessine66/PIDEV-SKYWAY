@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="657.0" prefWidth="800.0" style="-fx-background-color: #14242B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.Page4PartenaireController">
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #2d7d9a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.Page4PartenaireController">
    <children>
-      <Button fx:id="partenariat" layoutY="134.0" mnemonicParsing="false" onAction="#btnPartenariat" prefHeight="31.0" prefWidth="74.0" text="Partenariat" />
-      <Button fx:id="promotion" layoutY="224.0" mnemonicParsing="false" onAction="#btnPromotion" prefHeight="31.0" prefWidth="74.0" text="Promotion" />
-      <AnchorPane fx:id="anchorprojection" layoutX="78.0" layoutY="11.0" prefHeight="810.0" prefWidth="1100.0" />
-      <Button fx:id="gagnant" layoutX="-5.0" layoutY="334.0" mnemonicParsing="false" onAction="#btnJouer" prefHeight="31.0" prefWidth="84.0" text="Jouer" />
+      <JFXButton fx:id="partenariat" layoutY="167.0" mnemonicParsing="false" onAction="#btnPartenariat" prefHeight="31.0" prefWidth="94.0" text="Partenariat" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="promotion" layoutX="10.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnPromotion" prefHeight="31.0" prefWidth="74.0" text="Promotion" textFill="WHITE" />
+      <AnchorPane fx:id="anchorprojection" layoutX="118.0" layoutY="4.0" prefHeight="700.0" prefWidth="956.0" />
+      <JFXButton fx:id="gagnant" layoutX="5.0" layoutY="251.0" mnemonicParsing="false" onAction="#btnJouer" prefHeight="31.0" prefWidth="84.0" text="Jouer" textFill="WHITE" />
    </children>
 </AnchorPane>
