@@ -15,16 +15,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1100.0" stylesheets="@styleActualite.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.EvenementController">
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="956.0" stylesheets="@styleActualite.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.EvenementController">
    <children>
-      <JFXTabPane prefHeight="700.0" prefWidth="846.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <JFXTabPane fx:id="tp" prefHeight="810.0" prefWidth="956.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <tabs>
             <Tab fx:id="TabList" text="voir">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: eff7e1;">
                      <children>
                         <FontAwesomeIconView glyphName="SEARCH" layoutX="815.0" layoutY="26.0" size="18" AnchorPane.rightAnchor="14.285715103149414" />
-                        <VBox fx:id="hb2" alignment="CENTER" layoutX="664.0" layoutY="203.0" prefHeight="145.0" prefWidth="56.0" AnchorPane.bottomAnchor="267.0" AnchorPane.rightAnchor="192.0" AnchorPane.topAnchor="237.0">
+                        <VBox fx:id="hb2" alignment="CENTER" layoutX="664.0" layoutY="203.0" prefHeight="145.0" prefWidth="56.0" AnchorPane.bottomAnchor="267.0" AnchorPane.rightAnchor="101.0" AnchorPane.topAnchor="237.0">
                            <children>
                               <Button fx:id="refreshicon" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnActionRefrechEv" prefHeight="30.0" prefWidth="23.0" style="-fx-background-radius: 40;">
                                  <graphic>
@@ -57,13 +57,13 @@
                               </Button>
                            </children>
                         </VBox>
-                        <ListView fx:id="ListEv" layoutX="186.0" layoutY="83.0" maxWidth="474.0" prefHeight="468.0" prefWidth="474.0" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="290.0" AnchorPane.topAnchor="83.0" />
+                        <ListView fx:id="ListEv" layoutX="218.0" layoutY="83.0" maxWidth="520.0" prefHeight="614.0" prefWidth="520.0" AnchorPane.bottomAnchor="83.0" AnchorPane.topAnchor="83.0" />
                         <Text fill="#214151" fontSmoothingType="LCD" layoutX="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Evènements" underline="true" wrappingWidth="208.0" AnchorPane.bottomAnchor="463.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="579.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="System Italic" size="37.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="BtnRech" layoutX="836.0" layoutY="7.0" prefHeight="31.0" prefWidth="211.0" text="Rechercher..." AnchorPane.bottomAnchor="737.0" AnchorPane.leftAnchor="836.0" AnchorPane.rightAnchor="53.0" />
+                        <TextField fx:id="BtnRech" layoutX="746.0" layoutY="7.0" prefHeight="31.0" prefWidth="164.0" text="Rechercher..." AnchorPane.bottomAnchor="737.0" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="46.0" />
                      </children>
                   </AnchorPane>
                </content>
@@ -72,7 +72,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: eff7e1;">
                      <children>
-                        <Text fill="#214151" fontSmoothingType="LCD" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Evènement" textAlignment="CENTER" wrappingWidth="1100.0" AnchorPane.bottomAnchor="548.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <Text fill="#214151" fontSmoothingType="LCD" layoutX="225.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Evènement" textAlignment="CENTER" wrappingWidth="956.0" AnchorPane.bottomAnchor="548.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font name="System Italic" size="27.0" />
                            </font>
@@ -94,12 +94,12 @@
                         </Label>
                         <TextField fx:id="TFnom" layoutX="553.0" layoutY="289.0" prefHeight="31.0" prefWidth="341.0" AnchorPane.bottomAnchor="455.0" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="200.0" />
                         <TextField fx:id="TFespace" layoutX="555.0" layoutY="430.0" prefHeight="31.0" prefWidth="315.0" AnchorPane.bottomAnchor="314.0" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="230.0" />
-                        <Button fx:id="BtnAjout" layoutX="830.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnAjoutActionEv" prefHeight="40.0" prefWidth="89.0" style="-fx-background-color: f8dc81;" text="Ajouter" textFill="#214151" AnchorPane.bottomAnchor="153.0" AnchorPane.rightAnchor="200.0">
+                        <Button fx:id="BtnAjout" layoutX="830.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnAjoutActionEv" prefHeight="40.0" prefWidth="89.0" style="-fx-background-color: #214151;" text="Ajouter" textFill="#eff7e1" AnchorPane.bottomAnchor="153.0" AnchorPane.rightAnchor="200.0">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnMap" layoutX="884.0" layoutY="430.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="12.0" text="...">
+                        <Button fx:id="btnMap" layoutX="738.0" layoutY="430.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="12.0" text="...">
                            <font>
                               <Font size="9.0" />
                            </font>
@@ -111,6 +111,10 @@
                         </Label>
                         <TextField fx:id="TFnbrpl" layoutX="555.0" layoutY="503.0" prefHeight="31.0" prefWidth="186.0" AnchorPane.bottomAnchor="240.0" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="200.0" />
                         <DatePicker fx:id="TFdate" layoutX="555.0" layoutY="357.0" prefHeight="31.0" prefWidth="338.0" AnchorPane.bottomAnchor="387.0" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="200.0" />
+                        <Label fx:id="erreurtitreev" layoutX="555.0" layoutY="320.0" prefHeight="21.0" prefWidth="201.0" text="Label" />
+                        <Label fx:id="erreurdateev" layoutX="555.0" layoutY="388.0" prefHeight="21.0" prefWidth="201.0" text="Label" />
+                        <Label fx:id="erreurplace" layoutX="555.0" layoutY="461.0" prefHeight="21.0" prefWidth="201.0" text="Label" />
+                        <Label fx:id="erreurnombre" layoutX="555.0" layoutY="535.0" prefHeight="21.0" prefWidth="201.0" text="Label" />
                      </children>
                   </AnchorPane>
                </content>
@@ -119,7 +123,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: eff7e1;">
                      <children>
-                        <Text fill="#214151" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Evènement" textAlignment="CENTER" wrappingWidth="1099.333251953125" AnchorPane.bottomAnchor="548.0" AnchorPane.rightAnchor="0.0">
+                        <Text fill="#214151" layoutX="-1.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Evènement" textAlignment="CENTER" wrappingWidth="956.0" AnchorPane.bottomAnchor="548.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font name="System Italic" size="27.0" />
                            </font>
@@ -146,14 +150,14 @@
                         </Label>
                         <TextField fx:id="TFidm" layoutX="477.0" layoutY="112.0" visible="false" />
                         <TextField fx:id="TFnomm" layoutX="314.0" layoutY="68.0" AnchorPane.bottomAnchor="455.0" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="200.0" />
-                        <TextField fx:id="TFespacem" layoutX="314.0" layoutY="153.0" prefHeight="31.0" prefWidth="161.0" AnchorPane.bottomAnchor="314.0" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="200.0" />
+                        <TextField fx:id="TFespacem" layoutX="314.0" layoutY="153.0" prefHeight="31.0" prefWidth="176.0" AnchorPane.bottomAnchor="314.0" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="225.0" />
                         <TextField fx:id="TFnbrplm" AnchorPane.bottomAnchor="240.0" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="200.0" />
                         <Button fx:id="BtnModif" layoutX="398.0" layoutY="245.00000000000003" mnemonicParsing="false" onAction="#btnModifActionEv" style="-fx-background-color: #214151;" text="Modifier" textFill="#eff7e1" AnchorPane.bottomAnchor="153.0" AnchorPane.rightAnchor="200.0">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnImage1" layoutX="691.0" layoutY="354.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="12.0" text="...">
+                        <Button fx:id="btnImage1" layoutX="738.0" layoutY="430.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="12.0" text="...">
                            <font>
                               <Font size="9.0" />
                            </font>

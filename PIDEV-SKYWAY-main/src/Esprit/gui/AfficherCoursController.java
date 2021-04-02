@@ -196,7 +196,14 @@ public class AfficherCoursController implements Initializable {
                 try {
                     FTPDownloadFileDemo download = new FTPDownloadFileDemo(a1.getPdf());
                     download.download();
-
+//                    PDF pdf = new PDF();
+//                    try {
+//                        pdf.pdf(a1);
+//                    } catch (DocumentException ex) {
+//                        Logger.getLogger(AfficherCoursController.class.getName()).log(Level.SEVERE, null, ex);
+//                    } catch (IOException ex) {
+//                        Logger.getLogger(AfficherCoursController.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
                     sp.ajouter(new Participation(a1.getId_c(),usermimi.getIdUser()));
                      
                     String SQL1 = "UPDATE skyway.cours SET  nbparticipant=nbparticipant+1 WHERE id_c ='"+a1.getId_c()+"'";
