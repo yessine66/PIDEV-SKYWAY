@@ -66,7 +66,7 @@ public class Page5CommunicationController implements Initializable {
             Logger.getLogger(Page5CommunicationController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-anchorprojection.getChildren().setAll(root);
+            anchorprojection.getChildren().setAll(root);
 
     
     }

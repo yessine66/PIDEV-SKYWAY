@@ -21,10 +21,10 @@
       <TextField fx:id="textFieldUsername" layoutX="502.0" layoutY="144.0" prefHeight="36.0" prefWidth="175.0" promptText="Mail" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0" />
       <PasswordField fx:id="passwordFieldPassword" layoutX="450.0" layoutY="196.0" promptText="password" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0" />
       <Button fx:id="buttonLogin" layoutX="510.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleButtonLoginAction" prefWidth="117.0" text="login" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="510.0" />
-      <Button fx:id="butttonCreateNewAccount" layoutX="502.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleButtonCreateAccountAction" text="Create New Account" AnchorPane.leftAnchor="502.0" AnchorPane.rightAnchor="498.0" />
+      <Button fx:id="butttonCreateNewAccount" layoutX="502.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleButtonCreateAccountAction" text="Create New Account" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="480.0" />
       <Button fx:id="buttonForgetPassword" layoutX="510.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleButtonForgetAction" text="Forget Password" AnchorPane.leftAnchor="490.0" AnchorPane.rightAnchor="490.0" />
       <Button fx:id="buttonSMS" layoutX="389.0" layoutY="406.0" mnemonicParsing="false" onAction="#HandleButtonSMSAction" text="SMS" AnchorPane.leftAnchor="350.0" />
       <Button fx:id="buttonMAIL" layoutX="675.0" layoutY="406.0" mnemonicParsing="false" onAction="#HandleButtonMailAction" text="Mail" AnchorPane.rightAnchor="350.0" />
-      <Button fx:id="buttonGoogle" layoutX="480.0" layoutY="293.0" mnemonicParsing="false" onAction="#handleButtonGoogleAction" text="Sign in with google account" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="480.0" />
+      <Button fx:id="buttonGoogle" layoutX="480.0" layoutY="293.0" mnemonicParsing="false" onAction="#handleButtonGoogleAction" text="Sign in with google account" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" />
    </children>
 </AnchorPane>

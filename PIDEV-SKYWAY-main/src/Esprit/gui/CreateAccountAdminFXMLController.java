@@ -143,7 +143,7 @@ public class CreateAccountAdminFXMLController implements Initializable {
     @FXML
     private void handleButtonBackAction(ActionEvent event) throws IOException {
         System.out.println("back button clicked");
-                    Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("CreateAccount.fxml"));
+                    Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("Page6Compte.fxml"));
                     Scene reateAccountScene = new Scene(CreateAccountParent);
                     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                     window.setScene(reateAccountScene);

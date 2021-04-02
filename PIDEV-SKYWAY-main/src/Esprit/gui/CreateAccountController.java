@@ -61,10 +61,9 @@ public class CreateAccountController implements Initializable {
     
         private void loadRole(){
         listRole.removeAll(listRole);
-        String admin="Admin";
         String enseigant="Enseignant";
         String apprenant="Apprenant";
-        listRole.addAll(admin,enseigant,apprenant);
+        listRole.addAll(enseigant,apprenant);
         choiceBoxRole.getItems().addAll(listRole);
         choiceBoxRole.setValue(apprenant);
         
@@ -98,19 +97,7 @@ public class CreateAccountController implements Initializable {
                                         windowap.show();
 
                         break;
-                    case "Admin":
-                        System.out.println("admin");
-                        
-                                                             Parent CreateAccountAdminParent = FXMLLoader.load(getClass().getResource("CreateAccountAdminFXML.fxml"));
-                                        Scene sceneCreateAccountAdmin = new Scene(CreateAccountAdminParent);
-                                        Stage windowad = (Stage)((Node)event.getSource()).getScene().getWindow();
-                                        windowad.setScene(sceneCreateAccountAdmin);
-                                        windowad.show();
-                                        
 
-
-                        
-                        break;
                     default:
                         break;
                         

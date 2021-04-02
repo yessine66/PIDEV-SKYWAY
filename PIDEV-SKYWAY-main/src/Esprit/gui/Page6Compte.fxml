@@ -12,5 +12,11 @@
             <Font size="27.0" />
          </font>
       </Button>
+      <Button fx:id="ButtonBack" layoutX="397.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleButtonBackAction" text="Back" />
+      <Button fx:id="buttonAjoutAdmin" layoutX="170.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleButtonAjoutAdminAction" text="Ajouter Admin ">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
