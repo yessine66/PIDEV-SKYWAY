@@ -29,13 +29,14 @@ public class testCRUD {
 }
 
  public void ajouterTest(test t){
-        String req ="INSERT INTO test (date_test,score,nom_categorie)"+"values (?,?,?)";
+        String req ="INSERT INTO test (id,date_test,score,nom_categorie)"+"values (?,?,?,?)";
         try {
             ste = cnx.prepareStatement(req);
-            ste.setString(1, t.getDate_test());
-            ste.setInt(2, t.getScore());
+            ste.setInt(1, t.getId());
+            ste.setString(2, t.getDate_test());
+            ste.setInt(3, t.getScore());
            // ste.setString(3, q.getId_t().getNom_t());
-            ste.setString(3,t.getName_t());
+            ste.setString(4,t.getName_t());
             ste.executeUpdate();
             System.out.println("Test ajouté");
             

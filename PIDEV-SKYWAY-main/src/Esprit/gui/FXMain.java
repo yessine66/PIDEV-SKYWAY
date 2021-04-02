@@ -34,9 +34,19 @@ public class FXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
+        
+        
+            Parent root = FXMLLoader.load(getClass().getResource("AcceuilAng.fxml"));
+
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Genuine Coder");
+        primaryStage.show();
+        
+        
        // window = primaryStage;
         
-        Button btn = new Button();
+     /*   Button btn = new Button();
 
      btn.setStyle(
         "-fx-background-radius: 50%; " +
@@ -75,7 +85,7 @@ public class FXMain extends Application {
         primaryStage.setTitle("SKYWAY☺");
         primaryStage.setScene(scene);
         primaryStage.show();
-
+*/
     }
 
     /**
