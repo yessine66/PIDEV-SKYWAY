@@ -131,7 +131,7 @@ Questions qq = new Questions();
             //Books books;
             Reponses q;
             while(rs.next()){
-                qq.setId_q(rs.getInt("id_t"));
+                qq.setId_q(rs.getInt("id_q"));
                q = new Reponses (rs.getInt("id_r"),rs.getString("text_r1"),rs.getString("text_r2"),rs.getString("text_r3"),rs.getString("text_r4"), qq);
                ReponsesList.add(q);
             }
@@ -241,7 +241,7 @@ Questions qq = new Questions();
          public String rightanswer() throws SQLException{
      
      
-         String query = "SELECT text_r1,text_r2,text_r3,text_r4 FROM reponse,question where question.id_t=reponse.id_t";
+         String query = "SELECT text_r1 from reponse";
   //String query = "SELECT text_r FROM reponse where text_r='oui'";
             st = cnx.createStatement();
             rs = st.executeQuery(query);
@@ -270,29 +270,93 @@ Questions qq = new Questions();
               
               
               
-           public ObservableList<String> justanswer() throws SQLException 
+    public String justanswer2(int id) throws SQLException 
      
-           { String right= rightanswer();
-           ObservableList<String> randomList = FXCollections.observableArrayList();
+           { 
+          // ObservableList<String> randomList = FXCollections.observableArrayList();
          //  String parr= rightanswer();
       //    String query = "SELECT text_r FROM reponse ORDER BY rand() LIMIT 3
-      String query = "SELECT text_r1,text_r2,text_r3,text_r4  FROM reponse  ORDER BY rand() LIMIT 3";
-              try{
+      String query = "SELECT text_r2 from reponse where id_q="+id;
+              
             st = cnx.createStatement();
             rs = st.executeQuery(query);
          
-         String par;
+        String par = null;
             while(rs.next()){
-               par = rs.getString("text_r1");
+               par = rs.getString("text_r2");
+              
             
-               randomList.addAll(par,right);
              
             }
                 
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-        return randomList;
+       
+        return par;
+    }
+     public String justanswer1(int id) throws SQLException 
+     
+           { 
+          // ObservableList<String> randomList = FXCollections.observableArrayList();
+         //  String parr= rightanswer();
+      //    String query = "SELECT text_r FROM reponse ORDER BY rand() LIMIT 3
+      String query = "SELECT text_r1 from reponse where id_q="+id;
+              
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+        String par = null;
+            while(rs.next()){
+               par = rs.getString("text_r1");
+              
+            
+             
+            }
+                
+       
+        return par;
+    }
+     public String justanswer3(int id) throws SQLException 
+     
+           { 
+          // ObservableList<String> randomList = FXCollections.observableArrayList();
+         //  String parr= rightanswer();
+      //    String query = "SELECT text_r FROM reponse ORDER BY rand() LIMIT 3
+      String query = "SELECT text_r3 from reponse where id_q="+id;
+              
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+        String par = null;
+            while(rs.next()){
+               par = rs.getString("text_r3");
+              
+            
+             
+            }
+                
+       
+        return par;
+    }
+      public String justanswer4(int id) throws SQLException 
+     
+           { 
+          // ObservableList<String> randomList = FXCollections.observableArrayList();
+         //  String parr= rightanswer();
+      //    String query = "SELECT text_r FROM reponse ORDER BY rand() LIMIT 3
+      String query = "SELECT text_r4 from reponse where id_q="+id;
+              
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+        String par = null;
+            while(rs.next()){
+               par = rs.getString("text_r4");
+              
+            
+             
+            }
+                
+       
+        return par;
     }
     public theme FindthemeByName(String name) {
 
@@ -317,8 +381,45 @@ Questions qq = new Questions();
         return q;
 
     }
-  
-     
-    
-    
+    public int returningid2(int id)
+    { 
+         String query = "SELECT id_q FROM reponse where id_q=  "+id;
+ int id_t=0;
+       try{
+                st = cnx.createStatement();
+            rs = st.executeQuery(query);
+            //Books books;
+           
+            while(rs.next()){
+                id_t=rs.getInt("id_q");
+              
+            }
+                
+        }catch(SQLException ex){
+        }
+   
+    return id_t;    
+    }
+
+    public String loadCodeBase2(int id) throws SQLException {
+        try {
+            PreparedStatement ps = cnx.prepareStatement("SELECT name_t FROM reponse WHERE id_q=?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+         String name_t=  rs.getString("name_t");
+            
+                return name_t;
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            System.out.println("code non recuperer!");
+        }
+           String NULL = null;
+        return NULL;
+    }
 }
+
+ 
+    

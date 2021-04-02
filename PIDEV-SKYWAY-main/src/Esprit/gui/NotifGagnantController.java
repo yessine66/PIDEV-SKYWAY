@@ -71,8 +71,8 @@ public class NotifGagnantController implements Initializable {
                  String org = "";
                  //qrrcode();
                
-                  String str =  "p";
-                  String path = "C:\\Users\\Lenovo\\Desktop\\empty\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\winQR"+str+".png";
+                  String str =  "nermine";
+                  String path = "C:\\Users\\simop\\Desktop\\g"+str+".png";
                   System.out.println("1"+path);
                 // Image img6 = new Image(new FileInputStream(pat));
                 Image img = new Image(new FileInputStream(path));
@@ -92,9 +92,9 @@ public class NotifGagnantController implements Initializable {
         ImageIO.write(imsg, "png", file); */  
                  
                  } catch (FileNotFoundException ex) {
-                 Logger.getLogger("qrrrrrrr");} catch (IOException ex) {
+                 Logger.getLogger("qrrrrrrr");} /*catch (IOException ex) {
         Logger.getLogger(NotifGagnantController.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }*/
             
    
     }    
@@ -109,14 +109,14 @@ public class NotifGagnantController implements Initializable {
     public void qrrcode(ObservableList x1) throws IOException {
 
        System.out.println("TICKTICK  qrr into "); 
-       String str =  "OK";
+       String str =  "k";
        String content = "Congratss " +x1  + "\n";
           
         
         try {
          String imageFormat = "png";
             System.out.println("TICKTICK  qrr into "); 
-            String outputFileName = "C:\\Users\\Lenovo\\Desktop\\empty\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\winQRR"+str+"." + imageFormat;
+            String outputFileName = "C:\\Users\\simop\\Desktop\\g"+str+"." + imageFormat;
             BitMatrix matrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, 500, 500);
             System.out.println("\n\n\n\n\ntestnotiiiiffff");
                System.out.println(outputFileName); 

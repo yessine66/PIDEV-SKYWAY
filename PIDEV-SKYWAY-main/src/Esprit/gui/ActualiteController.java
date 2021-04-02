@@ -113,8 +113,6 @@ public class ActualiteController implements Initializable {
     @FXML
     private Button btnImage;
     @FXML
-    private ImageView ico;
-    @FXML
     private ImageView ico1;
     @FXML
     private ImageView ico2;

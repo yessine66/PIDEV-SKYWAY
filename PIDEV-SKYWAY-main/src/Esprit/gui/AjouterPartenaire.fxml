@@ -5,28 +5,16 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" fx:id="ok" prefHeight="664.0" prefWidth="1193.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AjouterPartenaireController">
+<AnchorPane id="AnchorPane" prefHeight="664.0" prefWidth="1193.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AjouterPartenaireController">
    <children>
       <TextField fx:id="tnomp" layoutX="209.0" layoutY="71.0" />
       <TextField fx:id="tdomaine" layoutX="209.0" layoutY="120.0" />
       <Button fx:id="btnajouter" layoutX="79.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnAjoutPar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="Ajouter" />
-      <TableView fx:id="tvPar" layoutX="15.0" layoutY="591.0" onMouseClicked="#selectpar" prefHeight="32.0" prefWidth="1087.0" style="-fx-background-color: f8f1f1;">
-         <columns>
-            <TableColumn fx:id="colIdpar" prefWidth="125.0" text="id Partenaire" />
-            <TableColumn fx:id="colNompar" minWidth="0.0" prefWidth="182.0" text="Nom Partenaire" />
-            <TableColumn fx:id="colDomainepar" minWidth="0.0" prefWidth="206.0" text="Domaine" />
-            <TableColumn fx:id="colDatee" minWidth="0.0" prefWidth="206.0" text="date partenariat" />
-            <TableColumn fx:id="colMail" minWidth="0.0" prefWidth="206.0" text="mail" />
-            <TableColumn fx:id="colImage" minWidth="0.0" prefWidth="206.0" text="image" />
-         </columns>
-      </TableView>
       <TextField fx:id="tidp" layoutX="209.0" layoutY="27.0" />
       <Button fx:id="btnmodifier" layoutX="234.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnModifierPar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="Modifier" />
       <Button fx:id="btnsupprimer" layoutX="392.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnSupprimerPar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="Supprimer" />
@@ -36,11 +24,11 @@
       <DatePicker fx:id="DateSelec" layoutX="548.0" layoutY="36.0" onAction="#DateSelec" onMouseClicked="#getSelected" promptText="DateSelec" />
       <Label layoutX="418.0" layoutY="27.0" prefHeight="32.0" prefWidth="140.0" text="date partenariat" textFill="#f8f8fc" underline="true" />
       <TextField fx:id="tsearch" layoutX="545.0" layoutY="95.0" prefHeight="31.0" prefWidth="218.0" />
-      <Button fx:id="btnsearch" layoutX="816.0" layoutY="95.0" mnemonicParsing="false" onAction="#actionSearch" text="Button" />
+      <Button fx:id="btnsearch" layoutX="816.0" layoutY="95.0" mnemonicParsing="false" onAction="#actionSearch" text="rechercher" />
       <Label layoutX="418.0" layoutY="86.0" prefHeight="32.0" prefWidth="140.0" text="Rechercher" textFill="#fcfcfc" underline="true" />
-      <HBox alignment="CENTER" layoutX="525.0" layoutY="162.0" prefHeight="128.0" prefWidth="577.0">
+      <HBox alignment="CENTER" layoutX="581.0" layoutY="162.0" prefHeight="128.0" prefWidth="524.0">
          <children>
-            <Button fx:id="imagee" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#importimage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #000000;" text="import image" textFill="WHITE" />
+            <Button fx:id="imagee" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#importimage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: f4d160;" text="import image" textFill="#2f2d2d" />
             <ImageView fx:id="importeimage" fitHeight="73.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -51,7 +39,7 @@
          </padding>
       </HBox>
       <TextField fx:id="tmail" layoutX="209.0" layoutY="162.0" />
-      <ListView fx:id="listViewPart" layoutX="89.0" layoutY="299.0" prefHeight="263.0" prefWidth="974.0" />
-      <Button fx:id="btnActionUpdate" layoutX="33.0" layoutY="52.0" mnemonicParsing="false" onAction="#btnActionUpdate" text="select" />
+      <ListView fx:id="listViewPart" layoutX="213.0" layoutY="290.0" prefHeight="339.0" prefWidth="737.0" />
+      <Button fx:id="btnActionUpdate" layoutX="954.0" layoutY="44.0" mnemonicParsing="false" onAction="#btnActionUpdate" text="select" />
    </children>
 </AnchorPane>

@@ -60,16 +60,11 @@ public class AjouterPromotionController implements Initializable {
     private Button btnModifierPro;
     @FXML
     private Button btnSupprimerPro;
-    @FXML
-    private TableView<Promotion> tvPromotion;
-    @FXML
+    /*private TableView<Promotion> tvPromotion;
     private TableColumn<Promotion, Integer> colIdpro;
-    @FXML
     private TableColumn<Promotion, String> colCodepro;
-    @FXML
     private TableColumn<Promotion, Integer> colReduction;
-    @FXML
-    private TableColumn<Promotion, String> colIdparEtr;
+    private TableColumn<Promotion, String> colIdparEtr;*/
     @FXML
     private ComboBox<String> comboPar;
     //DatePicker date;
@@ -77,15 +72,17 @@ public class AjouterPromotionController implements Initializable {
     private DatePicker dateDp;
     @FXML
     private DatePicker dateFp;
-    @FXML
     private TableColumn<Promotion, String> colDateD;
-    @FXML
     private TableColumn<Promotion, String> colDateF;
     /*@FXML
     private ListView<Promotion> listProm;*/
     @FXML
     private TextField tsearchp;
     int index =-1;
+    @FXML
+    private ListView<Promotion> listViewProm;
+    @FXML
+    private Button btnrech;
 
     /**
      * Initializes the controller class.
@@ -94,8 +91,7 @@ public class AjouterPromotionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         showPromotion();
         showCombo();
-        searchProm();
-        //dateFp= new DatePicker ();
+       
   
     }    
      public void showCombo()
@@ -111,119 +107,15 @@ public class AjouterPromotionController implements Initializable {
        promotionCRUD parc = new promotionCRUD();
             //parc.promotionList();
         ObservableList<Promotion> list =  parc.PromotionList();
-        
-       colIdpro.setCellValueFactory(new PropertyValueFactory<Promotion, Integer>("id_prom"));
-       colCodepro.setCellValueFactory(new PropertyValueFactory<Promotion, String>("code_p"));
-       colReduction.setCellValueFactory(new PropertyValueFactory<Promotion, Integer>("reduction"));
-         colDateD.setCellValueFactory(new PropertyValueFactory<Promotion, String>("dateD"));
-          colDateF.setCellValueFactory(new PropertyValueFactory<Promotion, String>("dateF"));
-   colIdparEtr.setCellValueFactory(new PropertyValueFactory<Promotion, String>("nom_p"));
-     //listProm.setItems(list);
-   tvPromotion.setItems(list);
-     
+   
+  listViewProm.setItems(list);
+    listViewProm.setCellFactory((ListView<Promotion> ListView) -> new ListCellPromController());
      
     }
     
     
 
-  /*  private void btnPromotionAction(ActionEvent event) {
-        
-        
-        
-         try {
-
-             if(event.getSource() == btnAjouterPro)
-             {
-                 if (validation()){
-            String rCodepro = tcodepro.getText();
-      
-            int rReduction= Integer.parseInt(treduction.getText()) ;
-            String rdateD=dateDp.getEditor().getText();
-            String rdateF=dateFp.getEditor().getText();
-            //String valuePart=comboPar.getValue().toString();
-          //int rIdpart= Integer.parseInt(valuePart) ;
-
-         String rIdpart = comboPar.getValue().toString();
-           
-           Promotion pro = new Promotion(22,rCodepro,rReduction,rdateD,rdateF,rIdpart);
-           
-           //int id_prom, String dateD, String dateF, String code_p, int reduction, String nom_p
-           promotionCRUD proc = new promotionCRUD();
-            proc.ajouterPromotion(pro);
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-                 }
-            
-            
-            
-        }
-             
-             else if (event.getSource() == btnModifierPro)
-             
-             
-             {
-           
-           int  mIdpro= Integer.parseInt(tidpro.getText()) ;
-             String mCodepro = tcodepro.getText();
-            int mReduction= Integer.parseInt(treduction.getText()) ;
-               String valuePart=comboPar.getValue().toString();
-               //String mIdpart=comboPar.getEditor().getText();
-                String mdateD=dateDp.getEditor().getText();
-                 String mdateF = dateFp.getEditor().getText();
-               
-           //int rIdpart= Integer.parseInt(valuePart) ;
-            
-        Promotion pro = new Promotion(mIdpro,mCodepro,mReduction,mdateD,mdateF, valuePart);
-       promotionCRUD proc = new promotionCRUD();
-     proc.modifierPromotion(pro);
-                 
-             }
-             
-               
-             else if (event.getSource() == btnSupprimerPro)
-             {
-                 
-                 
-      int  mIdpro= Integer.parseInt(tidpro.getText()) ;
-     
-    Promotion pro = new Promotion(mIdpro);
-     promotionCRUD proc = new promotionCRUD();
-       proc.supprimerPromotion(pro);
-                 
-                 
-                 
-                  
-                  
-             }
-             
-         
-       FXMLLoader loader = new FXMLLoader(getClass().getResource("ajouterPromotion.fxml"));
-              showPromotion();
-        Parent root = loader.load();
-  
-          tcodepro.getScene().setRoot(root);
-        }
-           
-           catch (IOException ex) {
-            Logger.getLogger(AjouterPartenaireController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-          
-        
-        
-    }*/
-
+ 
     @FXML
     private void DateSelect(ActionEvent event) {
         //dateDp.getValue().toString ();
@@ -266,76 +158,6 @@ public class AjouterPromotionController implements Initializable {
         
     }
     
-    
-    void searchProm() {   
-          promotionCRUD parc = new promotionCRUD();
-            //parc.promotionList();
-        ObservableList<Promotion> listp =  parc.PromotionList();
-        
-       colIdpro.setCellValueFactory(new PropertyValueFactory<Promotion, Integer>("id_prom"));
-       colCodepro.setCellValueFactory(new PropertyValueFactory<Promotion, String>("code_p"));
-       colReduction.setCellValueFactory(new PropertyValueFactory<Promotion, Integer>("reduction"));
-         colDateD.setCellValueFactory(new PropertyValueFactory<Promotion, String>("dateD"));
-          colDateF.setCellValueFactory(new PropertyValueFactory<Promotion, String>("dateF"));
-   colIdparEtr.setCellValueFactory(new PropertyValueFactory<Promotion, String>("nom_p"));
-    
-   tvPromotion.setItems(listp);
-      
-        FilteredList <Promotion> filteredData = new FilteredList<>(listp, b -> true);  
- tsearchp.textProperty().addListener((observable, oldValue, newValue) -> {
- filteredData.setPredicate(promotion -> {
-    if (newValue == null || newValue.isEmpty()) {
-     return true;
-    }    
-    String lowerCaseFilter = newValue.toLowerCase();
-    
-    if (promotion.getCode_p().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
-     return true; // Filter matches username
-    }
-    
-    else if (String.valueOf(promotion.getReduction()).indexOf(lowerCaseFilter) != -1) {
-     
-     return true; // Filter matches password
-    }
-    else if (String.valueOf(promotion.getId_prom()).indexOf(lowerCaseFilter) != -1) {
-     
-     return true; // Filter matches password
-    }
-     else if (String.valueOf(promotion.getDateD()).indexOf(lowerCaseFilter) != -1) {
-     
-     return true; // Filter matches password
-    }
-      else if (String.valueOf(promotion.getDateF()).indexOf(lowerCaseFilter) != -1) {
-     
-     return true; // Filter matches password
-    }
-    
-     
-                             
-         else  
-          return false; // Does not match.
-   });
-  });  
-  SortedList<Promotion> sortedData = new SortedList<>(filteredData);  
-  sortedData.comparatorProperty().bind(tvPromotion.comparatorProperty());  
-  tvPromotion.setItems(sortedData);      
-    }
-
-    @FXML
-    private void selectProm(MouseEvent event) {
-         System.err.println("click2!");
-         index = tvPromotion.getSelectionModel().getSelectedIndex();
-    if (index <= -1){
-    
-        return;
-    }
-   tidpro.setText(colIdpro.getCellData(index).toString());
- tcodepro.setText(colCodepro.getCellData(index).toString());
-  treduction.setText(colReduction.getCellData(index).toString());
-    //DateSelec.setString(colDatee.getCellData(index));
-       
-     searchProm();
-    }
 
     @FXML
     private void btnAjoutProm(ActionEvent event) {
@@ -358,7 +180,7 @@ public class AjouterPromotionController implements Initializable {
             URL url = null;
 ResourceBundle rb = null;
                     initialize(url,rb);
-
+showPromotion();
                  }
   
     }
@@ -381,6 +203,7 @@ ResourceBundle rb = null;
    URL url = null;
 ResourceBundle rb = null;
                     initialize(url,rb);
+                    showPromotion();
     }
 
     @FXML
@@ -394,6 +217,7 @@ ResourceBundle rb = null;
         URL url = null;
 ResourceBundle rb = null;
                     initialize(url,rb);
+                    showPromotion();
     }
     
   

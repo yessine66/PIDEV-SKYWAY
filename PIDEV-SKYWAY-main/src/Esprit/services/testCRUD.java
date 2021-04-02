@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Esprit.services;
-
+import Esprit.entities.test;
 import Esprit.Connection.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,9 +23,12 @@ public class testCRUD {
     private PreparedStatement ste;
       Statement st;
      ResultSet rs;
-     public testCRUD (int id_q){
+     public testCRUD (){
         cnx = MyConnection.getInstance().getConnection();
 }
+
+ 
+
       public ObservableList<String> justanswer() throws SQLException 
      
            { 
@@ -48,6 +51,23 @@ public class testCRUD {
             ex.printStackTrace();
         }
         return randomList;
+    }
+            public int recupscore() throws SQLException{
+     
+     
+         String query = "SELECT score from test ";
+  //String query = "SELECT text_r FROM reponse where text_r='oui'";
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+        int par = 0;
+            while(rs.next()){
+               par = rs.getInt("score");
+            }
+     
+        
+        return par;
+       
     }
  
     

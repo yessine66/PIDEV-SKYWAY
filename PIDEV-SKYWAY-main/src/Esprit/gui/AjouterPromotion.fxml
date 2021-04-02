@@ -4,15 +4,14 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="673.0" prefWidth="1022.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AjouterPromotionController">
+<AnchorPane id="AnchorPane" prefHeight="771.0" prefWidth="1022.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AjouterPromotionController">
    <children>
       <Label layoutX="55.0" layoutY="46.0" prefHeight="21.0" prefWidth="154.0" text="id promotion" textFill="WHITE" underline="true" />
       <Label layoutX="60.0" layoutY="100.0" prefHeight="21.0" prefWidth="113.0" text="code promotion" textFill="WHITE" underline="true" />
@@ -23,16 +22,6 @@
       <Button fx:id="btnAjouterPro" layoutX="191.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnAjoutProm" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: f4d160;" text="ajouter" />
       <Button fx:id="btnModifierPro" layoutX="423.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnModifierProm" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: f4d160;" text="modifier" />
       <Button fx:id="btnSupprimerPro" layoutX="630.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnSupprimerProm" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: f4d160;" text="supprimer" />
-      <TableView fx:id="tvPromotion" layoutX="34.0" layoutY="347.0" onMouseClicked="#selectProm" prefHeight="283.0" prefWidth="880.0" style="-fx-background-color: f8f1f1;">
-         <columns>
-            <TableColumn fx:id="colIdpro" prefWidth="137.0" text="id promotion" />
-            <TableColumn fx:id="colCodepro" prefWidth="134.0" text="code promotion" />
-            <TableColumn fx:id="colReduction" prefWidth="133.0" text="reduction" />
-            <TableColumn fx:id="colDateD" prefWidth="115.0" text="date debut" />
-            <TableColumn fx:id="colDateF" prefWidth="89.0" text="date fin" />
-            <TableColumn fx:id="colIdparEtr" prefWidth="271.0" text="Nom partenaire" />
-         </columns>
-      </TableView>
       <ComboBox fx:id="comboPar" layoutX="217.0" layoutY="200.0" prefHeight="31.0" prefWidth="187.0" />
       <Label layoutX="55.0" layoutY="205.0" text="id partenaire" textFill="#f0f1f2" underline="true" />
       <DatePicker fx:id="dateDp" layoutX="591.0" layoutY="41.0" onAction="#DateSelect" promptText="DateSelect" />
@@ -52,5 +41,7 @@
       </GridPane>
       <TextField fx:id="tsearchp" layoutX="591.0" layoutY="155.0" prefHeight="31.0" prefWidth="218.0" />
       <Label layoutX="422.0" layoutY="160.0" prefHeight="21.0" prefWidth="179.0" text="Rechercher" textFill="WHITE" underline="true" />
+      <ListView fx:id="listViewProm" layoutX="158.0" layoutY="320.0" prefHeight="271.0" prefWidth="737.0" />
+      <Button fx:id="btnrech" layoutX="822.0" layoutY="270.0" mnemonicParsing="false" onAction="#btnSupprimerProm" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: f4d160;" text="Rechercher" />
    </children>
 </AnchorPane>

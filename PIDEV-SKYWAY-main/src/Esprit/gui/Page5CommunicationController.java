@@ -40,8 +40,6 @@ public class Page5CommunicationController implements Initializable {
 
     @FXML
     private Button btn_rec;
-    @FXML
-    private Button btn_com;
     //@FXML
     //private AnchorPane anchorprojection;
     @FXML
@@ -60,15 +58,12 @@ public class Page5CommunicationController implements Initializable {
              LoadPage("ReclamationTable");
     }
 
-    @FXML
-    private void btn_action_com(ActionEvent event) {
-    }
        private void LoadPage (String page){
     Parent root=null;
         try {
             root = FXMLLoader.load(getClass().getResource(page+".fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(Page4PartenaireController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Page5CommunicationController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 anchorprojection.getChildren().setAll(root);

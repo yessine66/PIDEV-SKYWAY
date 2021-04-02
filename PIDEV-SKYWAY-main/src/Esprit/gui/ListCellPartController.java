@@ -87,6 +87,7 @@ private FXMLLoader mLLoader;
             }
             lbnom.setText(partenaire.getNom_p());
           lbdomaine.setText(partenaire.getDomaine());
+          lbdate.setText(partenaire.getDate_p());
           lbmail.setText(partenaire.getMailP());
             String url= partenaire.getLogoP(); 
             Image image =new Image("http://127.0.0.1/image/"+url);
