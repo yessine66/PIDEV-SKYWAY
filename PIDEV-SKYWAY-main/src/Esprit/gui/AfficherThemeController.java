@@ -6,6 +6,7 @@
 package Esprit.gui;
 
 import Esprit.Connection.MyConnection;
+import Esprit.entities.Utilisateur;
 import Esprit.entities.theme;
 import java.io.IOException;
 import java.net.URL;
@@ -37,6 +38,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import Esprit.services.themeSession;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -44,6 +49,8 @@ import Esprit.services.themeSession;
  * @author simop
  */
 public class AfficherThemeController implements Initializable {
+    
+    private Utilisateur userlogin;
 
     private Connection con;
     @FXML
@@ -67,6 +74,12 @@ public class AfficherThemeController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+            public void initData(Utilisateur usereo){
+        userlogin = usereo;
+        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
+    } 
+            
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -77,6 +90,9 @@ public class AfficherThemeController implements Initializable {
             Logger.getLogger(AfficherThemeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+
+    
 
     private void displayTheme() throws SQLException {
 
@@ -153,8 +169,24 @@ public class AfficherThemeController implements Initializable {
                     System.out.println(b.getText());
                 try {
                      themeSession.getInstace(id1);
-                     AnchorPane pane = FXMLLoader.load(getClass().getResource("AfficherCategorie.fxml"));
-                     pane1.getChildren().setAll(pane);
+                   /*  AnchorPane pane = FXMLLoader.load(getClass().getResource("AfficherCategorie.fxml"));
+                     pane1.getChildren().setAll(pane);*/
+                    System.out.println("\n\n\n nzelt aala boutton voir les categorie : \n" + userlogin);
+                   
+                                                         FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation((getClass().getResource("AfficherCategorie.fxml")));
+            
+                                                    Parent menuBackParent = loader.load();
+                                                    
+                                        Scene scene_Menu_Back = new Scene(menuBackParent);
+                                        
+                                        AfficherCategorieController controller=loader.getController();
+                                        controller.initData(userlogin);
+                                        
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(scene_Menu_Back);
+                                        window.show();
+                   
                 } catch (IOException ex) {
                     Logger.getLogger(AfficherThemeController.class.getName()).log(Level.SEVERE, null, ex);
                     }

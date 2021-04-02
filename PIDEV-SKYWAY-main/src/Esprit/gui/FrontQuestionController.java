@@ -5,6 +5,8 @@
  */
 package Esprit.gui;
 
+import Esprit.entities.Utilisateur;
+import Esprit.entities.test;
 import Esprit.services.QuestionsCRUD;
 import Esprit.services.ReponsesCRUD;
 import Esprit.services.testCRUD;
@@ -95,7 +97,7 @@ Rectangle unlockbottom;
 private Node root;
 
  Integer timesec = START;
- private int score=4;
+ private int score=0;
 int compteurr=1;
 QuestionsCRUD qc=  new QuestionsCRUD();
         ReponsesCRUD rc= new ReponsesCRUD();
@@ -194,6 +196,12 @@ btnHandler();
 
     @Override
       public void initialize(URL url, ResourceBundle rb) {
+          
+                              LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
+            System.out.println("\n\n\n\n iddddddddddddd fwest aFront questionnnnn*************** :\n  "+ usermimi.getIdUser());
+          
+          
         QuestionsCRUD qc=  new QuestionsCRUD();
         ReponsesCRUD rc= new ReponsesCRUD(); 
         testCRUD tc= new testCRUD();
@@ -336,8 +344,10 @@ finishx.setVisible(false);
                );}
     @FXML
                private void nextbtn(ActionEvent event) throws SQLException {
+                   LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
     
-      
+    
        try
         {
             stage.close();
@@ -353,8 +363,9 @@ finishx.setVisible(false);
        {
         
        finishQ();
-    score= 10;
-       }
+       test t;
+           t = new test (usermimi.getIdUser(),"date",score, "theme");
+       tc.ajouterTest(t);       }
        
             
         

@@ -16,27 +16,27 @@ public class test {
  private int id;
  private String date_test;
  private int score;
- private String name_t;
+ private String nom_categorie;
 
-    public test(int id_test, int id, String date_test, int score, String name_t) {
+    public test(int id_test, int id, String date_test, int score, String nom_categorie) {
         this.id_test = id_test;
         this.id = id;
         this.date_test = date_test;
         this.score = score;
-        this.name_t = name_t;
+        this.nom_categorie = nom_categorie;
     }
 
-    public test(String date_test, int score, String name_t) {
+    public test(String date_test, int score, String nom_categorie) {
         this.date_test = date_test;
         this.score = score;
-        this.name_t = name_t;
+        this.nom_categorie = nom_categorie;
     }
 
-    public test(int id, String date_test, int score, String name_t) {
+    public test(int id, String date_test, int score, String nom_categorie) {
         this.id = id;
         this.date_test = date_test;
         this.score = score;
-        this.name_t = name_t;
+        this.nom_categorie = nom_categorie;
     }
 
     public test(int id_test) {
@@ -67,8 +67,8 @@ public class test {
         this.score = score;
     }
 
-    public void setName_t(String name_t) {
-        this.name_t = name_t;
+    public void setName_t(String nom_categorie) {
+        this.nom_categorie = nom_categorie;
     }
 
     public String getDate_test() {
@@ -80,7 +80,7 @@ public class test {
     }
 
     public String getName_t() {
-        return name_t;
+        return nom_categorie;
     }
          
          
