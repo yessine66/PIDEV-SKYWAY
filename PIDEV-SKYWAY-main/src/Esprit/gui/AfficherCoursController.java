@@ -90,7 +90,7 @@ public class AfficherCoursController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         
-        System.out.println("\n\ntawa fel afficher cours controller : \n "+ userlogin);
+        System.out.println("\n\ntawa fel afficher Afficher courss  : \n "+ userlogin);
 
             courscontainer.setSpacing(5);
             try {
@@ -165,7 +165,7 @@ public class AfficherCoursController implements Initializable {
             h4.getChildren().addAll(duree);
             
             Button participer=new Button("participer" ) ;
-            LoginFXMLController kkj = new LoginFXMLController();
+            LoginFXMLController mmmmmm = new LoginFXMLController();
             Utilisateur usermimi = LoginFXMLController.usertest;
             System.out.println("\n\n\n\n iddddddddddddd fwest el afficher couuuuuuurs :  "+ usermimi.getIdUser());
               if (sp.chercher_ajout(new Participation(a1.getId_c(),usermimi.getIdUser())))
