@@ -49,6 +49,7 @@ public class FrontMenuController implements Initializable {
 
     @FXML
     private void evenement(MouseEvent event) {
+        LoadPage("FrontEvents");
     }
 
     @FXML

@@ -5,6 +5,7 @@
  */
 package Esprit.gui;
 
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,28 +16,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author User-DELL
+ * @author khouja safa
  */
-public class Page2TestController implements Initializable {
+public class FrontEventsController implements Initializable {
 
     @FXML
-    private Button Question;
+    private JFXButton btnactualite;
     @FXML
-    private AnchorPane anchort;
+    private JFXButton btnevenement;
     @FXML
     private AnchorPane anchorprojection;
-    @FXML
-    private Button Reponse;
-    @FXML
-    private Button Certificat;
 
     /**
      * Initializes the controller class.
@@ -44,45 +38,26 @@ public class Page2TestController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       
     }    
 
     @FXML
-    private void btnQuestion(ActionEvent event) {
-     LoadPage("BackQuestion");
+    private void btnactualite(ActionEvent event) {
+        LoadPage("FrontActualite");
     }
 
     @FXML
-    private void btnReponse(ActionEvent event) {
-        LoadPage("ModificationQuestion");
-    }
-
-    @FXML
-    private void btnCertificat(ActionEvent event) {
-        LoadPage("BackCertificat");
+    private void btnevenement(ActionEvent event) {
+        LoadPage("FrontEvenement");
     }
     private void LoadPage (String page){
     Parent root=null;
         try {
             root = FXMLLoader.load(getClass().getResource(page+".fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(Page2TestController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Page1CoursController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    anchorprojection.getChildren().setAll(root);
 
-anchorprojection.getChildren().setAll(root);
-         
-            
-            
-
-            
-            
-            
-            
-            
-        
-       
-    
-    
     }
     
 }
