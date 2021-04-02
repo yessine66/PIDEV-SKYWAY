@@ -5,6 +5,7 @@
  */
 package Esprit.gui;
 
+import Esprit.entities.Utilisateur;
 import Esprit.entities.test;
 import Esprit.services.QuestionsCRUD;
 import Esprit.services.ReponsesCRUD;
@@ -195,6 +196,12 @@ btnHandler();
 
     @Override
       public void initialize(URL url, ResourceBundle rb) {
+          
+                              LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
+            System.out.println("\n\n\n\n iddddddddddddd fwest aFront questionnnnn*************** :\n  "+ usermimi.getIdUser());
+          
+          
         QuestionsCRUD qc=  new QuestionsCRUD();
         ReponsesCRUD rc= new ReponsesCRUD(); 
         testCRUD tc= new testCRUD();
@@ -337,6 +344,8 @@ finishx.setVisible(false);
                );}
     @FXML
                private void nextbtn(ActionEvent event) throws SQLException {
+                   LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
     
     
        try
@@ -355,7 +364,7 @@ finishx.setVisible(false);
         
        finishQ();
        test t;
-           t = new test (2,"date",score, "theme");
+           t = new test (usermimi.getIdUser(),"date",score, "theme");
        tc.ajouterTest(t);       }
        
             
