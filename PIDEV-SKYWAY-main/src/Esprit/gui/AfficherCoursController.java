@@ -46,6 +46,7 @@ import javafx.util.Duration;
 import Esprit.services.categorieSession;
 import org.controlsfx.control.Notifications;
 import Esprit.services.ServiceParticipation;
+import Esprit.gui.AfficherCategorieController;
 /**
  * FXML Controller class
  *
@@ -144,7 +145,7 @@ public class AfficherCoursController implements Initializable {
             va.setFitWidth(200);
             Label nom = new Label("Titre cours : " + a1.getNom_c());
             Label description = new Label("La description : " + a1.getDescription());
-            Label duree = new Label("La durée : " + a1.getNbparticipant());
+          //  Label duree = new Label("La durée : " + a1.getNbparticipant());
             
 
             HBox h1 = new HBox();
@@ -155,14 +156,14 @@ public class AfficherCoursController implements Initializable {
             h2.setSpacing(10);
             h2.setAlignment(Pos.CENTER);
             h2.getChildren().addAll(description);
-            HBox h3 = new HBox();
-            h3.setSpacing(10);
-            h3.setAlignment(Pos.CENTER);
-            h3.getChildren().addAll(duree);
-            HBox h4 = new HBox();
-            h4.setSpacing(10);
-            h4.setAlignment(Pos.CENTER);
-            h4.getChildren().addAll(duree);
+//            HBox h3 = new HBox();
+//            h3.setSpacing(10);
+//            h3.setAlignment(Pos.CENTER);
+//            h3.getChildren().addAll(duree);
+//            HBox h4 = new HBox();
+//            h4.setSpacing(10);
+//            h4.setAlignment(Pos.CENTER);
+//            h4.getChildren().addAll(duree);
             
             Button participer=new Button("participer" ) ;
             LoginFXMLController mmmmmm = new LoginFXMLController();
@@ -193,15 +194,17 @@ public class AfficherCoursController implements Initializable {
             if (!sp.chercher_ajout(new Participation(a1.getId_c(),userlogin.getIdUser()))){
                 
                 try {
-                    PDF pdf = new PDF();
-                    try {
-                        pdf.pdf(a1);
-                    } catch (DocumentException ex) {
-                        Logger.getLogger(AfficherCoursController.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (IOException ex) {
-                        Logger.getLogger(AfficherCoursController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    sp.ajouter(new Participation(a1.getId_c(),2));
+                    FTPDownloadFileDemo download = new FTPDownloadFileDemo(a1.getPdf());
+                    download.download();
+//                    PDF pdf = new PDF();
+//                    try {
+//                        pdf.pdf(a1);
+//                    } catch (DocumentException ex) {
+//                        Logger.getLogger(AfficherCoursController.class.getName()).log(Level.SEVERE, null, ex);
+//                    } catch (IOException ex) {
+//                        Logger.getLogger(AfficherCoursController.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+                    sp.ajouter(new Participation(a1.getId_c(),usermimi.getIdUser()));
                      
                     String SQL1 = "UPDATE skyway.cours SET  nbparticipant=nbparticipant+1 WHERE id_c ='"+a1.getId_c()+"'";
                                int rs1 = ste.executeUpdate(SQL1);
@@ -222,7 +225,7 @@ public class AfficherCoursController implements Initializable {
             VBox v = new VBox();
             v.setAlignment(Pos.CENTER);
             v.setSpacing(10);
-            v.getChildren().addAll(h1, h2,h3,h4,participer);
+            v.getChildren().addAll(h1, h2,participer);
 
             VBox vv = new VBox();
             vv.setAlignment(Pos.CENTER);
@@ -260,28 +263,24 @@ public class AfficherCoursController implements Initializable {
             va.setFitWidth(200);
             Label nom = new Label("Titre cours : " + a1.getNom_c());
             Label description = new Label("La description : " + a1.getDescription());
-            Label duree = new Label("La durée : " + a1.getNbparticipant());
+           // Label duree = new Label("La durée : " + a1.getNbparticipant());
             
 
             HBox h1 = new HBox();
             h1.setSpacing(10);
             h1.setAlignment(Pos.CENTER);
             h1.getChildren().addAll(nom);
+            
             HBox h2 = new HBox();
             h2.setSpacing(10);
             h2.setAlignment(Pos.CENTER);
             h2.getChildren().addAll(description);
-            HBox h3 = new HBox();
-            h3.setSpacing(10);
-            h3.setAlignment(Pos.CENTER);
-            h3.getChildren().addAll(duree);
-            HBox h4 = new HBox();
-            h4.setSpacing(10);
-            h4.setAlignment(Pos.CENTER);
-            h4.getChildren().addAll(duree);
+         
+      
             
+            Utilisateur usermimi = LoginFXMLController.usertest;
             Button participer=new Button("participer" ) ;
-              if (sp.chercher_ajout(new Participation(a1.getId_c(),2)))
+              if (sp.chercher_ajout(new Participation(a1.getId_c(),userlogin.getIdUser())))
                          {
                    participer.setDisable(true);
               }
@@ -303,10 +302,10 @@ public class AfficherCoursController implements Initializable {
                                     
                                notificationBuilder.showConfirm();
                         try {
-            if (!sp.chercher_ajout(new Participation(a1.getId_c(),2))){
+            if (!sp.chercher_ajout(new Participation(a1.getId_c(),userlogin.getIdUser()))){
                 
                 try {
-                    sp.ajouter(new Participation(a1.getId_c(),2));
+                    sp.ajouter(new Participation(a1.getId_c(),userlogin.getIdUser()));
                      
                     String SQL1 = "UPDATE skyway.cours SET  nbparticipant=nbparticipant+1 WHERE id_c ='"+a1.getId_c()+"'";
                                int rs1 = ste.executeUpdate(SQL1);
@@ -327,12 +326,13 @@ public class AfficherCoursController implements Initializable {
             VBox v = new VBox();
             v.setAlignment(Pos.CENTER);
             v.setSpacing(10);
-            v.getChildren().addAll(h1, h2,h3,h4,participer);
+            v.getChildren().addAll(h1, h2, participer);
 
             VBox vv = new VBox();
             vv.setAlignment(Pos.CENTER);
             vv.setSpacing(10);
             vv.getChildren().addAll(va);
+            
             HBox No = new HBox();
             No.setSpacing(10);
             No.setAlignment(Pos.CENTER);
@@ -349,9 +349,11 @@ public class AfficherCoursController implements Initializable {
     }
 
     @FXML
-    private void retourner(ActionEvent event) throws IOException {
+    private void retourner(ActionEvent event) throws IOException, SQLException {
         AnchorPane page=FXMLLoader.load(getClass().getResource("AfficherCategorie.fxml"));
         pane.getChildren().setAll(page);
+        AfficherCategorieController aa = new AfficherCategorieController();
+        aa.displayCategorie();
     }
 
     @FXML

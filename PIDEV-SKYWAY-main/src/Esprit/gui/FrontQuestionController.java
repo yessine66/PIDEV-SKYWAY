@@ -5,6 +5,7 @@
  */
 package Esprit.gui;
 
+import Esprit.entities.Utilisateur;
 import Esprit.entities.test;
 import Esprit.services.QuestionsCRUD;
 import Esprit.services.ReponsesCRUD;
@@ -94,10 +95,13 @@ Stage stage;
 Rectangle unlockbottom;
         Timeline timeline = null;
 private Node root;
-
+ test t;
  Integer timesec = START;
  private int score=0;
 int compteurr=1;
+ LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
+     
 QuestionsCRUD qc=  new QuestionsCRUD();
         ReponsesCRUD rc= new ReponsesCRUD();
         testCRUD tc= new testCRUD();
@@ -195,6 +199,10 @@ btnHandler();
 
     @Override
       public void initialize(URL url, ResourceBundle rb) {
+          
+           LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
+     
         QuestionsCRUD qc=  new QuestionsCRUD();
         ReponsesCRUD rc= new ReponsesCRUD(); 
         testCRUD tc= new testCRUD();
@@ -337,8 +345,7 @@ finishx.setVisible(false);
                );}
     @FXML
                private void nextbtn(ActionEvent event) throws SQLException {
-    
-    
+                  
        try
         {
             stage.close();
@@ -346,22 +353,22 @@ finishx.setVisible(false);
         catch(Exception e)
         {} 
        compteurr++;
-      
+     
+   
        testqa(); 
 //       
-  //      System.out.println( tc.recupscore(rc.loadCodeBase2(qc.returningid(tiwtiw.getText()))));
-       if (compteurr>10)
-       {
-        
-       finishQ();
-       test t;
-           t = new test (2,"date",score, "theme");
-       tc.ajouterTest(t);       }
+     verif();
        
             
         
         
-    } 
+    }
+               private void verif(){
+               if (compteurr>10){finishQ(); 
+              t = new test (usermimi.getIdUser(),"not defined yet",score,"svt");
+       tc.ajouterTest(t); 
+           System.out.println("daww");}
+               }
 } 
 
 

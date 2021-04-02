@@ -92,6 +92,7 @@ public class EvenementService {
 
     public ObservableList<Evenement> readAll() {
        ObservableList<Evenement> list = FXCollections.observableArrayList();
+       list.removeAll();
         String req = "select * from evenement";
         try {
             ste = cnx.createStatement();
