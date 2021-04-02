@@ -117,7 +117,7 @@ public class DashBoardController implements Initializable {
     @FXML
     private void handleButtonEvennementsAction(ActionEvent event) throws IOException {
     
-        Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("FontActualite.fxml"));
+        Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("FrontEvents.fxml"));
         Scene reateAccountScene = new Scene(CreateAccountParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(reateAccountScene);
