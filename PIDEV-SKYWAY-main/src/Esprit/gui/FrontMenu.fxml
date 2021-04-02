@@ -63,6 +63,6 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane fx:id="projection" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #433f3f;" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="projection" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #2d7d9a;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
