@@ -1,11 +1,11 @@
 .tab{
-    -fx-background-color:  #14556d;
+    -fx-background-color: #2d7d9a;
 }
 .tab-header-background{
-    -fx-background-color:#14556d;
+    -fx-background-color: #2d7d9a;
 }
 .tab-pane .headers-region {
-    -fx-font: #14556d;
+    -fx-font:  #2d7d9a;
 }
 .jfx-tab-pane .depth-container {
     -fx-effect: none; 

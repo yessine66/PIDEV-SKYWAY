@@ -13,9 +13,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="810.0" prefWidth="956.0" stylesheets="@../../../../../../NetBeansProjects/GestionCoursV4/styles/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.CoursController">
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="810.0" prefWidth="956.0" style="-fx-background-color: #eff7e1;" stylesheets="@../../../../../../NetBeansProjects/GestionCoursV4/styles/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.CoursController">
    <children>
-      <VBox layoutX="9.0" prefHeight="712.0" prefWidth="418.0">
+      <VBox layoutX="26.0" layoutY="3.0" prefHeight="712.0" prefWidth="300.0">
          <children>
             <HBox alignment="CENTER" prefHeight="64.0" prefWidth="442.0">
                <children>
@@ -70,7 +70,10 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="46.0" prefWidth="442.0">
                <children>
-                  <Button fx:id="imagee" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#importimage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #000000;" text="import image" textFill="WHITE" />
+                  <Button fx:id="imagee" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#importimage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: f4d160;" text="import image">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Button>
                   <ImageView fx:id="importeimage" fitHeight="73.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </HBox>
@@ -105,7 +108,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="58.0" prefWidth="399.0">
                <children>
-                  <Button fx:id="fichier" mnemonicParsing="false" onAction="#importfile" prefHeight="37.0" prefWidth="125.0" style="-fx-background-color: #000000;" text="upload cours" textFill="WHITE" />
+                  <Button fx:id="fichier" mnemonicParsing="false" onAction="#importfile" prefHeight="37.0" prefWidth="125.0" style="-fx-background-color: f4d160;" text="upload cours" />
                   <HBox prefHeight="58.0" prefWidth="134.0" />
                </children>
             </HBox>
@@ -117,27 +120,39 @@
             <HBox alignment="CENTER" prefHeight="122.0" prefWidth="442.0">
                <children>
                   <VBox prefHeight="76.0" prefWidth="30.0" />
-                  <Button mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #000000;" text="ajouter" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: f4d160;" text="ajouter">
+                  <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
                   <VBox prefHeight="76.0" prefWidth="44.0" />
-                  <Button mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="96.0" style="-fx-background-color: #000000;" text="modifier" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="96.0" style="-fx-background-color: f4d160;" text="modifier">
+                  <font>
+                        <Font name="System Bold" size="15.0" />
+                  </font>
+                  </Button>
                   <VBox prefHeight="76.0" prefWidth="55.0" />
-                  <Button mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="97.0" style="-fx-background-color: #000000;" text="supprimer" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="97.0" style="-fx-background-color: f4d160;" text="supprimer">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                  </Button>
                </children>
             </HBox>
          </children>
       </VBox>
-      <ListView fx:id="lvcours" layoutX="427.0" layoutY="48.0" prefHeight="286.0" prefWidth="592.0" />
+      <ListView fx:id="lvcours" layoutX="338.0" layoutY="48.0" prefHeight="286.0" prefWidth="592.0" />
       <Text layoutX="427.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des cours" wrappingWidth="151.048828125">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="579.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de participants aux cours" wrappingWidth="295.0000175833702">
+      <Text layoutX="497.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de participants aux cours" wrappingWidth="295.0000175833702">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <PieChart fx:id="piechart" layoutX="431.0" layoutY="381.0" prefHeight="331.0" prefWidth="592.0" />
+      <PieChart fx:id="piechart" layoutX="337.0" layoutY="381.0" prefHeight="331.0" prefWidth="592.0" />
       <Label fx:id="caption" layoutX="431.0" layoutY="352.0" prefHeight="17.0" prefWidth="125.0" />
    </children>
 </AnchorPane>
