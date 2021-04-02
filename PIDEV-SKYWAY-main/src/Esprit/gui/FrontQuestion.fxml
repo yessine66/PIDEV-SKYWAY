@@ -5,17 +5,57 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="629.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Esprit.gui.FrontQuestionController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Esprit.gui.FrontQuestionController">
    <children>
-      <Label layoutX="260.0" layoutY="37.0" prefHeight="17.0" prefWidth="183.0" text="TEST" />
-      <TextField fx:id="tiwtiw" layoutX="129.0" layoutY="79.0" prefHeight="25.0" prefWidth="314.0" />
-      <Button fx:id="check" layoutX="216.0" layoutY="309.0" mnemonicParsing="false" onAction="#checkbtn" text="Check answer" />
-      <Button layoutX="376.0" layoutY="309.0" mnemonicParsing="false" text="next" />
-      <RadioButton fx:id="text_r2" layoutX="143.0" layoutY="170.0" mnemonicParsing="false" />
-      <RadioButton fx:id="text_r3" layoutX="143.0" layoutY="204.0" mnemonicParsing="false" />
-      <RadioButton fx:id="text_r4" layoutX="143.0" layoutY="242.0" mnemonicParsing="false" />
-      <RadioButton fx:id="text_r1" layoutX="143.0" layoutY="134.0" mnemonicParsing="false" />
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="545.0" prefWidth="629.0">
+         <children>
+            <Label layoutX="260.0" layoutY="37.0" prefHeight="17.0" prefWidth="183.0" text="TEST" />
+            <TextField fx:id="tiwtiw" layoutX="129.0" layoutY="79.0" prefHeight="25.0" prefWidth="314.0" />
+            <Button fx:id="check" layoutX="216.0" layoutY="309.0" mnemonicParsing="false" onAction="#checkbtn" text="Check answer" />
+            <Button fx:id="next" layoutX="376.0" layoutY="309.0" mnemonicParsing="false" onAction="#nextbtn" text="next" />
+            <RadioButton fx:id="text_r1" layoutX="129.0" layoutY="160.0" mnemonicParsing="false" text="RadioButton" />
+            <RadioButton fx:id="text_r2" layoutX="129.0" layoutY="200.0" mnemonicParsing="false" text="RadioButton" />
+            <RadioButton fx:id="text_r3" layoutX="129.0" layoutY="237.0" mnemonicParsing="false" text="RadioButton" />
+            <RadioButton fx:id="text_r4" layoutX="129.0" layoutY="279.0" mnemonicParsing="false" text="RadioButton" />
+            <Text layoutX="52.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question:" />
+            <Text layoutX="144.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/10" />
+            <TextField fx:id="compteur" layoutX="113.0" layoutY="33.0" prefHeight="26.0" prefWidth="29.0" />
+            <AnchorPane fx:id="finishx" layoutX="-34.0" prefHeight="705.0" prefWidth="670.0">
+               <children>
+                  <Label fx:id="bcarock" layoutX="606.0" layoutY="670.0" prefHeight="24.0" prefWidth="194.99990000000253">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label fx:id="timex" layoutX="389.0" layoutY="38.0" prefHeight="32.0" prefWidth="118.0" text="Label" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="270.0" layoutY="47.0" prefHeight="17.0" prefWidth="183.0" text="TEST" />
+      <TextField fx:id="tiwtiw" layoutX="139.0" layoutY="89.0" prefHeight="25.0" prefWidth="314.0" />
+      <Button fx:id="check" layoutX="226.0" layoutY="319.0" mnemonicParsing="false" onAction="#checkbtn" text="Check answer" />
+      <Button fx:id="next" layoutX="386.0" layoutY="319.0" mnemonicParsing="false" onAction="#nextbtn" text="next" />
+      <RadioButton fx:id="text_r1" layoutX="139.0" layoutY="170.0" mnemonicParsing="false" text="RadioButton" />
+      <RadioButton fx:id="text_r2" layoutX="139.0" layoutY="210.0" mnemonicParsing="false" text="RadioButton" />
+      <RadioButton fx:id="text_r3" layoutX="139.0" layoutY="247.0" mnemonicParsing="false" text="RadioButton" />
+      <RadioButton fx:id="text_r4" layoutX="139.0" layoutY="289.0" mnemonicParsing="false" text="RadioButton" />
+      <Text layoutX="62.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question:" />
+      <Text layoutX="154.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/10" />
+      <TextField fx:id="compteur" layoutX="123.0" layoutY="43.0" prefHeight="26.0" prefWidth="29.0" />
+      <AnchorPane fx:id="finishx" layoutX="-24.0" layoutY="10.0" prefHeight="705.0" prefWidth="670.0">
+         <children>
+            <Label fx:id="bcarock" layoutX="606.0" layoutY="670.0" prefHeight="24.0" prefWidth="194.99990000000253">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label fx:id="timex" layoutX="399.0" layoutY="48.0" prefHeight="32.0" prefWidth="118.0" text="Label" />
    </children>
 </AnchorPane>
