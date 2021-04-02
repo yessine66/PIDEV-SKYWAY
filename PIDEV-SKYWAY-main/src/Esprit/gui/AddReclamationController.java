@@ -50,7 +50,6 @@ public class AddReclamationController implements Initializable {
     private TextField objetTF;
     @FXML
     private TextField textTF;
-    @FXML
     private TextField userTF;
     String query = null;
     Connection connection = null;
@@ -65,6 +64,7 @@ public class AddReclamationController implements Initializable {
     private ComboBox<String> combo2;
     @FXML
     private TextField recTF;
+    private int x = 8;
 //private int usertest = 10;
     /**
      * Initializes the controller class.
@@ -73,9 +73,9 @@ public class AddReclamationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-                    LoginFXMLController mmmmmm = new LoginFXMLController();
-            Utilisateur usermimi = LoginFXMLController.usertest;
-            System.out.println("\n\n\n\n iddddddddddddd fwest add reclamatoin conttroller *************** :\n  "+ usermimi.getIdUser());
+              LoginFXMLController mmmmmm = new LoginFXMLController();
+              Utilisateur usermimi = LoginFXMLController.usertest;
+              System.out.println("\n\n\n\n iddddddddddddd fwest add reclamatoin conttroller *************** :\n  "+ usermimi.getIdUser());
         
         combo1.getItems().clear();
         showCombo();
@@ -83,11 +83,7 @@ public class AddReclamationController implements Initializable {
         
        
     }
-    
- 
-    
-    
-    
+
   
       public void showCombo()
      { 
@@ -124,7 +120,7 @@ public class AddReclamationController implements Initializable {
          connection = MyConnection.getInstance().getConnection();
         String objet = objetTF.getText();
         String text = textTF.getText();
-        String user = userTF.getText();
+        //String user = userTF.getText();
 
         if (objet.isEmpty() || text.isEmpty()  ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -164,8 +160,8 @@ public class AddReclamationController implements Initializable {
     }
      
      private void getQuery() {
-         LoginFXMLController mmmmmm = new LoginFXMLController();
-            Utilisateur usermimi = LoginFXMLController.usertest;
+          LoginFXMLController mmmmmm = new LoginFXMLController();
+          Utilisateur usermimi = LoginFXMLController.usertest;
            String s = combo1.getSelectionModel().getSelectedItem().toString();
           
         if (update == false) {
@@ -184,7 +180,7 @@ public class AddReclamationController implements Initializable {
                     + "`objet`=?,"
                     + "`text_r`=?,"
                     + "`date_envoi`=,"
-                    + "`id`= "+usermimi.getIdUser()+","
+                    + "`id`= "/*+usermimi.getIdUser()+*/+x+","
                     + "`cours`=? WHERE id_rec = "+reclamationId;
     
               } else if (combo1.getSelectionModel().getSelectedItem().toString().equals("Enseignant")){
