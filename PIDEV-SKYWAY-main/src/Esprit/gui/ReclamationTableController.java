@@ -188,7 +188,6 @@ public class ReclamationTableController implements Initializable {
         
         connection =  MyConnection.getInstance().getConnection();
         refreshTable();
-        
         //idCol.setCellValueFactory(new PropertyValueFactory<>("id_rec"));
         objetCol.setCellValueFactory(new PropertyValueFactory<>("objet"));
         textCol.setCellValueFactory(new PropertyValueFactory<>("text_r"));
