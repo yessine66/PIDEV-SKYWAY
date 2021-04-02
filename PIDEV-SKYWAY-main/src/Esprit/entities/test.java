@@ -26,6 +26,8 @@ public class test {
         this.nom_categorie = nom_categorie;
     }
 
+   
+
     public test(String date_test, int score, String nom_categorie) {
         this.date_test = date_test;
         this.score = score;

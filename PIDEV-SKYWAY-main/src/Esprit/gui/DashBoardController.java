@@ -79,7 +79,7 @@ public class DashBoardController implements Initializable {
     private void handleButtonTestsAction(ActionEvent event) throws IOException {
         System.out.println("\n Tests clicked");
         
-                                               Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("FrontQuestion.fxml"));
+                                               Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("categorietests.fxml"));
                                         Scene reateAccountScene = new Scene(CreateAccountParent);
                                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                                         window.setScene(reateAccountScene);

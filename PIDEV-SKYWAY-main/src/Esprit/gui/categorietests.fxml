@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" fx:id="categ" prefHeight="560.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.CategorietestsController">
+   <children>
+      <BorderPane fx:id="categs" layoutY="-6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="910.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="400.0" prefWidth="129.0" BorderPane.alignment="CENTER" />
+         </left>
+         <top>
+            <VBox prefHeight="576.0" prefWidth="126.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="svt1" mnemonicParsing="false" onMouseClicked="#svt" prefHeight="106.0" prefWidth="126.0" text="SVT" />
+                  <Button fx:id="svt" mnemonicParsing="false" onMouseClicked="#maths" prefHeight="117.0" prefWidth="126.0" text="Mathématiques" />
+                  <Button fx:id="svt2" mnemonicParsing="false" onMouseClicked="#poo" prefHeight="117.0" prefWidth="126.0" text="POO" />
+                  <Button fx:id="svt3" mnemonicParsing="false" onMouseClicked="#littérature" prefHeight="117.0" prefWidth="126.0" text="Littérature" />
+                  <Button fx:id="svt4" mnemonicParsing="false" onMouseClicked="#histoire" prefHeight="117.0" prefWidth="126.0" text="Histoire/géo" />
+               </children>
+            </VBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
