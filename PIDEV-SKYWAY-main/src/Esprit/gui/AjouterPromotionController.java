@@ -74,15 +74,9 @@ public class AjouterPromotionController implements Initializable {
     private DatePicker dateFp;
     private TableColumn<Promotion, String> colDateD;
     private TableColumn<Promotion, String> colDateF;
-    /*@FXML
-    private ListView<Promotion> listProm;*/
-    @FXML
-    private TextField tsearchp;
     int index =-1;
     @FXML
     private ListView<Promotion> listViewProm;
-    @FXML
-    private Button btnrech;
 
     /**
      * Initializes the controller class.
