@@ -35,7 +35,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -50,6 +52,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
 
 
@@ -168,6 +171,14 @@ public class FrontActualiteController implements Initializable {
     }    
 
     @FXML
-    private void btnActionRetour(ActionEvent event) {
+    private void btnActionRetour(ActionEvent event) throws IOException {
+             
+        
+                                         Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("dashBoard.fxml"));
+                                        Scene reateAccountScene = new Scene(CreateAccountParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(reateAccountScene);
+                                        window.show();
     }
-}
+    }
+
