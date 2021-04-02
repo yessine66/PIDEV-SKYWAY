@@ -14,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="pane2" prefHeight="810.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.CategorieeController">
    <children>
-      <VBox layoutX="8.0" layoutY="17.0" prefHeight="601.0" prefWidth="442.0">
+      <VBox layoutX="8.0" layoutY="17.0" prefHeight="607.0" prefWidth="440.0">
          <children>
             <HBox alignment="CENTER" prefHeight="59.0" prefWidth="442.0">
                <children>
@@ -25,10 +25,10 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="442.0" />
             <HBox alignment="CENTER" prefHeight="46.0" prefWidth="442.0">
                <children>
-                  <TextField fx:id="nom" prefHeight="54.0" prefWidth="255.0" promptText="Titre">
+                  <TextField fx:id="nom" prefHeight="54.0" prefWidth="222.0" promptText="Titre">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -42,7 +42,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="442.0">
                <children>
-                  <ComboBox fx:id="comboTheme" prefHeight="53.0" prefWidth="257.0" />
+                  <ComboBox fx:id="comboTheme" prefHeight="53.0" prefWidth="222.0" promptText="Théme" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="12.0" prefWidth="442.0">
@@ -53,8 +53,8 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="85.0" prefWidth="442.0">
                <children>
-                  <Button fx:id="imagee" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#importimage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #000000;" text="import image" textFill="WHITE" />
-                  <ImageView fx:id="importeimage" fitHeight="73.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="imagee" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#importimage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #000000;" text="import image" textFill="WHITE" />
+                  <ImageView fx:id="importeimage" fitHeight="73.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="38.0" prefWidth="442.0">
@@ -66,18 +66,18 @@
                   <HBox alignment="CENTER" prefHeight="121.0" prefWidth="331.0">
                      <children>
                         <VBox prefHeight="76.0" prefWidth="30.0" />
-                        <Button mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #000000;" text="ajouter" textFill="WHITE" />
-                        <VBox prefHeight="76.0" prefWidth="44.0" />
-                        <Button mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="96.0" style="-fx-background-color: #000000;" text="modifier" textFill="WHITE" />
+                        <Button mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000000;" text="ajouter" textFill="WHITE" />
+                        <VBox prefHeight="152.0" prefWidth="53.0" />
+                        <Button mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000000;" text="modifier" textFill="WHITE" />
                         <VBox prefHeight="76.0" prefWidth="55.0" />
-                        <Button mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="97.0" style="-fx-background-color: #000000;" text="supprimer" textFill="WHITE" />
+                        <Button mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000000;" text="supprimer" textFill="WHITE" />
                      </children>
                   </HBox>
                </children>
             </HBox>
          </children>
       </VBox>
-      <ListView fx:id="lvcategorie" layoutX="432.0" layoutY="58.0" prefHeight="576.0" prefWidth="390.0" />
+      <ListView fx:id="lvcategorie" layoutX="432.0" layoutY="58.0" prefHeight="601.0" prefWidth="517.0" />
       <Text fill="WHITE" layoutX="432.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des catégories ">
          <font>
             <Font name="System Bold" size="18.0" />

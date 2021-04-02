@@ -98,7 +98,6 @@ public class CoursController implements Initializable {
     //private TextField numero;
     @FXML
     private TextField description;
-    @FXML
     private TextField duree;
     private TextField idtheme;
     private TableColumn<cours, String> colimage;
@@ -108,10 +107,7 @@ public class CoursController implements Initializable {
     @FXML
     private ComboBox<String> comboCategorie;
     @FXML
-    private Label erreurnumero;
-    @FXML
     private Label erreurdesc;
-    @FXML
     private Label erreurduree;
     @FXML
     private Label erreurdateajout;
@@ -119,7 +115,6 @@ public class CoursController implements Initializable {
     private Label erreurdatemodif;
     @FXML
     private Button fichier;
-    @FXML
     private TextField pdf;
     @FXML
     private PieChart piechart;
@@ -151,7 +146,8 @@ public class CoursController implements Initializable {
        piechart.setData(pieData);
                         
        caption.setTextFill(Color.DARKORANGE);
-caption.setStyle("-fx-font: 24 arial;");
+        caption.setStyle("-fx-font: 24 arial;");
+        
 
 for (final PieChart.Data data : piechart.getData()) {
     data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
@@ -268,24 +264,9 @@ for (final PieChart.Data data : piechart.getData()) {
                 }
                 
             });
-           duree.textProperty().addListener(new ChangeListener<String>()
-            {
-                @Override
-                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                   if(newValue.isEmpty())
-                      erreurduree.setText("Il faut remplir le champ durée");
-                   else if(newValue.length()>2)
-                       erreurduree.setText("Le champ durée ne doit pas passer 2 caractéres");
-                   else
-                erreurduree.setText("");
-                }       
-             });
+          
            
-           duree.textProperty().addListener((observable, oldValue, newValue) -> {
-        if (!newValue.matches("\\s1-9*")) {
-            duree.setText(newValue.replaceAll("[^\\s1-9]", ""));
-        }
-        });
+      
 //                numero.textProperty().addListener(new ChangeListener<String>()
 //            {
 //                @Override

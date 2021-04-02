@@ -11,6 +11,10 @@ public class Questions  extends RecursiveTreeObject<Questions> implements Serial
    private int id_q;
     private String text_q;
     private int nbr_point;
+
+    public Questions(String name_t) {
+        this.name_t = name_t;
+    }
   
     private String name_t;
 
