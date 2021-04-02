@@ -14,9 +14,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -31,6 +34,8 @@ public class FrontPartenaire4Controller implements Initializable {
     private Button promotion;
     @FXML
     private AnchorPane anchorprojection;
+    @FXML
+    private Button buttonBack;
 
     /**
      * Initializes the controller class.
@@ -60,6 +65,16 @@ public class FrontPartenaire4Controller implements Initializable {
 anchorprojection.getChildren().setAll(root);
 
     
+    }
+
+    @FXML
+    private void handleButtonBack(ActionEvent event) throws IOException {
+        
+                                                               Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("dashBoard.fxml"));
+                                        Scene reateAccountScene = new Scene(CreateAccountParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(reateAccountScene);
+                                        window.show();
     }
     
 }

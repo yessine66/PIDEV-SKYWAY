@@ -389,7 +389,7 @@ public class ReclamationTableController implements Initializable {
                 } catch (IOException ex) {
                       Logger.getLogger(ReclamationTableController.class.getName()).log(Level.SEVERE, null , ex);
                    }
-                 Image img = new Image("/check.png");
+                 Image img = new Image("pic/check.png");
                  Notifications notification;
                  notification = Notifications.create()
                 .title("Export  réussit")
