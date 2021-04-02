@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/entities/test.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FrontQuestion.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FrontQuestionController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/services/testCRUD.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/services/QuestionsCRUD.java</file>
+<<<<<<< Updated upstream
+            <file>file:/C:/Users/simop/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/NotifGagnantController.java</file>
+            <file>file:/C:/Users/simop/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/AjouterPartenaireController.java</file>
+            <file>file:/C:/Users/simop/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/services/ServiceCours.java</file>
+=======
+            <file>file:/C:/Users/khouj/OneDrive/Documents/NetBeansProjects/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/Page3EvenementController.java</file>
+            <file>file:/C:/Users/khouj/OneDrive/Documents/NetBeansProjects/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/ActualiteController.java</file>
+            <file>file:/C:/Users/khouj/OneDrive/Documents/NetBeansProjects/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/MenuBack.java</file>
+            <file>file:/C:/Users/khouj/OneDrive/Documents/NetBeansProjects/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/EvenementController.java</file>
+            <file>file:/C:/Users/khouj/OneDrive/Documents/NetBeansProjects/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/styleActualite.css</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

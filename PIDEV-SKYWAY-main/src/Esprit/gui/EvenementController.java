@@ -6,6 +6,7 @@
 package Esprit.gui;
 
 import Esprit.entities.Evenement;
+import Esprit.entities.Utilisateur;
 import Esprit.services.EvenementService;
 import java.io.IOException;
 import java.net.URL;
@@ -18,11 +19,15 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -31,9 +36,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.layout.VBox;
+import org.controlsfx.control.Notifications;
 
 
 
@@ -62,12 +69,13 @@ public class EvenementController implements Initializable {
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
     private Evenement ev = null ;
-    
-    
     private boolean update;
+    
+    private Utilisateur userlogin;
     
     @FXML
     private Label LabDet1;
+    @FXML
     private TabPane tp;
     @FXML
     private TextField TFidm;
@@ -88,8 +96,6 @@ public class EvenementController implements Initializable {
     @FXML
     private TextField TFnbrplm;
     @FXML
-    private ImageView ico4;
-    @FXML
     private Tab TabList;
     @FXML
     private VBox hb2;
@@ -106,26 +112,67 @@ public class EvenementController implements Initializable {
     @FXML
     private Tab TabAdd;
     @FXML
-    private ImageView ico1;
-    @FXML
     private Button btnMap;
-    @FXML
-    private ImageView ico2;
     @FXML
     private Button btnImage1;
     @FXML
-    private ImageView ico3;
+    private Label erreurtitreev;
+    @FXML
+    private Label erreurdateev;
+    @FXML
+    private Label erreurplace;
+    @FXML
+    private Label erreurnombre;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadData();
-        /*ActualiteService act = new ActualiteService();
-        ObservableList<Actualite> list =  act.readAll();
         
-        ListAct.setItems(list);
-        ListAct.setCellFactory((ListView<Actualite> ListView) -> new ListCellController());*/
-                
+        TFnom.textProperty().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if(newValue.isEmpty())
+                    erreurtitreev.setText("Il faut remplir le champ");
+                else
+                    erreurtitreev.setText("");
+                }       
+            });
+        
+        TFnom.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue.matches("\\sa-zA-Z*")) {
+            TFnom.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            erreurtitreev.setText("le non doit comporter que des caractères");
+        }
+        });
+        
+        TFespace.textProperty().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if(newValue.isEmpty())
+                erreurplace.setText("Il faut remplir le champ");
+            else
+                erreurplace.setText("");
+            }       
+        });
+        
+        TFespace.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue.matches("\\sa-zA-Z*")) {
+            TFespace.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            erreurplace.setText("le non doit comporter que des caractères");
+        }
+        });
+        
+        TFnbrpl.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue.matches("\\s1-9*")) {
+            erreurnombre.setText(newValue.replaceAll("[^\\s1-9]", ""));
+        }
+        });
+        
     }            
+    public void initData(Utilisateur usereo){
+        userlogin = usereo;
+        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
+    }
     private void loadData() {
             
         EvenementService ev = new EvenementService();
@@ -143,48 +190,72 @@ public class EvenementController implements Initializable {
     @FXML
     private void btnAjoutActionEv(ActionEvent event) throws SQLException {
         
-        try {
-            if(event.getSource() == BtnAjout){
-                String nom_ev = TFnom.getText();
-                Date date = Date.valueOf(TFdate.getValue());
-                String espace =TFespace.getText();
-                int nombre_pl=Integer.parseInt(TFnbrpl.getText());
-                //int id_user=Integer.parseInt(TFuser.getText());
-                Evenement evenement = new Evenement(nom_ev, date, espace, nombre_pl,10);
-                EvenementService events = new EvenementService();
-                events.ajouterEvenement(evenement);
-            }
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Evenement.fxml"));
-            Parent root = loader.load();
-            TFnom.getScene().setRoot(root);
-        }catch (IOException ex) {
-            }        
+        if(event.getSource() == BtnAjout){
+            String nom_ev = TFnom.getText();
+            Date date = Date.valueOf(TFdate.getValue());
+            String espace =TFespace.getText();
+            int nombre_pl=Integer.parseInt(TFnbrpl.getText());
+            //int id_user=Integer.parseInt(TFuser.getText());
+            Evenement evenement = new Evenement(nom_ev, date, espace, nombre_pl,10);
+            EvenementService events = new EvenementService();
+            events.ajouterEvenement(evenement);
+            Image img = new Image("/pic/check.png");
+            Notifications notification;
+            notification = Notifications.create()
+                    .title("Ajouté avec succée")
+                    .text("Done !!")
+                    .graphic(new ImageView(img))
+                    
+                    .position(Pos.BASELINE_RIGHT)
+                    .onAction(new EventHandler<ActionEvent>(){
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("Clicked on notification");
+                        }
+                    });
+            notification.show();
+        }
+        tp.getSelectionModel().select(TabList);
+        ListEv.getItems().removeAll(ev);
+        loadData();        
     }
 
     @FXML
     private void btnModifActionEv(ActionEvent event) {
         
-        try {
-            if(event.getSource() == BtnModif){
-                int id_ev =Integer.parseInt(TFidm.getText());
-                String nom_ev = TFnomm.getText();
-                Date date = Date.valueOf(TFdatem.getValue())/*.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))*/;
-                String espace =TFespacem.getText();
-                int nombre_pl =Integer.parseInt(TFnbrplm.getText());
-                Evenement evenement = new Evenement(id_ev,nom_ev, date, espace, nombre_pl,10);
-                EvenementService events = new EvenementService();
-                events.editer(evenement);
-            }
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Evenement.fxml"));
-            Parent root = loader.load();
-            TFnomm.getScene().setRoot(root);
-            }catch (IOException ex) {
+        if(event.getSource() == BtnModif){
+            int id_ev =Integer.parseInt(TFidm.getText());
+            String nom_ev = TFnomm.getText();
+            Date date = Date.valueOf(TFdatem.getValue())/*.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))*/;
+            String espace =TFespacem.getText();
+            int nombre_pl =Integer.parseInt(TFnbrplm.getText());
+            Evenement evenement = new Evenement(id_ev,nom_ev, date, espace, nombre_pl,10);
+            EvenementService events = new EvenementService();
+            events.editer(evenement);
+            Image img = new Image("/pic/check.png");
+                Notifications notification;
+                notification = Notifications.create()
+                    .title("Modifier avec succée")
+                    .text("Done !!")
+                    .graphic(new ImageView(img))
+                    
+                    .position(Pos.BASELINE_RIGHT)
+                    .onAction(new EventHandler<ActionEvent>(){
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("Clicked on notification");
+                        }
+                    });
+            notification.show();
         }
+        tp.getSelectionModel().select(TabList);
+        ListEv.getItems().removeAll(ev);
+        loadData();
     }
 
     @FXML
     private void btnActionRefrechEv(ActionEvent event) {
-        
+        ListEv.getItems().removeAll(ev);
         loadData();
     }
 
