@@ -60,7 +60,8 @@ public class AfficherThemeController implements Initializable {
     private ScrollPane scroll;
     @FXML
     private VBox themecontainer;
-
+    @FXML
+    private Button buttonBack;
     int n = 1;
     @FXML
     private AnchorPane pane1;
@@ -271,6 +272,15 @@ public class AfficherThemeController implements Initializable {
 //            list.add(v1);
 //        }
 //        return id_Theme;
+       @FXML
+    private void handleButtonBack(ActionEvent event) throws IOException {
+        
+                                                               Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("dashBoard.fxml"));
+                                        Scene reateAccountScene = new Scene(CreateAccountParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(reateAccountScene);
+                                        window.show();
+    }
 //
 //    }
 

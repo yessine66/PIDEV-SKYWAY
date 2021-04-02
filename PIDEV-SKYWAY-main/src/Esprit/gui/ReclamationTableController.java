@@ -110,6 +110,9 @@ public class ReclamationTableController implements Initializable {
     @FXML
     private ImageView image;
     private int x = 8 ;
+        @FXML
+    private Button buttonBack;
+
     //private Integer useraddo = 10;
      
     /**
@@ -494,6 +497,15 @@ public class ReclamationTableController implements Initializable {
         sortedData.comparatorProperty().bind(reclamationTable.comparatorProperty());
         reclamationTable.setItems(sortedData);
         
+    }
+     @FXML
+    private void handleButtonBack(ActionEvent event) throws IOException {
+        
+                                                               Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("dashBoard.fxml"));
+                                        Scene reateAccountScene = new Scene(CreateAccountParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(reateAccountScene);
+                                        window.show();
     }
     
     }
