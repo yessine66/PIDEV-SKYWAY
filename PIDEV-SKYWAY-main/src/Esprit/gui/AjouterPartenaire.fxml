@@ -38,6 +38,6 @@
       <TextField fx:id="tmail" layoutX="223.0" layoutY="268.0" />
       <ListView fx:id="listViewPart" layoutX="167.0" layoutY="398.0" prefHeight="267.0" prefWidth="737.0" />
       <Label layoutX="70.0" layoutY="203.0" prefHeight="21.0" prefWidth="128.0" text="Domaine" textFill="#f7f7f8" underline="true" />
-      <Button fx:id="btncontact" layoutX="91.0" layoutY="343.0" mnemonicParsing="false" onAction="#btncontact" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="contacter" />
+      <Button fx:id="btncontact" layoutX="426.0" layoutY="268.0" mnemonicParsing="false" onAction="#btncontact" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="contacter" />
    </children>
 </AnchorPane>

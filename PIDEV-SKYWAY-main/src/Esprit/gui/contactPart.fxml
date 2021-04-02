@@ -53,5 +53,6 @@
       </VBox>
       <Button fx:id="retun" layoutX="56.0" layoutY="24.0" mnemonicParsing="false" onAction="#on_return_button" prefHeight="35.0" prefWidth="124.0" style="-fx-background-color: #0D1824;" styleClass="search-button" stylesheets="@../../../../../../../Documents/threadprojects/edu/Edutopia-master%20(1)/Edutopia-master/src/GUI/style.css" text="Return" textFill="#0d1824" />
       <Button fx:id="send_btn" layoutX="772.0" layoutY="610.0" mnemonicParsing="false" onAction="#on_send_button" prefHeight="35.0" prefWidth="124.0" style="-fx-background-color: f4d160;" styleClass="search-button" stylesheets="@../../../../../../../Documents/threadprojects/edu/Edutopia-master%20(1)/Edutopia-master/src/GUI/style.css" text="Send" textFill="WHITE" />
+      <Button fx:id="buttonBack" layoutX="773.0" layoutY="703.0" mnemonicParsing="false" onAction="#handleButtonBackAction" prefHeight="35.0" prefWidth="124.0" style="-fx-background-color: f4d160;" text="Back" />
    </children>
 </AnchorPane>

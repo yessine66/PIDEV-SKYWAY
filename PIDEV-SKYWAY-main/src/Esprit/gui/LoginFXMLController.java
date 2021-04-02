@@ -9,6 +9,7 @@ import Esprit.Connection.OAuthAuthenticator;
 import Esprit.Connection.OAuthGoogleAuthenticator;
 import Esprit.entities.Utilisateur;
 import Esprit.services.UtilisateurCRUD;
+import Esprit.tests.Mail;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -311,7 +312,12 @@ public class LoginFXMLController implements Initializable {
     
 
     @FXML
-    private void HandleButtonMailAction(ActionEvent event) {
+    private void HandleButtonMailAction(ActionEvent event) throws Exception {
+        
+        String Passwordloaded = null;
+        UtilisateurCRUD usercrudi= new UtilisateurCRUD();
+        Passwordloaded=usercrudi.loadPasswordBase(textFieldUsername.getText());
+        Mail.sendMail(textFieldUsername.getText(), "Recuperation Mot De Passe","Votre Mot de passe est : "+Passwordloaded);
     }
 
     @FXML
