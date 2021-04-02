@@ -3,12 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/simop/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/FTPDownloadFileDemo.java</file>
-            <file>file:/C:/Users/simop/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/AfficherCoursController.java</file>
-            <file>file:/C:/Users/simop/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/categorie.fxml</file>
-            <file>file:/C:/Users/simop/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/DashBoardController.java</file>
-            <file>file:/C:/Users/simop/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/MenuBack.java</file>
-            <file>file:/C:/Users/simop/Documents/GitHub/PIDEV-SKYWAY/PIDEV-SKYWAY-main/src/Esprit/gui/PDF.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/GestionApprenantFXMLController.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/MenuBackController.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/BackQuestion.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/MenuBack.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/BackCertificatController.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/Page4PartenaireController.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/services/QuestionsCRUD.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FrontMenuController.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/BackQuestionController.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FrontTest2.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FXMain.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/Page2TestController.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FrontMenu.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/CreateAccountAdminFXMLController.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/BackQuestion.fxml</file>
         </group>
     </open-files>
 </project-private>

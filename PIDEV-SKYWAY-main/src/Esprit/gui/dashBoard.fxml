@@ -67,6 +67,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
+                  <Button fx:id="buttonLogOut" layoutX="687.0" layoutY="512.0" mnemonicParsing="false" onAction="#handleButtonLogOutAction" text="Log Out" />
                </children>
             </AnchorPane>
          </center>

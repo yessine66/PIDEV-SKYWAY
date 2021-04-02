@@ -9,6 +9,7 @@ import Esprit.Connection.OAuthAuthenticator;
 import Esprit.Connection.OAuthGoogleAuthenticator;
 import Esprit.entities.Utilisateur;
 import Esprit.services.UtilisateurCRUD;
+import Esprit.tests.Mail;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -41,6 +42,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import nl.captcha.Captcha;
 
 
 import org.json.CDL;
@@ -70,6 +75,8 @@ public class LoginFXMLController implements Initializable {
     
     public static int tentative;
     
+     Captcha captcha;
+    
     
     
     
@@ -93,6 +100,12 @@ public class LoginFXMLController implements Initializable {
     private Button buttonMAIL;
     @FXML
     private Button buttonGoogle;
+    @FXML
+    private ImageView cap;
+    @FXML
+    private TextField code;
+    @FXML
+    private Button reset;
 
     
     
@@ -299,7 +312,12 @@ public class LoginFXMLController implements Initializable {
     
 
     @FXML
-    private void HandleButtonMailAction(ActionEvent event) {
+    private void HandleButtonMailAction(ActionEvent event) throws Exception {
+        
+        String Passwordloaded = null;
+        UtilisateurCRUD usercrudi= new UtilisateurCRUD();
+        Passwordloaded=usercrudi.loadPasswordBase(textFieldUsername.getText());
+        Mail.sendMail(textFieldUsername.getText(), "Recuperation Mot De Passe","Votre Mot de passe est : "+Passwordloaded);
     }
 
     @FXML
@@ -311,6 +329,30 @@ public class LoginFXMLController implements Initializable {
         String gSecret = "zksCX6pzJKW6mnpC0x2hmAVq";
         OAuthAuthenticator auth = new OAuthGoogleAuthenticator(gClientId, gRedir, gSecret, gScope);
         auth.startLogin();
+        
+    }
+    
+public Captcha setCaptcha() {
+        Captcha captcha = new Captcha.Builder(250, 200)
+                .addText()
+                .addBackground()
+                .addNoise()
+                .gimp()
+                .addBorder()
+                .build();
+
+        System.out.println(captcha.getImage());
+        Image image = SwingFXUtils.toFXImage(captcha.getImage(), null);
+
+        cap.setImage(image);
+
+        return captcha;
+    }
+
+    @FXML
+    private void handleButtonReset(ActionEvent event) {
+                captcha = setCaptcha();
+        code.setText("");
         
     }
     

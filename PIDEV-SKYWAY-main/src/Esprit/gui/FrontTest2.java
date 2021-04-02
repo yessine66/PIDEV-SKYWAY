@@ -45,7 +45,7 @@ public class FrontTest2 implements Initializable {
 
     @FXML
     private void btnQuestion(ActionEvent event) {
-     LoadPage("QuizFront");
+     LoadPage("BackQuestion");
     }
 
        private void LoadPage (String page){

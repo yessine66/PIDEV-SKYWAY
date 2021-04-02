@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -26,5 +27,8 @@
       <Button fx:id="buttonSMS" layoutX="389.0" layoutY="406.0" mnemonicParsing="false" onAction="#HandleButtonSMSAction" text="SMS" AnchorPane.leftAnchor="350.0" />
       <Button fx:id="buttonMAIL" layoutX="675.0" layoutY="406.0" mnemonicParsing="false" onAction="#HandleButtonMailAction" text="Mail" AnchorPane.rightAnchor="350.0" />
       <Button fx:id="buttonGoogle" layoutX="480.0" layoutY="293.0" mnemonicParsing="false" onAction="#handleButtonGoogleAction" text="Sign in with google account" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" />
+      <ImageView fx:id="cap" fitHeight="150.0" fitWidth="200.0" layoutX="452.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="code" layoutX="480.0" layoutY="748.0" />
+      <Button fx:id="reset" layoutX="777.0" layoutY="748.0" mnemonicParsing="false" onAction="#handleButtonReset" text="Reset" />
    </children>
 </AnchorPane>

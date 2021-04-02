@@ -39,6 +39,8 @@ public class DashBoardController implements Initializable {
     private Button btnPartenaires;
     @FXML
     private Button btnEvenements;
+    @FXML
+    private Button buttonLogOut;
 
     /**
      * Initializes the controller class.
@@ -124,6 +126,19 @@ public class DashBoardController implements Initializable {
         window.show();
 
         
+    }
+
+    @FXML
+    private void handleButtonLogOutAction(ActionEvent event) throws IOException {
+                      LoginFXMLController mmmmmm = new LoginFXMLController();
+              Utilisateur usermimi = LoginFXMLController.usertest;
+              usermimi=null;
+              
+                                        Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
+                                        Scene reateAccountScene = new Scene(CreateAccountParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(reateAccountScene);
+                                        window.show();
     }
     
 }
