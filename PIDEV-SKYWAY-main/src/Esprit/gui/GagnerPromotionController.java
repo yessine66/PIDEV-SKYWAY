@@ -83,8 +83,6 @@ public class GagnerPromotionController implements Initializable {
     @FXML
     private ListView<String> tvwinnerprom;
     @FXML
-    private Button jouezbtn;
-    @FXML
     private Button attachMailbtn;
  List<String> type;
  String img="";
@@ -196,8 +194,7 @@ private  ObservableList<String> randpromget=win.randomProm();
          showWinnerProm();
     }
 
-    @FXML
-    private void jouezbtn(ActionEvent event) throws IOException {
+    /*private void jouezbtn(ActionEvent event) throws IOException {
  
       Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
       LotteryWheel wheel = new LotteryWheel();
@@ -212,7 +209,7 @@ private  ObservableList<String> randpromget=win.randomProm();
        
         
         
-    }
+  //  }*/
     public String attachMail2() {
            //type.clear();
           type =new ArrayList();
@@ -276,8 +273,9 @@ private  ObservableList<String> randpromget=win.randomProm();
                  String org = "";
              notif.qrrcode(randpromget);
                
-                  String str =  "nermine";
-                  String path = "C:\\Users\\simop\\Desktop\\g"+str+".png";
+                  String str =  "a";
+              String path = "C:\\Users\\Lenovo\\Desktop\\backupnotifouta\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\EventTicket\\g"+str+".png";
+                 //C:\\Users\\Lenovo\\Desktop\\backupnotifouta\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\EventTicket
                   System.out.println("1"+path);
                 // Image img6 = new Image(new FileInputStream(pat));
                 Image img = new Image(new FileInputStream(path));

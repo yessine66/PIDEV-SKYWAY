@@ -8,23 +8,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPaneLogin" prefHeight="734.0" prefWidth="1133.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.LoginFXMLController">
+<AnchorPane id="AnchorPane" fx:id="anchorPaneLogin" prefHeight="810.0" prefWidth="1100.0" style="-fx-background-color: #ffdc73;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.LoginFXMLController">
     <stylesheets>
         <URL value="@loginfxml.css" />
     </stylesheets>
    <children>
-      <Label fx:id="labelWelcome" layoutX="318.0" layoutY="41.0" prefHeight="81.0" prefWidth="498.0" text="♥♥♥WELCOME♥♥♥" textFill="#ff3300" AnchorPane.leftAnchor="318.0" AnchorPane.rightAnchor="317.0" AnchorPane.topAnchor="41.0">
+      <Label fx:id="labelWelcome" layoutX="409.0" layoutY="39.0" prefHeight="81.0" prefWidth="285.0" text="WELCOME" textFill="#005f6a" AnchorPane.leftAnchor="409.0" AnchorPane.rightAnchor="406.0" AnchorPane.topAnchor="39.0">
          <font>
             <Font name="System Bold" size="55.0" />
          </font>
       </Label>
       <TextField fx:id="textFieldUsername" layoutX="502.0" layoutY="144.0" prefHeight="36.0" prefWidth="175.0" promptText="Mail" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0" />
-      <PasswordField fx:id="passwordFieldPassword" layoutX="451.0" layoutY="285.0" promptText="password" AnchorPane.leftAnchor="451.0" AnchorPane.rightAnchor="449.0" />
-      <Button fx:id="buttonLogin" layoutX="518.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleButtonLoginAction" prefWidth="117.0" text="login" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="510.0" />
-      <Button fx:id="butttonCreateNewAccount" layoutX="518.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleButtonCreateAccountAction" text="Create New Account" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="500.0" />
-      <Button fx:id="buttonForgetPassword" layoutX="542.0" layoutY="555.0" mnemonicParsing="false" onAction="#handleButtonForgetAction" text="Forget Password" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="510.0" />
-      <Button fx:id="buttonSMS" layoutX="450.0" layoutY="635.0" mnemonicParsing="false" onAction="#HandleButtonSMSAction" text="SMS" />
-      <Button fx:id="buttonMAIL" layoutX="633.0" layoutY="635.0" mnemonicParsing="false" onAction="#HandleButtonMailAction" text="Mail" />
-      <Button fx:id="buttonGoogle" layoutX="541.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleButtonGoogleAction" text="Sign in with google account" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="480.0" />
+      <PasswordField fx:id="passwordFieldPassword" layoutX="450.0" layoutY="196.0" promptText="password" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0" />
+      <Button fx:id="buttonLogin" layoutX="510.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleButtonLoginAction" prefWidth="117.0" text="login" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="510.0" />
+      <Button fx:id="butttonCreateNewAccount" layoutX="502.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleButtonCreateAccountAction" text="Create New Account" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="480.0" />
+      <Button fx:id="buttonForgetPassword" layoutX="510.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleButtonForgetAction" text="Forget Password" AnchorPane.leftAnchor="490.0" AnchorPane.rightAnchor="490.0" />
+      <Button fx:id="buttonSMS" layoutX="389.0" layoutY="406.0" mnemonicParsing="false" onAction="#HandleButtonSMSAction" text="SMS" AnchorPane.leftAnchor="350.0" />
+      <Button fx:id="buttonMAIL" layoutX="675.0" layoutY="406.0" mnemonicParsing="false" onAction="#HandleButtonMailAction" text="Mail" AnchorPane.rightAnchor="350.0" />
+      <Button fx:id="buttonGoogle" layoutX="480.0" layoutY="293.0" mnemonicParsing="false" onAction="#handleButtonGoogleAction" text="Sign in with google account" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" />
    </children>
 </AnchorPane>

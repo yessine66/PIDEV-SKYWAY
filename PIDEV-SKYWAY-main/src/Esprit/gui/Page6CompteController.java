@@ -29,6 +29,10 @@ public class Page6CompteController implements Initializable {
     private Button buttonGereEnseignant;
     @FXML
     private Button buttonGererCompte;
+    @FXML
+    private Button ButtonBack;
+    @FXML
+    private Button buttonAjoutAdmin;
 
     /**
      * Initializes the controller class.
@@ -58,6 +62,28 @@ public class Page6CompteController implements Initializable {
                     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                     window.setScene(LoginScene);
                     window.show();
+    }
+
+    @FXML
+    private void handleButtonBackAction(ActionEvent event) throws IOException {
+                                               Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("MenuBack.fxml"));
+                                        Scene reateAccountScene = new Scene(CreateAccountParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(reateAccountScene);
+                                        window.show();
+    
+    
+    }
+    
+
+    @FXML
+    private void handleButtonAjoutAdminAction(ActionEvent event) throws IOException {
+                                
+                                                             Parent CreateAccountAdminParent = FXMLLoader.load(getClass().getResource("CreateAccountAdminFXML.fxml"));
+                                        Scene sceneCreateAccountAdmin = new Scene(CreateAccountAdminParent);
+                                        Stage windowad = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        windowad.setScene(sceneCreateAccountAdmin);
+                                        windowad.show();
     }
     
 }

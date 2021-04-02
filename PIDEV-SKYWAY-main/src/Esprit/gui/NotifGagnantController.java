@@ -71,8 +71,8 @@ public class NotifGagnantController implements Initializable {
                  String org = "";
                  //qrrcode();
                
-                  String str =  "nermine";
-                  String path = "C:\\Users\\simop\\Desktop\\g"+str+".png";
+                  String str =  "a";
+                  String path = "C:\\Users\\Lenovo\\Desktop\\backupnotifouta\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\EventTicket"+str+".png";
                   System.out.println("1"+path);
                 // Image img6 = new Image(new FileInputStream(pat));
                 Image img = new Image(new FileInputStream(path));
@@ -109,14 +109,15 @@ public class NotifGagnantController implements Initializable {
     public void qrrcode(ObservableList x1) throws IOException {
 
        System.out.println("TICKTICK  qrr into "); 
-       String str =  "k";
+       String str =  "a";
        String content = "Congratss " +x1  + "\n";
           
         
         try {
          String imageFormat = "png";
             System.out.println("TICKTICK  qrr into "); 
-            String outputFileName = "C:\\Users\\simop\\Desktop\\g"+str+"." + imageFormat;
+            //String outputFileName = "C:\\Users\\simop\\Desktop\\g"+str+"." + imageFormat;
+            String outputFileName = "C:\\Users\\Lenovo\\Desktop\\backupnotifouta\\PIDEV-SKYWAY\\PIDEV-SKYWAY-main\\src\\Esprit\\img\\EventTicket"+str+"." + imageFormat;
             BitMatrix matrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, 500, 500);
             System.out.println("\n\n\n\n\ntestnotiiiiffff");
                System.out.println(outputFileName); 

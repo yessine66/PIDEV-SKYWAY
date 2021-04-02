@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
@@ -29,6 +30,8 @@ public class MenuBackController implements Initializable {
 
     @FXML
     private BorderPane bps;
+    @FXML
+    
 
     /**
      * Initializes the controller class.
@@ -69,7 +72,7 @@ public class MenuBackController implements Initializable {
 
     @FXML
     private void communication(MouseEvent event) {
-        LoadPage("Communication");
+        LoadPage("Page5CommunicationController");
     }
 
     @FXML

@@ -85,6 +85,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -122,12 +123,6 @@ public class AjouterPartenaireController implements Initializable {
     //private TableColumn<partenaire, String> colDatee;
     @FXML
     private DatePicker DateSelec;
-    /*@FXML
-    private ListView<partenaire> listViewPart;*/
-    @FXML
-    private TextField tsearch;
-    @FXML
-    private Button btnsearch;
 int index =-1;
     @FXML
     private Button imagee;
@@ -139,9 +134,9 @@ int index =-1;
       List<String> type;
     @FXML
     private ListView<partenaire> listViewPart;
-    @FXML
-    private Button btnActionUpdate;
       private partenaire cc = null ;
+    @FXML
+    private Button btncontact;
         
     /**
      * Initializes the controller class.
@@ -152,33 +147,8 @@ int index =-1;
           type.add("*.jpg");
           type.add("*.png");
         showPartenaire();
-           searchPart();
-          
-         
-//           listViewPart.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>(){
-//
-//    public void handle(javafx.scene.input.MouseEvent event) {
-//   
-//            //public void handle(MouseEvent event) {
-//                // String numero11 = String.valueOf(cc.getNumero());
-//                cc = (partenaire)listViewPart.getSelectionModel().getSelectedItem();
-//                System.out.println(cc);
-//                tnomp.setText(cc.getNom_p());
-//                //numero.setText(String.valueOf(cc.getNumero()));
-//                tdomaine.setText(cc.getDomaine());
-//                  tdomaine.setText(cc.getDomaine());
-//                  tmail.setText(cc.getMailP());
-//                  //String nomCategorie= sc.getName_cat(cc.getId_t());
-//                  //DateSelec.setValue(nomCategorie);
-//                //duree.setText(String.valueOf(cc.getNbparticipant()));
-//                //idtheme.setText(String.valueOf(cc.getId_t()));
-//                importeimage.setImage(new Image("http://127.0.0.1/image/"+cc.getLogoP()));
-//                //ServiceCours sc = new ServiceCours();
-//                //String nomCategorie= sc.getName_cat(cc.getId_t());
-//                //comboCategorie.setValue(nomCategorie);
-//                
-//            }
-//          });
+       
+        
            
            
     }    
@@ -231,57 +201,8 @@ int index =-1;
         
     }
 
-    @FXML
-    private void actionSearch(ActionEvent event) {
-         searchPart();
-    }
-    
-    
-    void searchPart() {   
-        /*  partenaireCRUD parc = new partenaireCRUD();
-            //parc.partenaireList();
-        ObservableList<partenaire> lists =  parc.partenaireList();
-        colIdpar.setCellValueFactory(new PropertyValueFactory<partenaire, Integer>("id_p"));
-        colNompar.setCellValueFactory(new PropertyValueFactory<partenaire, String>("nom_p"));
-        colDomainepar.setCellValueFactory(new PropertyValueFactory<partenaire, String>("domaine"));
-        colDatee.setCellValueFactory(new PropertyValueFactory<partenaire, String>("date_p"));
-       
-      tvPar.setItems(lists);
-      
-        FilteredList <partenaire> filteredData = new FilteredList<>(lists, b -> true);  
- tsearch.textProperty().addListener((observable, oldValue, newValue) -> {
- filteredData.setPredicate(partenaire -> {
-    if (newValue == null || newValue.isEmpty()) {
-     return true;
-    }    
-    String lowerCaseFilter = newValue.toLowerCase();
-    
-    if (partenaire.getNom_p().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
-     return true; // Filter matches username
-    } else if (partenaire.getDomaine().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-        
-     return true; // Filter matches password
-    }
-    
-    else if (String.valueOf(partenaire.getId_p()).indexOf(lowerCaseFilter) != -1) {
-     
-     return true; // Filter matches password
-    }
-     else if (String.valueOf(partenaire.getDate_p()).indexOf(lowerCaseFilter) != -1) {
-     
-     return true; // Filter matches password
-    }
-    
-     
-                             
-         else  
-          return false; // Does not match.
-   });
-  });  
-  SortedList<partenaire> sortedData = new SortedList<>(filteredData);  
-  sortedData.comparatorProperty().bind(tvPar.comparatorProperty());  
-  tvPar.setItems(sortedData);    */  
-    }
+   
+
     
   
     private void selectpar(javafx.scene.input.MouseEvent event) {
@@ -296,7 +217,7 @@ int index =-1;
     tdomaine.setText(colDomainepar.getCellData(index).toString());*/
     //DateSelec.setString(colDatee.getCellData(index));
        
-     searchPart();
+   
     }
 
     @FXML
@@ -313,7 +234,7 @@ int index =-1;
             partenaire par = new partenaire(22,rNomp,rDomaine,rdateP,rMailp,img);
             partenaireCRUD parc = new partenaireCRUD();
             parc.ajouterPartenaire(par);
-             searchPart();
+        
              URL url = null;
 ResourceBundle rb = null;
                     initialize(url,rb);
@@ -346,7 +267,7 @@ ResourceBundle rb = null;
             partenaire par = new partenaire(mIdp);
             partenaireCRUD parc = new partenaireCRUD();
         parc.supprimerPartenaire(par);
-         searchPart();
+  
          URL url = null;
 ResourceBundle rb = null;
                     initialize(url,rb);
@@ -378,63 +299,17 @@ ResourceBundle rb = null;
     }
 
     @FXML
-    private void btnActionUpdate(ActionEvent event) {
-       /* ac = listViewPart.getSelectionModel().getSelectedItem();
-            FXMLLoader loader = new FXMLLoader ();
-            loader.setLocation(getClass().getResource("ajouterPartenaire.fxml"));
-            //ok.ge 
-            //tidp.setText(toString().valueOf(ac.getId_p()));
-            tdomaine.setText(ac.getDomaine());
-            tmail.setText(ac.getMailP());//,ac.getEvenement());
-            //TFimagem.setText(ac.getLogoP());
-            //TFutilisateur.setText(toString().valueOf(ac.getUser()));
-          tp.getSelectionModel().select(TabUpdate);*/
-        
-          
-          
+    private void btncontact(ActionEvent event) throws IOException {
+         Parent menuFrontParent;
+            menuFrontParent = FXMLLoader.load(getClass().getResource("contactPart.fxml"));
+                                        Scene scene_Menu_Back = new Scene(menuFrontParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(scene_Menu_Back);
+                                  
+                                        window.show();
+                                        
     }
-     //@Override
-            /*public void handle(MouseEvent event) {
-               // String numero11 = String.valueOf(cc.getNumero());
-                cc = (partenaire)listViewPart.getSelectionModel().getSelectedItem();
-                System.out.println(cc);
-                tnomp.setText(cc.getNom_p());
-                //numero.setText(String.valueOf(cc.getNumero()));
-                tdomaine.setText(cc.getDomaine());
-                  tdomaine.setText(cc.getDomaine());
-                  tmail.setText(cc.getMailP());
-                  //String nomCategorie= sc.getName_cat(cc.getId_t());
-                  //DateSelec.setValue(nomCategorie);
-                //duree.setText(String.valueOf(cc.getNbparticipant()));
-                //idtheme.setText(String.valueOf(cc.getId_t()));
-                importeimage.setImage(new Image("http://127.0.0.1/image/"+cc.getLogoP()));
-                //ServiceCours sc = new ServiceCours();
-                //String nomCategorie= sc.getName_cat(cc.getId_t());
-                //comboCategorie.setValue(nomCategorie);
-                
-            }
-*/
-   /* @FXML
-    private void handle(MouseEvent event) {
-        // String numero11 = String.valueOf(cc.getNumero());
-                cc = (partenaire)listViewPart.getSelectionModel().getSelectedItem();
-                System.out.println(cc);
-                tnomp.setText(cc.getNom_p());
-                //numero.setText(String.valueOf(cc.getNumero()));
-                tdomaine.setText(cc.getDomaine());
-                  tdomaine.setText(cc.getDomaine());
-                  tmail.setText(cc.getMailP());
-                  //String nomCategorie= sc.getName_cat(cc.getId_t());
-                  //DateSelec.setValue(nomCategorie);
-                //duree.setText(String.valueOf(cc.getNbparticipant()));
-                //idtheme.setText(String.valueOf(cc.getId_t()));
-                importeimage.setImage(new Image("http://127.0.0.1/image/"+cc.getLogoP()));
-                //ServiceCours sc = new ServiceCours();
-                //String nomCategorie= sc.getName_cat(cc.getId_t());
-                //comboCategorie.setValue(nomCategorie);
-    }
-    
-   */ 
+
 
    
     

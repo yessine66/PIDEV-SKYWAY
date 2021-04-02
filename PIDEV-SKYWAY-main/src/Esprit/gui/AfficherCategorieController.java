@@ -86,8 +86,8 @@ public class AfficherCategorieController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        LoginFXMLController session = new LoginFXMLController();
-       // System.out.println(session.getUsersession());
+      LoginFXMLController mmmmmm = new LoginFXMLController();
+          Utilisateur usermimi = LoginFXMLController.usertest;
        
     /*   FXMLLoader loader = new FXMLLoader();
        AfficherCoursController controller=loader.getController();
@@ -128,7 +128,8 @@ public int get() throws SQLException
     
 }
     public void displayCategorie() throws SQLException {
-       
+       LoginFXMLController mmmmmm = new LoginFXMLController();
+          Utilisateur usermimi = LoginFXMLController.usertest;
         int id_theme =o;
         System.out.println("===*******>"+id_theme);
         
@@ -183,7 +184,7 @@ public int get() throws SQLException
                       /*   AnchorPane pane = FXMLLoader.load(getClass().getResource("AfficherCours.fxml"));
                          pane2.getChildren().setAll(pane);*/
                       
-                      System.out.println("\n\n\n nzelt aala voirs les cours : \n"+userlogin);
+                  //    System.out.println("\n\n\n nzelt aala voirs les cours : \n"+userlogin);
                       
                       
                                       FXMLLoader loader = new FXMLLoader();
@@ -193,8 +194,8 @@ public int get() throws SQLException
                                                     
                                         Scene scene_Menu_Back = new Scene(menuBackParent);
                                         
-                                        AfficherCoursController controller=loader.getController();
-                                        controller.initData(userlogin);
+//                                        AfficherCoursController controller=loader.getController();
+//                                        controller.initData(userlogin);
                                         
                                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                                         window.setScene(scene_Menu_Back);

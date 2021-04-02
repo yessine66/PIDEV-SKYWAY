@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 /**
@@ -163,7 +165,90 @@ public class UtilisateurCRUD {
             System.out.println("erreur recuperation des donnee utilisateur");
             System.out.println(ex.getMessage());        }
         return list;
+        
     }
+    
+    
+    
+    /*
+        public List<Utilisateur> afficherUtilisateurs() {
+        String req = "select * from utilisateur";
+
+        List<Utilisateur> list=new ArrayList<>();
+        try {
+            st = cnx.createStatement();
+           rs= st.executeQuery(req);
+           while(rs.next()){
+               list.add(new Utilisateur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12)));
+           }
+ 
+        } catch (SQLException ex) {
+            System.out.println("erreur recuperation des donnee utilisateur");
+            System.out.println(ex.getMessage());        }
+        return list;
+    }
+        */
+    
+    
+    
+    /*
+    
+     public ObservableList<partenaire> partenaireList(){
+     
+     
+           ObservableList<partenaire> partenaireList = FXCollections.observableArrayList();
+          String query = "SELECT * FROM partenaire";
+
+       try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+            partenaire par;
+            while(rs.next()){
+            ImageView v = new ImageView();
+                v.setImage(new Image("http://127.0.0.1/image/"+rs.getString("logoP")));
+                v.setFitWidth(100);
+                v.setFitHeight(100);
+               par = new partenaire(rs.getInt("id_p"), rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"), rs.getString("mailP"), rs.getString("logoP"));
+              // par = new partenaire(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+               //par = new partenaire(rs.getInt("id_p"), rs.getString("nom_p"), rs.getString("domaine"), rs.getString("date_p"), rs.getString("mailP"));
+               par.setLogoPi(v);
+               partenaireList.add(par);
+              
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return partenaireList;
+       
+    }
+    */
+    
+    public ObservableList<Utilisateur> afficherUtilisateursNew(){
+                   ObservableList<Utilisateur> UserList = FXCollections.observableArrayList();
+          String query = "select * from utilisateur";
+        
+               try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+            Utilisateur useroo;
+           while(rs.next()){
+               UserList.add(new Utilisateur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12)));
+           }
+                
+        }catch(Exception ex){
+                   System.out.println("\n\n\n\n probleme observable list \n");
+            ex.printStackTrace();
+        }
+        
+        return UserList;
+
+    }
+        
+        
+        
     
        public Utilisateur Connexion(String mail,String pwd ) throws SQLException{
       String requete = "select * from utilisateur where mail = ? and password = ?"; 
