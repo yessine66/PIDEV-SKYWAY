@@ -1,0 +1,15 @@
+.tab{
+    -fx-background-color:  #14556d;
+}
+.tab-header-background{
+    -fx-background-color:#14556d;
+}
+.tab-pane .headers-region {
+    -fx-font: #14556d;
+}
+.jfx-tab-pane .depth-container {
+    -fx-effect: none; 
+}
+.tab-label {
+    /*-fx-text-fill: f8dc81 ;*/
+}

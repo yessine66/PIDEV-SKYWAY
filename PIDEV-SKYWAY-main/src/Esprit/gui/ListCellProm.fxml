@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -21,19 +20,26 @@
    <children>
       <VBox fx:id="vb1" prefHeight="132.0" prefWidth="974.0">
          <children>
-            <Label fx:id="lbnom" prefHeight="39.0" prefWidth="332.0" text="Nom Partenaire" textFill="#3a20ab">
+            <Label fx:id="lbnomp" prefHeight="39.0" prefWidth="332.0" text="Nom Partenaire" textFill="#3a20ab">
                <font>
                   <Font name="System Bold Italic" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="lbdomaine" alignment="TOP_LEFT" prefHeight="29.0" prefWidth="332.0" text="domaine" textFill="#1a10da">
+            <Label fx:id="lbcode" alignment="TOP_LEFT" prefHeight="29.0" prefWidth="332.0" text="code promo" textFill="#1a10da">
                <font>
                   <Font size="18.0" />
-               </font></Label>
-            <Label fx:id="lbmail" prefHeight="25.0" prefWidth="193.0" text="Mail partenaire" textFill="#371bc2">
+               </font>
+            </Label>
+            <Label fx:id="lbdated" prefHeight="25.0" prefWidth="193.0" text="date debut" textFill="#371bc2">
                <font>
                   <Font size="17.0" />
-               </font></Label>
+               </font>
+            </Label>
+            <Label fx:id="lbdatef" prefHeight="25.0" prefWidth="193.0" text="date fin" textFill="#371bc2">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
          </children>
          <padding>
             <Insets left="10.0" />
@@ -41,16 +47,12 @@
       </VBox>
       <VBox fx:id="vb11" prefHeight="137.0" prefWidth="320.0" GridPane.columnIndex="1">
          <children>
-            <Label fx:id="lbdate" prefHeight="26.0" prefWidth="132.0" text="date_p" textFill="#9e0d5a">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
+            <Label fx:id="lbreduction" prefHeight="39.0" prefWidth="332.0" text="reduction" textFill="#9e0d5a">
                <font>
-                  <Font size="21.0" />
+                  <Font name="System Bold Italic" size="17.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <ImageView fx:id="imev" fitHeight="112.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
    </children>
 </GridPane>

@@ -109,7 +109,7 @@ public class ReclamationTableController implements Initializable {
     @FXML
     private ImageView image;
     
-    private int usr ;
+    private Integer utilisateur = 10;
      
     /**
      * Initializes the controller class.
@@ -149,10 +149,7 @@ public class ReclamationTableController implements Initializable {
 
     @FXML
     private void refreshTable() {
-        /*ReclamationService act = new ReclamationService();
-        ObservableList<Reclamation> list =  act.readReclamation();
-        
-        reclamationTable.setItems(list);*/
+   
         
         connection = MyConnection.getInstance().getConnection();
         try {
@@ -234,9 +231,10 @@ public class ReclamationTableController implements Initializable {
                            alert.setHeaderText("Vous ete sur de supprimer cette reclamation?");
                            Optional <ButtonType> action = alert.showAndWait();
                               if (action.get()== ButtonType.OK) {
-                                  // if (usr = reclamation.getId()) 
+                                  reclamation = reclamationTable.getSelectionModel().getSelectedItem();
+                                  if (utilisateur == reclamation.getId()) {
                                    try {
-                                reclamation = reclamationTable.getSelectionModel().getSelectedItem();
+                                
                                 query = "DELETE FROM `reclamation` WHERE id_rec  ="+reclamation.getId_rec();
                                 connection =  MyConnection.getInstance().getConnection();
                                 preparedStatement = connection.prepareStatement(query);
@@ -247,7 +245,27 @@ public class ReclamationTableController implements Initializable {
                                 Logger.getLogger(ReclamationTableController.class.getName()).log(Level.SEVERE, null, ex);
                             }
                                  
-                                  } else System.out.println("cancel");
+                                  } else {System.out.println("cancel");
+                                   Alert al = new Alert(AlertType.ERROR);
+                                  al.setTitle("Erreur");
+                                  al.setContentText("tessssssssst");
+                                   al.setHeaderText("Vous pouvez supprimer juste votre reclmation!");
+                                   al.showAndWait(); }
+                                  } else System.out.println("yala yala");
+                                  
+                                  /* if (utilisateur = reclamation.getId()) {   try {
+                                reclamation = reclamationTable.getSelectionModel().getSelectedItem();
+                                query = "DELETE FROM `reclamation` WHERE id_rec  ="+reclamation.getId_rec();
+                                connection =  MyConnection.getInstance().getConnection();
+                                preparedStatement = connection.prepareStatement(query);
+                                preparedStatement.execute();
+                                refreshTable();
+                                
+                            } catch (SQLException ex) {
+                                Logger.getLogger(ReclamationTableController.class.getName()).log(Level.SEVERE, null, ex);
+                            }}
+                                  else System.out.println("interdit") */
+
                      
 
                         });
@@ -259,6 +277,7 @@ public class ReclamationTableController implements Initializable {
                             Optional <ButtonType> action = alert.showAndWait();
                             if (action.get()== ButtonType.OK) {
                             reclamation = reclamationTable.getSelectionModel().getSelectedItem();
+                            
                             FXMLLoader loader = new FXMLLoader ();
                             loader.setLocation(getClass().getResource("addReclamation.fxml"));
                             try {
@@ -279,7 +298,9 @@ public class ReclamationTableController implements Initializable {
                             stage.setScene(new Scene(parent));
                             stage.initStyle(StageStyle.UTILITY);
                             stage.show();
-                            }
+                            
+                             }
+                            
                             
 
                         });

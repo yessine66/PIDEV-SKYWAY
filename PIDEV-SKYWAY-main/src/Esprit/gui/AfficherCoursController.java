@@ -68,6 +68,7 @@ public class AfficherCoursController implements Initializable {
     private AnchorPane pane;
     @FXML
     private VBox courscontainer;
+   
 
     public AfficherCoursController() {
         con = MyConnection.getInstance().getConnection();

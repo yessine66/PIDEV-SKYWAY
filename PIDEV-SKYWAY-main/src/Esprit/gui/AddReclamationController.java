@@ -230,7 +230,8 @@ private int utilisateur = 10;
          reclamationId = id;
          objetTF.setText(objet);
          textTF.setText(text);
-         if(cours.equals("cours")){
+         String var = "Cours"; 
+         if(/*cours.equals("cours")*/ cours ==var){
             combo2 .setValue(enseignant);
             combo1.setValue("enseignant");
          }else{

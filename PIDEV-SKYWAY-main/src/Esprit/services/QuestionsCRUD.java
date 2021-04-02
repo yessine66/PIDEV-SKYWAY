@@ -163,7 +163,28 @@ public class QuestionsCRUD {
         }
     }
     
-    
+    public ObservableList<String> justquestion() throws SQLException 
+     
+           { 
+           ObservableList<String> randomList = FXCollections.observableArrayList();
+        
+      String query = "SELECT SELECT text_q FROM question ORDER BY rand() ";
+              try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+         
+        String par,par2,par3,par4;
+            while(rs.next()){
+               par = rs.getString("text_q");
+              
+            
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return randomList;
+    }
        public void supprimerQuestions(Questions q) {
          try {
             String requete = "DELETE FROM question WHERE id_q=?";
@@ -179,7 +200,7 @@ public class QuestionsCRUD {
    public String randomList() throws SQLException{
      
        //    ObservableList<String> randomList = FXCollections.observableArrayList();
-          String query = "SELECT text_q FROM question ORDER BY rand()";
+          String query = "SELECT text_q FROM question ORDER BY rand() limit 1";
 
 
             st = cnx.createStatement();
@@ -188,7 +209,7 @@ public class QuestionsCRUD {
          String par = null;
             while(rs.next()){
                par = rs.getString("text_q");
-               
+              
             }
                 
       
@@ -200,24 +221,24 @@ public class QuestionsCRUD {
 
 public int returningid(String question_name)
     { 
-         String query = "SELECT * FROM question where text_q="+question_name;
- int id_t=0;
+        String query = "SELECT id_q FROM question WHERE text_q = ' +question_name+ ' ";
+ int id_q=0;
        try{
                 st = cnx.createStatement();
             rs = st.executeQuery(query);
-            //Books books;
+          
            
             while(rs.next()){
-                id_t=rs.getInt("id_q");
+                id_q=rs.getInt("id_q");
               
             }
                 
         }catch(SQLException ex){
         }
    
-    return id_t;    
+    return id_q;    
     }
-    
+  
    
 public Questions FindQuestionsByName(String name) {
 
@@ -258,7 +279,26 @@ public Questions FindQuestionsByName(String name) {
                Logger.getLogger(QuestionsCRUD.class.getName()).log(Level.SEVERE, null, ex);
            }
    
-   return max+1;
+   return max;
            
    }
+   
+   
+   public int loadCodeBase(String nom) throws SQLException {
+        try {
+            PreparedStatement ps = cnx.prepareStatement("SELECT text_q,id_q FROM question WHERE text_q =?");
+            ps.setString(1, nom);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+             rs.getString("text_q");
+             int id_q=   rs.getInt("id_q");
+                return id_q;
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            System.out.println("code non recuperer!");
+        }
+        return -1;
+    }
 }

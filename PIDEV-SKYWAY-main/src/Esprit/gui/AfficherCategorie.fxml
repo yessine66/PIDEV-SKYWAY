@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pane2" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AfficherCategorieController">
+<AnchorPane id="AnchorPane" fx:id="pane2" prefHeight="810.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfficherCategorieController">
    <children>
       <Label alignment="CENTER" layoutX="209.0" layoutY="18.0" prefHeight="49.0" prefWidth="253.0" text="Les Catégories">
          <font>
