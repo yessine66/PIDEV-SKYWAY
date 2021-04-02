@@ -41,7 +41,7 @@ public class MenuBackController implements Initializable {
         
     }    
     
-    public void initDate(Utilisateur usereo){
+    public void initData(Utilisateur usereo){
         userlogin = usereo;
         System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
     }

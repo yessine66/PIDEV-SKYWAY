@@ -6,6 +6,7 @@
 package Esprit.gui;
 
 import Esprit.Connection.MyConnection;
+import Esprit.entities.Utilisateur;
 import Esprit.entities.categorie;
 import java.io.IOException;
 import java.net.URL;
@@ -41,6 +42,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import Esprit.services.categorieSession;
 import Esprit.services.themeSession;
+import javafx.scene.Node;
 
 /**
  * FXML Controller class
@@ -48,6 +50,9 @@ import Esprit.services.themeSession;
  * @author simop
  */
 public class AfficherCategorieController implements Initializable {
+    
+    private Utilisateur userlogin;
+    
     private Connection con;
     @FXML
     private TextField search;
@@ -73,8 +78,22 @@ public class AfficherCategorieController implements Initializable {
     /**
      * Initializes the controller class.
      */
+          public void initData(Utilisateur usereo){
+        userlogin = usereo;
+        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
+    }
+          
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        LoginFXMLController session = new LoginFXMLController();
+       // System.out.println(session.getUsersession());
+       
+    /*   FXMLLoader loader = new FXMLLoader();
+       AfficherCoursController controller=loader.getController();
+                                        controller.initData(userlogin);*/
+    
+        System.out.println("\n\n a7na tawa f afficher categorie contollerrrrrr : \n"+userlogin);
                    categoriecontainer.setSpacing(5);
             try {
                 o=get();
@@ -83,7 +102,11 @@ public class AfficherCategorieController implements Initializable {
                 Logger.getLogger(AfficherCategorieController.class.getName()).log(Level.SEVERE, null, ex);
             }
         // TODO
-    }    
+    }
+
+
+  
+        
 public int get() throws SQLException
 {
     int i2=0;
@@ -157,8 +180,27 @@ public int get() throws SQLException
                     System.out.println(b.getText());
                 try {
                          categorieSession.getInstace(id1);
-                         AnchorPane pane = FXMLLoader.load(getClass().getResource("AfficherCours.fxml"));
-                         pane2.getChildren().setAll(pane);
+                      /*   AnchorPane pane = FXMLLoader.load(getClass().getResource("AfficherCours.fxml"));
+                         pane2.getChildren().setAll(pane);*/
+                      
+                      System.out.println("\n\n\n nzelt aala voirs les cours : \n"+userlogin);
+                      
+                      
+                                      FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation((getClass().getResource("AfficherCours.fxml")));
+            
+                                                    Parent menuBackParent = loader.load();
+                                                    
+                                        Scene scene_Menu_Back = new Scene(menuBackParent);
+                                        
+                                        AfficherCoursController controller=loader.getController();
+                                        controller.initData(userlogin);
+                                        
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(scene_Menu_Back);
+                                        window.show();
+                      
+                      
                      } catch (IOException ex) {
                          Logger.getLogger(AfficherCategorieController.class.getName()).log(Level.SEVERE, null, ex);
                      }
