@@ -116,6 +116,7 @@ public class DashBoardController implements Initializable {
     @FXML
     private void handleButtonEvennementsAction(ActionEvent event) {
         System.out.println("\n Evenements clicked");
+
         
     }
     
