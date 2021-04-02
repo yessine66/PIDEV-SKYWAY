@@ -54,7 +54,7 @@ public class Page2TestController implements Initializable {
 
     @FXML
     private void btnReponse(ActionEvent event) {
-        LoadPage("BackReponse");
+        LoadPage("ModificationQuestion");
     }
 
     @FXML

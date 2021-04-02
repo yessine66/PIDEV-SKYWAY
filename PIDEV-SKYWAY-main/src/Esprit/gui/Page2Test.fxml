@@ -5,8 +5,8 @@
 
 <AnchorPane fx:id="anchort" prefHeight="810.0" prefWidth="1100.0" style="-fx-background-color: #14242B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.Page2TestController">
    <children>
-      <Button fx:id="Question" layoutY="96.0" mnemonicParsing="false" onAction="#btnQuestion" prefHeight="42.0" prefWidth="107.0" text="Question" />
-      <Button fx:id="Reponse" layoutY="225.0" mnemonicParsing="false" onAction="#btnReponse" prefHeight="42.0" prefWidth="107.0" text="Réponse" />
+      <Button fx:id="Question" layoutY="96.0" mnemonicParsing="false" onAction="#btnQuestion" prefHeight="42.0" prefWidth="107.0" text="Ajout Question/rep" />
+      <Button fx:id="Reponse" layoutY="225.0" mnemonicParsing="false" onAction="#btnReponse" prefHeight="42.0" prefWidth="107.0" text="Modifier Quest/rep" />
       <Button fx:id="Certificat" layoutY="369.0" mnemonicParsing="false" onAction="#btnCertificat" prefHeight="42.0" prefWidth="107.0" text="Certification" />
       <AnchorPane fx:id="anchorprojection" layoutX="144.0" layoutY="1.0" prefHeight="810.0" prefWidth="956.0" />
    </children>
