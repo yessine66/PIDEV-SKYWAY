@@ -9,6 +9,7 @@ package Esprit.gui;
 import com.itextpdf.text.DocumentException;
 import Esprit.Connection.MyConnection;
 import Esprit.entities.Participation;
+import Esprit.entities.Utilisateur;
 import Esprit.entities.cours;
 import java.io.IOException;
 import java.net.URL;
@@ -52,6 +53,8 @@ import Esprit.services.ServiceParticipation;
  */
 public class AfficherCoursController implements Initializable {
 
+    private Utilisateur userlogin;
+    
     private Connection con;
     @FXML
     private TextField search;
@@ -78,8 +81,16 @@ public class AfficherCoursController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+            public void initData(Utilisateur usereo){
+        userlogin = usereo;
+        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
+        System.out.println("\n\ntawa fel afficher Afficher courss  : \n "+ userlogin);
 
             courscontainer.setSpacing(5);
             try {
@@ -89,6 +100,10 @@ public class AfficherCoursController implements Initializable {
                 Logger.getLogger(AfficherCoursController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+    
+    
+
+    
     public int get() throws SQLException
 {
     int i2=0;
@@ -150,7 +165,10 @@ public class AfficherCoursController implements Initializable {
             h4.getChildren().addAll(duree);
             
             Button participer=new Button("participer" ) ;
-              if (sp.chercher_ajout(new Participation(a1.getId_c(),2)))
+            LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
+            System.out.println("\n\n\n\n iddddddddddddd fwest el afficher couuuuuuurs :  "+ usermimi.getIdUser());
+              if (sp.chercher_ajout(new Participation(a1.getId_c(),usermimi.getIdUser())))
                          {
                    participer.setDisable(true);
               }
@@ -172,7 +190,7 @@ public class AfficherCoursController implements Initializable {
                                     
                                notificationBuilder.showConfirm();
                         try {
-            if (!sp.chercher_ajout(new Participation(a1.getId_c(),2))){
+            if (!sp.chercher_ajout(new Participation(a1.getId_c(),userlogin.getIdUser()))){
                 
                 try {
                     PDF pdf = new PDF();

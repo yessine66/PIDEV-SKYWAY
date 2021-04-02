@@ -5,6 +5,7 @@
  */
 package Esprit.gui;
 
+import Esprit.entities.test;
 import Esprit.services.QuestionsCRUD;
 import Esprit.services.ReponsesCRUD;
 import Esprit.services.testCRUD;
@@ -95,7 +96,7 @@ Rectangle unlockbottom;
 private Node root;
 
  Integer timesec = START;
- private int score=4;
+ private int score=0;
 int compteurr=1;
 QuestionsCRUD qc=  new QuestionsCRUD();
         ReponsesCRUD rc= new ReponsesCRUD();
@@ -337,7 +338,7 @@ finishx.setVisible(false);
     @FXML
                private void nextbtn(ActionEvent event) throws SQLException {
     
-      
+    
        try
         {
             stage.close();
@@ -353,8 +354,9 @@ finishx.setVisible(false);
        {
         
        finishQ();
-    score= 10;
-       }
+       test t;
+           t = new test (2,"date",score, "theme");
+       tc.ajouterTest(t);       }
        
             
         

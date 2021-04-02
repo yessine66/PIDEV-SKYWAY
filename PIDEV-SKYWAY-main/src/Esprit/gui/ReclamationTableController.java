@@ -11,6 +11,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import Esprit.entities.Reclamation;
+import Esprit.entities.Utilisateur;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -109,13 +110,18 @@ public class ReclamationTableController implements Initializable {
     @FXML
     private ImageView image;
     
-    private Integer utilisateur = 10;
+    //private Integer useraddo = 10;
      
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+                                LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
+            System.out.println("\n\n\n\n iddddddddddddd fwest aReclamation table *************** :\n  "+ usermimi.getIdUser());
+        
         // TODO
         loadDate();
         
@@ -185,7 +191,8 @@ public class ReclamationTableController implements Initializable {
     }
 
    private void loadDate() {
-        
+                                       LoginFXMLController mmmmmm = new LoginFXMLController();
+            Utilisateur usermimi = LoginFXMLController.usertest;
         connection =  MyConnection.getInstance().getConnection();
         refreshTable();
         //idCol.setCellValueFactory(new PropertyValueFactory<>("id_rec"));
@@ -231,7 +238,7 @@ public class ReclamationTableController implements Initializable {
                            Optional <ButtonType> action = alert.showAndWait();
                               if (action.get()== ButtonType.OK) {
                                   reclamation = reclamationTable.getSelectionModel().getSelectedItem();
-                                  if (utilisateur == reclamation.getId()) {
+                                  if (usermimi.getIdUser() == reclamation.getId()) {
                                    try {
                                 
                                 query = "DELETE FROM `reclamation` WHERE id_rec  ="+reclamation.getId_rec();

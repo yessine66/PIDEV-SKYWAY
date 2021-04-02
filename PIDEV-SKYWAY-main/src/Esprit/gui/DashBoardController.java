@@ -5,11 +5,19 @@
  */
 package Esprit.gui;
 
+import Esprit.entities.Utilisateur;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -17,6 +25,9 @@ import javafx.scene.control.Button;
  * @author simop
  */
 public class DashBoardController implements Initializable {
+    
+        private Utilisateur userlogin;
+
 
     @FXML
     private Button btnCours;
@@ -35,6 +46,71 @@ public class DashBoardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }   
+    
+        public void initData(Utilisateur usereo){
+        userlogin = usereo;
+        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
+    }
+
+    @FXML
+    private void handleButtonCoursAction(ActionEvent event) throws IOException {
+        System.out.println("\nCours clicked");
+        
+        System.out.println("\n\na7na tawa fel boutton mtaa cours front: \n"+userlogin);
+        
+                FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation((getClass().getResource("AfficherTheme.fxml")));
+            
+                                                    Parent menuBackParent = loader.load();
+                                                    
+                                        Scene scene_Menu_Back = new Scene(menuBackParent);
+                                        
+                                        AfficherThemeController controller=loader.getController();
+                                        controller.initData(userlogin);
+                                        
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(scene_Menu_Back);
+                                        window.show();
+        
+    }
+
+    @FXML
+    private void handleButtonTestsAction(ActionEvent event) throws IOException {
+        System.out.println("\n Tests clicked");
+        
+                                               Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("AfficherTheme.fxml"));
+                                        Scene reateAccountScene = new Scene(CreateAccountParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(reateAccountScene);
+                                        window.show();
+ 
+        
+    }
+
+    @FXML
+    private void handleButtonReclamationsAction(ActionEvent event) throws IOException {
+        System.out.println("\n reclamations clicked");
+      
+                                               Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("ReclamationTable.fxml"));
+                                        Scene reateAccountScene = new Scene(CreateAccountParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(reateAccountScene);
+                                        window.show();
+
+ 
+        
+    }
+
+    @FXML
+    private void handleButtonPartenairesAction(ActionEvent event) {
+        System.out.println("\n Partenaires clicked");
+    }
+
+    @FXML
+    private void handleButtonEvennementsAction(ActionEvent event) {
+        System.out.println("\n Evenements clicked");
+        
+    }
     
 }
