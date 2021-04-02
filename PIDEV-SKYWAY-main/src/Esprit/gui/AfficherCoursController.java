@@ -191,7 +191,7 @@ public class AfficherCoursController implements Initializable {
                                     
                                notificationBuilder.showConfirm();
                         try {
-            if (!sp.chercher_ajout(new Participation(a1.getId_c(),userlogin.getIdUser()))){
+            if (!sp.chercher_ajout(new Participation(a1.getId_c(),usermimi.getIdUser()))){
                 
                 try {
                     FTPDownloadFileDemo download = new FTPDownloadFileDemo(a1.getPdf());
@@ -280,7 +280,7 @@ public class AfficherCoursController implements Initializable {
             
             Utilisateur usermimi = LoginFXMLController.usertest;
             Button participer=new Button("participer" ) ;
-              if (sp.chercher_ajout(new Participation(a1.getId_c(),userlogin.getIdUser())))
+              if (sp.chercher_ajout(new Participation(a1.getId_c(),usermimi.getIdUser())))
                          {
                    participer.setDisable(true);
               }
@@ -302,7 +302,7 @@ public class AfficherCoursController implements Initializable {
                                     
                                notificationBuilder.showConfirm();
                         try {
-            if (!sp.chercher_ajout(new Participation(a1.getId_c(),userlogin.getIdUser()))){
+            if (!sp.chercher_ajout(new Participation(a1.getId_c(),usermimi.getIdUser()))){
                 
                 try {
                     sp.ajouter(new Participation(a1.getId_c(),userlogin.getIdUser()));

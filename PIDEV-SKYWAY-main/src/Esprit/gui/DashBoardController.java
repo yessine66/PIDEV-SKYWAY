@@ -103,8 +103,14 @@ public class DashBoardController implements Initializable {
     }
 
     @FXML
-    private void handleButtonPartenairesAction(ActionEvent event) {
+    private void handleButtonPartenairesAction(ActionEvent event) throws IOException {
         System.out.println("\n Partenaires clicked");
+        
+                                                       Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("FrontPartenaire4.fxml"));
+                                        Scene reateAccountScene = new Scene(CreateAccountParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(reateAccountScene);
+                                        window.show();
     }
 
     @FXML
