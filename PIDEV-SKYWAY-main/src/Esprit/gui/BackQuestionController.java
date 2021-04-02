@@ -160,10 +160,9 @@ public class BackQuestionController implements  Initializable {
         ResourceBundle rb = null;
         initialize(url, rb);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("BackQuestion.fxml"));
-        Parent root = loader.load();
-         notificationShow("Ena mouch mrigl","hahaha");
-        champsQuestion.getScene().setRoot(root);
+        
+         notificationShow("Success!","C'est fait");
+         
         
         }else {
             String tilte = "Captcha";
