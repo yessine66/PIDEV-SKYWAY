@@ -82,10 +82,9 @@ public class ActualiteService {
                     d + "' , image= '" + 
                     i + "' , id_ev= '" + 
                     n + "', id=(SELECT id FROM utilisateur WHERE id =" + 
-                    id + " )WHERE actualite.id_ac =" +
+                    id + " ),date_ajout=CURDATE() WHERE actualite.id_ac =" +
                     a.getId_ac()+ ";");
             ps1.executeUpdate();
-            System.out.println("Modifié avec succees");
         } else {
             System.out.println("Actualite n'existe pas");
         }
@@ -93,6 +92,7 @@ public class ActualiteService {
 
     public ObservableList<Actualite> readAll() {
        ObservableList<Actualite> list = FXCollections.observableArrayList();
+       list.removeAll();
         String req = "select * from actualite";
 
         try {

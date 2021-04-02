@@ -6,6 +6,7 @@
 package Esprit.gui;
 
 import Esprit.entities.Actualite;
+import Esprit.entities.Utilisateur;
 import Esprit.services.ActualiteService;
 import Esprit.services.EvenementService;
 import java.io.File;
@@ -25,6 +26,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -108,18 +111,13 @@ public class ActualiteController implements Initializable {
     List<String> type;
     private boolean update;
     int actualite_id;
+    private Utilisateur userlogin;
     @FXML
     private Label LabDet1;
     @FXML
     private Button btnImage;
     @FXML
-    private ImageView ico1;
-    @FXML
-    private ImageView ico2;
-    @FXML
     private Button btnImage1;
-    @FXML
-    private ImageView ico3;
     @FXML
     private VBox hb2;
     @FXML
@@ -136,6 +134,14 @@ public class ActualiteController implements Initializable {
     private TextField TFidm;
     @FXML
     private WebView webv;
+    @FXML
+    private Label erreurdescriptionm;
+    @FXML
+    private Label erreurtitrem;
+    @FXML
+    private Label erreurtitre;
+    @FXML
+    private Label erreurdescription;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -145,8 +151,85 @@ public class ActualiteController implements Initializable {
         type.add("*.png");
         final String pageURI= new File("Web.html").toURI().toString(); 
         webv.getEngine().load(pageURI);
-        loadData();    
-    }            
+        loadData(); 
+        
+        TFtitre.textProperty().addListener(new ChangeListener<String>()
+            {
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                   if(newValue.isEmpty())
+                      erreurtitre.setText("Il faut remplir le champ titre");
+                    else
+                      erreurtitre.setText("");
+                }       
+             });
+        
+        TFtitre.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue.matches("\\sa-zA-Z*")) {
+            TFtitre.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            erreurtitre.setText("le non doit comporter que des caractères");
+        }
+        });
+        
+        TFdesc.textProperty().addListener(new ChangeListener<String>()
+            {
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                   if(newValue.isEmpty())
+                      erreurdescription.setText("Il faut remplir le champ");
+                    else
+                      erreurdescription.setText("");
+                }       
+             });
+        
+        TFdesc.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue.matches("\\sa-zA-Z*")) {
+            TFdesc.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            erreurdescription.setText("le non doit comporter que des caractères");
+        }
+        });
+        
+        TFtitrem.textProperty().addListener(new ChangeListener<String>()
+            {
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                   if((newValue.isEmpty())|| (oldValue.isEmpty()))
+                      erreurtitrem.setText("Il faut remplir le champ titre");
+                    else
+                      erreurtitrem.setText("");
+                }       
+             });
+        
+        TFtitrem.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue.matches("\\sa-zA-Z*")) {
+            TFtitrem.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            erreurtitrem.setText("le non doit comporter que des caractères");
+        }
+        });
+        
+        TFdescm.textProperty().addListener(new ChangeListener<String>()
+            {
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                   if((newValue.isEmpty())|| (oldValue.isEmpty()) )
+                      erreurdescriptionm.setText("Il faut remplir le champ");
+                    else
+                      erreurdescriptionm.setText("");
+                }       
+             });
+        
+        TFdescm.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue.matches("\\sa-zA-Z*")) {
+            TFdescm.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            erreurdescriptionm.setText("le non doit comporter que des caractères");
+        }
+        });
+    }      
+    
+    public void initData(Utilisateur usereo){
+        userlogin = usereo;
+        System.out.println(userlogin+ "\n rolte mte3ou "+ userlogin.getRoleUser() );
+    }
         private void loadData() {
             
         ActualiteService act = new ActualiteService();
@@ -171,47 +254,41 @@ public class ActualiteController implements Initializable {
 
     @FXML
     private void btnAjoutAction(ActionEvent event) {
-        try {
-
-             if(event.getSource() == BtnAjout)
-             {
-                String titre_ac = TFtitre.getText();
-                String desc = TFdesc.getText();
-                String im =TFimage.getText();
-                im=im.replace("\\","\\\\");
-                String nom_ev=Cbev.getSelectionModel().getSelectedItem();
-                ActualiteService acts = new ActualiteService();
-                int idev = acts.getIdEv(nom_ev);
-                Actualite act = new Actualite(titre_ac,desc,im,idev,100);
-                acts.ajouterActualite(act);
-                
-                  Image img = new Image("/check.png");
-                Notifications notification;
-                notification = Notifications.create()
-                .title("Modification  réussite")
-                .text("Done !!")
-                .graphic(new ImageView(img))
-                
-                .position(Pos.BASELINE_RIGHT)
-                .onAction(new EventHandler<ActionEvent>(){
-                    @Override
-                    public void handle(ActionEvent event) {
-                        System.out.println("Clicked on notification");
-                    }
-                });
-            notification.show();  
-             }
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Actualite.fxml"));
-            Parent root = loader.load();
-  
-            TFtitre.getScene().setRoot(root);
+        if(event.getSource() == BtnAjout)
+        {
+            String titre_ac = TFtitre.getText();
+            String desc = TFdesc.getText();
+            String im =TFimage.getText();
+            im=im.replace("\\","\\\\");
+            String nom_ev=Cbev.getSelectionModel().getSelectedItem();
+            ActualiteService acts = new ActualiteService();
+            int idev = acts.getIdEv(nom_ev);
+            Actualite act = new Actualite(titre_ac,desc,im,idev,100);
+            acts.ajouterActualite(act);
+            
+            Image img = new Image("/pic/check.png");
+            Notifications notification;
+            notification = Notifications.create()
+                    .title("Ajouté avec succée")
+                    .text("Done !!")
+                    .graphic(new ImageView(img))
+                    
+                    .position(Pos.BASELINE_RIGHT)
+                    .onAction(new EventHandler<ActionEvent>(){
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("Clicked on notification");
+                        }
+                    });
+            notification.show();
         }
-           catch (IOException ex) {
-            }
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("Actualite.fxml"));
+        Parent root = loader.load();
         
-        
-        
-                     
+        TFtitre.getScene().setRoot(root);*/
+        tp.getSelectionModel().select(TabList);
+        ListAct.getItems().removeAll(ac);
+        loadData();           
     }
 
     @FXML
@@ -229,16 +306,30 @@ public class ActualiteController implements Initializable {
                 ActualiteService acts = new ActualiteService();
                 int idev = acts.getIdEv(nom_ev);
                 Actualite act = new Actualite(id_ac,titre_ac,desc,im,idev,100);
-
                 acts.editer(act);
+                Image img = new Image("/pic/check.png");
+                Notifications notification;
+                notification = Notifications.create()
+                    .title("Modifier avec succée")
+                    .text("Done !!")
+                    .graphic(new ImageView(img))
+                    
+                    .position(Pos.BASELINE_RIGHT)
+                    .onAction(new EventHandler<ActionEvent>(){
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("Clicked on notification");
+                        }
+                    });
+            notification.show();
              }
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Actualite.fxml"));
+            /*FXMLLoader loader = new FXMLLoader(getClass().getResource("Actualite.fxml"));
             Parent root = loader.load();
   
-            TFtitre.getScene().setRoot(root);
-            }
-           
-           catch (IOException ex) {
+            TFtitre.getScene().setRoot(root);*/
+            tp.getSelectionModel().select(TabList);
+            ListAct.getItems().removeAll(ac);
+            loadData();
             } catch (SQLException ex) {
             Logger.getLogger(ActualiteController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -279,46 +370,36 @@ public class ActualiteController implements Initializable {
         return(img);
         
         }
-    
-    
-    
 
     @FXML
     private void btnActionRefrech(ActionEvent event) {
-        /*
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Actualite.fxml"));
-        try {
-            Parent root = loader.load();
-        } catch (IOException ex) {
-            Logger.getLogger(ActualiteController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        ListAct.getItems().removeAll(ac);
         loadData();
     }
 
     @FXML
     private void btnActionView(ActionEvent event) {
         ac = ListAct.getSelectionModel().getSelectedItem();
-            FXMLLoader loader = new FXMLLoader ();
-            loader.setLocation(getClass().getResource("Actualite.fxml"));
-            TabDetail.getContent();
-            LabDet1.setText(ac.getTitre_ac());
-            LabDet.setText(ac.getDesc()+"\n"+ac.getId_ev());
-            tp.getSelectionModel().select(TabDetail);
-            
+        FXMLLoader loader = new FXMLLoader ();
+        loader.setLocation(getClass().getResource("Actualite.fxml"));
+        TabDetail.getContent();
+        LabDet1.setText(ac.getTitre_ac());
+        LabDet.setText(ac.getDesc()+"\n"+ac.getId_ev());
+        tp.getSelectionModel().select(TabDetail); 
     }
 
     @FXML
     private void btnActionUpdate(ActionEvent event) {
-         ac = ListAct.getSelectionModel().getSelectedItem();
-            FXMLLoader loader = new FXMLLoader ();
-            loader.setLocation(getClass().getResource("Actualite.fxml"));
-            TabUpdate.getContent(); 
-            TFidm.setText(toString().valueOf(ac.getId_ac()));
-            TFtitrem.setText(ac.getTitre_ac());
-            TFdescm.setText(ac.getDesc());//,ac.getEvenement());
-            TFimagem.setText(ac.getImage_ac());
-            TFutilisateur.setText(toString().valueOf(ac.getUser()));
-            tp.getSelectionModel().select(TabUpdate);
+        ac = ListAct.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader ();
+        loader.setLocation(getClass().getResource("Actualite.fxml"));
+        TabUpdate.getContent(); 
+        TFidm.setText(toString().valueOf(ac.getId_ac()));
+        TFtitrem.setText(ac.getTitre_ac());
+        TFdescm.setText(ac.getDesc());//,ac.getEvenement());
+        TFimagem.setText(ac.getImage_ac());
+        TFutilisateur.setText(toString().valueOf(ac.getUser()));
+        tp.getSelectionModel().select(TabUpdate);
     }
 
     @FXML
