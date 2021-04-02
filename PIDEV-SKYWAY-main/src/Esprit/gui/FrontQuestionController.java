@@ -97,7 +97,7 @@ Rectangle unlockbottom;
 private Node root;
  test t;
  Integer timesec = START;
- private int score=0;
+ private int score=4;
 int compteurr=1;
  LoginFXMLController mmmmmm = new LoginFXMLController();
             Utilisateur usermimi = LoginFXMLController.usertest;
@@ -113,6 +113,8 @@ QuestionsCRUD qc=  new QuestionsCRUD();
     private Label timex;
     @FXML
     private Label bcarock;
+    @FXML
+    private Button getcertif;
      public void btnHandler() {
         tgGroup = new ToggleGroup();
         this.text_r1.setToggleGroup(tgGroup);
@@ -173,7 +175,7 @@ btnHandler();
             timeline.stop();
         }
         timesec = START;
-        timex.setText("Time Left: "+(timesec/60)+":"+(timesec%60));
+        timex.setText("Time Left: "+(timesec/3600)+":"+(timesec%3600));
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.getKeyFrames().add(
@@ -207,6 +209,7 @@ btnHandler();
         ReponsesCRUD rc= new ReponsesCRUD(); 
         testCRUD tc= new testCRUD();
 finishx.setVisible(false);
+getcertif.setVisible(false);
      
         
       
@@ -241,6 +244,7 @@ finishx.setVisible(false);
         t.setTranslateY(320);//296
         t.setTranslateX(210);//210
         finishx.setVisible(true);
+        getcertif.setVisible(true);
         Group circ = new Group();
         
         for(int i=0;i<25;i++)
