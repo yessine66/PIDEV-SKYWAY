@@ -10,23 +10,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="664.0" prefWidth="1193.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AjouterPartenaireController">
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.AjouterPartenaireController">
    <children>
-      <TextField fx:id="tnomp" layoutX="209.0" layoutY="71.0" />
-      <TextField fx:id="tdomaine" layoutX="209.0" layoutY="120.0" />
-      <Button fx:id="btnajouter" layoutX="79.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnAjoutPar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="Ajouter" />
-      <TextField fx:id="tidp" layoutX="209.0" layoutY="27.0" />
-      <Button fx:id="btnmodifier" layoutX="234.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnModifierPar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="Modifier" />
-      <Button fx:id="btnsupprimer" layoutX="392.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnSupprimerPar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="Supprimer" />
-      <Label layoutX="60.0" layoutY="30.0" prefHeight="21.0" prefWidth="128.0" text="ID partenaire" textFill="#f7f7f8" underline="true" />
-      <Label layoutX="65.0" layoutY="76.0" prefHeight="21.0" prefWidth="108.0" text="Nom domaine" textFill="#f7f7f8" underline="true" />
-      <Label layoutX="65.0" layoutY="125.0" prefHeight="21.0" prefWidth="128.0" text="Domaine" textFill="#f7f7f8" underline="true" />
-      <DatePicker fx:id="DateSelec" layoutX="548.0" layoutY="36.0" onAction="#DateSelec" onMouseClicked="#getSelected" promptText="DateSelec" />
-      <Label layoutX="418.0" layoutY="27.0" prefHeight="32.0" prefWidth="140.0" text="date partenariat" textFill="#f8f8fc" underline="true" />
-      <TextField fx:id="tsearch" layoutX="545.0" layoutY="95.0" prefHeight="31.0" prefWidth="218.0" />
-      <Button fx:id="btnsearch" layoutX="816.0" layoutY="95.0" mnemonicParsing="false" onAction="#actionSearch" text="rechercher" />
-      <Label layoutX="418.0" layoutY="86.0" prefHeight="32.0" prefWidth="140.0" text="Rechercher" textFill="#fcfcfc" underline="true" />
-      <HBox alignment="CENTER" layoutX="581.0" layoutY="162.0" prefHeight="128.0" prefWidth="524.0">
+      <TextField fx:id="tnomp" layoutX="225.0" layoutY="131.0" />
+      <TextField fx:id="tdomaine" layoutX="225.0" layoutY="198.0" />
+      <Button fx:id="btnajouter" layoutX="603.0" layoutY="61.0" mnemonicParsing="false" onAction="#btnAjoutPar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="Ajouter" />
+      <TextField fx:id="tidp" layoutX="223.0" layoutY="61.0" />
+      <Button fx:id="btnmodifier" layoutX="603.0" layoutY="131.0" mnemonicParsing="false" onAction="#btnModifierPar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="Modifier" />
+      <Button fx:id="btnsupprimer" layoutX="603.0" layoutY="209.0" mnemonicParsing="false" onAction="#btnSupprimerPar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="Supprimer" />
+      <Label layoutX="77.0" layoutY="66.0" prefHeight="21.0" prefWidth="128.0" text="ID partenaire" textFill="#f7f7f8" underline="true" />
+      <Label layoutX="70.0" layoutY="136.0" prefHeight="21.0" prefWidth="108.0" text="Nom domaine" textFill="#f7f7f8" underline="true" />
+      <Label layoutX="77.0" layoutY="273.0" prefHeight="21.0" prefWidth="128.0" text="Mail " textFill="#f7f7f8" underline="true" />
+      <DatePicker fx:id="DateSelec" layoutX="223.0" layoutY="342.0" onAction="#DateSelec" onMouseClicked="#getSelected" promptText="DateSelec" />
+      <Label layoutX="64.0" layoutY="342.0" prefHeight="32.0" prefWidth="140.0" text="date partenariat" textFill="#f8f8fc" underline="true" />
+      <HBox alignment="CENTER" layoutX="526.0" layoutY="259.0" prefHeight="128.0" prefWidth="524.0">
          <children>
             <Button fx:id="imagee" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#importimage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: f4d160;" text="import image" textFill="#2f2d2d" />
             <ImageView fx:id="importeimage" fitHeight="73.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
@@ -38,8 +35,9 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </HBox>
-      <TextField fx:id="tmail" layoutX="209.0" layoutY="162.0" />
-      <ListView fx:id="listViewPart" layoutX="213.0" layoutY="290.0" prefHeight="339.0" prefWidth="737.0" />
-      <Button fx:id="btnActionUpdate" layoutX="954.0" layoutY="44.0" mnemonicParsing="false" onAction="#btnActionUpdate" text="select" />
+      <TextField fx:id="tmail" layoutX="223.0" layoutY="268.0" />
+      <ListView fx:id="listViewPart" layoutX="178.0" layoutY="420.0" prefHeight="339.0" prefWidth="737.0" />
+      <Label layoutX="70.0" layoutY="203.0" prefHeight="21.0" prefWidth="128.0" text="Domaine" textFill="#f7f7f8" underline="true" />
+      <Button fx:id="btncontact" layoutX="91.0" layoutY="343.0" mnemonicParsing="false" onAction="#btncontact" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: f4d160;" text="contacter" />
    </children>
 </AnchorPane>
