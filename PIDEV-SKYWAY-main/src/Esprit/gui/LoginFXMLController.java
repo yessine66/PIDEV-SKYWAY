@@ -68,6 +68,8 @@ public class LoginFXMLController implements Initializable {
     
     public static Utilisateur usertest;
     
+    public static int tentative;
+    
     
     
     
@@ -107,6 +109,7 @@ public class LoginFXMLController implements Initializable {
         // TODO
         buttonMAIL.setVisible(false);
         buttonSMS.setVisible(false);
+        tentative=0;
       
     } 
 
@@ -126,7 +129,8 @@ public class LoginFXMLController implements Initializable {
 
     @FXML
     private void handleButtonLoginAction(ActionEvent event) throws IOException, SQLException {
-        System.out.println("button login clicked");
+        System.out.println("button login clicked   " +tentative);
+      
         
         UtilisateurCRUD usercru = new UtilisateurCRUD();
         
@@ -137,12 +141,17 @@ public class LoginFXMLController implements Initializable {
         System.out.println("\n\n\n a7na tawa 9a3din nrecuperiw f session fwest login : \n"+usersession );
         System.out.println("\n\n\n a7na tawa 9a3din nrecuperiw f user statiiiiiiiiiiiiiiic : \n"+usertest );
         
+        if(tentative>=2){
+            System.out.println("\n\n\n woooooooooo stooooooop ************* \n\n\n");
+        }
+        
         if(userxo==null){
                       Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
         alert.setHeaderText("You can't log in");
         alert.setContentText("The Mail or password you’ve entered doesn’t match any account ");
         alert.showAndWait();
+        tentative++;
         
         }
         else {
