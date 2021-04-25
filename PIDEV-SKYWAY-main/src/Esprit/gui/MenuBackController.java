@@ -11,13 +11,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -31,6 +35,7 @@ public class MenuBackController implements Initializable {
     @FXML
     private BorderPane bps;
     @FXML
+    private Button buttoonLogout;
     
 
     /**
@@ -91,6 +96,20 @@ public class MenuBackController implements Initializable {
     
     
     
+    }
+
+    @FXML
+    private void handleButtonLogoutAction(ActionEvent event) throws IOException {
+        
+                              LoginFXMLController mmmmmm = new LoginFXMLController();
+              Utilisateur usermimi = LoginFXMLController.usertest;
+              usermimi=null;
+              
+                                        Parent CreateAccountParent = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
+                                        Scene reateAccountScene = new Scene(CreateAccountParent);
+                                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                        window.setScene(reateAccountScene);
+                                        window.show();
     }
     
 }
