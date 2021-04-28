@@ -5,8 +5,16 @@
  */
 package Esprit.gui;
 
-import Esprit.entities.Certificat;
-import Esprit.services.CertificatCRUD;
+import Esprit.entities.test;
+import Esprit.entities.test;
+import Esprit.services.testCRUD;
+import Esprit.services.testCRUD;
+import com.jfoenix.controls.JFXTreeTableColumn;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.cells.editors.TextFieldEditorBuilder;
+import com.jfoenix.controls.cells.editors.base.GenericEditableTreeTableCell;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -18,6 +26,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.ResourteBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
@@ -51,163 +60,99 @@ import javafx.util.Callback;
 public class BackCertificatController implements Initializable {
 
     @FXML
-    private TextArea champsCertif;
-    @FXML
-    private Button AjoutCertif;
-    @FXML
-    private TextField date;
-    @FXML
     private AnchorPane modifcertif;
-    CertificatCRUD rc;
- ObservableList<Esprit.entities.Certificat> Certificats = FXCollections.observableArrayList();
- JFXTreeTableView<Esprit.entities.Certificat> treeview = new JFXTreeTableView<>();
-        final TreeItem<Esprit.entities.Certificat> root = new RecursiveTreeItem<Esprit.entities.Certificat>(Certificats, RecursiveTreeObject::getChildren);
  
-    /**
-     * Initializes the controller class.
-     */
-    @Override
+ 
+ 
+    
+     
     public void initialize(URL url, ResourceBundle rb) {
      // TODO
-        rc = new CertificatCRUD();
-        // id_certif table view
-        JFXTreeTableColumn<Certificat, String> id_certif = new JFXTreeTableColumn<>("id_certif");
-        id_certif.setPrefWidth(150);
-        id_certif.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Certificat, String>, ObservableValue<String>>(){
+       testCRUD rt = new testCRUD();
+        // id_test table view
+        JFXTreeTableColumn<test, String> id_test = new JFXTreeTableColumn<>("id_test");
+        id_test.setPrefWidth(150);
+        id_test.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<test, String>, ObservableValue<String>>(){
             @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Certificat, String> param) {
-                return new SimpleStringProperty(Integer.toString(param.getValue().getValue().getId_certif()));
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<test, String> param) {
+                return new SimpleStringProperty(Integer.toString(param.getValue().getValue().getId_test()));
             }
         });        
         
-     JFXTreeTableColumn<Esprit.entities.Certificat, String> titre_certif = new JFXTreeTableColumn<>("titre_certif");
-        titre_certif.setPrefWidth(150);
-        titre_certif.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Esprit.entities.Certificat, String>, ObservableValue<String>>(){
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Esprit.entities.Certificat, String> param) {
-                return new SimpleStringProperty(param.getValue().getValue().getTitre_certif());
+     JFXTreeTableColumn<Esprit.entities.test, String> score = new JFXTreeTableColumn<>("score");
+        score.setPrefWidth(150);
+            score.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Esprit.entities.test, String>, ObservableValue<String>>(){
+            
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<test, String> param) {
+                return new SimpleStringProperty(Integer.toString(param.getValue().getValue().getScore()));
             }
         });
-                 titre_certif.setCellFactory((TreeTableColumn<Esprit.entities.Certificat, String> param) -> {
+                 score.setCellFactory((TreeTableColumn<Esprit.entities.test, String> param) -> {
             return new GenericEditableTreeTableCell<>(
                     new TextFieldEditorBuilder());
         });
-        //setting the new value for editable titre_certif text field
-        titre_certif.setOnEditCommit((TreeTableColumn.CellEditEvent<Esprit.entities.Certificat, String> t) -> {
-            int idd = t.getTreeTableView().getTreeItem(t.getTreeTablePosition().getRow()).getValue().getId_certif();
+        //setting the new value for editable score text field
+        score.setOnEditCommit((TreeTableColumn.CellEditEvent<Esprit.entities.test, String> t) -> {
+            int idd = t.getTreeTableView().getTreeItem(t.getTreeTablePosition().getRow()).getValue().getId_test();
             String newValue = t.getNewValue();
 
             t.getTreeTableView()
                     .getTreeItem(t.getTreeTablePosition()
                             .getRow())
-                    .getValue().setTitre_certif(t.getNewValue());
-            rc.modifierCertification(idd, "titre_certif", newValue);
+                    .getValue().setScore(Integer.parseInt(t.getNewValue()));
+            rt.modifier(idd, "score", newValue);
         });  
-          JFXTreeTableColumn<Esprit.entities.Certificat, String> date_certif = new JFXTreeTableColumn<>("date_certif");
-        date_certif.setPrefWidth(150);
-        date_certif.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Esprit.entities.Certificat, String>, ObservableValue<String>>(){
+          JFXTreeTableColumn<Esprit.entities.test, String> date_test = new JFXTreeTableColumn<>("date_test");
+        date_test.setPrefWidth(150);
+        date_test.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Esprit.entities.test, String>, ObservableValue<String>>(){
             @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Esprit.entities.Certificat, String> param) {
-                return new SimpleStringProperty(param.getValue().getValue().getDate_certif());
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Esprit.entities.test, String> param) {
+                return new SimpleStringProperty(param.getValue().getValue().getDate_test());
             }
         });
-                 date_certif.setCellFactory((TreeTableColumn<Esprit.entities.Certificat, String> param) -> {
+                 date_test.setCellFactory((TreeTableColumn<Esprit.entities.test, String> param) -> {
             return new GenericEditableTreeTableCell<>(
                     new TextFieldEditorBuilder());
         });
-        //setting the new value for editable date_certif text field
-        date_certif.setOnEditCommit((TreeTableColumn.CellEditEvent<Esprit.entities.Certificat, String> t) -> {
-            int idd = t.getTreeTableView().getTreeItem(t.getTreeTablePosition().getRow()).getValue().getId_certif();
+        //setting the new value for editable date_test text field
+        date_test.setOnEditCommit((TreeTableColumn.CellEditEvent<Esprit.entities.test, String> t) -> {
+            int idd = t.getTreeTableView().getTreeItem(t.getTreeTablePosition().getRow()).getValue().getId_test();
             String newValue = t.getNewValue();
 
             t.getTreeTableView()
                     .getTreeItem(t.getTreeTablePosition()
                             .getRow())
-                    .getValue().setDate_certif(t.getNewValue());
-            rc.modifierCertification(idd, "date_certif", newValue);
+                    .getValue().setDate_test(t.getNewValue());
+            rt.modifier(idd, "date_test", newValue);
         });
         
        
         
-    List<Esprit.entities.Certificat> myLst;
-        myLst = rc.CertificatListt();
-        ObservableList<Esprit.entities.Certificat> Certificats = FXCollections.observableArrayList();
+    List<test> myLst;
+        myLst = rt.ReponsesList();
+        ObservableList<test> Questionss = FXCollections.observableArrayList();
 
-        myLst.forEach(p -> Certificats.add(p));
-        JFXTreeTableView<Esprit.entities.Certificat> treeview = new JFXTreeTableView<>();
-        final TreeItem<Esprit.entities.Certificat> root = new RecursiveTreeItem<Esprit.entities.Certificat>(Certificats, RecursiveTreeObject::getChildren);
-        treeview.getColumns().setAll(id_certif, titre_certif,date_certif);
+        myLst.forEach(p -> Questionss.add(p));
+        JFXTreeTableView<test> treeview = new JFXTreeTableView<>();
+        final TreeItem<test> root = new RecursiveTreeItem<test>(Questionss, RecursiveTreeObject::getChildren);
+        treeview.getColumns().setAll(id_test, score,date_test);
         treeview.setRoot(root);
         treeview.setShowRoot(false);
-        treeview.setEditable(true);  
+        treeview.setEditable(true);
+       
         
-        //declarer la button supprimer
-        JFXButton DltBtn = new JFXButton("Remove");
-        DltBtn.setLayoutY(410D);
-        DltBtn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            //eventHandler de la button supprimer
-            @Override
-            public void handle(ActionEvent event) {
-                Dialog confirmation = new Dialog();
-                GridPane grid2 = new GridPane();
-                Label l1 = new Label("Delete Certificat?");
-                grid2.add(l1, 2, 2);
-                confirmation.setTitle("Confirmation de suppression!");
-                confirmation.getDialogPane().setContent(grid2);
-                ButtonType Confi = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
-                ButtonType Ann = new ButtonType("No", ButtonBar.ButtonData.OK_DONE);
-                confirmation.getDialogPane().getButtonTypes().add(Confi);
-                confirmation.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
-                confirmation.setResultConverter(new Callback<ButtonType, Esprit.entities.Certificat>() {
-                    @Override
-                    public Esprit.entities.Certificat call(ButtonType param) {
-                        if (param == Confi) {
-                            Esprit.entities.Certificat p = treeview.getSelectionModel().getSelectedItem().getValue();
-                            rc.supprimerCertification((Esprit.entities.Certificat) p);
-                            Button cancelButton = (Button) confirmation.getDialogPane().lookupButton(ButtonType.CLOSE);
-                            cancelButton.fire();
-                            initialize(url, rb);
-                        }
-
-                        return null;
-                    }
-                });
-                confirmation.showAndWait();
-            }
-        }); 
-          modifcertif.getChildren().addAll(treeview,DltBtn); 
+  treeview.refresh();
+           
+          modifcertif.getChildren().add(treeview);
     }    
+
     
 
+    
    
 
-    @FXML
-    private void ajouterCertif(ActionEvent event) {
-       if(event.getSource() == AjoutCertif)
-             {
-            String titre_certif = champsCertif.getText();
-           String date_certif = date.getText();
-
-           Certificat rep = new Certificat(22,titre_certif,date_certif);
-           CertificatCRUD rc = new CertificatCRUD();
-            rc.ajouterCertification(rep);
-    }
-   /* FXMLLoader loader = new FXMLLoader(getClass().getResource("BackCertificat.fxml"));
-              treeview.refresh();
-            Parent root = loader.load();
-
-            champsCertif.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(BackReponseController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                     treeview.refresh();
-       
-*/
-         URL url = null;
-ResourceBundle rb = null;
-                    initialize(url,rb);
-        }}
+   
+}
           
         
         

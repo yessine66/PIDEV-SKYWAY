@@ -58,5 +58,11 @@
       <Button fx:id="reset" layoutX="731.0" layoutY="363.0" mnemonicParsing="false" text="Reset captcha" />
       <ListView fx:id="listViewPart2" layoutY="475.0" prefHeight="335.0" prefWidth="368.0" />
       <ListView fx:id="listViewPart3" layoutX="384.0" layoutY="475.0" prefHeight="335.0" prefWidth="445.0" />
+      <ComboBox fx:id="user" layoutX="453.0" layoutY="227.0" prefHeight="25.0" prefWidth="90.0" />
+      <Text fill="WHITE" layoutX="384.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID user">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

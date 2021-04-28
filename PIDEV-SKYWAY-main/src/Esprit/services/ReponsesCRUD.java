@@ -8,6 +8,7 @@ package Esprit.services;
 import Esprit.entities.Reponses;
 import Esprit.Connection.MyConnection;
 import Esprit.entities.Questions;
+import Esprit.entities.Utilisateur;
 import Esprit.entities.theme;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,7 +35,7 @@ public class ReponsesCRUD {
     
    
     public void ajouterReponse(Reponses r){
-        String req ="INSERT INTO reponse (text_r1,text_r2,text_r3,text_r4,id_q)"+"values (?,?,?,?,?)";
+        String req ="INSERT INTO reponse (text_r1,text_r2,text_r3,text_r4,id_q,id)"+"values (?,?,?,?,?,?)";
         try {
             ste = cnx.prepareStatement(req);
             ste.setString(1, r.getText_r1());
@@ -42,6 +43,7 @@ public class ReponsesCRUD {
             ste.setString(3, r.getText_r3());
             ste.setString(4, r.getText_r4());
             ste.setInt(5, r.getId_q().getId_q());
+            ste.setInt(6, r.getId());
             ste.executeUpdate();
             System.out.println("Réponse ajoutée");
             
@@ -90,7 +92,25 @@ public class ReponsesCRUD {
         }
      return combocategorie;
         }
-      
+          public ObservableList<Integer>  comboid ()
+        
+        {
+        ObservableList<Integer> comboid = FXCollections.observableArrayList();
+          String query = "SELECT id FROM utilisateur";
+
+       try{
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+                        while(rs.next()){
+              
+               comboid.add(rs.getInt("id"));
+            }
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+     return  comboid;
+     }
        public List<Reponses> ReponsessListt() {
 
         List<Reponses> myList = new ArrayList<>();
@@ -101,6 +121,7 @@ public class ReponsesCRUD {
             ResultSet rs = pst.executeQuery("SELECT * from reponse");
             while (rs.next()) {
  Questions qq = new Questions();
+
                QuestionsCRUD qc = new QuestionsCRUD();
                 int id_r = rs.getInt("id_r");
                 String text_r1 = rs.getString("text_r1");
@@ -109,7 +130,9 @@ public class ReponsesCRUD {
                  String text_r4 = rs.getString("text_r4");
                 int id_q = rs.getInt("id_q");
                  qq.setId_q(id_q);
-                Reponses p = new Reponses(id_r, text_r1,text_r2,text_r3,text_r4,qq);
+                  int id= rs.getInt("id");
+               
+                Reponses p = new Reponses(id_r, text_r1,text_r2,text_r3,text_r4,qq,id);
                
                 myList.add(p);
 
@@ -125,6 +148,9 @@ public class ReponsesCRUD {
            ObservableList<Reponses> ReponsesList = FXCollections.observableArrayList();
           String query = "SELECT * FROM reponse";
 Questions qq = new Questions();
+ 
+
+
        try{
                 st = cnx.createStatement();
             rs = st.executeQuery(query);
@@ -132,7 +158,8 @@ Questions qq = new Questions();
             Reponses q;
             while(rs.next()){
                 qq.setId_q(rs.getInt("id_q"));
-               q = new Reponses (rs.getInt("id_r"),rs.getString("text_r1"),rs.getString("text_r2"),rs.getString("text_r3"),rs.getString("text_r4"), qq);
+                
+               q = new Reponses (rs.getInt("id_r"),rs.getString("text_r1"),rs.getString("text_r2"),rs.getString("text_r3"),rs.getString("text_r4"), qq,rs.getInt("id"));
                ReponsesList.add(q);
             }
                 

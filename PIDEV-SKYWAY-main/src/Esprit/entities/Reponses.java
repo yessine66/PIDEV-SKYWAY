@@ -15,7 +15,7 @@ public class Reponses  extends RecursiveTreeObject<Reponses> implements Serializ
    private String text_r3;
    private String text_r4;
     private Questions id_q;
-    
+    private int id;
 
 
     public Reponses() {
@@ -23,20 +23,22 @@ public class Reponses  extends RecursiveTreeObject<Reponses> implements Serializ
 public Reponses(int id_r)
 { this.id_r=id_r;
     }
-    public Reponses( int id_r,String text_r1, String text_r2,String text_r3,String text_r4, Questions id_q) {
+    public Reponses( int id_r,String text_r1, String text_r2,String text_r3,String text_r4, Questions id_q,int id) {
         this.id_r = id_r;
         this.text_r1 = text_r1;
        this.text_r2 = text_r2 ;
         this.text_r3 = text_r3;
         this.text_r4 = text_r4;
         this.id_q = id_q;
+        this.id=id;
     }
-     public Reponses(String text_r1, String text_r2,String text_r3,String text_r4, Questions id_q) {
+     public Reponses(String text_r1, String text_r2,String text_r3,String text_r4, Questions id_q,int id) {
   this.text_r1 = text_r1;
        this.text_r2 = text_r2 ;
         this.text_r3 = text_r3;
         this.text_r4 = text_r4;
         this.id_q = id_q;
+        this.id=id;
     }
 
     public void setText_r2(String text_r2) {
@@ -80,6 +82,14 @@ public void setId_r(int id_r) {
     }
     public void setText_r1(String text_r1) {
         this.text_r1 = text_r1;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
    

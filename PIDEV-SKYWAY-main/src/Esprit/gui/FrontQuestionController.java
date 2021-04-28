@@ -92,19 +92,19 @@ Stage stage;
     @FXML
     private TextField compteur;
     Rectangle unlocktop;
-Rectangle unlockbottom;
-        Timeline timeline = null;
-private Node root;
- test t;
- Integer timesec = START;
- private int score=4;
-int compteurr=1;
- LoginFXMLController mmmmmm = new LoginFXMLController();
-            Utilisateur usermimi = LoginFXMLController.usertest;
+    Rectangle unlockbottom;
+     Timeline timeline = null;
+    private Node root;
+    test t;
+    Integer timesec = START;
+    private int score=4;
+    int compteurr=1;
+    LoginFXMLController mmmmmm = new LoginFXMLController();
+     Utilisateur usermimi = LoginFXMLController.usertest;
      
-QuestionsCRUD qc=  new QuestionsCRUD();
-        ReponsesCRUD rc= new ReponsesCRUD();
-        testCRUD tc= new testCRUD();
+    QuestionsCRUD qc=  new QuestionsCRUD();
+    ReponsesCRUD rc= new ReponsesCRUD();
+     testCRUD tc= new testCRUD();
     @FXML
     private Button next;
     @FXML
@@ -115,6 +115,8 @@ QuestionsCRUD qc=  new QuestionsCRUD();
     private Label bcarock;
     @FXML
     private Button getcertif;
+    
+    
      public void btnHandler() {
         tgGroup = new ToggleGroup();
         this.text_r1.setToggleGroup(tgGroup);
@@ -122,17 +124,21 @@ QuestionsCRUD qc=  new QuestionsCRUD();
         this.text_r3.setToggleGroup(tgGroup);
         this.text_r4.setToggleGroup(tgGroup);
     }        
+     
+     
+        
      private void testqa() throws SQLException{
-compteur.setText(Integer.toString(compteurr));
-btnHandler();
-  if (compteurr<11)
+         
+        compteur.setText(Integer.toString(compteurr));
+        btnHandler();
+        if (compteurr<11)
      {  unlockPressed();
          compteur.setText(Integer.toString(compteurr));
             tiwtiw.setText(qc.randomList());
              String wawa= tiwtiw.getText();
-            //System.out.println(qc.loadCodeBase(wawa));
+ 
        if ( (qc.loadCodeBase(wawa))==rc.returningid2((qc.loadCodeBase(wawa))) )
-          {              //        System.out.println("hhhhhhhhhhhh");
+          {           
 
               ArrayList arrayList = new ArrayList();
     arrayList.add(rc.justanswer1((qc.loadCodeBase(wawa))));

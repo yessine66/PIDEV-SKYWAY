@@ -7,6 +7,7 @@ package Esprit.gui;
 
 import Esprit.entities.Questions;
 import Esprit.entities.Reponses;
+import Esprit.entities.Utilisateur;
 import Esprit.entities.partenaire;
 import Esprit.entities.theme;
 import Esprit.services.QuestionsCRUD;
@@ -103,6 +104,8 @@ public class BackQuestionController implements  Initializable {
     private ListView<Questions> listViewPart2;
     @FXML
     private ListView<Reponses> listViewPart3;
+    @FXML
+    private ComboBox<Integer> user;
 
 
     @Override
@@ -113,6 +116,7 @@ public class BackQuestionController implements  Initializable {
         captcha = setCaptcha();
         showQuestions();
         showReponses();
+        showComboboxid();
     }
 
     public void showCombobox() {
@@ -122,6 +126,14 @@ public class BackQuestionController implements  Initializable {
         ComboCat.setItems(listrep);
 
     }
+       public void showComboboxid() {
+        ReponsesCRUD reponse = new ReponsesCRUD();
+        ObservableList<Integer> listrep = reponse.comboid();
+
+       user.setItems(listrep);
+
+    }
+
 
     @FXML
     private void ajouterQuestion(ActionEvent event) throws IOException {
@@ -142,7 +154,7 @@ public class BackQuestionController implements  Initializable {
         String points = champsPoints.getText();
         int nbr_point = Integer.parseInt(points);
         String name_t = ComboCat.getValue();
-       
+       int id=user.getValue();
 
      
         Questions q = new Questions(2, text_q, nbr_point, name_t);
@@ -153,7 +165,7 @@ public class BackQuestionController implements  Initializable {
         String text_r3 = champstext3.getText();
         String text_r4 = champstext4.getText();
         q.setId_q(prc.FindQuestion());
-        Reponses r = new Reponses(2, text_r1, text_r2, text_r3, text_r4, q);
+        Reponses r = new Reponses(2, text_r1, text_r2, text_r3, text_r4, q,id);
         rc.ajouterReponse(r);
 
         URL url = null;
