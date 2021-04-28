@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="bps" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1264.0" style="-fx-background-color: #2d7d9a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.MenuBackController">
+<BorderPane fx:id="bps" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1264.0" style="-fx-background-color: #2d7d9a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Esprit.gui.MenuBackController">
    <left>
       <VBox prefHeight="700.0" prefWidth="164.0" style="-fx-background-color: #2d7d9a;" BorderPane.alignment="CENTER">
          <children>
@@ -51,7 +51,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="WECHAT" size="25.0" />
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#compte" prefHeight="250.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 2px 0px;" text="Comptes" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#compte" prefHeight="250.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 2px 0px;" text="Comptee" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
@@ -59,15 +59,18 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="SIGN_OUT" size="25.0" />
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#compte" prefHeight="154.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 0px 0px;" textFill="WHITE">
+            <Button fx:id="buttoonLogout" layoutX="10.0" layoutY="613.0" mnemonicParsing="false" onAction="#handleButtonLogoutAction" onMouseClicked="#compte" prefHeight="250.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 2px 2px 0px;" text="Log Out" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SIGN_OUT" size="25.0" />
+               </graphic>
             </Button>
          </children>
       </VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #2d7d9a;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="749.0" prefWidth="1100.0" style="-fx-background-color: #2d7d9a;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
