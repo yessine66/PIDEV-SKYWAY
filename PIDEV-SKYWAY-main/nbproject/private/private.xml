@@ -7,26 +7,27 @@
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/AjouterPartenaireController.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/AfficherPartenaireController.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/DashBoardController.java</file>
-            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/CategorietestsController.java</file>
-            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/LoginFXMLController.java</file>
-            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FXMain_1.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/tests/Mail.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FrontMenu.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/ListCellPartController.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/ContactPartController.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/Connection/MyConnection.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/GagnerPromotionController.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/MenuBackController.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/ListCellApprenant.fxml</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/services/partenaireCRUD.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/BackQuestionController.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FXMain.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/CategorietestsController.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/LoginFXMLController.java</file>
+            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FXMain_1.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/ListCellApprenantController.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/Page6CompteController.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/Page4PartenaireController.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FrontEvenementController.java</file>
-            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/GagnerPromotionController.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/services/UtilisateurCRUD.java</file>
-            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/MenuBackController.java</file>
-            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/ListCellApprenant.fxml</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/GestionApprenantFXMLController.java</file>
             <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FrontMenuController.java</file>
-            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/services/partenaireCRUD.java</file>
-            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/BackQuestionController.java</file>
-            <file>file:/C:/Users/mega-pc/Documents/GitHub/PIDEV-SKYWAY-main/src/Esprit/gui/FXMain.java</file>
         </group>
     </open-files>
 </project-private>
