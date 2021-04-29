@@ -23,10 +23,11 @@ public class cours {
     private int nbparticipant;
     private String image ;
     private ImageView photo;
-    private int id_t;
+    private int note;
+    private int id_categorie;
     private int id;
 
-    public cours(int id_c, String nom_c, String pdf, String description, int nbparticipant, String image, ImageView photo, int id_t, int id) {
+    public cours(int id_c, String nom_c, String pdf, String description, int nbparticipant, String image, ImageView photo, int id_categorie, int id) {
         this.id_c = id_c;
         this.nom_c = nom_c;
         this.pdf = pdf;
@@ -34,18 +35,18 @@ public class cours {
         this.nbparticipant = nbparticipant;
         this.image = image;
         this.photo = photo;
-        this.id_t = id_t;
+        this.id_categorie = id_categorie;
         this.id = id;
     }
 
-    public cours(String nom_c, String pdf, String description, int nbparticipant, String image, ImageView photo, int id_t, int id) {
+    public cours(String nom_c, String pdf, String description, int nbparticipant, String image, ImageView photo, int id_categorie, int id) {
         this.nom_c = nom_c;
         this.pdf = pdf;
         this.description = description;
         this.nbparticipant = nbparticipant;
         this.image = image;
         this.photo = photo;
-        this.id_t = id_t;
+        this.id_categorie = id_categorie;
         this.id = id;
     }
 
@@ -68,14 +69,14 @@ public class cours {
         this.photo = photo;
     }
 
-    public cours(int id_c, String nom_c, String pdf, String description, int nbparticipant, String image, int id_t) {
+    public cours(int id_c, String nom_c, String pdf, String description, int nbparticipant, String image, int id_categorie) {
         this.id_c = id_c;
         this.nom_c = nom_c;
         this.pdf = pdf;
         this.description = description;
         this.nbparticipant = nbparticipant;
         this.image = image;
-        this.id_t = id_t;
+        this.id_categorie = id_categorie;
     }
 //
 //    public cours(String nom_c, String pdf, String description, int duree, String image, int id_t) {
@@ -87,13 +88,13 @@ public class cours {
 //        this.id_t = id_t;
 //    }
 
-    public cours(String nom_c, String pdf, String description, String image, int id_t) {
+    public cours(String nom_c, String pdf, String description, String image, int id_categorie) {
         this.nom_c = nom_c;
         this.pdf = pdf;
         this.description = description;
        // this.duree = duree;
         this.image = image;
-        this.id_t = id_t;
+        this.id_categorie = id_categorie;
     }
   
     
@@ -154,12 +155,12 @@ public class cours {
         this.photo = photo;
     }
 
-    public int getId_t() {
-        return id_t;
+    public int getId_categorie() {
+        return id_categorie;
     }
 
-    public void setId_t(int id_t) {
-        this.id_t = id_t;
+    public void setId_categorie(int id_categorie) {
+        this.id_categorie = id_categorie;
     }
 
     public int getId() {
@@ -180,7 +181,7 @@ public class cours {
         hash = 89 * hash + this.nbparticipant;
         hash = 89 * hash + Objects.hashCode(this.image);
         hash = 89 * hash + Objects.hashCode(this.photo);
-        hash = 89 * hash + this.id_t;
+        hash = 89 * hash + this.id_categorie;
         hash = 89 * hash + this.id;
         return hash;
     }
@@ -206,7 +207,7 @@ public class cours {
         if (this.nbparticipant != other.nbparticipant) {
             return false;
         }
-        if (this.id_t != other.id_t) {
+        if (this.id_categorie != other.id_categorie) {
             return false;
         }
         if (this.id != other.id) {

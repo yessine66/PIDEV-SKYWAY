@@ -184,7 +184,7 @@ for (final PieChart.Data data : piechart.getData()) {
                 //idtheme.setText(String.valueOf(cc.getId_t()));
                 importeimage.setImage(new Image("http://127.0.0.1/image/"+cc.getImage()));
                 ServiceCours sc = new ServiceCours();
-                String nomCategorie= sc.getName_cat(cc.getId_t());
+                String nomCategorie= sc.getName_cat(cc.getId_categorie());
                 comboCategorie.setValue(nomCategorie);
                 
             }
@@ -331,7 +331,7 @@ for (final PieChart.Data data : piechart.getData()) {
         }else{
                   
             String nom1 = nom.getText();
-            String pdf1 = pdf.getText();
+//           String pdf1 = pdf.getText();
             String description1 = description.getText();
 //            int duree1 = Integer.parseInt(duree.getText());
             String valuePart=comboCategorie.getValue().toString();
@@ -409,7 +409,7 @@ for (final PieChart.Data data : piechart.getData()) {
               
               try {
                  String nom1 = nom.getText();
-                 String pdf1 = pdf.getText();
+              //  String pdf1 = pdf.getText();
                  String description1 = description.getText();
               //   int duree1 = Integer.parseInt(duree.getText());
               //   int idth1 = Integer.parseInt(idtheme.getText());
@@ -418,11 +418,11 @@ for (final PieChart.Data data : piechart.getData()) {
             
                   int idth1 = Integer.parseInt(cs.getName_cat(valuePart));
                   if(img.length()==0)
-                      cs.update( new cours(nom1, pdf1, description1,  img, idth1),cc.getId_c());
+                      cs.update( new cours(nom1, file, description1,  img, idth1),cc.getId_c());
                       //cs.update( new cours(nom1, pdf1, description1, duree1, img, idth1),cc.getId_c());
 
                   else
-                      cs.update( new cours(nom1, pdf1, description1,  img, idth1),cc.getId_c());
+                      cs.update( new cours(nom1, file, description1,  img, idth1),cc.getId_c());
                   
                   afficher();
                   JOptionPane.showMessageDialog(null, "cours modifié");

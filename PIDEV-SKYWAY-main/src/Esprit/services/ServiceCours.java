@@ -38,13 +38,13 @@ public class ServiceCours implements Iservice<cours> {
 
     @Override
     public void ajouter(cours t) throws SQLException {
-    pre=con.prepareStatement("INSERT INTO `skyway`.`cours` ( `nom_c`, `pdf`, `description`, `nbparticipant`, `image`, `id_t` ) VALUES ( ?, ?, ?, ?, ?, ?);");
+    pre=con.prepareStatement("INSERT INTO `skyway`.`cours` ( `nom_c`, `pdf`, `description`, `nbparticipant`, `image`, `id_categorie` ) VALUES ( ?, ?, ?, ?, ?, ?);");
     pre.setString(1, t.getNom_c());
     pre.setString(2, t.getPdf());
     pre.setString(3, t.getDescription());
     pre.setInt(4, t.getNbparticipant());
     pre.setString(5, t.getImage());
-    pre.setInt(6, t.getId_t());
+    pre.setInt(6, t.getId_categorie());
     
     pre.executeUpdate();
     }
@@ -91,14 +91,14 @@ public class ServiceCours implements Iservice<cours> {
     public boolean update(cours t, int id_c) throws SQLException {
          if(chercher(id_c)){
        
-    pre=con.prepareStatement("UPDATE cours SET  nom_c =?,pdf =?,description =?,nbparticipant =?,image =? , id_t =? WHERE id_c = ?");
+    pre=con.prepareStatement("UPDATE cours SET  nom_c =?,pdf =?,description =?,nbparticipant =?,image =? , id_categorie =? WHERE id_c = ?");
          
     pre.setString(1, t.getNom_c());
     pre.setString(2, t.getPdf());
     pre.setString(3, t.getDescription());
     pre.setInt(4, t.getNbparticipant());
     pre.setString(5, t.getImage());
-    pre.setInt(6, t.getId_t());
+    pre.setInt(6, t.getId_categorie());
     pre.setInt(7, id_c);
     pre.executeUpdate();
     

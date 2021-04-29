@@ -71,7 +71,7 @@ public class ListCellCoursController extends ListCell<cours> {
             lbtitre.setText(cours.getNom_c());
             lbdesc.setText(cours.getDescription());
             ServiceCours sc = new ServiceCours();
-            String nomCategorie= sc.getName_cat(cours.getId_t());
+            String nomCategorie= sc.getName_cat(cours.getId_categorie());
            // System.out.println("voir nom categorie : "+nomCategorie);
             lbcategorie.setText(nomCategorie);
             
