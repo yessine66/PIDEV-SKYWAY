@@ -13,11 +13,12 @@
                <children>
                   <VBox prefHeight="576.0" prefWidth="126.0">
                      <children>
-                        <Button fx:id="svt1" mnemonicParsing="false" onMouseClicked="#svt" prefHeight="106.0" prefWidth="126.0" text="SVT" />
-                        <Button fx:id="svt" mnemonicParsing="false" onMouseClicked="#maths" prefHeight="117.0" prefWidth="126.0" text="Mathématiques" />
-                        <Button fx:id="svt2" mnemonicParsing="false" onMouseClicked="#poo" prefHeight="117.0" prefWidth="126.0" text="POO" />
-                        <Button fx:id="svt3" mnemonicParsing="false" onMouseClicked="#littérature" prefHeight="117.0" prefWidth="126.0" text="Littérature" />
-                        <Button fx:id="svt4" mnemonicParsing="false" onMouseClicked="#histoire" prefHeight="117.0" prefWidth="126.0" text="Histoire/géo" />
+                        <Button fx:id="svt1" mnemonicParsing="false" onMouseClicked="#svt" prefHeight="97.0" prefWidth="126.0" text="SVT" />
+                        <Button fx:id="svt" mnemonicParsing="false" onMouseClicked="#maths" prefHeight="102.0" prefWidth="126.0" text="Mathématiques" />
+                        <Button fx:id="svt2" mnemonicParsing="false" onMouseClicked="#poo" prefHeight="90.0" prefWidth="126.0" text="POO" />
+                        <Button fx:id="svt3" mnemonicParsing="false" onMouseClicked="#littérature" prefHeight="92.0" prefWidth="126.0" text="Littérature" />
+                        <Button fx:id="svt4" mnemonicParsing="false" onMouseClicked="#histoire" prefHeight="112.0" prefWidth="126.0" text="Histoire/géo" />
+                        <Button fx:id="buttonBack" layoutX="10.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleActionButtonBack" onMouseClicked="#histoire" prefHeight="80.0" prefWidth="126.0" text="Back" />
                      </children>
                   </VBox>
                </children></VBox>

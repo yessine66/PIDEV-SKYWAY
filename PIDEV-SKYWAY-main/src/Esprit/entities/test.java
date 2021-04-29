@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author User-DELL
  */
-public class test {
+public class test extends RecursiveTreeObject<test> implements Serializable {
  private int  id_test;
  private int id;
  private String date_test;
@@ -24,6 +24,12 @@ public class test {
         this.date_test = date_test;
         this.score = score;
         this.nom_categorie = nom_categorie;
+    }
+public test(int id_test, int id, String date_test, int score) {
+        this.id_test = id_test;
+        this.id = id;
+        this.date_test = date_test;
+        this.score = score;
     }
 
    

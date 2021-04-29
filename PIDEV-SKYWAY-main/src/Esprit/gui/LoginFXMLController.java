@@ -158,11 +158,12 @@ public class LoginFXMLController implements Initializable {
         
         if(tentative>=2){
             reset.setVisible(true);
-            buttonLogin.setVisible(false);
+            //buttonLogin.setVisible(false);
+            code.setVisible(true);
             
             
         }
-        
+        buttonLogin.setVisible(true);
         if(userxo==null){
                       Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
