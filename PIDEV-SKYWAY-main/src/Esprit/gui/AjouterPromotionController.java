@@ -77,6 +77,8 @@ public class AjouterPromotionController implements Initializable {
     int index =-1;
     @FXML
     private ListView<Promotion> listViewProm;
+    @FXML
+    private ComboBox<Integer> ComboPartenaire;
 
     /**
      * Initializes the controller class.
@@ -85,7 +87,7 @@ public class AjouterPromotionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         showPromotion();
         showCombo();
-       
+       showComboPart();
   
     }    
      public void showCombo()
@@ -96,7 +98,14 @@ public class AjouterPromotionController implements Initializable {
       comboPar.setItems(listCom);
          
      }
+     public void showComboPart()
+     {
+          promotionCRUD parc = new promotionCRUD();
+         ObservableList<Integer> listCom =  parc.comboListPartenaire();
     
+      ComboPartenaire.setItems(listCom);
+         
+     }
      public void showPromotion(){
        promotionCRUD parc = new promotionCRUD();
             //parc.promotionList();
@@ -129,7 +138,7 @@ public class AjouterPromotionController implements Initializable {
     {
         
         
-        if (tcodepro.getText().isEmpty() | treduction.getText().isEmpty() | comboPar.getSelectionModel().isEmpty()|dateDp.getEditor().getText().isEmpty() | dateFp.getEditor().getText().isEmpty() )
+        if (tcodepro.getText().isEmpty() | treduction.getText().isEmpty() | dateDp.getEditor().getText().isEmpty() | dateFp.getEditor().getText().isEmpty() )
             
         {
           Alert alert = new Alert (AlertType.WARNING);
@@ -164,10 +173,10 @@ public class AjouterPromotionController implements Initializable {
             //String valuePart=comboPar.getValue().toString();
           //int rIdpart= Integer.parseInt(valuePart) ;
 
-         String rIdpart = comboPar.getValue().toString();
+         int id_p=ComboPartenaire.getValue();
            
-           Promotion pro = new Promotion(22,rCodepro,rReduction,rdateD,rdateF,rIdpart);
-           
+          
+           Promotion pro = new Promotion(22,rdateD,rdateF,rCodepro,rReduction,id_p,"haha");
            //int id_prom, String dateD, String dateF, String code_p, int reduction, String nom_p
            promotionCRUD proc = new promotionCRUD();
             proc.ajouterPromotion(pro);
@@ -184,14 +193,14 @@ showPromotion();
          int  mIdpro= Integer.parseInt(tidpro.getText()) ;
              String mCodepro = tcodepro.getText();
             int mReduction= Integer.parseInt(treduction.getText()) ;
-               String valuePart=comboPar.getValue().toString();
+               int valuePart=ComboPartenaire.getValue();
                //String mIdpart=comboPar.getEditor().getText();
                 String mdateD=dateDp.getEditor().getText();
                  String mdateF = dateFp.getEditor().getText();
                
            //int rIdpart= Integer.parseInt(valuePart) ;
             
-        Promotion pro = new Promotion(mIdpro,mCodepro,mReduction,mdateD,mdateF, valuePart);
+        Promotion pro = new Promotion(mIdpro,mdateD,mdateF,mCodepro,mReduction,valuePart,"");
        promotionCRUD proc = new promotionCRUD();
      proc.modifierPromotion(pro);
    URL url = null;

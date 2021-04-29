@@ -41,5 +41,6 @@
          </rowConstraints>
       </GridPane>
       <ListView fx:id="listViewProm" layoutX="126.0" layoutY="441.0" prefHeight="244.0" prefWidth="737.0" />
+      <ComboBox fx:id="ComboPartenaire" layoutX="434.0" layoutY="285.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

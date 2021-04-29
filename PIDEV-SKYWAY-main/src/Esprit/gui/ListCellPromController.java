@@ -69,14 +69,16 @@ public class ListCellPromController  extends ListCell<Promotion> {
                     System.out.println(ex);
                 }
             }
-          lbnomp.setText(promotion.getNom_p());
-          lbcode.setText(promotion.getCode_p());
-           lbreduction.setText(toString().valueOf(promotion.getReduction()));
+        //  lbnomp.setText(promotion.getNom_p());
+          lbnomp.setText(toString().valueOf(promotion.getId_p()));
+          
+           
           lbid.setText(toString().valueOf(promotion.getId_prom()));
           lbdated.setText(promotion.getDateD());
           lbdatef.setText(promotion.getDateF());
-      
-         
+      lbreduction.setText(toString().valueOf(promotion.getReduction()));
+         lbcode.setText(promotion.getCode_p());
+         lbnomp.setText(toString().valueOf(promotion.getId_p()));
             //lbdate.setText(toString().valueOf(partenaire.getDate_ajout()));
             setText(null);
             setGraphic(gridp);

@@ -21,6 +21,15 @@ public class Promotion {
 public Promotion() {
     }
 
+    public Promotion(int id_prom, String dateD, String dateF, String code_p, int reduction, int id_p) {
+        this.id_prom = id_prom;
+        this.dateD = dateD;
+        this.dateF = dateF;
+        this.code_p = code_p;
+        this.reduction = reduction;
+        this.id_p = id_p;
+    }
+
    
     public int getId_p() {
         return id_p;
@@ -106,31 +115,51 @@ public Promotion() {
         return nom_p;
     }
 
-    
-    
 
-   /* @Override
-    public String toString() {
-        return "Promotion{" + "id_prom=" + id_prom + ", code_p=" + code_p + ", reduction=" + reduction + '}';
+    public void setId_prom(int id_prom) {
+        this.id_prom = id_prom;
     }
-    
-    
-    */
 
+    public void setDateD(String dateD) {
+        this.dateD = dateD;
+    }
+
+    public void setDateF(String dateF) {
+        this.dateF = dateF;
+    }
+
+    public void setCode_p(String code_p) {
+        this.code_p = code_p;
+    }
+
+    public void setReduction(int reduction) {
+        this.reduction = reduction;
+    }
+
+    public void setId_p(int id_p) {
+        this.id_p = id_p;
+    }
+
+    /* @Override
+    public String toString() {
+    return "Promotion{" + "id_prom=" + id_prom + ", code_p=" + code_p + ", reduction=" + reduction + '}';
+    }
+     */
     /*@Override
     public String toString() {
-        //return "Promotion{" + "id_prom=" + id_prom +  ", code_p=" + code_p + ", reduction=" + reduction + ", dateD=" + dateD + ", dateF=" + dateF + ", id_p=" + id_p + '}';
-        return "Promotion\"              Code promotion="+ code_p +"              reduction="+ reduction +"              Date début promotion="+ dateD +"              Date fin promotion="+ dateF+"              Nom partenaire="+ nom_p;
+    //return "Promotion{" + "id_prom=" + id_prom +  ", code_p=" + code_p + ", reduction=" + reduction + ", dateD=" + dateD + ", dateF=" + dateF + ", id_p=" + id_p + '}';
+    return "Promotion\"              Code promotion="+ code_p +"              reduction="+ reduction +"              Date début promotion="+ dateD +"              Date fin promotion="+ dateF+"              Nom partenaire="+ nom_p;
     }
-    */
+     */
+    public void setNom_p(String nom_p) {
+        this.nom_p = nom_p;
+    }
 
- /*   @Override
+    /*   @Override
     public String toString() {
-        return "Promotion{" + "id_prom=" + id_prom + ", dateD=" + dateD + ", dateF=" + dateF + ", code_p=" + code_p + ", reduction=" + reduction + ", id_p=" + id_p + ", nom_p=" + nom_p + '}';
+    return "Promotion{" + "id_prom=" + id_prom + ", dateD=" + dateD + ", dateF=" + dateF + ", code_p=" + code_p + ", reduction=" + reduction + ", id_p=" + id_p + ", nom_p=" + nom_p + '}';
     }
-    
-    */
-
+     */
     @Override
     public String toString() {
         return "Promotion{" + "date Début Partenariat=" + dateD + ", date Fin Partenariat=" + dateF + ", code promotion=" + code_p + ", reduction=" + reduction + ", nom partenaire=" + nom_p + '}';
